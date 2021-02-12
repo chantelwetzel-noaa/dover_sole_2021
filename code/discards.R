@@ -25,10 +25,10 @@ em = read.csv(file.path(dir, 'wcgop', 'dover_DisRatios_noboot_cs_EM_Gears_State_
 
 
 discard_2011 = read.csv(file.path(dir, "2011", "discard_rates_2011.csv"))
-
+plot = FALSE
 
 #============================================================================================================
-Explore_Pikitch <- function(dir, plot = FALSE, month = 7, fleet = NA){
+Explore_Pikitch <- function(dir, plot = FALSE, month = 1, fleet = NA){
 	dir.create(file.path(dir, "forSS"))
 	if (plot){
 		area = unique(pikitch$Areas)
@@ -67,6 +67,36 @@ pikitch = pikitch[pikitch$Areas == "2B 2C 3A 3B 3S", ]
 # Only 1985 - 87 are the actual data points, the other years are predictions
 pikitch = pikitch[pikitch$Year %in% c(1985, 1986, 1987), ]
 
+# Pikitch lengths ---------------------------------------------------------------------------------------
+
+load(file.path(dir, "Pikitch et al. Discard Rates and Length information",
+	  "Groundfish Tows", "Length Comps", "Pikitch.et.al.DOVR.Lengths.wt.PacFIN.assm 11 Aug 2020.RData"))
+pikitch_lens = Pikitch.et.al.DOVR.Lengths.wt.PacFIN.assm
+disc_lens = pikitch_lens[pikitch_lens$Disposition == "Discarded" & pikitch_lens$Areas == "3A 3S_&_3B 2C 2B", ]
+# The bins run from 8 to 60 -- no observations in the final bins so cutting
+col = which(colnames(disc_lens) == "L.12"):which(colnames(disc_lens) == "L.60")
+fem_len  = disc_lens[disc_lens$Sex == "Female", col]
+male_len = disc_lens[disc_lens$Sex == "Male", col]
+
+# Not sure of the right way to calculate input sample sizes for these data
+# opting to make them relative to the minimum sample
+tot = aggregate(disc_lens$Num.Study.Lengths~disc_lens$Year, FUN = sum)
+nsamp = round(tot[,2] / min(tot[,2]),0)
+# Format the length comps
+# Year	Month	Fleet	Sex	Part	Nsamp
+year = sort(unique(pikitch_lens$Year))
+out = cbind(year, 1, 2, 3, 1, nsamp, 0, 0, fem_len, 0, 0, male_len)
+bins = paste0("L", seq(8, 60, 2))
+colnames(out) = c("year", "month", "fleet", "sex", "partition", "ninput", bins, bins)
+
+write.csv(out, file.path(dir, "forSS", "pikitch_discard_lengths.csv"), row.names = FALSE)
+
+
+
+
+
+# The below analysis was for the pre-assessment webinar but was not used in the
+# data prep for the assessemnt.
 # EM data first --------------------------------------------------------------------------------------------
 ret = aggregate(Observed_RETAINED.MTS~ ryear + gear2 + State, data = em, FUN = sum, drop = FALSE)
 dis = aggregate(Observed_DISCARD.MTS~ ryear + gear2 + State, data = em, FUN = sum, drop = FALSE)

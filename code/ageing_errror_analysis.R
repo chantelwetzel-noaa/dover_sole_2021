@@ -6,7 +6,7 @@ library(nwfscAgeingError)
 SourceFile <- file.path(system.file("executables", package = "nwfscAgeingError"), .Platform$file.sep)
 
 ########################################################
-# Ageing Error Anaalysis
+# Ageing Error Analysis
 ########################################################
 
 dir = "//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/ageing_error"

@@ -11,12 +11,19 @@ library(dplyr)
 options(stringsAsFactors = FALSE)
 
 dir = "//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/catches"
-dir.create(file.path(dir, "plots"))
+
 
 #-----------------------------------------------------------------------------------
 # Load the Historical Data
 #-----------------------------------------------------------------------------------
-ca_hist = read.csv(file.path(dir, "ca", "dover_ca_1969_1980_from_ej.csv"))
+
+# The california historical catches comes in 3 sections:
+#	1. 1911-1947: from Sampson 2005 which represent removals (landings + discards)
+#	2. 1948-1968: Ralston et al reconstruction
+#	3. 1969-1980: CalCOM 
+ca_1911 = read.csv(file.path(dir, "ca", "dover_ca_removals_1911-1947_from_2005_assess.csv"))
+ca_1948 = read.csv(file.path(dir, "ca", "ca_dover_commercial_catches_1948_1968.csv"))
+ca_1969 = read.csv(file.path(dir, "ca", "dover_ca_1969_1980_from_ej.csv"))
 
 or_hist = read.csv(file.path(dir, "or", "or_commercial_reconstruction.csv"))
 or_hist = or_hist[or_hist$SPECIES_NAME == "Dover Sole", ]
@@ -24,24 +31,24 @@ or_hist = or_hist[or_hist$SPECIES_NAME == "Dover Sole", ]
 # Theresa directed me to use the historical landings from 2011
 wa_hist = read.csv(file.path(dir, "2011_landings.csv"))
 
+pound_conv = 2204.62262
+
 #-----------------------------------------------------------------------------------
-# Load the PacFINCommercial Data
+# Load the PacFIN Commercial Data
 #-----------------------------------------------------------------------------------
+
 load(file.path(dir, "pacfin", "kj", "DOVR.CompFT.05.Oct.2020.RData"))
 pacfin = data
-pacfin$round_mt = pacfin$ROUND_WEIGHT_LBS / 2204.62262
+pacfin$round_mt = pacfin$ROUND_WEIGHT_LBS / pound_conv
 
-
-#################################################################################################################
+#-----------------------------------------------------------------------------------
 # Evaluate the commercial landings
-#################################################################################################################
+#-----------------------------------------------------------------------------------
 
 # You can identify research catch by "REMOVAL_TYPE_CODE" == "R"
 # Tribal catch can be found via the "FLEET_CODE" == "TI"
 research = aggregate(round_mt~LANDING_YEAR + AGENCY_CODE, data = pacfin[pacfin$REMOVAL_TYPE_CODE == "R", ], FUN = sum)
-# total of 590 mt of research catch, most in Oregon
 tribal = aggregate(round_mt~LANDING_YEAR + AGENCY_CODE, data = pacfin[pacfin$FLEET_CODE == "TI", ], FUN = sum)
-# all occurs in WA with a total of 1980.7 mt across all pacfin years
 
 table(pacfin$PACFIN_GROUP_GEAR_CODE) # used to be GRGROUP
 #   HKL    MSC    NET    POT    TLS    TWL    TWS 
@@ -67,7 +74,7 @@ tmp = aggregate(pacfin$round_mt, list(year = pacfin$LANDING_YEAR, state = pacfin
 catch_area_df = data.frame(year = sort(unique(tmp$year)),
 						   ca = tmp[tmp$state == "C", "x"],
 						   or = tmp[tmp$state == "O", "x"],
-						   wa   = tmp[tmp$state == "W", "x"])
+						   wa = tmp[tmp$state == "W", "x"])
 
 catch_area_df[is.na(catch_area_df)] = 0
 
@@ -105,8 +112,6 @@ or_percent_by_gear = round(or_catch_gear_df[ , 2:dim(or_catch_gear_df)[2]] /
 or_hist_df = data.frame (year = sort(unique(or_catch_gear_df$year)), 
 						 catch_mt = apply(or_catch_gear_df[,-1], 1, sum))
 
-# Should remove catches prior to 1932 from longline gear
-or_hist_df = or_hist_df[or_hist_df$year >=1932, ]
 
 #---------------------------------------------------------------------------
 # Historical Washington commercial catches
@@ -118,27 +123,51 @@ wa_hist_df = data.frame (year = tmp$Year,
 #---------------------------------------------------------------------------
 # Historical California commercial catches
 #---------------------------------------------------------------------------
-ca_hist_df = data.frame(year = ca_hist$Year,
-						catch_mt = ca_hist$catch_mt) 
+
+ca_tmp_1948 = aggregate((ca_1948$pounds / pound_conv), list(year = ca_1948$year), FUN = sum, drop = FALSE)
+ca_tmp_1969 = aggregate(ca_1969$catch_mt, list(year = ca_1969$Year), FUN = sum, drop = FALSE)
+
+ca_hist_df = data.frame(year = c(ca_1911$Year, ca_tmp_1948$year, ca_tmp_1969$year),
+						catch_mt = c(ca_1911$CA, ca_tmp_1948$x, ca_tmp_1969$x)) 
 
 #---------------------------------------------------------------------------
 # Combine the historical catches to the PacFIN years
 #---------------------------------------------------------------------------
-all_com = matrix(NA, length(1910:2020), 3)
-colnames(all_com) = c("ca", "or", "wa")
-rownames(all_com) = 1910:2020
 
-all_com[rownames(all_com) %in% catch_area_df$year, "ca"] = catch_area_df[,"ca"]
-all_com[rownames(all_com) %in% catch_area_df$year, "or"] = catch_area_df[,"or"]
-all_com[rownames(all_com) %in% catch_area_df$year, "wa"] = catch_area_df[,"wa"]
-all_com[rownames(all_com) %in% wa_hist_df$year, "wa"] = wa_hist_df$catch_mt
-all_com[rownames(all_com) %in% or_hist_df$year, "or"] = or_hist_df$catch_mt
-all_com[rownames(all_com) %in% ca_hist_df$year, "ca"] = ca_hist_df$catch_mt
+all_com = matrix(NA, length(1911:2020), 4)
+colnames(all_com) = c("year", "ca", "or", "wa")
+all_com[,'year'] = 1911:2020
+
+# PacFIN data first
+all_com[all_com[,'year'] %in% catch_area_df$year, "ca"] = catch_area_df[,"ca"]
+all_com[all_com[,'year'] %in% catch_area_df$year, "or"] = catch_area_df[,"or"]
+all_com[all_com[,'year'] %in% catch_area_df$year, "wa"] = catch_area_df[,"wa"]
+# Historical catches
+all_com[all_com[,'year'] %in% wa_hist_df$year, "wa"] = wa_hist_df[all_com[,'year']  %in% wa_hist_df$year, 'catch_mt']
+all_com[all_com[,'year'] %in% or_hist_df$year, "or"] = or_hist_df[all_com[,'year']  %in% or_hist_df$year, 'catch_mt']
+all_com[all_com[,'year'] %in% ca_hist_df$year, "ca"] = ca_hist_df[all_com[,'year']  %in% ca_hist_df$year, 'catch_mt']
 
 all_com[is.na(all_com)] = 0
 
-write.csv(all_com, file = file.path(dir, "forSS", "commercial_catch_by_state.csv"), row.names = FALSE)
+write.csv(all_com, 
+		  file = file.path(dir, "forSS", "commercial_catch_by_state.csv"), 
+		  row.names = FALSE)
 
+
+north = all_com[, 'or'] + all_com[, 'wa']
+model_catch = rbind(cbind(as.numeric(all_com[,"year"]), 1, 1, round(all_com[,"ca"], 2), 0.01),
+				    cbind(as.numeric(all_com[,"year"]), 1, 2, round(north, 2), 0.01))
+colnames(model_catch) = c("Year", "Season", "Fleet", "Catch", "SE")
+
+write.csv(model_catch, 
+		  file = file.path(dir, "forSS", "model_commercial_catch.csv"), 
+		  row.names = FALSE)
+
+
+
+#---------------------------------------------------------------------------
+# Plots created for the pre-assessment data webinar
+#---------------------------------------------------------------------------
 
 pngfun(wd = file.path(dir, "plots"), file = "Commercial_Catch_by_State.png", w = 12, h = 7, pt = 12)
 plot(0, 0, type = 'l', xlim = c(1910, 2020), ylim = c(0, max(all_com)), ylab = "Catch (mt)", xlab = "Year", main = "Commercial Catch")
@@ -172,9 +201,10 @@ legend("topleft", bty = 'n', legend = c("California", "Oregon", "Washington"),
 dev.off()
 
 
-#################################################################################################################
+#---------------------------------------------------------------------------
 # Comparison Plots with the 2011 Catch
-#################################################################################################################
+#---------------------------------------------------------------------------
+
 all_2011 = read.csv(file.path(dir, "2011_landings.csv"))
 ca_diff = all_com[rownames(all_com) %in% all_2011$Year,"ca"] - all_2011[,"CA"]
 ca_diff[names(ca_diff) < 1969] = 0

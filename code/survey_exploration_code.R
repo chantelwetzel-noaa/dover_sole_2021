@@ -17,10 +17,10 @@ dir = "//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey
 #	Load the Survey Data
 ############################################################################################
 
-load(file.path(dir, "wcgbts", "Dover sole_catch.rda"))
-load(file.path(dir, "wcgbts", "Dover sole_bio.rda"))
-catch_wcgbt = catch
-bio_wcgbt = bio
+load(file.path(dir, "wcgbts", "Catch__NWFSC.Combo_2020-10-15.rda"))
+load(file.path(dir, "wcgbts", "Bio_All_NWFSC.Combo_2020-10-15.rda"))
+catch_wcgbt = Out
+bio_wcgbt = Data
 
 load(file.path(dir, "triennial", "Catch__Triennial_2020-09-10.rda"))
 load(file.path(dir, "triennial", "Bio_All_Triennial_2020-09-10.rda"))

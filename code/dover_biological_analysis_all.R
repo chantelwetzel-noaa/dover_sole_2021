@@ -19,6 +19,8 @@ pacfin 	 = PacFIN.DOVR.bds.13.Aug.2020
 # There are a handful of weights by washington that look like they are in grams
 find = which(pacfin$FISH_WEIGHT > 100) 
 pacfin[find, "FISH_WEIGHT"] = pacfin[find, "FISH_WEIGHT"] / 10
+find = which(pacfin$AGE_METHOD %in% c(3, "U") )
+pacfin[find, 'age1'] = "NA"
 pacfin = rename_pacfin(data = pacfin)
 # Removing the Oregon special samples from the early years which were not collected using standard
 # sampling protocols.  These records do not have total sample weights preventing expansion as well.
@@ -65,7 +67,21 @@ input[[6]] = bio_afsc_slope_age
 out = create_data_frame(data_list = input)
 out$Age = as.numeric(out[,"Age"]) 
 
-
+############################################################################################
+#	There are ages by scale reading - removed above on line 23
+############################################################################################
+# 
+# color = c(alpha('purple', 0.15), alpha('green', 0.5))
+# 
+# pngfun(wd = file.path(start_dir, "data", "biology", "plots"), file = "PacFIN_Age_Method.png", w = 7, h = 7, pt = 12)
+# find = which(pacfin$AGE_METHOD %in% c(3, "U") )
+# plot(pacfin$Age[-find], pacfin$Length[-find], xlab = "Age", ylab = "Length (cm)",
+# 	xlim = c(0, 70), ylim = c(0, 70), pch = 16, col = color[1])
+# points(pacfin$Age[find], pacfin$Length[find], col = color[2], pch = 16)
+# legend("bottomright", legend = c("Break and Burn", "Scales"), 
+# 	col = c(alpha('purple', 0.5), color[2]), pch = 16, cex = 1.25, bty = 'n')
+# dev.off()
+# 
 ############################################################################################
 #	Clean the data - look for unusual data points
 ############################################################################################
@@ -234,7 +250,6 @@ xmax = max(data$Length, na.rm = TRUE)
 line_col = c("red", 'blue', "grey")
 sex_col = c(alpha(line_col[1:2], 0.1), alpha(line_col[3], 0.1))
 
-
 # Quick comparison of growth
 len = 0:70
 pngfun(wd = file.path(start_dir, "data", "biology", "plots"), file = "Length_Weight_Comparison_2011_2020.png", w = 7, h = 7, pt = 12)
@@ -248,6 +263,24 @@ lines(len, est_growth$NWFSC_WCGBTS_M[1] * len ^ est_growth$NWFSC_WCGBTS_M[2], co
 lines(len, 2.805e-6 * len ^ 3.345, col = 'red', lwd = 2, lty = 2)
 lines(len, 2.231e-6 * len ^ 3.412, col = 'blue', lwd = 2, lty = 2)
 legend("topleft", bty = 'n', legend = c("F - 2020", "M - 2020", "F - 2011", "M - 2020"), col = (rep(c('red', 'blue'),2)), lty = c(1,1,2,2), lwd = 2)
+dev.off()
+
+# Quick comparison of growth for 2020
+len = 0:70
+pngfun(wd = file.path(start_dir, "data", "biology", "plots"), file = "Length_Weight_2020.png", w = 7, h = 7, pt = 12)
+par(mar = c(5, 5, 3, 3))
+plot(data[data$Sex == 'F', "Length"], data[data$Sex == 'F', "Weight"], las = 1,
+	cex.lab = 1.5, cex.axis = 1.5, cex = 1.5,
+     xlab = "Length (cm)", ylab = "Weight (kg)", main = "", 
+     ylim = c(0, ymax), xlim = c(0, xmax), pch = 1, col = sex_col[1]) 
+points(data[data$Sex == 'M', "Length"], data[data$Sex == 'M', "Weight"], pch = 1, col = sex_col[2])
+lines(len, est_growth$NWFSC_WCGBTS_F[1] * len ^ est_growth$NWFSC_WCGBTS_F[2], col = 'red', lwd = 2)
+lines(len, est_growth$NWFSC_WCGBTS_M[1] * len ^ est_growth$NWFSC_WCGBTS_M[2], col = 'blue', lwd = 2)
+legend("topleft", bty = 'n', col = (rep(c('red', 'blue'),2)), lty = c(1,1,2,2), lwd = 2, cex = 1.2,
+	legend = c(paste("Females: alpha =", format(est_growth$NWFSC_WCGBTS_F[1], scientific = TRUE, digits = 3), 
+							  " beta =", round(est_growth$NWFSC_WCGBTS_F[2], 2)),
+			   paste("Males: alpha =", format(est_growth$NWFSC_WCGBTS_M[1], scientific = TRUE, digits = 3), 
+							" beta =", round(est_growth$NWFSC_WCGBTS_M[2], 2))) )
 dev.off()
 ############################################################################################
 #	Comparison between lengths by sex and across data sources
@@ -275,7 +308,7 @@ length_age_plot(dir = file.path(start_dir, "data", "biology"),
 				data = out, nm_append = "All", ests = len_age_all)
 
 line_col = c("red", 'blue')
-sex_col = alpha(line_col, 0.15)
+sex_col = alpha(line_col, 0.05)
 keep = which(!is.na(out$Age))
 tmp = out[keep, ]
 lens = 1:max(tmp$Length, na.rm = TRUE)
@@ -304,12 +337,183 @@ lines(0:ymax, vb_fn(age = 0:ymax, Linf = len_age$all_M[1], L0 = len_age$all_M[2]
 # 2011 Assessment parameters
 lines(0:xmax, vb_fn(age = 0:xmax, Linf = 47.8, L0 = 5.4, k = 0.15), col = 'red',  lty = 3, lwd = 2)
 lines(0:xmax, vb_fn(age = 0:xmax, Linf = 39.9, L0 = 9.0, k = 0.17), col = 'blue', lty = 3, lwd = 2) 
-# Love unpublished 
+
 leg = c(paste0("F : Linf = ", round(len_age$all_F[1], 1),  " L1 = ", round(len_age$all_F[2], 1)," k = ", round(len_age$all_F[3], 3)),
 		paste0("M : Linf = ", round(len_age$all_M[1], 1),  " L1 = ", round(len_age$all_M[2], 1)," k = ", round(len_age$all_M[3], 3)),
 		"F: 2011 Assessment", "M: 2011 Assessment" )
 legend("bottomright", bty = 'n', legend = leg, lty = c(2,2,3,3,4), col = c(rep(line_col,2), "springgreen4"), lwd = 2)
 dev.off()
+
+
+line_col = c("tomato", 'steelblue')
+sex_col = alpha(line_col, 0.15)
+
+pngfun(wd = file.path(start_dir, "data", "biology", "plots"), file = "Length_Age_by_Sex_2020.png", w = 7, h = 7, pt = 12)
+par(mfrow = c(1, 1))
+plot(tmp[tmp$Sex == "F", "Age"], tmp[tmp$Sex == "F", "Length"], xlab = "Age", ylab = "Length (cm)",
+	xaxs = "i", yaxs = "i", ylim = c(0, ymax), xlim = c(0, xmax), pch = 1, col = sex_col[1]) 
+points(tmp[tmp$Sex == "M", "Age"], tmp[tmp$Sex == "M", "Length"], pch = 1, col = sex_col[2])
+lines(0:ymax, vb_fn(age = 0:ymax, Linf = len_age$all_F[1], L0 = len_age$all_F[2], k = len_age$all_F[3]), 
+	col = 'red', lty = 2, lwd = 2)
+lines(0:ymax, vb_fn(age = 0:ymax, Linf = len_age$all_M[1], L0 = len_age$all_M[2], k = len_age$all_M[3]), 
+	col = 'blue', lty = 2, lwd = 2)	
+# 2011 Assessment parameters
+#lines(0:xmax, vb_fn(age = 0:xmax, Linf = 47.8, L0 = 5.4, k = 0.15), col = 'red',  lty = 3, lwd = 2)
+#lines(0:xmax, vb_fn(age = 0:xmax, Linf = 39.9, L0 = 9.0, k = 0.17), col = 'blue', lty = 3, lwd = 2) 
+
+leg = c(paste0("F : Linf = ", round(len_age$all_F[1], 1),  ", L1 = ", round(len_age$all_F[2], 1),", k = ", round(len_age$all_F[3], 3)),
+		paste0("M : Linf = ", round(len_age$all_M[1], 1),  ", L1 = ", round(len_age$all_M[2], 1),", k = ", round(len_age$all_M[3], 3)))
+legend("bottomright", bty = 'n', legend = leg, lty = c(2,2,3,3,4), col = c(rep(line_col,2), "springgreen4"), lwd = 2)
+dev.off()
+
+# Estimates of length-at-age by areas
+dat = out[!is.na(out$Lat) & out$Source == "NWFSC_WCGBTS", ]
+pngfun(wd = file.path(start_dir, "data", "biology", "plots"), file = "Length_Age_by_Area.png", w = 7, h = 7, pt = 12)
+par(mfrow = c(2, 2))
+# South of Pt. Conception
+len_age <- estimate_length_age(data = dat[dat$Lat < 34.5,])
+find = which(dat$Lat < 34.5 & dat$Sex == "F")
+plot(dat[find, "Age"], dat[find, "Length"], xlab = "Age", ylab = "Length (cm)",
+	xaxs = "i", yaxs = "i", ylim = c(0, ymax), xlim = c(0, xmax), pch = 1, col = sex_col[1]) 
+lines(0:ymax, vb_fn(age = 0:ymax, Linf = len_age$all_F[1], L0 = len_age$all_F[2], k = len_age$all_F[3]), 
+	col = 'red', lty = 2, lwd = 2)
+find = which(dat$Lat < 34.5 & dat$Sex == "M")
+points(dat[find, "Age"], dat[find, "Length"], pch = 1, col = sex_col[2])
+lines(0:ymax, vb_fn(age = 0:ymax, Linf = len_age$all_M[1], L0 = len_age$all_M[2], k = len_age$all_M[3]), 
+	col = 'blue', lty = 2, lwd = 2)	
+# North of Pt. Conception  - CA/OR
+len_age <- estimate_length_age(data = dat[dat$Lat > 34.5 & dat$Lat < 42,])
+find = which(dat$Lat > 34.5 & dat$Lat < 42 & dat$Sex == "F")
+plot(dat[find, "Age"], dat[find, "Length"], xlab = "Age", ylab = "Length (cm)",
+	xaxs = "i", yaxs = "i", ylim = c(0, ymax), xlim = c(0, xmax), pch = 1, col = sex_col[1]) 
+lines(0:ymax, vb_fn(age = 0:ymax, Linf = len_age$all_F[1], L0 = len_age$all_F[2], k = len_age$all_F[3]), 
+	col = 'red', lty = 2, lwd = 2)
+find = which(dat$Lat > 34.5 & dat$Lat < 42 & dat$Sex == "M")
+points(dat[find, "Age"], dat[find, "Length"], pch = 1, col = sex_col[2])
+lines(0:ymax, vb_fn(age = 0:ymax, Linf = len_age$all_M[1], L0 = len_age$all_M[2], k = len_age$all_M[3]), 
+	col = 'blue', lty = 2, lwd = 2)	
+# Oregon
+len_age <- estimate_length_age(data = dat[dat$Lat > 42 & dat$Lat < 46,])
+find = which(dat$Lat > 34.5 & dat$Lat < 42 & dat$Sex == "F")
+plot(dat[find, "Age"], dat[find, "Length"], xlab = "Age", ylab = "Length (cm)",
+	xaxs = "i", yaxs = "i", ylim = c(0, ymax), xlim = c(0, xmax), pch = 1, col = sex_col[1]) 
+lines(0:ymax, vb_fn(age = 0:ymax, Linf = len_age$all_F[1], L0 = len_age$all_F[2], k = len_age$all_F[3]), 
+	col = 'red', lty = 2, lwd = 2)
+find = which(dat$Lat > 42 & dat$Lat < 46 & dat$Sex == "M")
+points(dat[find, "Age"], dat[find, "Length"], pch = 1, col = sex_col[2])
+lines(0:ymax, vb_fn(age = 0:ymax, Linf = len_age$all_M[1], L0 = len_age$all_M[2], k = len_age$all_M[3]), 
+	col = 'blue', lty = 2, lwd = 2)	
+# Washington
+len_age <- estimate_length_age(data = dat[dat$Lat > 46,])
+find = which(dat$Lat > 46 & dat$Sex == "F")
+plot(dat[find, "Age"], dat[find, "Length"], xlab = "Age", ylab = "Length (cm)",
+	xaxs = "i", yaxs = "i", ylim = c(0, ymax), xlim = c(0, xmax), pch = 1, col = sex_col[1]) 
+lines(0:ymax, vb_fn(age = 0:ymax, Linf = len_age$all_F[1], L0 = len_age$all_F[2], k = len_age$all_F[3]), 
+	col = 'red', lty = 2, lwd = 2)
+find = which(dat$Lat > 46 & dat$Sex == "M")
+points(dat[find, "Age"], dat[find, "Length"], pch = 1, col = sex_col[2])
+lines(0:ymax, vb_fn(age = 0:ymax, Linf = len_age$all_M[1], L0 = len_age$all_M[2], k = len_age$all_M[3]), 
+	col = 'blue', lty = 2, lwd = 2)	
+#leg = c(paste0("F : Linf = ", round(len_age$all_F[1], 1),  ", L1 = ", round(len_age$all_F[2], 1),", k = ", round(len_age$all_F[3], 3)),
+#		paste0("M : Linf = ", round(len_age$all_M[1], 1),  ", L1 = ", round(len_age$all_M[2], 1),", k = ", round(len_age$all_M[3], 3)))
+#legend("bottomright", bty = 'n', legend = leg, lty = c(2,2,3,3,4), col = c(rep(line_col,2), "springgreen4"), lwd = 2)
+dev.off()
+
+############################################################################################
+# Age by Depth from the Survey
+############################################################################################
+
+sub_dat = survey_dat[survey_dat$Source %in% c("NWFSC_Slope", "NWFSC_WCGBTS"),]
+line_col = c("red", 'blue')
+sex_col = alpha(line_col, 0.5)
+xmax = max(sub_dat$Depth)
+
+pngfun(wd = file.path(start_dir, "data", "biology", "plots"), file = "Age_by_Depth.png", w = 7, h = 7, pt = 12)
+par(mfrow = c(2, 1), mar = c(5, 5, 2, 2))
+find = which(sub_dat$Source == "NWFSC_WCGBTS" & sub_dat$Sex == "F")
+plot(sub_dat[find, "Depth"], sub_dat[find, "Age"], xlab = "Depth (m)", ylab = "Age", main = "NWFSC WCGBT",
+	xaxs = "i", yaxs = "i", ylim = c(0, ymax), xlim = c(0, xmax), pch = 1, col = sex_col[1]) 
+find = which(sub_dat$Source == "NWFSC_WCGBTS" & sub_dat$Sex == "M")
+points(sub_dat[find, "Depth"], sub_dat[find, "Age"], pch = 1, col = sex_col[2]) 
+find = which(sub_dat$Source == "NWFSC_Slope" & sub_dat$Sex == "F")
+plot(sub_dat[find, "Depth"], sub_dat[find, "Age"], xlab = "Depth (m)", ylab = "Age", main = "NWFSC Slope",
+	 xaxs = "i", yaxs = "i", ylim = c(0, ymax), xlim = c(0, xmax), pch = 1, col = sex_col[1]) 
+find = which(sub_dat$Source == "NWFSC_Slope" & sub_dat$Sex == "M")
+points(sub_dat[find, "Depth"], sub_dat[find, "Age"], pch = 1, col = sex_col[2]) 
+dev.off()
+
+# Estimates of length-at-age by areas
+color = c("red", "orange", "purple", "blue")
+dat = out[!is.na(out$Lat) & out$Source == "NWFSC_WCGBTS", ]
+pngfun(wd = file.path(start_dir, "data", "biology", "plots"), file = "Length_Age_by_Area_1panel.png", w = 7, h = 7, pt = 12)
+par(mfrow = c(1, 1))
+# South of Pt. Conception
+len_age <- estimate_length_age(data = dat[dat$Lat < 34.5,])
+find = which(dat$Lat < 34.5 & dat$Sex == "F")
+plot(0:ymax, vb_fn(age = 0:ymax, Linf = len_age$all_F[1], L0 = len_age$all_F[2], k = len_age$all_F[3]), 
+	ylim = c(1, 60), xlab = "Age", ylab = "Length (cm)", type = 'l', 
+	col = color[1], lty = 1, lwd = 2)
+find = which(dat$Lat < 34.5 & dat$Sex == "M")
+lines(0:ymax, vb_fn(age = 0:ymax, Linf = len_age$all_M[1], L0 = len_age$all_M[2], k = len_age$all_M[3]), 
+	col = color[1], lty = 2, lwd = 2)	
+# North of Pt. Conception  - CA/OR
+len_age <- estimate_length_age(data = dat[dat$Lat > 34.5 & dat$Lat < 42,])
+find = which(dat$Lat > 34.5 & dat$Lat < 42 & dat$Sex == "F")
+lines(0:ymax, vb_fn(age = 0:ymax, Linf = len_age$all_F[1], L0 = len_age$all_F[2], k = len_age$all_F[3]), 
+	col = color[2], lty = 1, lwd = 2)
+find = which(dat$Lat > 34.5 & dat$Lat < 42 & dat$Sex == "M")
+lines(0:ymax, vb_fn(age = 0:ymax, Linf = len_age$all_M[1], L0 = len_age$all_M[2], k = len_age$all_M[3]), 
+	col = color[2], lty = 2, lwd = 2)	
+# Oregon
+len_age <- estimate_length_age(data = dat[dat$Lat > 42 & dat$Lat < 46,])
+find = which(dat$Lat > 34.5 & dat$Lat < 42 & dat$Sex == "F")
+lines(0:ymax, vb_fn(age = 0:ymax, Linf = len_age$all_F[1], L0 = len_age$all_F[2], k = len_age$all_F[3]), 
+	col = color[3], lty = 1, lwd = 2)
+find = which(dat$Lat > 42 & dat$Lat < 46 & dat$Sex == "M")
+lines(0:ymax, vb_fn(age = 0:ymax, Linf = len_age$all_M[1], L0 = len_age$all_M[2], k = len_age$all_M[3]), 
+	col = color[3], lty = 2, lwd = 2)	
+# Washington
+len_age <- estimate_length_age(data = dat[dat$Lat > 46,])
+find = which(dat$Lat > 46 & dat$Sex == "F")
+lines(0:ymax, vb_fn(age = 0:ymax, Linf = len_age$all_F[1], L0 = len_age$all_F[2], k = len_age$all_F[3]), 
+	col = color[4], lty = 1, lwd = 2)
+find = which(dat$Lat > 46 & dat$Sex == "M")
+lines(0:ymax, vb_fn(age = 0:ymax, Linf = len_age$all_M[1], L0 = len_age$all_M[2], k = len_age$all_M[3]), 
+	col = color[4], lty = 2, lwd = 2)	
+legend("bottomright", bty = 'n', col = c(color), lty = rep(1, 4),
+	legend = c("CA: S. of Pt. Conception", "CA: N. of Pt. Conception",
+		"Oregon", "Washington"), lwd = 2)
+legend("topleft", bty = 'n', col = 1, lty = 1:2,
+	legend = c("Female", "Male"), lwd = 2)
+dev.off()
+
+############################################################################################
+# Sex by Depth from the Survey
+############################################################################################
+dat = out[out$Source == "NWFSC_WCGBTS",]
+
+library(plyr)
+dat$lat_bin = round_any(dat$Lat, 1)
+dat$depth_bin = round_any(dat$Depth, 25)
+tab = table(dat$depth_bin, dat$Sex)
+frac_female = tab[,1] / apply(tab, 1, sum)
+d_tab = table(dat$lat_bin, dat$Sex)
+d_frac_female = d_tab[,1] / apply(d_tab, 1, sum)
+
+pngfun(wd = file.path(start_dir, "data", "biology", "plots"), file = "Frac_Female_Lat_Depth.png", w = 7, h = 7, pt = 12)
+par(mfrow = c(2, 1), mar = c(5,5,2,2))
+plot(sort(unique(dat$depth_bin)), frac_female, type = 'l', lwd = 2, col = 'red', xlim = c(50, 1150),
+	ylim = c(0.2, 0.9), xlab = "Depth (m)", ylab = "Fraction Female")
+abline(h = 0.50, lty = 2, col = 1)
+plot(sort(unique(dat$lat_bin)), d_frac_female, type = 'l', lwd = 2, col = 'red', xlim = c(33, 48),
+	ylim = c(0.2, 0.9), xlab = "Latitude", ylab = "Fraction Female")
+abline(h = 0.50, lty = 2, col = 1)
+dev.off()
+
+
+
+
+
 
 ############################################################################################
 # Double check the distribution of all lengths vs. the ages
@@ -484,7 +688,32 @@ points(out[which(out$State == "WA" & out$Source == "PacFIN"), "Age"],
 	out[which(out$State == "WA" & out$Source == "PacFIN"), "Length"], 
 	col = alpha('blue', 0.40))
 
+###################################################################################
 
 
 
+library(plyr)
+
+find = which(out$Source == "NWFSC_WCGBTS")
+tmp = out[find,]
+tmp$depth_bin = round_any(tmp$Depth, 10)
+tmp$lat_bin = round_any(tmp$Lat, 1)
+par(mfrow = c(2,2))
+f = which(tmp$Sex == "F"); m = which(tmp$Sex == "M")
+boxplot(tmp$Length[f]~tmp$depth_bin[f], ylim = c(0,70))
+boxplot(tmp$Length[m]~tmp$depth_bin[m], ylim = c(0,70))
+boxplot(tmp$Length[f]~tmp$lat_bin[f], ylim = c(0, 70))
+boxplot(tmp$Length[m]~tmp$lat_bin[m], ylim = c(0, 70))
+
+
+par(mfrow = c(2,2))
+find = which(out$Source == "PacFIN")
+tmp = out[find,]
+f = which(tmp$Sex == "F"); m = which(tmp$Sex == "M")
+boxplot(tmp$Length[f]~tmp$State[f], ylim = c(0, 50))
+boxplot(tmp$Length[m]~tmp$State[m], ylim = c(0, 50))
+boxplot(tmp$Age[f]~tmp$State[f], ylim = c(0, 20))
+boxplot(tmp$Age[m]~tmp$State[m], ylim = c(0, 20))
+aggregate(Length~State+Sex+Source, out, FUN = median)
+aggregate(Age~State+Sex+Source, out, FUN = median)
 
