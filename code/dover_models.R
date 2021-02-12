@@ -52,10 +52,36 @@ SS_plots(selex, plot = c(2, 9, 16) )
 
 model = "1.1_selex_survey"
 selex = SS_output(file.path(wd, model))
-SS_plots(selex, plot = c(2, 9, 16) )
+SS_plots(selex, plot = c(2, 9))#, 16) )
 # NLL = 6087.79
 # Model slogs through phase 7 - male natural mortality 
 
-# Evaluate selectivity form - female offsets
-# Need to deal with params on the bound
-# Reweight the model
+model = "1.2_selex_pin_orwa_final"
+selex_fix = SS_output(file.path(wd, model))
+SS_plots(selex, plot = c(2,16))
+SS_tune_comps(replist = dw, option = "Francis", dir = file.path(wd, model))
+
+
+model = "1.3_selex_dw_mi"
+dw = SS_output(file.path(wd, model))
+#SS_tune_comps(replist = dw, options = "MI", dir = file.path(wd, model))
+SS_plots(dw, plot = c(2, 16, 17, 18, 19))
+
+
+model = "1.4_selex_dw_francis"
+francis = SS_output(file.path(wd, model))
+SS_plots(francis, plot = c(2, 16, 17, 18, 19))
+
+# there is really weird behavior when I try to data weight the model using
+# MI or Francis.  A) the model does not end up anywhere near properly weighted,
+# and B) trying to data weight result in wild mis-fits in recent data.  The
+# misfits are likely linked to the change in discarding practices I think.
+
+model = "1.5_selex_dw_none"
+no_dw = SS_output(file.path(wd, model))
+SS_plots(no_dw, plot = c(2, 16, 17, 18))
+SS_tune_comps(replist = no_dw, option = "MI", dir = file.path(wd, model))
+
+model = "1.6_selex_dw_dm"
+dm = SS_output(file.path(wd, model))
+SS_plots(dm, plot = c(2, 16, 17, 18, 19))

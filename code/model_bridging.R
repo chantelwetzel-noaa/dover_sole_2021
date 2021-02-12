@@ -15,6 +15,14 @@ SSplotComparisons(mysummary,
 				  plotdir = file.path(wd, "_bridging", "_plots"),
 				  pdf = TRUE)
 
+SSplotComparisons(mysummary, 
+				  filenameprefix = "model_bridge_",
+				  legendlabels = modelnames, 	
+				  subplot = c(2,4),
+				  plotdir = file.path(wd, "_bridging", "_plots"),
+				  print = TRUE,
+				  pdf = FALSE)
+
 fleets = SS_output(file.path(wd, "_bridging", "0.1_update_fleet_structure"))
 SS_plots(fleets)
 
@@ -162,6 +170,22 @@ SSplotComparisons(mysummary,
 				  legendloc = 'topright',	
 				  plotdir = file.path(wd, "_bridging", "_plots"),
 				  pdf = TRUE)
+
+modelnames <- c("2011", "Convert 3.30.16", "Fleet Structure",
+				"Catch", "Indices",
+				"Discard Rates & Weights", 
+				"Lengths",
+				"Age")
+mysummary <- SSsummarize(list(base2011,  convert, fleets, catch2, indices,
+					          wghts, dw_len, dw_age))
+
+SSplotComparisons(mysummary, 
+				  filenameprefix = "data_2010_bridge_",
+				  legendlabels = modelnames, 	
+				  subplot = c(2,4,12),
+				  plotdir = file.path(wd, "_bridging", "_plots"),
+				  print = TRUE,
+				  pdf = FALSE)
 
 #####################################################################
 # Data Through 2020!  (Except Commercial Ages)
