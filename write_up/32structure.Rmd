@@ -8,6 +8,9 @@
 General model specifications (e.g., executable version, model structure, definition of fleets and areas)
 
 
+### Bridging Analysis
+
+
 ### Model Parameters
 Describe estimated vs. fixed parameters, priors
 

@@ -1,4 +1,565 @@
 \clearpage
 # Figures
 
-![Summary of data sources used in the base model.\label{fig:data-plot}](data-plot.png){width=100% height=100% alt="Summary of data sources used in the base model"}
+<!-- ====================================================================== -->  
+<!-- ****************** Catches Used in the Model ************************* --> 
+<!-- ====================================================================== -->  
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "catch2 landings stacked.png"), 
+caption = "Landings by fleet used in the base model",
+label = 'catch')
+```	
+
+<!-- ====================================================================== --> 
+<!-- ******************* Data Used in the Model *************************** --> 
+<!-- ====================================================================== --> 
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "data_plot.png"), 
+caption = "Summary of data sources used in the base model",
+label = 'data-plot')
+```	
+
+<!-- ======================================================= -->
+<!-- ***************   Discard Data  *********************** --> 
+<!-- ======================================================= -->
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "discard_dataCA.png"), 
+caption = "Observed discard rates for the California fleet",
+label = 'ca-disc-ob')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "bodywt_data_fltCA.png"), 
+caption = "Observed discard mean weights for the California fleet",
+label = 'ca-disc-wght-ob')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_lendat_flt1mkt1.png"), 
+caption = "Observed discard lengths for the California fleet",
+label = 'ca-disc-len-ob')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "discard_dataOR_WA.png"), 
+caption = "Observed discard rates for the Oregon-Washington fleet",
+label = 'orwa-disc-ob')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "bodywt_data_fltOR_WA.png"), 
+caption = "Observed discard mean weights for the Oregon-Washington fleet",
+label = 'orwa-disc-wght-ob')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_lendat_flt2mkt1_page1.png"), 
+caption = "Observed discard lengths for the Oregon-Washington fleet",
+label = 'orwa-disc-len-ob')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_lendat_flt2mkt1_page2.png"), 
+caption = "Observed discard lengths for the Oregon-Washington fleet",
+label = 'orwa-disc-len-2-ob')
+```
+
+<!-- ======================================================= -->
+<!-- *************** Commercial Data *********************** --> 
+<!-- ======================================================= -->
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_lendat_bubflt1mkt2_page3.png"), 
+caption = "Length composition data from the California commercial fleet",
+label = 'ca-len-data')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_lendat_data_weighting_TA1.8_CA.png"), 
+caption = "Mean length for California commercial fleet with 95 percent confidence intervals",
+label = 'mean-ca-len-data')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_agedat_bubflt1mkt2_page2.png"), 
+caption = "Age composition data from the California commercial fleet",
+label = 'ca-age-data')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_agedat_data_weighting_TA1.8_CA.png"), 
+caption = "Mean age for California commercial fleet with 95 percent confidence intervals",
+label = 'mean-ca-age-data')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_lendat_bubflt2mkt2_page3.png"), 
+caption = "Length composition data from the Oregon-Washington commercial fleet",
+label = 'orwa-len-data')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_lendat_data_weighting_TA1.8_OR_WA.png"), 
+caption = "Mean length for Oregon-Washington commercial fleet with 95 percent confidence intervals",
+label = 'mean-orwa-len-data')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_agedat_bubflt2mkt2_page2.png"), 
+caption = "Age composition data from the Oregon-Washington commercial fleet",
+label = 'orwa-age-data')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_agedat_data_weighting_TA1.8_OR_WA.png"), 
+caption = "Mean age for Oregon-Washington commercial fleet with 95 percent confidence intervals",
+label = 'mean-orwa-age-data')
+```
+
+<!-- ======================================================= -->
+<!-- ***************  NWFSC WCGBT Survey ******************* --> 
+<!-- ======================================================= -->
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(data_loc, "biology", "plots", "Length_by_Depth_by_Source.png"), 
+caption = "Observed length by depth from each survey",
+label = 'data-len-depth')
+```	
+
+\newpage
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(data_loc, "biology", "plots", "Age_by_Depth.png"), 
+caption = "Observed age by depth from the NWFSC Slope and WCGBT surveys",
+label = 'data-age-depth')
+```
+
+\newpage	
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(data_loc, "survey", "plots", "Dover_sole_NWFSC_WCGBTS_CPUE_Depth_Latitude.png"), 
+caption = "The catch-per-unit-effort (log-scale), lengths by sex observed by depth and latitude for the NWFSC WCGBT survey. The solid lines indicate the average length by depth or latitude by sex (red - females, blue - males, grey - unsexed)",
+label = 'cpue-len')
+```	
+
+\newpage
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(data_loc, "survey_indices", "dover_sole", "data", "NWFSC.Combo_gamma", "quantile_residuals.png"), 
+caption = "Q-Q and diagnostics for the NWFSC WCGBT survey",
+label = 'wcgbt-qq')
+```	
+
+\newpage
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(data_loc, "survey_indices", "dover_sole", "data", "NWFSC.Combo_gamma", "quantile_residuals.png"), 
+caption = "Residuals for the NWFSC WCGBT survey index",
+label = 'wcgbt-resid')
+```	
+
+\newpage
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(data_loc, "survey_indices", "dover_sole", "data", "NWFSC.Combo_gamma", "VASTWestCoast_Index_2019.png"), 
+caption = "The estimated index of abundance for the NWFSC WCGBT survey",
+label = 'wcgbt-index')
+```	
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_lendat_bubflt6mkt0_page2.png"), 
+caption = "Length composition data from the NWFSC WCGBT survey",
+label = 'wcgbt-len-data')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_lendat_data_weighting_TA1.8_NWFSC_WCGBT.png"), 
+caption = "Mean length for NWFSC WCGBT survey with 95 percent confidence intervals",
+label = 'mean-wcgbt-len-data')
+```
+
+ADD MARGINAL GHOST FLEET
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_condAALdat_data_weighting_TA1.8_condAgeNWFSC_WCGBT.png"), 
+caption = "Mean age for NWFSC WCGBT survey with 95 percent confidence intervals",
+label = 'mean-wcgbt-age-data')
+```
+
+
+<!-- ======================================================= -->
+<!-- ***************     Triennial   *********************** --> 
+<!-- ======================================================= -->
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(data_loc, "survey_indices", "dover_sole", "data", "Triennial_lognormal_early", "quantile_residuals.png"), 
+caption = "Q-Q and diagnostics for the early Triennial survey (1980 - 1992)",
+label = 'tri-early-qq')
+```
+
+\newpage	
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(data_loc, "survey_indices", "dover_sole", "data", "Triennial_lognormal_early", "quantile_residuals.png"), 
+caption = "Residuals for the early Triennial survey",
+label = 'tri-early-resid')
+```	
+
+\newpage
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(data_loc, "survey_indices", "dover_sole", "data", "Triennial_lognormal_early", "VASTWestCoast_Index_1992.png"), 
+caption = "The estimated index of abundance for the early Triennial survey",
+label = 'tri-early-index')
+```	
+
+\newpage
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(data_loc, "survey_indices", "dover_sole", "data", "Triennial_lognormal_late", "quantile_residuals.png"), 
+caption = "Q-Q and diagnostics for the late Triennial survey (1995 - 2004)",
+label = 'tri-late-qq')
+```	
+
+\newpage
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(data_loc, "survey_indices", "dover_sole", "data", "Triennial_lognormal_late", "quantile_residuals.png"), 
+caption = "Residuals for the late Triennial survey",
+label = 'tri-late-resid')
+```	
+
+\newpage
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(data_loc, "survey_indices", "dover_sole", "data", "Triennial_lognormal_late", "VASTWestCoast_Index_2004.png"), 
+caption = "The estimated index of abundance for the late Triennial survey",
+label = 'tri-late-index')
+```	
+
+\newpage
+
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_lendat_bubflt4mkt0.png"), 
+caption = "Length composition data from the Triennial survey",
+label = 'tri-len-data')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_lendat_data_weighting_TA1.8_Triennial.png"), 
+caption = "Mean length for Triennial with 95 percent confidence intervals",
+label = 'mean-tri-len-data')
+```
+
+<!-- ======================================================= -->
+<!-- ***************   AFSC Slope    *********************** --> 
+<!-- ======================================================= -->
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_lendat_bubflt3mkt0.png"), 
+caption = "Length composition data from the AFSC Slope survey",
+label = 'afsc-len-data')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_lendat_data_weighting_TA1.8_AFSC_Slope.png"), 
+caption = "Mean length for AFSC Slope survey with 95 percent confidence intervals",
+label = 'mean-afsc-len-data')
+```
+
+<!-- ======================================================= -->
+<!-- ***************   NWFSC Slope   *********************** --> 
+<!-- ======================================================= -->
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_lendat_bubflt5mkt0.png"), 
+caption = "Length composition data from the NWFSC Slope survey",
+label = 'nw-slope-len-data')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_lendat_data_weighting_TA1.8_NWFSC_Slope.png"), 
+caption = "Mean length for NWFSC Slope survey with 95 percent confidence intervals",
+label = 'mean-nw-slope-len-data')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_agedat_bubflt5mkt0.png"), 
+caption = "Age composition data from the NWFSC Slope survey",
+label = 'nw-slope-age-data')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_agedat_data_weighting_TA1.8_NWFSC_Slope.png"), 
+caption = "Mean age for NWFSC Slope survey with 95 percent confidence intervals",
+label = 'mean-nw-slope-age-data')
+```
+
+
+<!-- ======================================================= -->  
+<!-- ******************   Biology  ************************* --> 
+<!-- ======================================================= -->  
+
+```{r, results = 'asis'}
+ # Add maturity figure
+```	
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(data_loc, "biology", "plots", "Length_Weight_2020.png"), 
+caption = "Externally estimated length-weight by sex",
+label = 'est-len-wght')
+```	
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(data_loc, "biology", "plots", "Length_Age_by_Sex_2020.png"), 
+caption = "Externally estimated length-at-age by sex",
+label = 'est-len-at-age')
+```	
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(data_loc, "biology", "plots", "Length_Age_by_Area_1panel.png"), 
+caption = "Externally estimated length-at-age by sex for four regions off the West Coast",
+label = 'est-len-at-age-region')
+```	
+
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(data_loc, "survey", "wcgbts", "plots","2011_strata", "NWFSC WCGBTS_length_fraction_female.png"), 
+caption = "Fraction female by length observed by the NWFSC WCGBT survey",
+label = 'sex-by-len')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(data_loc, "biology", "plots", "Frac_Female_Lat_Depth.png"), 
+caption = "Fraction female observations by depth and latitude from the NWFSC WCGBT survey",
+label = 'fem-by-lat-depth')
+```	
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(data_loc, "biology", "plots", "PacFIN_Age_Method.png"), 
+caption = "Comparison between break-and-burn versus scale age reads",
+label = 'scale-age')
+```	
+
+
+<!-- ======================================================= -->  
+<!-- ******************   Bridge   ************************* --> 
+<!-- ======================================================= -->
+
+```{r, results = 'asis'}
+brid_loc = "C:/Assessments/2021/dover_sole_2021/models/_bridging"
+add_figure(
+filein = file.path(brid_loc, "_plots", "model_bridge_compare2_spawnbio_uncertainty.png"),
+caption = "Model version bridge comparison of estimated spawning output",
+label = 'bridge-ssb')
+```
+
+```{r, results = 'asis'}
+
+add_figure(
+filein = file.path(brid_loc, "_plots", "model_bridge_compare4_Bratio_uncertainty.png"),
+caption = "Model version bridge comparison of estimated fraction unfished",
+label = 'bridge-depl')
+```
+
+```{r, results = 'asis'}
+
+add_figure(
+filein = file.path(brid_loc, "_plots", "data_2010_bridge_compare2_spawnbio_uncertainty.png"),
+caption = "Data updated through 2010 bridge comparison of estimated spawning output",
+label = 'data-bridge-ssb')
+```
+
+```{r, results = 'asis'}
+
+add_figure(
+filein = file.path(brid_loc, "_plots", "data_2010_bridge_compare4_Bratio_uncertainty.png"),
+caption = "Data updated through 2010 bridge comparison of estimated fraction unfished",
+label = 'data-bridge-depl')
+```
+
+<!-- ====================================================================== -->
+<!-- *********************    Selectivity            ********************** --> 
+<!-- ====================================================================== -->
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(getwd(), "figs", "selectivity.png"),
+caption = "Selectivity by fleet",
+label = 'selex')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(getwd(), "figs", "dover_retention.png"),
+caption = "Estimated retention curves by time block",
+label = 'retention')
+```
+
+<!-- ====================================================================== -->
+<!-- ****************** Fit to the Length Data **************************** --> 
+<!-- ====================================================================== -->
+
+
+<!-- ====================================================================== -->
+<!-- ****************** Fit to the Age Data    **************************** --> 
+<!-- ====================================================================== -->
+
+
+<!-- ======================================================= -->  
+<!-- ****************** Recruitment ************************ --> 
+<!-- ======================================================= -->
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "SR_curve.png"), 
+caption = "Stock-recruit curve. Point colors indicate year, with warmer colors indicating earlier years and cooler colors in showing later years",
+label = 'bh-curve')
+```
+
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "ts11_Age-0_recruits_(1000s)_with_95_asymptotic_intervals.png"), 
+caption = "Estimated time series of age-0 recruits (1000s)",
+label = 'recruits')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "recdevs2_withbars.png"), 
+caption = "Estimated time series of recruitment deviations",
+label = 'rec-devs')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(getwd(), "figs", "recruit_fit_bias_adjust.png"),
+caption = "Recruitment bias adjustment applied in the base model",
+label = 'bias-adj')
+```
+
+
+<!-- ======================================================= -->  
+<!-- ****************** Time Series ************************ --> 
+<!-- ======================================================= -->
+
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "ts7_Spawning_biomass_(mt)_with_95_asymptotic_intervals_intervals.png"), 
+caption = "Estimated time series of spawning output",
+label = 'ssb')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "ts1_Total_biomass_(mt).png"), 
+caption = "Estimated time series of total biomass",
+label = 'tot-bio')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "ts9_Relative_spawning_biomass_intervals.png"), 
+caption = "Estimated time series of fraction of unfished spawning output",
+label = 'depl')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(getwd(), "figs", "unavailable_biomass.png"),
+caption = "Proportion of biomass unavailable due to selectivity for small and large fish.",
+label = 'unavail-bio')
+```
+
+
+<!-- ====================================================================== -->
+<!-- ******************    Reference Points    **************************** --> 
+<!-- ====================================================================== -->
+
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "SPR2_minusSPRseries.png"), 
+caption = "Estimated 1 - relative spawning ratio (SPR) by year",
+label = '1-spr')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "yield2_yield_curve_with_refpoints.png"), 
+caption = "Equilibrium yield curve for the base case model. Values are based on the 2020
+fishery selectivities and with steepness fixed at 0.80",
+label = 'yield')
+```
+
+
+<!-- ======================================================= -->  
+<!-- ****************** Sensitivities ********************** --> 
+<!-- ======================================================= -->
+
+
+<!-- ======================================================= -->  
+<!-- ******************  Likelihoods  ********************** --> 
+<!-- ======================================================= -->
+
+
+<!-- ======================================================= -->  
+<!-- ****************** Retrospective ********************** --> 
+<!-- ======================================================= -->
+
+
+<!-- ======================================================= -->  
+<!-- ************* Compare w/ 2011 & 2005 ****************** --> 
+<!-- ======================================================= -->

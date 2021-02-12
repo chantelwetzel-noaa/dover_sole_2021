@@ -1,3 +1,94 @@
 \clearpage
 # Tables
 
+
+<!-- ======================================================= -->
+<!-- ***************    Catches      *********************** --> 
+<!-- ======================================================= -->
+
+\include{tex_tables/Catches_All_Years.tex}
+
+\newpage
+
+<!-- ======================================================= --> 
+<!-- *********** Removals vs. OFL/ACL   ******************** --> 
+<!-- ======================================================= --> 
+
+
+```{r, results = 'asis'}
+yrs = hist = 2011:endyr
+#nfleets = 2
+#catch = dead = total.dead = 0
+#for (i in 1:nfleets){
+#  name = paste0("sel(B):_",i)
+#  input.catch = model$timeseries[model$timeseries$Yr %in% yrs, name]
+#  catch = cbind(catch, input.catch)
+#}
+#total.catch <- round(apply(catch, 1, sum),2)
+
+man = read.csv("//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/management/dover_man_for_doc.csv")
+man = man[man$Year %in% yrs, ]
+out = cbind(man,  NA) #total.catch)
+
+col_names = c("Year", "OFL", "ABC", "ACL",  "Est. Removals")
+
+table_format(x = out,
+             caption = "The OFL, ABC, ACL, and the estimated total removals.",
+             label = "ofl",
+             align = 'l',
+             col_names = col_names)
+
+
+```
+
+\newpage
+
+<!-- ======================================================= -->
+<!-- ***************   Discard Data  *********************** --> 
+<!-- ======================================================= -->
+
+\include{tex_tables/discard_table.tex}
+
+
+<!-- ======================================================= -->
+<!-- *************** Commercial Data *********************** --> 
+<!-- ======================================================= -->
+
+\include{tex_tables/Com_Length_Samples.tex}
+
+\include{tex_tables/Com_Age_Samples.tex}
+
+<!-- ======================================================= -->
+<!-- ***************   Survey  Data  *********************** --> 
+<!-- ======================================================= -->
+
+\include{tex_tables/index_table.tex}
+
+\include{tex_tables/wcgbts-db-index.tex}
+
+\include{tex_tables/nwfsc_wcgbts_length_samps.tex}
+
+\include{tex_tables/nwfsc_wcgbts_age_samps.tex}
+
+\include{tex_tables/tri-early-db-index.tex}
+
+\include{tex_tables/triennial_early_length_samps.tex}
+
+\include{tex_tables/tri-late-db-index.tex}
+
+\include{tex_tables/triennial_late_length_samps.tex}
+
+\include{tex_tables/afsc-db-index.tex}
+
+\include{tex_tables/afsc_slope_length_samps.tex}
+
+\include{tex_tables/nwfsc-db-index.tex}
+
+\include{tex_tables/nwfsc_slope_length_samps.tex}
+
+\include{tex_tables/nwfsc_slope_age_samps.tex}
+
+
+
+
+

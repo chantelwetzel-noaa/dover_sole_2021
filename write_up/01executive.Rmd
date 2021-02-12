@@ -2,38 +2,117 @@
 executive <- list()
 executive[["stock"]] <- paste0("This assessment reports the status of ",
   spp, " (_", spp.sci, "_) off the ", coast, 
-  " coast using data through xxxx.")
+  " coast using data through 2020.")
 ```
 # Executive Summary{-}
 ## Stock{-}
-`r executive[["stock"]]`
+`r executive[["stock"]]` `r spp` are also harvested from the waters off British Columbia and in the Gulf of Alaska, and although those catches were not included in this assessment, it is not certain if those populations contribute to the biomass of `r spp` off of the U.S. West Coast.
 
 ## Landings{-}
-Replace text.
+`r spp` were first landed in California in the early part of the 20th century and the fishery began increasing landings in Oregon and Washington in the 1940's.  Landings remained relatively constant throughout the 1950's and 1960's before increasing rapidly into the early 1990's.  Subsequently, the landings declined (mostly in California) until 2007 when harvest guidelines increased the allowable catch.  Groundfish trawl fisheries land the majority of `r spp` while fixed gears, shrimp trawls, and recreational fisheries make up a very small amount of fishing mortality.  Some discarding of `r spp` occured in the fisheries, primarily prior to the implementation of the Catch Shares Program in 2011.  Discards were estimated in the model and total catches are reported, as opposed to landings.
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "catch2 landings stacked.png"), 
+caption = "Landings by fleet used in the base model",
+label = 'es-catch',
+width = 75, 
+height = 100)
+```	
+
+\include{tex_tables/a_Catches_ES.tex}
 
 ## Data and Assessment{-}
-Replace text.
+
+`r spp` off the west coast of the U.S. was assessed here using the length- and age-structured model Stock Synthesis (version 3.30.16).  The last assessment was done in 2011 and showed the stock to be increasing with a 2011 depletion level at 84 percent of virgin spawning biomass. In this assessment, aspects of the model including fleet structure, landings, data, and modelling assumptions were re-evaluated. The coastwide population was modeled allowing separate growth and mortality parameters for each sex (i.e., a two-sex model) from `r startyr` to `r endyr` and forecasted beyond `r endyr`.
+
+All of the data sources included in the base model for `r spp` have re-evaluated for `r endyr`. Changes in varying degress have occurred in the data from those used in the previous assessments. The historical landings has been updated for California and Oregon relative to those used in 2011. Survey data from the Alaska and Northwest Fisheries Science Centers have been used to construct indices of abundance analyzed using a spatio-temporal delta-model (e.g., VAST). 
+
+The definition of fishing fleets have changed from those in the 2011 assessment. The new assessment assumed two fishing fleets in the model: 1) a combined gear California fleet and 2) a combined gear Oregon/Washington fleet. The update in fleet grouping for Oregon and Washington was meant to capture the fishing behavior of fishing and landing across state boundaries which makes separating data by state challenging. 
+
+The assessment uses landings data and discard estimates; survey indices of abundance, length- or age-composition data for each year and fishery or survey (with conditional age-at-length data used for the \Gls{s-wcgbt} survey); information on weight-at-length, maurity-at-length, and fecundity-at-length; information on natural mortality and the steepness of the Beverton-Holt stock-recruitment relationship; and estiamtes of ageing error. Recruitment at "equilibrium spawning output", length-based selectivity of the fisheries and surveys, retention of the fishery, catchability of the surveys, growth, the time series of spawning output, age and size structure, and current and project future stock status are outputs of the model. 
+
+A number of sources of uncertainty are explicitly included in this assessment. 
+
+A base model was selected that best captures the central tendency for those sources of uncertainty considered in the model.
 
 ## Stock Biomass{-}
-Replace text.
+
+The estimated spawning output from the base model generally shows...
+
+\include{tex_tables/b_SSB_ES.tex}
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots",
+"ts7_Spawning_biomass_(mt)_with_95_asymptotic_intervals_intervals.png"), 
+caption = "Estimated time series of spawning output (circles and line: median; light broken lines: 95 percent intervals) for the base model",
+label = 'es-ssb',
+width = 100,
+height = 75)
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "ts9_Relative_spawning_biomass_intervals.png"), 
+caption = "Estimated time series of fraction of unfished spawning output (circles and line: median; light broken lines: 95 percent intervals) for the base model",
+label = 'es-depl',
+width = 100,
+height = 75)
+```
 
 ## Recruitment{-}
 Replace text.
 
+\include{tex_tables/c_Recr_ES.tex}
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "ts11_Age-0_recruits_(1000s)_with_95_asymptotic_intervals.png"), 
+caption = "Estimated time series of age-0 recruits (1000s) for the base model with 95 percent intervals",
+label = 'es-recruits')
+```
+
 ## Exploitation Status{-}
 Replace text.
+
+\include{tex_tables/d_SPR_ES.tex}
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "SPR2_minusSPRseries.png"), 
+caption = "Estimated 1 - relative spawning ratio (SPR) by year for the base model. The management target is plotted as a red horizontal line and values above this reflect harvest in excess of the proxy harvest rate",
+label = 'es-1-spr')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "SPR4_phase.png"), 
+caption = "Phase plot of estimated 1-SPR versus fraction unfished for the base model",
+label = 'es-phase',
+width = 100,
+height = 75)
+```
 
 ## Reference Points{-}
 Replace text.
 
+\include{tex_tables/e_ReferencePoints_ES.tex}
+
 ## Management Performance{-}
 Replace text.
+
+\include{tex_tables/f_Manage_ES.tex}
 
 ## Unresolved Problems and Major Uncertainties{-}
 Replace text.
 
 ## Decision Table{-}
 Replace text.
+
+The estimated uncertainty in the base model around the `r endyr + 1` spawning output is $\sigma$ = `r round(model$Pstar_sigma,2)` and the uncertainty in the base model around the `r endyr + 1` OFL is $\sigma$ = `r round(model$OFL_sigma,2)`. The estimated model uncertainty was less than the category 1 groundfish data moderate assessment default value of  $\sigma$ = 0.50. 
+
+\include{tex_tables/g_Projections_ES.tex}
 
 ## Research and Data Needs{-}
 Replace text.

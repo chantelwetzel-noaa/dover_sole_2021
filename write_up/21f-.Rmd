@@ -1,1 +1,34 @@
 ## Fishery-Dependent Data
+
+`r spp` have been targeted by fisheries since the early part of the 20th century, even though a 1936 biological report from the State of Washington Department of Fisheries stated that `r spp` "is very slimy and is repulsive to handle" and "[i]t has no value as a commercial fish" [@smith_report_1936].  It was not long after 1936 that `r spp` were being landed in significant quantities up and down the U.S. west coast.  Discarding practices in the early 1900's are uncertain, but catches of `r spp` on the outer coast are likely small during this time.
+
+### Commercial Fishery Landings
+
+The commercial removals were extracted from the PacFIN database for 1981 - 2020 for California and Washington and 1987-2020 for Oregon on March XX, 2021. The majority of removals for `r spp` arise from trawl gear (greater than 99 percent). Commercial removals for all gear types were combined into two area specific fleets: California fleet and a combined Oregon Washington fleet.
+
+#### Washington Prior to 1981
+
+Historical commercial landings of non-shrimp trawl gear were reconstructed for `r spp` landed in Washington for use in the 2011 assessment by Greg Lippert (Washington Department Fish Wildlife - WDFW).  Shrimp trawl, fixed gear, and recreational landings constitute a negligible amount of the total mortality for `r spp`.  Historical landings of `r spp` landed in the state of Washington were determined from various data sources using era specific understanding of fishing behavior.  For details please see Hicks and Wetzel [-@hicks_status_2011]. The historical landings were not revised for this assessment. 
+
+#### Oregon Prior to 1986
+
+Historical commercial fishery landings of `r spp` in Oregon for the years XX-1986 were obtained from Alison Whitman (ODFW). A description of the methods can be found in Karnowski et al. [-@karnowski_historical_2014]. 
+
+#### California Prior to 1981
+
+Historical commercial fishery landings of `r spp` from 1948-1980 were obtained directly from E.J. Dick (personal communication, SWFSC, NOAA) who retreived the data from the California Cooperative Groundfish Survey data system (CALCOM). The method of reconstructing California historical landings are described by Ralston et al. [-@ralston_documentation_2010]. Ralston et al. [-@ralston_documentation_2010] excluded fish that were caught in Oregon or Washington waters and landed at a California port. In contrast, the Oregon and Washington historical catch reconstruction were based only on port the port of landing. Landings estimates for `r spp` that were exclued from the original California reconstruction were provided by John Field (personal communication, SWFSC, NOAA).
+
+At present, no landing for `r spp` before 1948 are available in CALCOM.  For years prior to 1948, the landings from the 2005 assessment [@sampson_status_2005] were used. The data from Sampson [-@sampson_status_2005] for the years of 1911 - 1947 include assumed discards of `r spp` from other fisheries operating at the time and represent total removals (e.g. in comparison to the data from CALCOM account for only landed `r spp`).   
+
+### Commercial Discards
+
+Data on discards of `r spp` are available from a few different data sources.  Multiple historical discard rates studies provided estimates for the California trawl fishery in 1992 (Humbolt State Study) and for the Oregon/Washington fleet for 1959 [@hermann_results_1963] and 1990 [@methot_jr_assessment_1990]. 
+
+A trawl discard study conducted in 1985-1987, referred to as the Pikitch study, organized by Ellen Pikitch resulted in discard rates and length observations for various groundfish species including `r spp` [@pikitch_evaluation_1988].  The northern and southern boundaries of the study were $48^\circ 42^\prime$ N latitude and $42^\circ 60^\prime$ N latitude respectively, which is primarily within the Columbia INPFC area [@pikitch_evaluation_1988; @rogers_numerical_1992].  Participation in the study was voluntary and included vessels using bottom, midwater, and shrimp trawl gears.  Observers of normal fishing operations on commercial vessels collected the data, estimated the total weight of the catch by tow, and recorded the weight of species retained and discarded in the sample.  Results of the Pikitch data were obtained from John Wallace (personal communication, NWFSC, NOAA) in the form of ratios of discard weight to retained weight of `r spp` and sex-specific length frequencies.  Estimates of discard rates are shown in Table XX.   
+
+The second source is from the West Coast Groundfish Observer Program (WCGOP).  This program is part of the NWFSC and has been recording discard observations since 2003. Table XX shows the discard ratios (discarded/(discarded + retained)) of `r spp` from WCGOP.  Since 2011, when the trawl rationalization program was implemented, observer coverage rates increased to nearly 100% for all the limited entry trawl vessels in the program and discard rates declined compared to pre-2011 rates. Discard rates were obtained for both the catch-share (observed and electronic monitored vessels) and the non-catch share sector for `r spp`. A single discard rate was calculated by weighting discard rates based on the commercial landings by each sector.  Coefficient of variations were calculated for the non-catch shares sector and pre-catch share years by bootstrapping vessels within ports because the observer program randomly chooses vessels within ports to be observed. Post trawl rationalization, all catch-share vessels have 100% observer coverage and discarding is assumed to be known. 
+
+Discard mean weights and length composition data for the trawl fleet were included in the assessment (Figures XX and XX).
+
+### Commercial Fishery Length and Age Data
+

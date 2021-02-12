@@ -1,30 +1,54 @@
 
-detach("package:sa4ss", unload = TRUE)
-remotes::install_github("nwfsc-assess/sa4ss")
+#detach("package:sa4ss", unload = TRUE)
+#remotes::install_github("nwfsc-assess/sa4ss")
 library(sa4ss)
 
+devtools::load_all("C:/Users/Chantel.Wetzel/Documents/GitHub/r4ss")
 
 # Specify the directory for the document
 setwd("C:/Assessments/2021/dover_sole_2021/write_up")
 
+base = "C:/Assessments/2021/dover_sole_2021/models/1.8_selex_dome_m"
+
 # Create the needed items to generate the "right" template that would be based on the inputs here:
-sa4ss::draft(authors = c("Chantel R. Wetzel", "Aaron M. Berger"),
+draft(authors = c("Chantel R. Wetzel", "Aaron M. Berger"),
   			 species = "Dover sole",
   			 latin = "Microstomus pacificus",
-  			 coast = "US West",
+  			 coast = "U.S. West",
   			 type = c("sa"),
   			 create_dir = FALSE,
   			 edit = FALSE)
 
+
 # Create a model Rdata object
-read_model(mod_loc = "C:/Assessments/2021/squarespot_rockfish_2021/models/0.01_init_model_updated_catches")
+read_model(
+          mod_loc = base,
+				  create_plots = TRUE, 
+          fecund_mult = 'mt',
+          bub_scale = 10,
+				  save_loc = file.path(getwd(), "tex_tables"),
+				  verbose = TRUE)
 
-if(file.exists("_00.Rmd")){
-	file.remove("_00.Rmd")
+load("00mod.Rdata")
+
+source("C:/Users/Chantel.Wetzel/Documents/GitHub/sa4ss/R/es_table_tex.R")
+SSexecutivesummary(replist = model, format = FALSE)
+es_table_tex(dir = base, 
+             save_loc = file.path(getwd(), "tex_tables"),
+             table_folder = 'tables')
+es_table_tex(dir = file.path(getwd(), 'tables'), 
+            save_loc = file.path(getwd(), "tex_tables"), 
+            csv_name = "all_tables.csv")
+
+if(file.exists("_main.Rmd")){
+	file.remove("_main.Rmd")
 }
-
 # Render the pdf
-bookdown::render_book("00a.Rmd", clean = FALSE)
+bookdown::render_book("00a.Rmd", clean=FALSE, output_dir = getwd())
+
+
+
+#bookdown::render_book("00a.Rmd", clean = FALSE)
 
 
 # Use to only render a specific section which can be quicker

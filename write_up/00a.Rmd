@@ -10,7 +10,7 @@ papersize: a4
 ---
 
 ```{r opts, include = FALSE}
-knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, fig.pos = 'H')
 knitr::knit_hooks$set(plot = function(x,options) {
       base = knitr::opts_knit$get('base.url')
       if (is.null(base)) base = ''
@@ -26,9 +26,12 @@ knitr::knit_hooks$set(plot = function(x,options) {
 load("00opts.Rdata")
 
 if(file.exists("00mod.Rdata")){
+
   load("00mod.Rdata")
 } else {
   print("Model output not being read. Please run the read_model() function.")
 }
+
+data_loc = "//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data"
 
 ```

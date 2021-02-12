@@ -1,2 +1,104 @@
 # Assessment Model
 
+## Summary of Previous Assessments and Reviews
+
+The previous assessment of `r spp` was conducted in 2011 [@hicks_status_2011] and concluded that the biomass of `r spp` off the U.S. West Coast was well above the target biomass.  The previous assessment modeled the `r spp` using three state-specific fishing fleets with four fishery-independent surveys.  The model estimated sex-specific natural mortality, growth, and selectivity. 
+
+
+### History of Modeling Approaches 
+
+
+### Response to the 2011 STAR Panel Recommendations and SSC 
+
+*General Research Recommendations*
+
+Recommendation: Complete and review the Washington catch reconstruction and review the California and Oregon
+catch reconstructions. The accuracy and wide availability of consistent basic information is essential to the development of Pacific coast assessments. In addition to the raw data, the reliability and availability of more spatially dis-aggregated forms of the data should be investigated to determine if they could be used to develop more spatially explicit models without causing sacrifices in accuracy.
+
+\begin{itemize}
+
+  \item Response: 
+
+\end{itemize}
+
+Recommendation: The difficulties encountered in the Dover sole assessment and some other flatfish assessments with respect to the linkage between selectivities require addressing. Although in many instances sized based selectivity may be appropriate, when sexes separate spatially there is a requirement for models to at least be able to investigate complete independence between genders. It is important that this be implemented in an updated version of SS.
+
+\begin{itemize}
+
+  \item Response: 
+
+\end{itemize}
+
+Recommendation: The panel investigated the use of age-specific natural mortality in both assessments presented during the STAR panel. In each case, one of the reasons for exploring different mortality schedules was the difficulty in fitting the imbalanced abundance at age information (as seen through residuals to fits), either in the sex ratio at older ages (Dover sole) or the ratio of young to old fish (Sablefish). The use of Lorenzen M based on a decline in natural mortality by the inverse of the growth rate implies a link with predation; however, wider use and development of some guidance on the appropriateness of the implementation in other stock assessments should be investigated.
+
+\begin{itemize}
+
+  \item Response: 
+
+\end{itemize}
+
+Recommendation: Currently the only available error distribution for age information is the multinomial probability
+function. It appears that this may have some impact with respect to underestimating strong yearclasses and it would be desirable to explore the use of alternative error assumptions in order to analyse survey information, in particular where variance estimates in catches-at-age may be less than independent on abundance.
+
+\begin{itemize}
+
+  \item Response: 
+
+\end{itemize}
+
+Recommendation: There should be new studies of maturity by length and age based on more comprehensive coastwide and depth-based sampling and using histological techniques for determining maturity stage. Given that there is uncertainty regarding the temporal stability of maturity schedules, there should be periodic monitoring to explore for changes in maturity.
+
+\begin{itemize}
+
+  \item Response: 
+
+\end{itemize}
+
+Recommendation: Update the STAR Terms of Reference to ensure that assessment documents include standard plots (or tables) of likelihood profiles that include likelihood components by data source and fleet. Such plots are an important diagnostic tool for displaying tensions among data sources.profiles. 
+
+\begin{itemize}
+
+  \item Response: 
+
+\end{itemize}
+
+*Recommendations Specific to `r spp`*
+
+Recommendation: Researching ageing error, particularly aging bias, is important for `r spp` given the current
+base models difficulty with reconciling some tensions between different data sources regarding the sex ratio at the oldest ages. In addition, the ability of the model to track cohorts accurately would be significantly disrupted if there were severe size-based bimodality in cohorts caused by vastly different times of settlement (`r spp` are thought to have a larval period of 6-18 months). Consequently, larval period should also be examined.
+
+\begin{itemize}
+
+  \item Response: 
+
+\end{itemize}
+
+
+Recommendation: For the NWFSC WCGBT survey, raw age and length information appeared to imply persistently different sex ratios when viewed in isolation. The concern is that there is some unrepresentative sampling occurring in the age distribution as ages are sub-sampled from length. The sampling procedure should be investigated more closely and potentially improved.
+
+\begin{itemize}
+
+  \item Response: 
+
+\end{itemize}
+
+Recommendation: The conclusions of the NMFS workshop on developing priors on catchability were not available to the Panel. These should be made available and the information reconsidered specifically with respect to `r spp`, in an attempt to reconcile the relatively low catchability estimates for the surveys, particularly the NWFSC WCGBT survey which is thought to cover the majority of the stock distribution.
+
+\begin{itemize}
+
+  \item Response: 
+
+\end{itemize}
+
+Recommendation: Having simplified the model compared to previous assessments, especially with respect to uniform growth, it is important to continue investigating if this is likely to introduce undesirable levels of bias into the assessment process as more information becomes available. Spatial information on the distribution by age/size of females, particularly in the southern part of the range, particularly across the stratification boundaries of the survey as well as between stocks, should be the primary focus of this work. 
+
+\begin{itemize}
+
+  \item Response: 
+
+\end{itemize}
+
+### Response to Groundfish Subcommittee Requests 
+
+To be completed after the STAR panel.
+
