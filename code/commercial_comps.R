@@ -17,52 +17,27 @@ bds_file = "PacFIN.DOVR.bds.13.Aug.2020.RData"
 bds_file = "PacFIN.DOVR.bds.12.Feb.2021.RData"
 load(file.path(getwd(), "commercial_comps", "pacfin", bds_file))
 out = bds.pacfin #PacFIN.DOVR.bds.13.Aug.2020
-
-# Modify the column names to the new structure
-out_mod = cleanColumns(data = out)
-
-# remove records from INPFC_AREA == ZZ (outside the EEZ)
-rm = which(out_mod$INPFC_AREA == "ZZ")
-out_mod = out_mod[-rm, ]
-
-# Remove Oregon SAMPLE_TYPE_DESC == "Special request" old - SAMPLE_QUALITY == 63
-# These records either have EXP_WT/EXPANDED_SAMPLE_WEIGHT of 0 or NA
-# Ali has said that these records were special samples which typically would
-# be removed from the data set.
-# Should be removed via cleanPacFIN 
+bds_file = "PacFIN.DOVR.bds.12.Feb.2021_check"
 
 # Example code below from the updated PacFIN.Utilities package
-Pdata <- cleanPacFIN(Pdata = out_mod,
+Pdata <- cleanPacFIN(Pdata = out,
 					 keep_age_method = c("B", "BB", 1),
   					 CLEAN = TRUE, 
-  					 verbose = TRUE,
-  					 calc_lw = FALSE)
+  					 verbose = TRUE)
 
-# Need to think about better way to define fleet in cleanPacFIN
-# How to combine geargroups and areas
-
-# N sample weights not available for OR or CA
-#  (note these are not removed with CLEAN): 24126, 84084
-#> table(Pdata$state)
-#    CA     OR     WA 
-# 84084 150864  56554 
-# So essentially all CA samples do not have weights and a subset of OR.
-# Turns out the OR samples without EXP_WT are special samples so we are ok.
-# However, for the state of CA all SPECIES_WGT (SPECIES_WEIGHT_LBS ), 
-# FEMALES_NUM (NUMBER_OF_MALES), and MALES_NUM (NUMBER_OF_FEMALES) are NA
-
-
-# Pdata = out_mod
-# keep_inpfc = c(NA, "VUS","CL","VN","COL","NC","SC","EU","CP","EK","MT")
-# keep_sample_type = c("", "M")
-# keep_sample_method = "R"
-# keep_age_method = NULL
-# keep_missing_lengths = FALSE
-# keep_states = c("WA", "OR", "CA")
-# area = "US"
-# CLEAN = TRUE
-# spp = NULL
-# verbose = TRUE
+# N SAMPLE_TYPEs changed from M to S for special samples from OR: 0
+# N not in keep_sample_type (SAMPLE_TYPE): 57790
+# N not in keep_sample_method (SAMPLE_METHOD): 24
+# N with SAMPLE_NO of NA: 0
+# N without length: 1605
+# N without age: 202318
+# N without length and age: 202350
+# N records: 292378
+# N remaining if CLEAN: 227326
+# N records will be removed if CLEAN: 65052
+# The following are not removed with CLEAN ...
+# N sample weights not available for OR: 0
+# N sample weights not available for CA: 84959
 
 # Load in sex specific growth estimates from the survey
 load(file.path(dir, "biology", "growth_estimates_survey.Rdat"))
@@ -87,86 +62,85 @@ Pdata$fleet[Pdata$state == "CA"] = "CA"
 ##########################################################################################
 quantile(Pdata$lengthcm, na.rm = TRUE)
 find = which(Pdata$lengthcm < 10)
-# These two records were in cm rather than mm to start so fix
-# Pdata[find,"lengthcm"] = Pdata[find,"lengthcm"] * 10
-
-# Currently can't remove and data because the EF1_Denominator check errors out for OR
-# if the number of sex samples do not match....
 
 # Check lengths by sex
 # These are just starting values - estimates will be based on sex
-# k = 0.128; Linf = 47.8; L0 = 10.5; CV1 = 0.20; CV2 = 0.10
-# Par = list(k, Linf, L0, CV1, CV2)
-# Pdata = checkLenAge(Pdata = Pdata, Par = Par, keepAll = TRUE, Optim = TRUE)
+k = 0.128; Linf = 47.8; L0 = 10.5; CV1 = 0.20; CV2 = 0.10
+Par = list(k, Linf, L0, CV1, CV2)
+Pdata = checkLenAge(Pdata = Pdata, Par = Par, keepAll = TRUE, Optim = TRUE)
 # # See which records are outside 4*sd
-# remove = which(Pdata[,'lengthcm'] > Pdata[,'Lhat_high'] | Pdata[,'lengthcm'] < Pdata[,'Lhat_low'])
-# plot(Pdata[,"age"], Pdata[,"lengthcm"], type = 'pch', col = 'grey', xlim = c(0,80))
-# points(Pdata[remove, "age"], Pdata[remove, "lengthcm"], pch = 16, col = 'red', lwd = 3)
-# Pdata[remove, c("lengthcm", "age")] = NA
-# 
-# # quantile(Pdata$age, na.rm = TRUE)
-# remove = which(Pdata$lengthcm > 70 | Pdata$age > 70)
+remove = which(Pdata[,'lengthcm'] > Pdata[,'Lhat_high'] | Pdata[,'lengthcm'] < Pdata[,'Lhat_low'])
+#plot(Pdata[,"age"], Pdata[,"lengthcm"], type = 'pch', col = 'grey', xlim = c(0,80))
+#points(Pdata[remove, "age"], Pdata[remove, "lengthcm"], pch = 16, col = 'red', lwd = 3)
+Pdata[remove, c("lengthcm", "age")] = NA
+ 
+quantile(Pdata$age, na.rm = TRUE)
+remove = which(Pdata$lengthcm > 70 | Pdata$age > 70)
 # # # 4 total records being removed: 1 length 91 cm and 3 ages 71, 90, and 113
-# Pdata[remove, c("lengthcm", "age")] = NA
-
+Pdata[remove, c("lengthcm", "age")] = NA
 
 ####################################################################################################
 
-# remove CA records because of the missing SAMPLE_WEIGHTS / SPECIES_WGT
-Pdata = Pdata[Pdata$state != "CA", ]
-
-# These are sample numbers that had NAs for fish lengths and hence the
-# totals do not add up now that the NAs were removed via cleanPacFIN
-badOR = which(Pdata$SAMPLE_NO %in% 
-			c("OR980886", "OR970459", "OR072127", "OR103053", "OR100805", 
-			  "OR093631"))
-Pdata = Pdata[-badOR, ]
-
-# The current pull is missing ROUND_WEIGTH_LBS. There was discussion that this
-# may have been collapsed into LANDED_WEIGHT_LBS (which is converted to 
-# TOTAL_WGT). Test this out for WA.
-Pdata$RWT_LBS = Pdata$TOTAL_WGT
-
-# This calculation is currently super slow...
-start = Sys.time()
-test <- getExpansion_1(Pdata = Pdata,
+Pdata_exp <- getExpansion_1(Pdata = Pdata,
 					   fa = fa, fb = fb, ma = ma, mb = mb, ua = ua, ub = ub)
-end = Sys.time()
 
-# Remove CA catches because I removed CA records due to issues
-catch = catch[,-2]
-test <- getExpansion_2(Pdata = test, 
+Pdata_exp <- getExpansion_2(Pdata = Pdata_exp, 
 					   Catch = catch, 
 					   Units = "MT",
-  					   stratification.cols = c("state", "geargroup"))
+  					   stratification.cols = c("state", "geargroup"),
+  					   savedir = file.path(dir, "commercial_comps"))
 
-test$Final_Sample_Size <- capValues(test$Expansion_Factor_1_L * test$Expansion_Factor_2)
+Pdata_exp$Final_Sample_Size <- capValues(Pdata_exp$Expansion_Factor_1_L * Pdata_exp$Expansion_Factor_2)
 
-comps <- getComps(test[!is.na(test$lengthcm), ], 
+comps <- getComps(Pdata = Pdata_exp[!is.na(Pdata_exp$lengthcm), ], 
 				  Comps = "LEN")
-compsSR <- doSexRatio(comps)
+
+# Commenting out for now because I don't want to assign unsexed 
+# due to the dimorphic growth
+# There area a fair number of U in CA and in the early years of WA
+# compSR <- doSexRatio(CompData = comps, 
+# 					 ratioU = 0.5, 
+# 					 maxsizeU = 25, 
+# 					 savedir = file.path(dir, "commercial_comps"))
 
 myLbins = c(seq(8, 60, 2))
 out_name = sub(pattern = "(.*)\\..*$", replacement = "\\1", bds_file)
+out_name = paste0(out_name, "_check")
 
-writeComps(inComps = compsSR, 
-		   returns = "FthenM",
-		   fname = file.path(dir, "commercial_comps", "forSS", paste0("Length_",out_name, ".csv")), 
+writeComps(inComps = comps, 
+		   fname = file.path(dir, "commercial_comps", "forSS", paste0("Lengths_", out_name, ".csv")), 
 		   lbins = myLbins, 
+		   sum1 = TRUE, 
 		   partition = 2, 
 		   dummybins = FALSE)
 
+# writeComps(inComps = compSR, 
+# 		   fname = file.path(dir, "commercial_comps", "forSS", paste0("Lengths_", out_name, "_sexRatio_applied.csv")), 
+# 		   lbins = myLbins, 
+# 		   sum1 = TRUE, 
+# 		   partition = 2, 
+# 		   dummybins = FALSE)
+
 # Calculate the expansion for age data
-test$Final_Sample_Size = capValues(test$Expansion_Factor_1_A * test$Expansion_Factor_2)
-comps <- getComps(test[!is.na(test$age), ], 
-				  Comps = "Age")
-compsSR <- doSexRatio(comps)
+Pdata_exp$Final_Sample_Size = capValues(Pdata_exp$Expansion_Factor_1_A * Pdata_exp$Expansion_Factor_2)
+
+age_comps <- getComps(Pdata_exp[!is.na(Pdata_exp$age), ], 
+				      Comps = "Age")
+
+#age_compsSR <- doSexRatio(age_comps)
 
 myAbins = 1:60
-writeComps(inComps = compsSR, 
-		   returns = "FthenM",
+# writeComps(inComps = age_compsSR, 
+# 		   fname = file.path(dir, "commercial_comps", "forSS", paste0("Age_", out_name, "_sexRatio_applied.csv")), 
+# 		   abins = myAbins, 
+# 		   sum1 = TRUE, 
+# 		   partition = 2, 
+# 		   dummybins = FALSE)
+
+writeComps(inComps = age_comps, 
 		   fname = file.path(dir, "commercial_comps", "forSS", paste0("Age_", out_name, ".csv")), 
 		   abins = myAbins, 
+		   sum1 = TRUE, 
 		   partition = 2, 
 		   dummybins = FALSE)
 
@@ -175,69 +149,70 @@ writeComps(inComps = compsSR,
 # Let's format the csv files for direct use in SS
 #####################################################################################
 
-out = read.csv(file.path(dir, "commercial_comps", "forSS", paste0("Length_",out_name, ".csv")), 
+out = read.csv(file.path(dir, "commercial_comps", "forSS", paste0("Lengths_",out_name, ".csv")), 
 				skip = 3, header = TRUE)
-start = which(as.character(out[,1]) %in% c(" Females then males ")) + 2
-end   = nrow(out)
+start = 1 #which(as.character(out[,1]) %in% c(" Females then males ")) + 2
+end   = which(as.character(out[,1]) %in% c(" Females only "))-1 #nrow(out)
 cut_out = out[start:end,]
 
 # format the length comps
-cut_out$fleetnum = NA
-#cut_out$fleetnum[cut_out$fleet =="CA"] = 1
-cut_out$fleetnum[cut_out$fleet =="WA_OR"] = 2
+cut_out$fleet[cut_out$fleet =="CA"] = 1
+cut_out$fleet[cut_out$fleet =="WA_OR"] = 2
 
 ind = which(colnames(cut_out) %in% paste0("L",min(myLbins))):
 	  which(colnames(cut_out) %in% paste0("L",max(myLbins), ".1"))
-format = cbind(cut_out$fishyr, cut_out$season, cut_out$fleetnum, cut_out$sex, cut_out$partition, cut_out$InputN, cut_out[,ind])
+format = cbind(cut_out$fishyr, cut_out$month, cut_out$fleet, cut_out$sex, cut_out$partition, cut_out$InputN, cut_out[,ind])
 colnames(format) = c("fishyr", "month", "fleet", "sex", "part", "InputN", colnames(cut_out[ind]))
 format = format[format$fishyr != 2021, ]
 write.csv(format[,!(colnames(format) %in% c("Nsamps"))], 
-		  file = file.path(dir, "commercial_comps", "forSS", paste0("Lcomps_", out_name, ".csv")), 
+		  file = file.path(dir, "commercial_comps", "forSS", paste0("Lcomps_for_SS_", out_name, ".csv")), 
 		  row.names = FALSE)
+
 
 # Let's create the sample table
 temp = Pdata[!is.na(Pdata$lengthcm) & Pdata$fishyr < 2021,]
-Nfish = table(temp$fishyr, temp$fleet)
-colnames(Nfish) = c("WA_OR") #c("CA", "WA_OR")
+Nfish = table(temp$fishyr, temp$state) #temp$fleet)
+colnames(Nfish) = sort(unique(temp$state)) #c("WA_OR") #c("CA", "WA_OR")
 
-aa = unique(temp$fleet)
+aa = sort(unique(temp$state)) #unique(temp$fleet)
 yy = sort(unique(temp$fishyr))
 Ntows = matrix(0, length(yy), length(aa))
 for(y in 1:length(yy)){
 	for(a in 1:length(aa)){
-		ind = which(temp$fishyr == yy[y] & temp$fleet  == aa[a])
+		ind = which(temp$fishyr == yy[y] & temp$state  == aa[a])
 		if(length(ind) > 0) {Ntows[y, a] = length(unique(temp$SAMPLE_NO[ind])) }
 	}
 }
 colnames(Ntows) = aa
 rownames(Ntows) = yy
 
-samples = cbind(rownames(Ntows), #Ntows[,"CA"] , Nfish[,"CA"], 
-			    Ntows[,"WA_OR"] , Nfish[,"WA_OR"])
+samples = cbind(rownames(Ntows), Ntows[,"CA"] , Nfish[,"CA"], 
+			    Ntows[,"OR"] , Nfish[,"OR"],  Ntows[,"WA"] , Nfish[,"WA"])
 
-colnames(samples) = c("Year", #"CA Ntows", "CA Nfish",
-	 				  "OR/WA Ntows", "OR/WA Nfish")
+colnames(samples) = c("Year", "CA Ntows", "CA Nfish",
+	 				  "OR Ntows", "OR Nfish", "WA Ntows", "WA Nfish")
 write.csv(samples, 
-		  file = file.path(dir, "commercial_comps", "forSS", paste0("Com_Length_Samples_ORWA_ONLY.csv")), 
+		  file = file.path(dir, "commercial_comps", "forSS", paste0("Com_Length_Samples_by_State.csv")), 
 		  row.names = FALSE)
 
 ###############################################################################################
 # Format Age Samples
 out = read.csv(file.path(dir, "commercial_comps", "forSS", paste0("Age_",out_name, ".csv")), 
 				skip = 3, header = TRUE)
-start = which(as.character(out[,1]) %in% c(" Females then males ")) + 2
-end   = nrow(out)
+start = 1 #which(as.character(out[,1]) %in% c(" Females then males ")) + 2
+end   = which(as.character(out[,1]) %in% c(" Females only ")) - 1 #nrow(out)
 cut_out = out[start:end,]
 
 # format the length comps
-cut_out$fleetnum = NA
-#cut_out$fleetnum[cut_out$fleet =="CA"] = 1
-cut_out$fleetnum[cut_out$fleet =="WA_OR"] = 2
+cut_out$fleet[cut_out$fleet =="CA"] = 1
+cut_out$fleet[cut_out$fleet =="WA_OR"] = 2
+cut_out$ageErr[cut_out$fleet == 1] = 2
+cut_out$ageErr[cut_out$fleet == 2] = 1
 
 ind = which(colnames(cut_out) %in% paste0("A",min(myAbins))):
 	  which(colnames(cut_out) %in% paste0("A",max(myAbins), ".1"))
-format = cbind(cut_out$fishyr, cut_out$season, cut_out$fleetnum, cut_out$sex, cut_out$partition, 
-			   NA, -1, -1, cut_out$InputN, cut_out[,ind])
+format = cbind(cut_out$fishyr, cut_out$month, cut_out$fleet, cut_out$sex, cut_out$partition, 
+			   cut_out$ageErr, cut_out$LbinLo, cut_out$LbinHi, cut_out$InputN, cut_out[,ind])
 colnames(format) = c("fishyr", "month", "fleet", "sex", "part", "AgeErr", "Low", "High", "InputN", colnames(cut_out[ind]))
 format = format[format$fishyr != 2021, ]
 write.csv(format[,!(colnames(format) %in% c("Nsamps"))], 
@@ -246,26 +221,26 @@ write.csv(format[,!(colnames(format) %in% c("Nsamps"))],
 
 # Let's create the sample table
 temp = Pdata[!is.na(Pdata$age) & Pdata$fishyr < 2021,]
-Nfish = table(temp$fishyr, temp$fleet)
-colnames(Nfish) = c("WA_OR") #c("CA", "WA_OR")
+Nfish = table(temp$fishyr, temp$state)
+colnames(Nfish) = unique(temp$state) 
 
-aa = unique(temp$fleet)
+aa = sort(unique(temp$state))
 yy = sort(unique(temp$fishyr))
 Ntows = matrix(0, length(yy), length(aa))
 for(y in 1:length(yy)){
 	for(a in 1:length(aa)){
-		ind = which(temp$fishyr == yy[y] & temp$fleet  == aa[a])
+		ind = which(temp$fishyr == yy[y] & temp$state  == aa[a])
 		if(length(ind) > 0) {Ntows[y, a] = length(unique(temp$SAMPLE_NO[ind])) }
 	}
 }
 colnames(Ntows) = aa
 rownames(Ntows) = yy
 
-samples = cbind(rownames(Ntows), #Ntows[,"CA"] , Nfish[,"CA"], 
-			    Ntows[,"WA_OR"] , Nfish[,"WA_OR"])
+samples = cbind(rownames(Ntows), Ntows[,"CA"] , Nfish[,"CA"], 
+			    Ntows[,"OR"] , Nfish[,"OR"], Ntows[,"WA"] , Nfish[,"WA"])
 
-colnames(samples) = c("Year", #"CA Ntows", "CA Nfish",
-	 				  "OR/WA Ntows", "OR/WA Nfish")
+colnames(samples) = c("Year", "CA Ntows", "CA Nfish",
+	 				  "OR Ntows", "OR Nfish", "WA Ntows", "WA Nfish")
 write.csv(samples, 
-		  file = file.path(dir, "commercial_comps", "forSS", paste0("Com_Age_Samples_ORWA_ONLY.csv")), 
+		  file = file.path(dir, "commercial_comps", "forSS", paste0("Com_Age_Samples_by_State.csv")), 
 		  row.names = FALSE)

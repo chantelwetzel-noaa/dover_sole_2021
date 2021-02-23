@@ -37,6 +37,7 @@ SSplotComparisons(mysummary,
 				  pdf = TRUE)
 
 catch1 = SS_output(file.path(wd, "_bridging", "0.2.0_update_catches_2011"))
+catch1.1 = SS_output(file.path(wd, "_bridging", "0.2.0_update_catches_2011_correct"))
 catch2 = SS_output(file.path(wd, "_bridging", "0.2.1_update_catches_2011_ca_discard"))
 SS_plots(catch2, plot = 2)
 

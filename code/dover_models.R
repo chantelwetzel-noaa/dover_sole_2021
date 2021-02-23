@@ -7,6 +7,15 @@
 devtools::load_all("C:/Users/Chantel.Wetzel/Documents/GitHub/r4ss")
 wd = "C:/Assessments/2021/dover_sole_2021/models"
 
+model = "_2011_model"
+mod_2011 = SS_output(file.path(wd, model))
+
+model = "2.3_bio_offsets_cleaned_files"
+update = SS_output(file.path(wd, "_bridging", model))
+
+model = "0.1.1_update_fleet_structure_new_comp_test"
+compare = SS_output(file.path(wd, "_bridging", model))
+
 model = "0.0_updated_data_model_structure"
 start = SS_output(file.path(wd, model))
 # TOTAL 6108.91 NA
@@ -45,13 +54,13 @@ SSplotComparisons(mysummary,
 ####################################################################
 
 model = "1.0_selex_fishery"
-selex = SS_output(file.path(wd, model))
+selex_fishery = SS_output(file.path(wd, model))
 SS_plots(selex, plot = c(2, 9, 16) )
 # NLL = 6106.68 - fit the length comps better, age comps slightly worse
 
 
 model = "1.1_selex_survey"
-selex = SS_output(file.path(wd, model))
+selex_survey = SS_output(file.path(wd, model))
 SS_plots(selex, plot = c(2, 9))#, 16) )
 # NLL = 6087.79
 # Model slogs through phase 7 - male natural mortality 
@@ -85,3 +94,180 @@ SS_tune_comps(replist = no_dw, option = "MI", dir = file.path(wd, model))
 model = "1.6_selex_dw_dm"
 dm = SS_output(file.path(wd, model))
 SS_plots(dm, plot = c(2, 16, 17, 18, 19))
+
+
+model = "1.8_selex_dome_m"
+selex_dome = SS_output(file.path(wd, model))
+SS_plots(selex)
+
+#####################################################################
+modelnames <- c("2011", "Data Update", "Fishery Selex", "Survey Selex", "OR-WA Dome (fix Ms)")
+mysummary <- SSsummarize(list(mod_2011, update, selex_fishery, selex_survey,selex_dome))
+
+SSplotComparisons(mysummary, 
+				  filenameprefix = "1.0_selex_",
+				  legendlabels = modelnames, 	
+				  plotdir = file.path(wd, "_plots"),
+				  pdf = TRUE)
+####################################################################
+
+model = "2.0_survey_time_min_n"
+timing = SS_output(file.path(wd, model))
+SS_plots(update)
+SS_tune_comps(replist = update, option = "MI", dir = file.path(wd, model))
+
+#####################################################################
+modelnames <- c("2011", "Data Update", "Selex (fix Ms)", "Survey Timing")
+mysummary <- SSsummarize(list(mod_2011, update, selex_dome, timing))
+
+SSplotComparisons(mysummary, 
+				  filenameprefix = "2.0_timing_min_n_",
+				  legendlabels = modelnames, 	
+				  plotdir = file.path(wd, "_plots"),
+				  pdf = TRUE)
+####################################################################
+
+
+model = "2.1.0_dw_mi"
+mi = SS_output(file.path(wd, model))
+SS_plots(mi, plot = c(2, 15:19))
+SS_tune_comps(replist = mi, option = "MI", dir = file.path(wd, model))
+# NLL = 5074.76 Length = 783.22 Age = 1666.84, Discard = 2739.16
+
+model = "2.1.1_dw_mi_disc_rates"
+disc_t = SS_output(file.path(wd, model))
+SS_plots(disc_t, plot = c(2, 15:19))
+# NLL = 1892.83, Length = 496.815, Age = 1524.2, Discard = 22.58
+SS_tune_comps(replist = disc_t, option = "MI", dir = file.path(wd, model))
+SSMethod.TA1.8(disc_t, type='len', fleet = 1, part=1) # discards
+#CA      w        lo        hi 
+#0.2234719 0.1420177 0.5736319 
+#OR-WA    w        lo        hi 
+# 0.3913724 0.2478838 0.8346797 
+SSMethod.TA1.8(disc_t, type='len', fleet = 1, part=2) # retained
+#CA      w        lo        hi 
+#0.6922740 0.4496556 1.2796898 
+#ORWA    w        lo        hi 
+#1.3308810 0.9342335 2.2067545
+
+model = "2.1.2_dw_mi_ret_blocks"
+disc_block = SS_output(file.path(wd, model))
+SS_plots(disc_block)
+SS_tune_comps(replist = disc_block, option = "Francis", dir = file.path(wd, model))
+# NLL = 1758.75, Length = 480.4, Age = 1528, Discard = -88.576
+SSMethod.TA1.8(disc_t, type='len', fleet = 1, part=1)
+SSMethod.TA1.8(disc_t, type='len', fleet = 1, part=2)
+# SS_plots plot 8 SPR erroring during plotting
+
+model = "2.1.3_dw_francis_ret_blocks"
+disc_block_francis = SS_output(file.path(wd, model))
+SS_plots(disc_block_francis, plot = c(1:7, 9:22))
+
+#####################################################################
+modelnames <- c("2011", "Data Update","MI - Discard Block & t-dist", "Francis - Discard Block & t-dist")
+mysummary <- SSsummarize(list(mod_2011, update, disc_block, disc_block_francis))
+
+SSplotComparisons(mysummary, 
+				  filenameprefix = "2.1_discard_",
+				  legendlabels = modelnames, 	
+				  plotdir = file.path(wd, "_plots"),
+				  pdf = TRUE)
+####################################################################
+
+model = "3.0.0_data_ae_cap"
+cap = SS_output(file.path(wd, model))
+SS_plots(cap, plot = c(1:7, 9:22))
+
+model = "3.0.1_data_ae_cap_cdfw"
+cdfw = SS_output(file.path(wd, model))
+SS_plots(cdfw, plot = c(1:7, 9:22))
+
+model = "3.0.2_data_catch_fix"
+catch = SS_output(file.path(wd, model))
+SS_plots(catch, plot = c(1:7, 9:22))
+
+model = "3.0.3_data_lengths"
+len = SS_output(file.path(wd, model))
+SS_plots(len, plot = c(1:7, 9:22))
+
+
+model = "3.0.4_data_ages"
+age = SS_output(file.path(wd, model))
+SS_plots(age)
+SS_tune_comps(replist = age, option = "MI", dir = file.path(wd, model))
+
+
+model = "3.0.5_data_calcom"
+calcom = SS_output(file.path(wd, model))
+SS_tune_comps(replist = calcom, option = "MI", dir = file.path(wd, model))
+model = "3.0.5_data_calcom_sub"
+calcom2 = SS_output(file.path(wd, model))
+SS_plots(calcom)
+
+model = "3.0.6_data_pacfin_dw_mi"
+mi = SS_output(file.path(wd, model))
+
+#####################################################################
+modelnames <- c("2011", "Data Update", 
+				"AE", "Catch Fix", "PacFIN Lengths", 
+				"PacFIN Ages", "MI")
+mysummary <- SSsummarize(list(mod_2011, update,  cdfw, catch, 
+						len, age,  mi))
+
+SSplotComparisons(mysummary, 
+				  filenameprefix = "3.0_data_",
+				  legendloc = c(0.05, 0.95), 
+				  legendlabels = modelnames, 	
+				  plotdir = file.path(wd, "_plots"),
+				  pdf = TRUE)
+
+modelnames <- c("PacFIN Comps", "Calcom Comps", "Calcom Similar Years")
+mysummary <- SSsummarize(list(age, calcom, calcom2))
+
+SSplotComparisons(mysummary, 
+				  filenameprefix = "3.0_pacfin_calcom_",
+				  legendloc = 'topright', #c(0.05, 0.95), 
+				  legendlabels = modelnames, 	
+				  plotdir = file.path(wd, "_plots"),
+				  pdf = TRUE)
+
+####################################################################
+ 
+model = "3.0.7_data_calcom_pacfin_mi"
+dw = SS_output(file.path(wd, model))
+SS_plots(dw, sexes = 1:2)
+# NLL = 1751.74
+
+model = "3.1.0_selex_slope_surveys"
+slope = SS_output(file.path(wd, model))
+SS_plots(slope, plot = c(2, 16), sexes = 1:2)
+# NLL = 1820.95
+# Need sex-specific selex to fit each sex. 
+# Turned off forecast devs (phase 7)
+
+model = "3.1.1_selex_slope_sex_specific"
+sex_slope = SS_output(file.path(wd, model))
+SS_plots(sex_slope, plot = c(2, 16), sexes = 1:2)
+# Sex specific selex with females forced to by asymptotic.
+# NLL = 1768.95
+
+# Still missing the male peak of the afsc slope
+model = "3.1.2_selex_slope_male_offset_with_tri"
+male_slope_tri = SS_output(file.path(wd, model))
+SS_plots(male_slope, plot = c(2, 16), sexes = 1:2)
+# NLL = 1767.2 - only afsc slope
+# Allow both slope and tri to have males offset
+# NLL = 1764 - the improvement comes from the triennial
+# afsc slope females - males offset, nwfsc slope males - females
+
+model = "3.1.3_selex_slope_male_offset"
+male_slope = SS_output(file.path(wd, model))
+SS_plots(male_slope, plot = c(2, 16), sexes = 1:2)
+# NLL = 1755
+
+# Try a single selex curve for the triennial and allow wcgbt to be domed
+model = "3.1.4_selex_wcgbt"
+wcgbt = SS_output(file.path(wd, model))
+SS_plots(wcgbt, sexes = 1:2)
+# NLL = 1685.6, wcgbt = 115 (down from 177 when female asym)
+SS_tune_comps(replist = wcgbt, option = "MI", dir = file.path(wd, model))

@@ -31,15 +31,18 @@ or_hist = or_hist[or_hist$SPECIES_NAME == "Dover Sole", ]
 # Theresa directed me to use the historical landings from 2011
 wa_hist = read.csv(file.path(dir, "2011_landings.csv"))
 
+or_wa_hist = read.csv(file.path(dir, "or", "ca_historical_caught_in_or_wa.csv"))
+
 pound_conv = 2204.62262
 
 #-----------------------------------------------------------------------------------
 # Load the PacFIN Commercial Data
 #-----------------------------------------------------------------------------------
 
-load(file.path(dir, "pacfin", "kj", "DOVR.CompFT.05.Oct.2020.RData"))
-pacfin = data
-pacfin$round_mt = pacfin$ROUND_WEIGHT_LBS / pound_conv
+#load(file.path(dir, "pacfin", "kj", "DOVR.CompFT.05.Oct.2020.RData"))
+load(file.path(dir, "pacfin", 'PacFIN.DOVR.Catch.INPFC.28.Jan.2021.RData'))
+pacfin = PacFIN.DOVR.Catch.INPFC.28.Jan.2021[[1]]
+pacfin$round_mt = pacfin$ROUND_WEIGHT_MTONS #/ pound_conv
 
 #-----------------------------------------------------------------------------------
 # Evaluate the commercial landings
@@ -78,6 +81,8 @@ catch_area_df = data.frame(year = sort(unique(tmp$year)),
 
 catch_area_df[is.na(catch_area_df)] = 0
 
+catch_area_df = catch_area_df[catch_area_df$year != 2021, ]
+
 percent_by_area = round(catch_area_df[ , 2:dim(catch_area_df)[2]] / 
 					    apply(catch_area_df[ , 2:dim(catch_area_df)[2]], 1, sum), 2)
 # Up until ~ 1997 the majority of catch was landed in California but since the majority of catches
@@ -112,6 +117,8 @@ or_percent_by_gear = round(or_catch_gear_df[ , 2:dim(or_catch_gear_df)[2]] /
 or_hist_df = data.frame (year = sort(unique(or_catch_gear_df$year)), 
 						 catch_mt = apply(or_catch_gear_df[,-1], 1, sum))
 
+# remove records before 1911 to be consistent with ca later
+or_hist_df = or_hist_df[or_hist_df$year >= 1911, ]
 
 #---------------------------------------------------------------------------
 # Historical Washington commercial catches
@@ -119,6 +126,16 @@ or_hist_df = data.frame (year = sort(unique(or_catch_gear_df$year)),
 tmp = wa_hist[wa_hist$Year < 1981, ]
 wa_hist_df = data.frame (year = tmp$Year,
 					     catch_mt = tmp$WA)
+
+#---------------------------------------------------------------------------
+# Add in the catch excluded from the CA recon which were
+# attributed to OR and WA
+#---------------------------------------------------------------------------
+find = which(or_hist_df$year %in% or_wa_hist$Year)
+or_hist_df[find, 'catch_mt'] = or_hist_df[find, "catch_mt"] + or_wa_hist[, "Oregon"]
+
+find = which(wa_hist_df$year %in% or_wa_hist$Year) 
+wa_hist_df[find, 'catch_mt'] = wa_hist_df[find, 'catch_mt'] + or_wa_hist[,"Washington"]
 
 #---------------------------------------------------------------------------
 # Historical California commercial catches
@@ -143,14 +160,14 @@ all_com[all_com[,'year'] %in% catch_area_df$year, "ca"] = catch_area_df[,"ca"]
 all_com[all_com[,'year'] %in% catch_area_df$year, "or"] = catch_area_df[,"or"]
 all_com[all_com[,'year'] %in% catch_area_df$year, "wa"] = catch_area_df[,"wa"]
 # Historical catches
-all_com[all_com[,'year'] %in% wa_hist_df$year, "wa"] = wa_hist_df[all_com[,'year']  %in% wa_hist_df$year, 'catch_mt']
-all_com[all_com[,'year'] %in% or_hist_df$year, "or"] = or_hist_df[all_com[,'year']  %in% or_hist_df$year, 'catch_mt']
-all_com[all_com[,'year'] %in% ca_hist_df$year, "ca"] = ca_hist_df[all_com[,'year']  %in% ca_hist_df$year, 'catch_mt']
+all_com[all_com[,'year'] %in% wa_hist_df$year, "wa"] = wa_hist_df[wa_hist_df$year %in% all_com[,'year'], 'catch_mt']
+all_com[all_com[,'year'] %in% or_hist_df$year, "or"] = or_hist_df[or_hist_df$year %in% all_com[,'year'], 'catch_mt']
+all_com[all_com[,'year'] %in% ca_hist_df$year, "ca"] = ca_hist_df[ca_hist_df$year %in% all_com[,'year'], 'catch_mt']
 
 all_com[is.na(all_com)] = 0
 
 write.csv(all_com, 
-		  file = file.path(dir, "forSS", "commercial_catch_by_state.csv"), 
+		  file = file.path(dir, "forSS", "commercial_catch_by_state_new.csv"), 
 		  row.names = FALSE)
 
 
@@ -160,9 +177,8 @@ model_catch = rbind(cbind(as.numeric(all_com[,"year"]), 1, 1, round(all_com[,"ca
 colnames(model_catch) = c("Year", "Season", "Fleet", "Catch", "SE")
 
 write.csv(model_catch, 
-		  file = file.path(dir, "forSS", "model_commercial_catch.csv"), 
+		  file = file.path(dir, "forSS", "model_commercial_catch_new.csv"), 
 		  row.names = FALSE)
-
 
 
 #---------------------------------------------------------------------------
