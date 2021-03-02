@@ -9,6 +9,7 @@ wd = "C:/Assessments/2021/dover_sole_2021/models"
 
 model = "_2011_model"
 mod_2011 = SS_output(file.path(wd, model))
+# mod_2011$Pstar_sigma = 0.3893363
 
 model = "2.3_bio_offsets_cleaned_files"
 update = SS_output(file.path(wd, "_bridging", model))
@@ -18,6 +19,7 @@ compare = SS_output(file.path(wd, "_bridging", model))
 
 model = "0.0_updated_data_model_structure"
 start = SS_output(file.path(wd, model))
+# Pstar_sigma = 0.34
 # TOTAL 6108.91 NA
 # Survey -45.4593 NA
 # Discard 3327.33 NA
@@ -58,7 +60,6 @@ selex_fishery = SS_output(file.path(wd, model))
 SS_plots(selex, plot = c(2, 9, 16) )
 # NLL = 6106.68 - fit the length comps better, age comps slightly worse
 
-
 model = "1.1_selex_survey"
 selex_survey = SS_output(file.path(wd, model))
 SS_plots(selex, plot = c(2, 9))#, 16) )
@@ -75,6 +76,7 @@ model = "1.3_selex_dw_mi"
 dw = SS_output(file.path(wd, model))
 #SS_tune_comps(replist = dw, options = "MI", dir = file.path(wd, model))
 SS_plots(dw, plot = c(2, 16, 17, 18, 19))
+# Pstar Sigma = 0.175 (m's estimated)
 
 
 model = "1.4_selex_dw_francis"
@@ -225,7 +227,7 @@ modelnames <- c("PacFIN Comps", "Calcom Comps", "Calcom Similar Years")
 mysummary <- SSsummarize(list(age, calcom, calcom2))
 
 SSplotComparisons(mysummary, 
-				  filenameprefix = "3.0_pacfin_calcom_",
+				  filenameprefix = "3.0_pacfin_calcom_updated_",
 				  legendloc = 'topright', #c(0.05, 0.95), 
 				  legendlabels = modelnames, 	
 				  plotdir = file.path(wd, "_plots"),
@@ -269,5 +271,48 @@ SS_plots(male_slope, plot = c(2, 16), sexes = 1:2)
 model = "3.1.4_selex_wcgbt"
 wcgbt = SS_output(file.path(wd, model))
 SS_plots(wcgbt, sexes = 1:2)
-# NLL = 1685.6, wcgbt = 115 (down from 177 when female asym)
-SS_tune_comps(replist = wcgbt, option = "MI", dir = file.path(wd, model))
+# NLL = 1653.84
+
+model = "3.1.5_selex_ca"
+selex = SS_output(file.path(wd, model))
+SS_plots(selex, sexes = 1:2)
+# NLL = 1653.84
+
+####################################################################
+
+modelnames <- c("Start Model DW", "Slope Selex", "Tri Selex", "WCGBT Selex", "CA Selex")
+mysummary <- SSsummarize(list(dw, sex_slope, male_slope, wcgbt, selex))
+
+SSplotComparisons(mysummary, 
+				  filenameprefix = "3.1_selex_",
+				  ylimAdj  = 1.1,
+				  legendloc = 'topright', #c(0.05, 0.95), 
+				  legendlabels = modelnames, 	
+				  plotdir = file.path(wd, "_plots"),
+				  pdf = TRUE)
+
+####################################################################
+
+# Data remove 1991 ages - add corrected input samples size for ca ages
+model = "3.2.0_selex_data_dw"
+hess = SS_output(file.path(wd, model))
+SS_plots(hess)
+#SS_tune_comps(replist = data, option = "MI", dir = file.path(wd, model))
+# NLL = 1900.84
+# hess$Pstar_sigma = 0.1065432 with M's fixed
+
+model = "3.2.1_selex_data_est_m"
+m = SS_output(file.path(wd, model))
+# m$Pstar_sigma = 0.183 with M's estimated
+# Female M = 0.104, Male M = 0.101 (males estimated as offsets)
+
+
+# early or-wa selectivity - add female peak offset to the block
+model = "3.2.2_selex_early_wa"
+wa = SS_output(file.path(wd, model))
+SS_plots(wa, plot = c(2, 16))
+# NLL = 1903.3
+# Had to move the starting parameter for the male early peak to get a better visual fit
+# Added female peak offsets to the block and did get distint offset diff by block
+
+
