@@ -59,11 +59,11 @@ filter.dat = Format.AKSlope.fn(datTows = Dover.AK.28.MAr.2010,
 catch = filter.dat$datTows
 
 sci_name = "Microstomus_pacificus"
-
+obs_model = c(2,0) # do the gamma only for now
 # This is probably not necessarily needed
 strata.limits = data.frame('STRATA' = c("ca_or_wa", "ca", "or", "wa"), 
-                          'south_border'   = c(34.4, 34.5, 42.0, 46.0),
                           'north_border'   = c(49.0, 42.0, 46.0, 49.0), 
+                          'south_border'   = c(34.5, 34.5, 42.0, 46.0),
                           'shallow_border' = c( 183,  183, 183, 183), 
                           'deep_border'    = c(1280, 1280, 1280, 1280) )
 
@@ -82,6 +82,18 @@ test <- VAST_condition(conditiondir = wd,
                        sensitivity = FALSE)
 
 VAST_diagnostics(dir = wd)
+
+# Error message on March 2nd, 2021
+# Check bounds for the following parameters:
+#        Param starting_value Lower MLE Upper final_gradient
+# 2 ln_H_input              0    -5  -5     5     0.04259985
+# 
+# 
+# Warning message:
+# In nlminb(start = startpar, objective = fn, gradient = gr, control = nlminb.control,  :
+#   NA/NaN function evaluation
+#  
+
 
 
 # Got the following error - Turning off the Omega1 and Omega2 fixed this and resulted in a full run
@@ -106,18 +118,17 @@ catch = Out
 
 sci_name = "Microstomus_pacificus"
 # This is probably not necessarily needed
-strata.limits = data.frame('STRATA' = c("ca_or_wa", "ca", "or", "wa"), 
-                          'south_border'   = c(33.0, 33.0, 42.0, 46.0),
-                          'north_border'   = c(49.0, 42.0, 46.0, 49.0), 
-                          'shallow_border' = c( 183,  183, 183, 183), 
-                          'deep_border'    = c(1280, 1280, 1280, 1280) )
+#strata.limits = data.frame('STRATA' = c("ca_or_wa", "ca", "or", "wa"),
+#                          'north_border'   = c(49.0, 42.0, 46.0, 49.0),  
+#                          'south_border'   = c(33.0, 33.0, 42.0, 46.0),
+#                          'shallow_border' = c( 183,  183, 183, 183), 
+#                          'deep_border'    = c(1280, 1280, 1280, 1280) )
 
 
 Sim_Settings <- list( "Species" = paste0("NWFSC.Slope_", sci_name), 
                       "ObsModelcondition" = obs_model,
-                      "nknots" = 1000,
+                      "nknots" = 100,
                       "strata" = strata.limits,
-                      fine_scale = FALSE,
                       field = c(Omega1 = 0, Epsilon1 = 0, Omega2 = 0, Epsilon2 = 0)
                       )
 
@@ -126,8 +137,25 @@ test <- VAST_condition(conditiondir = wd,
                        spp = Sim_Settings$Species,
                        data = catch,
                        sensitivity = FALSE)
+# The above is not running - just creates the knots and stops without error
+
+settings <- get_settings(Sim_Settings)
+surveyspp <- get_spp(paste0("NWFSC.Slope_", sci_name))
+survey <- surveyspp["survey"]
+data = get_data(survey = survey, species = surveyspp["species"])
+
+VAST_do(conditiondir = wd,
+        settings = settings, 
+        Database = data,  
+        compiledir = wd)
+
 
 VAST_diagnostics(dir = wd)
+
+#> out$message
+#[1] "Please change model structure to avoid problems with parameter estimates and then re-try; see details in `?check_fit`\n"
+ 
+
 
 ############################################################################################
 #
@@ -141,8 +169,8 @@ wd = "C:/Assessments/2021/dover_sole_2021/vast/wcgbt/north_south_pt_reyes"
 sci_name = "Microstomus_pacificus"
 
 strata.limits = data.frame('STRATA' = c("coastwide", "south", "north"), 
-                          'south_border'   = c(32.0, 32.0, 38.0),
-                          'north_border'   = c(49.0, 38.0, 49.0), 
+                          'north_border'   = c(49.0, 38.0, 49.0),
+                          'south_border'   = c(32.0, 32.0, 38.0),                           
                           'shallow_border' = c(  55,   55,   55), 
                           'deep_border'    = c(1280, 1280, 1280) )
 
@@ -158,15 +186,18 @@ test <- VAST_condition(conditiondir = wd,
                        spp = Sim_Settings$Species,
                        sensitivity = FALSE)
 
-settings <- get_settings(Sim_Settings)
-surveyspp <- get_spp(paste0("NWFSC.Combo_", sci_name))
-survey <- surveyspp["survey"]
-data = get_data(survey = survey, species = surveyspp["species"])
+# settings <- get_settings(Sim_Settings)
+# surveyspp <- get_spp(paste0("NWFSC.Combo_", sci_name))
+# survey <- surveyspp["survey"]
+# data = get_data(survey = survey, species = surveyspp["species"])
+# 
+# VAST_do(Database = data, 
+#         settings = settings, 
+#         conditiondir = wd, 
+#         compiledir = wd)
+# 
+# VAST_diagnostics(dir = wd)
 
-VAST_do(Database = data, 
-        settings = settings, 
-        conditiondir = wd, 
-        compiledir = wd)
-
-VAST_diagnostics(dir = wd)
-
+Check bounds for the following parameters:
+       Param starting_value     Lower       MLE     Upper final_gradient
+44 logkappa2     -0.1053605 -6.470808 -2.462876 -2.462876    -0.03270074
