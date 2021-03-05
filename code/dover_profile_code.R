@@ -32,3 +32,29 @@ model_settings = get_settings(settings = list(base_name = base_name,
 											  jitter_fraction = 0.10))
 
 run_diagnostics(mydir = mydir, model_settings = model_settings)
+
+#######################################################################
+
+mydir = "C:/Assessments/2021/dover_sole_2021/models"
+base_name = "1.8_selex_dome_m"
+
+#offset
+get = get_settings_profile( parameters =  c("NatM_p_1_Fem_GP_1", "NatM_p_1_Mal_GP_1"),
+							low =  c(0.07, -0.35),
+							high = c(0.15, 0.35),
+							step_size = c(0.01, 0.10),
+							param_space = c('real', 'real'))
+
+# independent sex estimates
+get = get_settings_profile( parameters =  c("NatM_p_1_Fem_GP_1", "NatM_p_1_Mal_GP_1"),
+							low =  c(0.07, 0.07),
+							high = c(0.15, 0.15),
+							step_size = c(0.01, 0.01),
+							param_space = c('real', 'real'))
+
+model_settings = get_settings(settings = list(base_name = base_name,
+											  run = "profile",
+											  profile_details = get))
+
+run_diagnostics(mydir = mydir, model_settings = model_settings)
+

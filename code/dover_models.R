@@ -315,4 +315,111 @@ SS_plots(wa, plot = c(2, 16))
 # Had to move the starting parameter for the male early peak to get a better visual fit
 # Added female peak offsets to the block and did get distint offset diff by block
 
+# corret the input samples sizes for calcom
+model = '3.2.3_selex_early_wa_calcom_inputN'
+input_n = SS_output(file.path(wd, model))
+SS_plots(input_n)
+
+model = '3.2.4_selex_data_new_maturity'
+maturity = SS_output(file.path(wd, model))
+SS_plots(maturity, plot = c(1:4))
+
+####################################################################
+modelnames <- c("Old Maturity", "New Maturity")
+mysummary <- SSsummarize(list(input_n, maturity))
+
+SSplotComparisons(mysummary, 
+				  filenameprefix = "3.2_data_maturity_",
+				  ylimAdj  = 1.1,
+				  legendloc = 'topright', #c(0.05, 0.95), 
+				  legendlabels = modelnames, 	
+				  plotdir = file.path(wd, "_plots"),
+				  pdf = TRUE)
+
+####################################################################
+
+model = '3.2.5_dw_mi'
+mi = SS_output(file.path(wd, model))
+SS_tune_comps(replist = mi, option = "Francis", dir = file.path(wd, model))
+
+model = '3.2.6_dw_francis'
+francis = SS_output(file.path(wd, model))
+
+model = '3.2.7_dw_dm'
+dm = SS_output(file.path(wd, model))
+
+# Attempting to a work-around to avoid DM hitting the upper bound for 
+# some fleets. After upweighting by a factor of 3, OR/WA and the AFSC slope
+# catches are still hitting the upper bounds
+model = "3.2.8_dw_dm _low_weight"
+dm_low = SS_output(file.path(wd, model))
+
+####################################################################
+modelnames <- c("Maturity", "MI", "Francis", "DM", "DM v. 2")
+mysummary <- SSsummarize(list(maturity, mi, francis, dm, dm_low))
+
+SSplotComparisons(mysummary, 
+				  filenameprefix = "3.2_data_weighting_",
+				  ylimAdj  = 1.1,
+				  legendloc = 'topright', #c(0.05, 0.95), 
+				  legendlabels = modelnames, 	
+				  plotdir = file.path(wd, "_plots"),
+				  pdf = TRUE)
+
+####################################################################
+# 3.2.5 DW MI
+# NLL = 1956, R0 = 12.03, Depl = 0.69
+
+# Estimate natural mortilty for each sex (working from model 3.2.5_dw_mi)
+model = "4.0.0_bio_est_m"
+m = SS_output(file.path(wd, model))
+# Female M = 0.102, Male M = 0.0983
+# NLL = 1954.4, R0 = 11.8, Depl = 0.6107
+# Sigma = 0.174 
+# AFSC Slope peak selex for females hitting bound
+# Remove offset biological parameters to evaluate the change
+
+model = "4.0.1_bio_rm_offset" # also estimating M
+m_no_offset = SS_output(file.path(wd, model))
+# Also high phase estimation akin to 2011 model
+# Female M = 0.10, Male M = 0.098
+# NLL = 1955.12, R0 = 11.8, Depl = 0.603
+# Sigma = 0.17
+
+# Explore Lorenzen M estimation based on 2011 STAR Panel
+# age at break point set to a50 ~ 10 years for females
+model = "4.0.2_bio_lorenzen_m" # using offsets
+lorenzen = SS_output(file.path(wd, model))
+SS_plots(lorenzen)
+# NLL = 1949, R0 = 13.0, Depl = 0.604
+# Female older M = 0.118, Male older M = 0.124
+# The majority of the NLL change is coming from ages
+# Better fit to WCGBT CAAL but worse fit to OR/WA ages
+
+model = "4.0.3_bio_breakpoint_m" # using offsets
+age_m = SS_output(file.path(wd, model))
+SS_plots(age_m)
+# NLL = 1944.96, R0 = 12.15, Depl = 0.63 
+# NLL improvement in lengths and ages
+
+####################################################################
+modelnames <- c("MI (M fixed)", "Est. M (offsets)", "Est. M", 
+				"Lorenzen M", "Breakpoint M (10 & 30)")
+mysummary <- SSsummarize(list(mi, m, m_no_offset, lorenzen, age_m))
+
+SSplotComparisons(mysummary, 
+				  filenameprefix = "4.0_bio_m_",
+				  ylimAdj  = 1.1,
+				  legendloc = 'topright', 
+				  legendlabels = modelnames, 	
+				  plotdir = file.path(wd, "_plots"),
+				  pdf = TRUE)
+
+# Adding additional flexibility in M estimation does result in a slight
+# improvement in NLL but not sure how beneficial it is since the answer
+# ends up being the same (trade-off between N parameters)
+
+####################################################################
+
+
 
