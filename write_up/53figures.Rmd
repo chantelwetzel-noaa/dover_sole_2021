@@ -380,7 +380,31 @@ label = 'mean-nw-slope-age-data')
 <!-- ======================================================= -->  
 
 ```{r, results = 'asis'}
- # Add maturity figure
+add_figure(
+filein = file.path(data_loc, "biology", "plots", "Maturity_Comparison.png"), 
+caption = "Comparison of the maturity-at-length assumed in the 2011 assessment and the new estimate used in the base model",
+label = 'compare-mat-at-len')
+```	
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(data_loc, "biology", "plots", "Maturity_by_Area.png"), 
+caption = "Comparison of the maturity-at-length between fish sample north and south of Point Reyes",
+label = 'spat-mat-at-len')
+```	
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(data_loc, "biology", "plots", "Maturity_Samples_by_Area.png"), 
+caption = "Comparison of the observed sizes and ages by depth between fish sample north and south of Point Reyes",
+label = 'samples-north-south')
+```	
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(data_loc, "biology", "plots", "Len_Age_by_Latitude.png"), 
+caption = "Comparison of the observed sizes and ages by latitude where the vertical black dashed line at Point Reyes",
+label = 'fish-by-lat')
 ```	
 
 ```{r, results = 'asis'}
