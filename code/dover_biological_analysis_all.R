@@ -14,18 +14,19 @@ start_dir = "//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021"
 ############################################################################################
 #	Load Data
 ############################################################################################
-load(file.path(start_dir, "data", "commercial_comps", "pacfin", "PacFIN.DOVR.bds.13.Aug.2020.RData"))
-pacfin 	 = PacFIN.DOVR.bds.13.Aug.2020
+#load(file.path(start_dir, "data", "commercial_comps", "pacfin", "PacFIN.DOVR.bds.13.Aug.2020.RData"))
+load(file.path(start_dir, "data", "commercial_comps", "pacfin", "PacFIN.DOVR.bds.12.Feb.2021.RData"))
+pacfin 	 = bds.pacfin #PacFIN.DOVR.bds.13.Aug.2020
 # There are a handful of weights by washington that look like they are in grams
-find = which(pacfin$FISH_WEIGHT > 100) 
-pacfin[find, "FISH_WEIGHT"] = pacfin[find, "FISH_WEIGHT"] / 10
-find = which(pacfin$AGE_METHOD %in% c(3, "U") )
-pacfin[find, 'age1'] = "NA"
+#find = which(pacfin$FISH_WEIGHT > 100) 
+#pacfin[find, "FISH_WEIGHT"] = pacfin[find, "FISH_WEIGHT"] / 10
+#find = which(pacfin$AGE_METHOD %in% c(3, "U") )
+#pacfin[find, 'age'] = "NA"
 pacfin = rename_pacfin(data = pacfin)
 # Removing the Oregon special samples from the early years which were not collected using standard
 # sampling protocols.  These records do not have total sample weights preventing expansion as well.
-remove = which(pacfin$SAMPLE_QUALITY == 63)
-pacfin = pacfin[-remove, ]
+#remove = which(pacfin$SAMPLE_QUALITY == 63)
+#pacfin = pacfin[-remove, ]
 
 # Emailed Ali to get guidance on how to deal with SAMPLE_QUALITY == 63 records which is the majority of 
 # records prior to 1980.
@@ -87,9 +88,9 @@ out$Age = as.numeric(out[,"Age"])
 ############################################################################################
 
 # Start with weights
-remove = which(out$Weight > 6)
+# remove = which(out$Weight > 6)
 # 900 WA records and 1 OR records
-out[remove, "Weight"] = NA
+# out[remove, "Weight"] = NA
 
 pngfun(wd = file.path(start_dir, "data", "biology", "plots"), file = "Length_Weight_All_Sources.png", w = 7, h = 7, pt = 12)
 par(mfrow = c(3,2))
@@ -225,7 +226,61 @@ survey_dat <- out[out$Source %in% c("NWFSC_WCGBTS", "Triennial", "NWFSC_Slope", 
 
 est_growth <- estimate_length_weight(data = survey_dat)
 
-save(est_growth, file = file.path(start_dir, "data", "biology", "growth_estimates_survey.Rdat"))
+# Estimate growth by years
+wcgbt <- out[out$Source %in% "NWFSC_WCGBTS",]
+
+len_weight_list <- list()
+nm = NULL
+len_weight_list[[1]] <- c( exp( lm(log(wcgbt$Weight) ~ log(wcgbt$Length), na.action = na.omit, subset = wcgbt$Sex == "F")$coefficients[1]),
+								lm(log(wcgbt$Weight) ~ log(wcgbt$Length), na.action = na.omit, subset = wcgbt$Sex == "F")$coefficients[2] )  
+len_weight_list[[2]] <- c( exp( lm(log(wcgbt$Weight) ~ log(wcgbt$Length), na.action = na.omit, subset = wcgbt$Sex == "M")$coefficients[1]),
+								lm(log(wcgbt$Weight) ~ log(wcgbt$Length), na.action = na.omit, subset = wcgbt$Sex == "M")$coefficients[2] )  
+nm = c("all_F", "all_M")
+t = 2
+for(y in sort(unique(wcgbt$Year))){
+	for (s in c("F", "M")){
+	t = t + 1
+	len_weight_list[[t]] <- c( exp( lm(log(wcgbt$Weight) ~ log(wcgbt$Length), na.action = na.omit, subset = wcgbt$Sex == s & wcgbt$Year == y)$coefficients[1]),
+									lm(log(wcgbt$Weight) ~ log(wcgbt$Length), na.action = na.omit, subset = wcgbt$Sex == s & wcgbt$Year == y)$coefficients[2] )  
+	nm = c(nm, paste0(y,"_",s))	
+	}	
+}
+names(len_weight_list) <- nm
+save(len_weight_list, file = file.path(start_dir, "data", "biology", "growth_estimates_wcgbt_by_year.Rdat"))
+
+lens = 1:max(wcgbt$Length, na.rm = TRUE)
+ymax = max(wcgbt$Weight, na.rm = TRUE)
+xmax = max(wcgbt$Length, na.rm = TRUE)
+col.vec = rainbow(18)
+pngfun(wd = file.path(start_dir, "data", "biology", "plots"), file = "Length_Weight_by_Year.png", w = 10, h = 7, pt = 12)
+par(mfrow = c(1, 2))
+plot(lens, 
+	len_weight_list$all_F[1] * lens ^ len_weight_list$all_F[2], 
+	col = col.vec[1], type = 'l', lwd = 2, xlim = c(0, xmax), ylim = c(0, ymax), 
+	xlab = "Length (cm)", ylab = "Weight (kg)", main = "Females")
+ind = 3
+for(y in 1:length(2003:2019)){
+lines(lens, len_weight_list[[ind]][1] * lens ^ len_weight_list[[ind]][2], 
+	col = col.vec[y + 1], lty = 1, lwd = 2) 
+ind = ind + 2
+}
+legend('topleft', bty = 'n', col = col.vec, legend = c("All Years", 2003:2019), 
+	lty = 1, lwd = 4, cex = 1.1)
+plot(lens, 
+	len_weight_list$all_M[1] * lens ^ len_weight_list$all_M[2], 
+	col = col.vec[1], type = 'l', lwd = 2, xlim = c(0, xmax), ylim = c(0, ymax), 
+	xlab = "Length (cm)", ylab = "Weight (kg)", main = "Females")
+ind = 4
+for(y in 1:length(2003:2019)){
+lines(lens, len_weight_list[[ind]][1] * lens ^ len_weight_list[[ind]][2], 
+	col = col.vec[y + 1], lty = 1, lwd = 2) 
+ind = ind + 2
+}
+dev.off()
+
+
+
+save(est_growth, file = file.path(start_dir, "data", "biology", "growth_estimates_survey_March_2021.Rdat"))
 
 # 2011
 # Females = alpha = 2.805e-6, beta = 3.345
@@ -299,7 +354,60 @@ len_age <- estimate_length_age(data = survey_dat)
 len_age_all <- estimate_length_age(data = out)
 
 save(len_age, 
-	file = file.path(start_dir, "data", "biology", "length_age_estimates_survey.Rdat"))
+	file = file.path(start_dir, "data", "biology", "length_age_estimates_survey_March_2021.Rdat"))
+
+keep <- which(!is.na(wcgbt$Age))
+wcgbt <- wcgbt[keep, ]
+linf <- quantile(wcgbt$Length, 0.90) 
+l0   <- ifelse(linf > 30, 10, 5) 
+k    <- 0.10 
+
+len_age_list <- list()
+nm = NULL
+tmp = wcgbt[wcgbt$Sex == "F", ]
+len_age_list[[1]] <- optim(c(linf, l0, k), vb_opt_fn, age = tmp$Age, lengths = tmp$Length)$par 
+tmp = wcgbt[wcgbt$Sex == "M", ]
+len_age_list[[2]]  <- optim(c(linf, l0, k), vb_opt_fn, age = tmp$Age, lengths = tmp$Length)$par 
+nm = c("all_F", "all_M")
+t = 2
+for(y in sort(unique(wcgbt$Year))){
+	for (s in c("F", "M")){
+	t = t + 1
+	tmp = wcgbt[wcgbt$Sex == s & wcgbt$Year == y, ]
+
+	len_age_list[[t]] <- optim(c(linf, l0, k), vb_opt_fn, age = tmp$Age, lengths = tmp$Length)$par 
+	nm = c(nm, paste0(y,"_",s))	
+	}	
+}
+names(len_age_list) <- nm
+save(len_age_list, file = file.path(start_dir, "data", "biology", "len_age_estimates_wcgbt_by_year.Rdat"))
+
+col.vec = rainbow(18)
+xmax = 60
+pngfun(wd = file.path(start_dir, "data", "biology", "plots"), file = "Length_Age_by_Year.png", w = 10, h = 7, pt = 12)
+par(mfrow = c(1, 2))
+plot(0:xmax, 
+	vb_fn(age = 0:xmax, Linf = len_age_list$all_F[1], L0 = len_age_list$all_F[2], k = len_age_list$all_F[3]), 
+	col = col.vec[1], type = 'l', lwd = 2, ylim = c(10, 50), ylab = "Length (cm)", xlab = "Age", main = "Females")
+ind = 3
+for(y in 1:length(2003:2019)){
+lines(0:xmax, vb_fn(age = 0:xmax, Linf = len_age_list[[ind]][1], L0 = len_age_list[[ind]][2], k = len_age_list[[ind]][3]), 
+	col = col.vec[y + 1], lty = 1, lwd = 2) 
+ind = ind + 2
+}
+legend('bottomright', bty = 'n', col = col.vec, legend = c("All Years", 2003:2019), 
+	lty = 1, lwd = 4, cex = 1.1)
+plot(0:xmax, 
+	vb_fn(age = 0:xmax, Linf = len_age_list$all_M[1], L0 = len_age_list$all_M[2], k = len_age_list$all_M[3]), 
+	col = col.vec[1], type = 'l', lwd = 2, ylim = c(10, 50), ylab = "Length (cm)", xlab = "Age", main = "Males")
+ind = 4
+for(y in 1:length(2003:2019)){
+lines(0:xmax, vb_fn(age = 0:xmax, Linf = len_age_list[[ind]][1], L0 = len_age_list[[ind]][2], k = len_age_list[[ind]][3]), 
+	col = col.vec[y + 1], lty = 1, lwd = 2) 
+ind = ind + 2
+}
+dev.off()
+
 
 length_age_plot(dir = file.path(start_dir, "data", "biology"), 
 				data = survey_dat, nm_append = "Survey", ests = len_age)
