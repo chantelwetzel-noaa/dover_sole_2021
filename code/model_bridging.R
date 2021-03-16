@@ -193,12 +193,12 @@ SSplotComparisons(mysummary,
 #####################################################################
 
 catch = SS_output(file.path(wd, "_bridging", "1.1_catch"))
-indices = SS_output(file.path(wd, "_bridging", "1.2_index"))
+indices = SS_output(file.path(wd, "_bridging", "1.2.0_index"))
 rates = SS_output(file.path(wd, "_bridging", "1.3_rates"))
 mn_weights = SS_output(file.path(wd, "_bridging", "1.4_mn_wghts"))
 com_len = SS_output(file.path(wd, "_bridging", "1.5_com_lens"))
 survey_len = SS_output(file.path(wd, "_bridging", "1.6_survey_lens"))
-survey_age = SS_output(file.path(wd, "_bridging", "1.7_survey_ages"))
+survey_age = SS_output(file.path(wd, "_bridging", "1.7.0_survey_ages"))
 dw = SS_output(file.path(wd, "_bridging", "1.8_dw"))
 
 modelnames <- c("2011", "+Catch", "+Index", "+Disc. Rates", "+Disc. Wght",
@@ -272,6 +272,9 @@ data18 = SS_output(file.path(wd, "_bridging", "1.8.9_all_data_disc_2018"))
 SS_plots(data18, plot = c(1,2,9,10,16))
 data19 = SS_output(file.path(wd, "_bridging", "1.8.10_all_data_disc_2019"))
 SS_plots(data19, plot = c(1,2,9,10,16))
+data20 = SS_output(file.path(wd, "_bridging", "1.8.11_all_data_disc_t_dist"))
+SS_tune_comps(replist = data20, option = "MI", dir = file.path(wd, model))
+
 
 
 mi = SS_output(file.path(wd, "_bridging", "1.9.0_dw_mi"))
@@ -312,19 +315,48 @@ SSplotComparisons(mysummary,
 SS_tune_comps
 
 #########################################################################
+
+catch = SS_output(file.path(wd, "_bridging", "1.1_catch"))
+indices = SS_output(file.path(wd, "_bridging", "1.2.0_index"))
+len = SS_output(file.path(wd, "_bridging", "1.5.1_all_lens_no_discard"))
+age = SS_output(file.path(wd, "_bridging", "1.8.0_all_data_disc0"))
+all = SS_output(file.path(wd, "_bridging", "1.8.10_all_data_disc_2019"))
+data20 = SS_output(file.path(wd, "_bridging", "1.8.11_all_data_disc_t_dist"))
+mi = SS_output(file.path(wd, "_bridging", "1.9.0_dw_mi_t_dist"))
+
+modelnames <- c("2011", "+Catch", "+Index", 
+				"+Lengths", "+Ages", "+Discard", "DW- All Data")
+mysummary <- SSsummarize(list(base2011,  catch, indices,
+			 len, age, data20, mi))
+SSplotComparisons(mysummary, 
+				  filenameprefix = "1.9_all_data_2020_",
+				  legendlabels = modelnames, 
+				  ylimAdj  = 1.25,
+				  legendloc = 'topright',	
+				  plotdir = file.path(wd, "_bridging", "_plots"),
+				  print = TRUE,
+				  pdf = FALSE)
+
+#########################################################################
 # Biology updates
 #########################################################################
 
-prior = SS_output(file.path(wd, "_bridging", "2.0_m_priors"))
-bio = SS_output(file.path(wd, "_bridging", "2.1_bio_params"))
-offsets = SS_output(file.path(wd, "_bridging", "2.2_bio_offsets"))
-
-modelnames <- c( "2011", "Update - 2020 All Data", "M Prior", "Bio Values",
-				 "Offset Params")
-mysummary <- SSsummarize(list(convert, mi, prior, bio, offsets))
+prior = SS_output(file.path(wd, "_bridging", "2.0_m_priors_t_dist"))
+bio = SS_output(file.path(wd, "_bridging", "2.1_bio_params_t_dist"))
+offsets = SS_output(file.path(wd, "_bridging", "2.2_bio_offsets_t_dist"))
+fishery_selex = SS_output(file.path(wd, "1.0_selex_fishery"))
+survey_selex = SS_output(file.path(wd, "1.1_selex_survey"))
+selex = SS_output(file.path(wd, "1.3_selex_dw_mi"))
+modelnames <- c( "2011", "Update - 2020 All Data", "+M Prior", "+Bio Values",
+				 "+Offset Params", "+Fishery Selectivity", "+Survey Selectivity")
+mysummary <- SSsummarize(list(base2011, mi, prior, bio, offsets,fishery_selex,
+						survey_selex))
 SSplotComparisons(mysummary, 
-				  filenameprefix = "12.0_Biology_",
+				  filenameprefix = "2.0_biology_v2_",
+				  subplot = c(2,4,10,12),
 				  legendlabels = modelnames, 
+				  ylimAdj = 1.25,
 				  legendloc = 'topright',	
 				  plotdir = file.path(wd, "_bridging", "_plots"),
-				  pdf = TRUE)
+				  print = TRUE,
+				  pdf = FALSE)
