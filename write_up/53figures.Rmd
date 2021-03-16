@@ -203,6 +203,13 @@ label = 'wcgbt-index')
 
 ```{r, results = 'asis'}
 add_figure(
+filein = file.path(data_loc, "survey", "plots", "db_index_comparison.png"), 
+caption = "VAST based indices compared to the design-based indices for each fleet",
+label = 'db-vs-vast')
+```	
+
+```{r, results = 'asis'}
+add_figure(
 filein = file.path(mod_loc, "plots", "comp_lendat_bubflt6mkt0_page2.png"), 
 caption = "Length composition data from the NWFSC WCGBT survey",
 label = 'wcgbt-len-data')
@@ -479,7 +486,6 @@ label = 'bridge-depl')
 ```
 
 ```{r, results = 'asis'}
-
 add_figure(
 filein = file.path(brid_loc, "_plots", "data_2010_bridge_compare2_spawnbio_uncertainty.png"),
 caption = "Data updated through 2010 bridge comparison of estimated spawning output",
@@ -487,11 +493,51 @@ label = 'data-bridge-ssb')
 ```
 
 ```{r, results = 'asis'}
-
 add_figure(
 filein = file.path(brid_loc, "_plots", "data_2010_bridge_compare4_Bratio_uncertainty.png"),
 caption = "Data updated through 2010 bridge comparison of estimated fraction unfished",
 label = 'data-bridge-depl')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(brid_loc, "_plots", "1.9_all_data_2020_compare2_spawnbio_uncertainty.png"),
+caption = "All data updated through 2020 bridge comparison of estimated spawning output",
+label = 'all-data-bridge-ssb')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(brid_loc, "_plots", "1.9_all_data_2020_compare4_Bratio_uncertainty.png"),
+caption = "All data updated through 2020 bridge comparison of estimated fraction unfished",
+label = 'all-data-bridge-depl')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(brid_loc, "_plots", "2.0_biology_compare2_spawnbio_uncertainty.png"),
+caption = "Estimated spawning output based on select structural changes and parameter updates",
+label = 'structure-bridge-ssb')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(brid_loc, "_plots", "2.0_biology_compare4_Bratio_uncertainty.png"),
+caption = "Estimated fraction of unfished based on select structural changes and parameter updates",
+label = 'structure-bridge-depl')
+```
+
+
+<!-- ====================================================================== -->
+<!-- *********************    Priors            ********************** --> 
+<!-- ====================================================================== -->
+
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(getwd(), "figs", "h_prior.png"),
+caption = "Prior distribution for steepness",
+label = 'h-prior')
 ```
 
 <!-- ====================================================================== -->

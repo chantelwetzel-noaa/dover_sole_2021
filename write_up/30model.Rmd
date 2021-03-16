@@ -2,10 +2,12 @@
 
 ## Summary of Previous Assessments and Reviews
 
-The previous assessment of `r spp` was conducted in 2011 [@hicks_status_2011] and concluded that the biomass of `r spp` off the U.S. West Coast was well above the target biomass.  The previous assessment modeled the `r spp` using three state-specific fishing fleets with four fishery-independent surveys.  The model estimated sex-specific natural mortality, growth, and selectivity. 
-
 
 ### History of Modeling Approaches 
+
+The previous assessment of `r spp` was conducted in 2011 [@hicks_status_2011] and concluded that the biomass of `r spp` off the U.S. west coast was well above the target biomass (84 percent of unfished).  The previous assessment modeled the `r spp` using three state-specific fishing fleets with four fishery-independent surveys. The model estimated sex-specific natural mortality, growth, and selectivity. The 2011 assessment of `r spp` included some new concepts, mainly new features of Stock Synthesis at the time. Selectivity curves for both slope surveys were modeled using cubic splines which allows for a greater possibility of selectivityshapes.  Lastly, the female selectivity curves were not forced to asymptote at one, allowing for the possibility of differential sex selection. The estimate of spawning biomass of 393,507 mt in 2011 was highly uncertain the 95 percent confidence interval ranging between with the 81,000 - 705,000.  This estimated stock size was considerably higher than the final year spawning biomass in 2005 of 188,987 mt from the previous assessment.
+
+The 2005 assessment of `r spp` also concluded that the biomass of `r spp` off of the U.S. west coast was well above the target biomass (63 percent), which was 40 percent at that time [@sampson_status_2005].  The 2005 assessment assumed a different fishery fleet structure from that used in 2011. Two fisheries fleets, a southern fleet from Eureka to Conception and a northern fleet from U.S. Vancouver to Columbia based on International North Pacific Fisheries Commission was assumed, with sex-specific, domed selection curves based on length for each fleet. This assessment used three survey time-series with dome-shaped sex-specific selectivity with female `r spp` never being fully selected (maximum selectivity less than 1.0).
 
 
 ### Response to the 2011 STAR Panel Recommendations and SSC 
@@ -16,7 +18,7 @@ Recommendation: Complete and review the Washington catch reconstruction and revi
 
 \begin{itemize}
 
-  \item Response: In 2016 a groundfish historical catch reconstruction (workshop)[https://www.pcouncil.org/documents/2017/03/i2_att1_catch_reconstruction_workshop_report_mar2017bb.pdf/] was held to review catch reconstructions (landings prior to 1981) for California, Oregon, and Washington. During this workshop a divergence in approaches between California and Oregon catch reconstructions was identified. The California catch reconstruction did not include fish caught north of the California/Oregon border by trawlers that landed at ports in California between 1948 - 1968 and these fish were not accounted in the Oregon catch reconstruction. Flatfish (petrale sole and `r spp`) were approximately 75 percent of these landings. Estimates of these landings attributed to `r spp` were provided by Dr. John Field and were added to historical catches for the Oregon/Washington fleet in this assessment. Additionally, while California has created catch reconstruction for many species going back to the early 1900s, `r spp` historical catches are not available prior to 1948.  Future assessments of `r spp` would benefit from extending the catch reconstruction to earlier years, especially for species that have experienced long time series of exploitation. WDFW is still undertaking efforts to develop historical catch reconstructions for groundfish species landed in Washington's waters and significant progress has been made. After discussions with WDFW it was determined that the historical catches used in the 2011 assessment still represented the best estimates of `r spp` removals. 
+  \item Response: In 2016 a groundfish historical catch reconstruction workshop was held to review catch reconstructions (landings prior to 1981) for California, Oregon, and Washington. During this workshop a divergence in approaches between California and Oregon catch reconstructions was identified. The California catch reconstruction did not include fish caught north of the California/Oregon border by trawlers that landed at ports in California between 1948 - 1968 and these fish were not accounted in the Oregon catch reconstruction. Flatfish (petrale sole and `r spp`) were approximately 75 percent of these landings. Estimates of these landings attributed to `r spp` were provided by Dr. John Field and were added to historical catches for the Oregon/Washington fleet in this assessment. Additionally, while California has created catch reconstruction for many species going back to the early 1900s, `r spp` historical catches are not available prior to 1948.  Future assessments of `r spp` would benefit from extending the catch reconstruction to earlier years, especially for species that have experienced long time series of exploitation. WDFW is still undertaking efforts to develop historical catch reconstructions for groundfish species landed in Washington's waters and significant progress has been made. After discussions with WDFW it was determined that the historical catches used in the 2011 assessment still represented the best estimates of `r spp` removals. 
 
 \end{itemize}
 
@@ -62,7 +64,7 @@ Recommendation: Update the STAR Terms of Reference (TOR) to ensure that assessme
 
 *Recommendations Specific to `r spp`*
 
-Recommendation: Researching ageing error, particularly aging bias, is important for `r spp` given the current base models difficulty with reconciling some tensions between different data sources regarding the sex ratio at the oldest ages. In addition, the ability of the model to track cohorts accurately would be significantly disrupted if there were severe size-based bimodality in cohorts caused by vastly different times of settlement (`r spp` are thought to have a larval period of 6-18 months). Consequently, larval period should also be examined.
+Recommendation: Researching ageing error, particularly aging bias, is important for `r spp` given the current base models difficulty with reconciling some tensions between different data sources regarding the sex ratio at the oldest ages. In addition, the ability of the model to track cohorts accurately would be significantly disrupted if there were severe size-based bimodality in cohorts caused by vastly different times of settlement (`r spp` are thought to have a larval period of 6 - 18 months). Consequently, larval period should also be examined.
 
 \begin{itemize}
 
@@ -71,11 +73,11 @@ Recommendation: Researching ageing error, particularly aging bias, is important 
 \end{itemize}
 
 
-Recommendation: For the NWFSC WCGBT survey, raw age and length information appeared to imply persistently different sex ratios when viewed in isolation. The concern is that there is some unrepresentative sampling occurring in the age distribution as ages are sub-sampled from length. The sampling procedure should be investigated more closely and potentially improved.
+Recommendation: For the \gls{s-wcgbt}, raw age and length information appeared to imply persistently different sex ratios when viewed in isolation. The concern is that there is some unrepresentative sampling occurring in the age distribution as ages are sub-sampled from length. The sampling procedure should be investigated more closely and potentially improved.
 
 \begin{itemize}
 
-  \item Response: 
+  \item Response: Examinations of the \gls{s-wcgbt} data were conducted examining the observations by sex across depths and examining potential non-representative sampling by sex, length, and age.  The sex ratio across depths for `r spp` are approximately 50:50 at shallower depth sampled by the survey, shifting to a higher proportion of males observed in mid-depths (300 - 800 m), and then shifting to a higher proportion of females at the deepest depths. This sex ratio pattern was observed across all of the four surveys used in this assessment implying a biological mechanism rather than non-representative sampling. Other studies have observed `r spp` movement to shallower and deeper depths based on the season likely linked to spawning behavior (Hagerman 1952).  All available survey data were sampled during late-spring to early-fall and observations made in late-fall or winter could reflect alternative sex ratio distributions by depth. 
 
 \end{itemize}
 
@@ -95,7 +97,7 @@ Recommendation: Having simplified the model compared to previous assessments, es
 
 \end{itemize}
 
-### Response to Groundfish Subcommittee Requests 
+### Response to 2021 Groundfish Subcommittee Requests 
 
 To be completed after the STAR panel.
 

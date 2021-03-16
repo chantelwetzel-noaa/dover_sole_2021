@@ -5,7 +5,6 @@ save_loc = file.path(getwd(), "tex_tables")
 
 
 # Let's create index tables
-
 names =  unique(model$cpue[,"Fleet_name"])
 survey.list = list()
 for(i in 1:length(names)){

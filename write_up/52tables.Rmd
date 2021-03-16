@@ -64,7 +64,9 @@ table_format(x = out,
 
 \include{tex_tables/index_table.tex}
 
-\include{tex_tables/wcgbts-db-index.tex}
+\include{tex_tables/wcgbt-db-index.tex}
+
+\include{tex_tables/nwfsc_wgbts_strata.tex}
 
 \include{tex_tables/nwfsc_wcgbts_length_samps.tex}
 
@@ -72,17 +74,25 @@ table_format(x = out,
 
 \include{tex_tables/tri-early-db-index.tex}
 
-\include{tex_tables/triennial_early_length_samps.tex}
-
 \include{tex_tables/tri-late-db-index.tex}
+
+\include{tex_tables/triennial_early_strata.tex}
+
+\include{tex_tables/triennial_late_strata.tex}
+
+\include{tex_tables/triennial_early_length_samps.tex}
 
 \include{tex_tables/triennial_late_length_samps.tex}
 
 \include{tex_tables/afsc-db-index.tex}
 
+\include{tex_tables/afsc_slope_strata.tex}
+
 \include{tex_tables/afsc_slope_length_samps.tex}
 
 \include{tex_tables/nwfsc-db-index.tex}
+
+\include{tex_tables/nwfsc_slope_strata.tex}
 
 \include{tex_tables/nwfsc_slope_length_samps.tex}
 
