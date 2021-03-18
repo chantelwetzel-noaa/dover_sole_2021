@@ -20,7 +20,6 @@ devtools::load_all("C:/Users/Chantel.Wetzel/Documents/GitHub/nwfscSurvey")
 #  NWFSC WCGBT Survey
 #
 ##########################################################################
-devtools::load_all("C:/Users/Chantel.Wetzel/Documents/GitHub/nwfscSurvey")
 
 setwd("//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey/wcgbts")
 
@@ -297,10 +296,13 @@ strata = CreateStrataDF.fn(names=c("shallow_north", "shallow_central", "shallow_
                            depths.deep    = c(549,  549,  549,  900,  900,  900, 1280,  1280),
                            lats.south     = c(45.0, 40.5, 34.5, 45.0, 40.5, 34.5, 40.5, 34.5),
                            lats.north     = c(49.0, 45.0, 40.5, 49.0, 45.0, 40.5, 49.0, 40.5))
+
+
 write.csv(strata, file = paste0(getwd(), "/forSS/nwfsc_slope_strata.csv"))
 
 
-num.strata = CheckStrata.fn(dir = getwd(), dat = catch, strat.vars = c("Depth_m","Latitude_dd"), strat.df = strata, printfolder = "forSS",  verbose = TRUE)
+num.strata = CheckStrata.fn(dir = getwd(), dat = catch, 
+              strat.vars = c("Depth_m","Latitude_dd"), strat.df = strata, printfolder = "forSS",  verbose = TRUE)
 file.rename(file.path(getwd(), "forSS", "strata_observations.csv"), 
             file.path(getwd(), "forSS", "nwfcs_slope_strata_observations.csv"))
 
@@ -312,8 +314,8 @@ file.rename(file.path(getwd(), "forSS", "design_based_indices.csv"),
 
 # Plot the biomass index
 PlotBio.fn(dir = getwd(), dat = biomass, main = "NWFSC Slope", dopng = TRUE)
-PlotBioStrata.fn(dir = getwd(), dat = biomass.early.tri, survey.name = "NWFSC Slope", 
-      mfrow.in = c(2,3), gap = 0.01, sameylim = TRUE, dopng = TRUE)
+PlotBioStrata.fn(dir = getwd(), dat = biomass, survey.name = "NWFSC Slope", 
+      mfrow.in = c(3,3), gap = 0.01, sameylim = TRUE, dopng = TRUE)
 
 #============================================================================================
 #Length Biological Data 
@@ -327,7 +329,7 @@ file.rename(file.path(getwd(), "forSS", "length_SampleSize.csv"),
 slope.lfs <- SurveyLFs.fn(dir = getwd(), datL = len, datTows = catch,  
                     strat.df = strata, lgthBins = len.bins, sex = 3, 
                     sexRatioStage = 2, sexRatioUnsexed = 0.5, maxSizeUnsexed = 20, 
-                    nSamps = n, month = 7, fleet = NA)
+                    nSamps = n, month = 7, fleet = 5)
 
 file.rename(file.path(getwd(), "forSS", "Survey_Sex3_Bins_8_60_LengthComps.csv"), 
             file.path(getwd(), "forSS", "nwfsc_slope_Bins_8_60_LengthComps.csv") )
@@ -341,6 +343,39 @@ PlotFreqData.fn(dir = getwd(), dat = slope.lfs, main = "NWFSC Slope", inch = 0.1
 # Marginal Ages Biological Data 
 #============================================================================================
 age = bio
+
+# look at age data from 2000 quickly
+par(mfrow = c(3, 2))
+for (y in sort(unique(age$Year))){
+find = which(age$Year == y & age$Age == 11 & age$Sex == "F")
+plot(age[find,"Latitude_dd"], age[find,"Depth_m"], 
+  type = 'p', cex.pch = 1.2, pch = 16, col = 'red', main = y,
+  xlab = "Latitude", ylab = "depth")
+find = which(age$Year == y & age$Age == 11 & age$Sex == "M")
+points(age[find,"Latitude_dd"], age[find,"Depth_m"], pch = 1, col = 'blue')
+lines(rep(45, length(55:900)), 55:900)
+abline(h = 549); abline(h = 900)
+abline(v = 40.5)
+}
+
+par(mfrow = c(3, 3))
+for (y in sort(unique(age$Age))){
+find = which(age$Year == 2000 & age$Age == y & age$Sex == "F")
+if(length(find) > 0 ){
+plot(age[find,"Latitude_dd"], age[find,"Depth_m"], 
+  type = 'p',  pch = 16, col = 'red', main = y,
+  xlab = "Latitude", ylab = "depth", ylim = c(0, 1280), xlim = c(32, 49))
+find = which(age$Year == 2000 & age$Age == y & age$Sex == "M")
+if (length(find) > 0) {
+  points(age[find,"Latitude_dd"], age[find,"Depth_m"], pch = 1, col = 'blue')
+}
+lines(rep(45, length(55:900)), 55:900)
+abline(h = 549); abline(h = 900)
+abline(v = 40.5)
+}
+}
+
+
 
 n = GetN.fn(dir = getwd(), dat = age, type = "age", species = "flatfish", printfolder = "forSS")
 file.rename(file.path(getwd(), "forSS", "age_SampleSize.csv"), 
