@@ -378,6 +378,11 @@ m = SS_output(file.path(wd, model))
 # Sigma = 0.174 
 # AFSC Slope peak selex for females hitting bound
 # Remove offset biological parameters to evaluate the change
+model = "4.0.0_2011_selex"
+old_selex = SS_output(file.path(wd, "_sensitivities", model))
+pngfun(wd = file.path(wd, "_sensitivities", "_plots"), '4.0.0_2011selex_unavailable_biomass.png', w = 10, h = 7)
+SSunavailableSpawningOutput(old_selex, plot=TRUE)
+dev.off()
 
 model = "4.0.1_bio_rm_offset" # also estimating M
 m_no_offset = SS_output(file.path(wd, model))
@@ -396,11 +401,17 @@ SS_plots(lorenzen)
 # The majority of the NLL change is coming from ages
 # Better fit to WCGBT CAAL but worse fit to OR/WA ages
 
+# 4.02.1_bio_lorenzen_m_age11
+# NLL = 1949.18, R0 = 13.0, depl = 0.604
+# Female older M = 0.114, Male older M = 0.120
+
 model = "4.0.3_bio_breakpoint_m" # using offsets
 age_m = SS_output(file.path(wd, model))
 SS_plots(age_m)
 # NLL = 1944.96, R0 = 12.15, Depl = 0.63 
 # NLL improvement in lengths and ages
+# Female M10 = 0.124, M30 = 0.087
+# Male M10 = 0.116, M30 = 0.104
 
 ####################################################################
 modelnames <- c("MI (M fixed)", "Est. M (offsets)", "Est. M", 
@@ -421,5 +432,502 @@ SSplotComparisons(mysummary,
 
 ####################################################################
 
+# Just realized the M prior I have been using corresponds to a max age = 60
+# Update to be based on max = 60 (in contrast 2011 based it on 70 using older methods)
+model = "4.0.4_bio_update_m_prior"
+m_prior = SS_output(file.path(wd, model))
+SS_plots(m_prior)
+# NLL = 1954.44, R0 = 11.8
 
+# Try to estimate males as the offset similar to the slope surveys
+model = "4.0.5_bio_selex_wcgbt"
+wcgbt = SS_output(file.path(wd, model))
+# NLL = 2018.72 vs. 1954.44 above
+# WCGBT Len NLL = 324.864, Age NLL = 970.983
+
+# Working from 4.0.4
+# Add block for early and late tri for just male params firt
+model = "4.1.0_selex_block_tri"
+tri_selex = SS_output(file.path(wd, model))
+SS_plots(tri_selex, plot = c(2, 16))
+# NLL = 1944.8, tri len NLL = 50.64
+# R0 = 11.8, depl = 0.64
+
+# Add the ability to estimate female offsets in blocks as well
+model = "4.1.1_selex_block_tri_w_offset"
+tri_selex2 = SS_output(file.path(wd, model))
+SS_plots(tri_selex2, plot = c(2, 16))
+# NLL = 1945, tri len NLL = 50.4, R0 = 11.8
+
+# Change CA & OR/WA selex blocks from: 1910 - 1980, 1981 - 1995, 1996 - 
+# to: 1910 - 1984, 1985 - 1995, 1996 - 
+# based on visual investigation of length observations
+model = "4.1.2_selex_com_blocks"
+com_block = SS_output(file.path(wd, model))
+SS_plots(com_block)
+# NLL = 1929.1, CA Lengths = 317, OR/WA Lengths = 216
+# Discard = -82 (CA = -6, OR/WA = -76)
+# R0 = 11.6, Depl = 0.56
+# Most of the likelihood improvement is coming from CA com lengths
+
+# Explore adding ascending time block to try to get the visual fit to improve
+model = "4.1.3_selex_com_blocks_asc"
+com_block = SS_output(file.path(wd, model))
+SS_plots(com_block, plot = c(2, 16))
+# NLL = 1923, CA Lengths = 313, OR/WA Lengths = 214
+# R0 = 11.7
+
+# $parameters_with_highest_gradients
+#                                           Value     Gradient
+# Size_DblN_peak_OR_WA(2)_BLK1repl_1985 35.496400  0.000269775
+# SzSel_Fem_Peak_OR_WA(2)                5.119660 -0.000219988
+# SR_LN(R0)                             11.678900 -0.000197606
+# L_at_Amax_Mal_GP_1                    -0.126628 -0.000129694
+# SzSel_Fem_Peak_OR_WA(2)_BLK1repl_1985  4.871800  0.000101783
+
+model = "4.1.4_selex_com_block_rm"
+rm_block = SS_output(file.path(wd, model))
+SS_plots(rm_block)
+# NLL = 1957, Discard = -69.9 (CA = -5.6, OR/WA = -63.3)
+# CA Length = 330.6, OR/WA = 233
+# R0 = 11.6, depl = 56%
+
+# Added back selex block and add asc to block
+# Use simplified retention blocks 
+model = "4.1.5_selex_block_rm_ret"
+rm_block2 = SS_output(file.path(wd, model))
+SS_plots(rm_block2)
+# NLL = 1938, Discard = -68 (CA = -5.9, OR/WA = -62)
+# CA Length = 314, OR/WA Length = 215
+
+# Move around retention blocks
+model = "4.1.6_selex_com_blocks_ca_or_ret"
+selex = SS_output(file.path(wd, model))
+SS_plots(selex)
+# NLL = 1960, Discard = -57 (CA = -6, OR/WA = -51.6)
+# CA Length = 317, OR/WA Length = 220
+
+# After exploration moving back to model "4.1.2_selex_com_blocks"
+# but with minor simplification of the CA retention and change in 
+# block year for 2002 vs. 2004
+model = "4.1.7_selex_ret_ca"
+ret = SS_output(file.path(wd, model))
+SS_plots(ret)
+# NLL = 1935, Discard = -74 (CA = -6, OR/WA = -68)
+# Length CA = 319, Length Or/WA = 219
+# R0 = 11.6
+####################################################################
+
+base2011 = SS_output(file.path(wd, "_2011_model"))
+mi = SS_output(file.path(wd, "_bridging", "1.9.0_dw_mi"))
+selex = SS_output(file.path(wd, "1.3_selex_dw_mi"))
+model = '3.2.4_selex_data_new_maturity'
+maturity = SS_output(file.path(wd, model))
+
+modelnames <- c("2011", "2020 Data", "Update Selectivity", "Maturity",
+				"Commercial Selex", "Retention")
+mysummary <- SSsummarize(list(base2011, mi, selex, maturity, com_block, ret))
+
+SSplotComparisons(mysummary, 
+				  filenameprefix = "4.1_comparison_",
+				  ylimAdj  = 1.1,
+				  legendloc = 'topright', 
+				  legendlabels = modelnames, 	
+				  plotdir = file.path(wd, "_plots"),
+				  pdf = TRUE)
+
+####################################################################
+model = '5.0.0_rec_adj_start'
+hess = SS_output(file.path(wd, model))
+SS_plots(hess)
+SS_tune_comps(replist = hess, option = "Francis", dir = file.path(wd, model))
+
+model = '5.1.0_dw_mi'
+mi = SS_output(file.path(wd, model))
+SS_plots(mi)
+
+model = '5.1.1_dw_francis'
+francis = SS_output(file.path(wd, model))
+SS_plots(francis)
+
+model = '5.1.2_dw_dm_1'
+dm1 = SS_output(file.path(wd, model))
+SS_plots(dm1)
+
+model = '5.1.3_dw_dm_2'
+dm2 = SS_output(file.path(wd, model))
+SS_plots(dm2)
+
+# OR/WA retained lengths weighted low vs. discard lengths high for MI
+# Update the Herman and Harry Discard Length Input Sample Size
+model = '5.1.4_dw_mi_orwa_disc'
+mi_disc = SS_output(file.path(wd, model))
+SS_tune_comps(replist = mi_disc, option = "MI", dir = file.path(wd, model))
+SS_plots(mi_disc)
+
+model = '5.1.5_dw_mi_rm_hh'
+rm_hh = SS_output(file.path(wd, model))
+SS_plots(rm_hh, plot = 16)
+SS_tune_comps(replist = rm_hh, option = "MI", dir = file.path(wd, model))
+
+model = '5.1.6_dw_dm_inputN_disc_edits'
+dm_inputN = SS_output(file.path(wd, model))
+
+model = '5.1.7_dw_dm2_inputN_disc_edits'
+dm2_inputN = SS_output(file.path(wd, model))
+
+####################################################################
+
+modelnames <- c("5.1 MI", "5.1 Francis", "5.1 DM-Linear", "5.1 DM-Saturation", 
+				"5.1 DM - Linear (Input N = Total Fish)",
+				"5.1 DM - Saturation (Input N = Total Fish)")
+mysummary <- SSsummarize(list(mi, francis, dm1, dm2, dm_inputN, dm2_inputN))
+
+SSplotComparisons(mysummary, 
+				  filenameprefix = "5.1_dw_",
+				  ylimAdj  = 1.1,
+				  legendloc = 'topright', 
+				  legendlabels = modelnames, 	
+				  plotdir = file.path(wd, "_plots"),
+				  pdf = TRUE)
+
+####################################################################
+
+model = '5.2.1_selex_tri_female_offset'
+tri = SS_output(file.path(wd, model))
+SS_plots(tri, plot = c(2, 16))
+# NLL = 1952 (5.1.4_dw_mi_orwa_disc NLL = 1933, tri length = 57)
+# NLL = 1948
+# NLL = 1961
+# Tri Len = 70.37
+
+model = '5.2.2_selex_all_2011'
+all = SS_output(file.path(wd, model))
+SS_plots(all)
+
+# Revert to the 2011 survey select parameterization for comparison
+model = '5.2.2_selex_survey_2011'
+selex_2011 = SS_output(file.path(wd, model))
+SS_plots(selex_2011)
+# Qs:
+# R0 = 11.5
+# NLL = 1969
+# Length_like  36.8 (AFSC)  66.7 (TRI)  41.5 (NWFSC)  335.9 (WCGBT)
+
+
+# Examining the weird behavior of the R0 profile relative to survey length/age data
+# It looks like it may be due to at least the afsc slope (if not both slopes) based
+# on comparison of 5.2.3_selex_survey_2011_update_wcgbt_profile_SR_LN(R0) vs.
+# 5.2.4_selex_survey_2011_update_afslope_profile_SR_LN(R0) where the afsc slope
+# model moved from the 2011 parameterization to the new.  The new one forces females
+# to be asymptotic.  Alternatively, it could be that the spline shape vs. double
+# normal is the driver behind this behavior.
+#-----------------------------------------------------------------------
+# 5.1.4_dw_mi_orwa_disc: double normal - female = 1.0 slopes
+# Length_like: 742.046  329.26 231.233 63.5965 57.3836 70.4098 305.615
+# Age_like: 1411.02  434.557 454.069 0 0 74.6594 929.378
+# Total NLL = 1933
+#-----------------------------------------------------------------------
+# 2011 Parameterization for both fishery and surveys
+# Length_like: 796.44  345.1 342.652 35.6478 65.5825 40.5167 331.076
+# Age_like: 1459.76  440.565 487.148 0 0 73.3794 959.209
+# Total NLL = 2038
+#-----------------------------------------------------------------------
+# 2011 Parameterization for surveys
+# Length_like: 759.872  341.194 258.349 36.7859 66.652 41.4903 335.917
+# Age_like: 1427.12  440.442 454.842 0 0 73.8575 942.55
+# Total NLL = 1969
+#-----------------------------------------------------------------------
+# 5.2.5_  Males as offset slopes but females not forced to asymptote
+# for the slopes or wcgbt
+# Length_like: 744.41  328.415 238.826 64.1346 57.2838 67.7033 305.52
+# Total NLL = 1938
+#-----------------------------------------------------------------------
+# 5.2.6 Slope surveys as splines 
+# Length_like: 712.239  330.282 240.325 40.4243 56.9722 43.4743 307.802
+# Age_like: 1412.71  439.383 465.648 0 0 74.4373 922.979
+# Total NLL = 1907
+#-----------------------------------------------------------------------
+# 5.2.8 Slopes Spline & WCGBT Actually Asym Females
+# Length_like: 755.547  343.316 236.269 40.9088 56.6596 44.9586 345.707
+# Age_like: 1449.36  453.333 447.73 0 0 76.8918 960.38
+# Total NLL = 1989
+#-----------------------------------------------------------------------
+# OR/WA retained lengths weighted low vs. discard lengths high for MI
+# Update the Herman and Harry Discard Length Input Sample Size
+model = '5.1.4_dw_mi_orwa_disc'
+base = SS_output(file.path(wd, model))
+# sigma = 0.154
+
+model = '5.2.2_selex_all_2011'
+all_2011 = SS_output(file.path(wd, model))
+# sigma = 0.178
+
+model = '5.2.2_selex_survey_2011'
+survey_2011 = SS_output(file.path(wd, model))
+# sigma = 0.161
+
+model = '5.2.6_selex_slope_splines'
+spline = SS_output(file.path(wd, model))
+
+model = "5.2.8_selex_splines_wcgbt_asym"
+asym = SS_output(file.path(wd, model))
+# sigma = 0.120
+
+####################################################################
+
+modelnames <- c("2021 Base: Slopes Asym", 
+				"2011 Selectivity Parameterization", 
+				"2011 Survey Parameterization", 
+				"2021 Slopes as Splines (none asym.)",
+				"2021 Slopes as Splines & WCGBT Asym.")
+mysummary <- SSsummarize(list(base, all_2011, survey_2011,
+				spline, asym))
+
+SSplotComparisons(mysummary, 
+				  filenameprefix = "5.2_selex_",
+				  ylimAdj  = 1.25,
+				  legendloc = 'topright', 
+				  legendlabels = modelnames, 	
+				  plotdir = file.path(wd, "_plots"),
+				  pdf = TRUE)
+
+####################################################################
+
+# Fix male L1
+# Fix AFSC Slope Peak
+# Change M prior back to 0.108 based on max age of 50
+$likelihoods_used
+                                    values lambdas
+TOTAL                1931.8499999999999091      NA
+Survey                -52.1903999999999968      NA
+Discard               -74.2947999999999951      NA
+Mean_body_wt          -80.8833999999999946      NA
+Length_comp           741.9289999999999736      NA
+Age_comp             1409.3099999999999454      NA
+Recruitment           -12.1567000000000007       1
+
+$likelihoods_by_fleet
+              Label          ALL           CA        OR_WA AFSC_Slope Triennial NWFSC_Slope NWFSC_WCGBT
+176      Catch_like  1.24060e-12  3.21974e-13  9.18621e-13    0.00000    0.0000      0.0000       0.000
+180       Surv_like -5.21904e+01  0.00000e+00  0.00000e+00   -5.63488   -3.8118     -9.0568     -33.687
+184       Disc_like -7.42948e+01 -5.88987e+00 -6.84050e+01    0.00000    0.0000      0.0000       0.000
+188       mnwt_like -8.08834e+01 -3.46701e+01 -4.62133e+01    0.00000    0.0000      0.0000       0.000
+192     Length_like  7.41929e+02  3.28716e+02  2.31696e+02   63.60410   57.2815     70.3852     305.645
+196        Age_like  1.40931e+03  4.33561e+02  4.52612e+02    0.00000    0.0000     74.6713     928.885
+
+$parameters_with_highest_gradients
+                                          Value     Gradient
+SzSel_Fem_Peak_OR_WA(2)_BLK1repl_1910  7.409750 -0.007663470
+Size_DblN_peak_OR_WA(2)_BLK1repl_1910 43.084500 -0.002850600
+SR_LN(R0)                             11.513900 -0.002145660
+L_at_Amax_Mal_GP_1                    -0.123009 -0.001205610
+Size_DblN_peak_OR_WA(2)               36.513600 -0.000749814
+
+# 5.3.0 Try to clean up selectivity if possible. Fix the afsc slope peak paremter
+model = "5.3.0_selex"
+base = SS_output(file.path(wd, model))
+# NLL = 1940, R0 = 11.5, Qs high, Ms = 0.0925 (males = 0.0881)
+# Length_like: 753.022  328.35 254.209 63.6125 57.3004 70.4323 305.613
+
+model = "5.3.0_selex_data_slope_caal - Copy"
+caal = SS_output(file.path(wd, model))
+SS_plots(caal)
+SS_tune_comps(replist = caal, option = "MI", dir = file.path(wd, model))
+# NLL = 2035 (Copy folder) vs. NLL = 1986.9 
+# Length_like: 755.342  329.158 255.75 64.1202 57.4945 70.5882 305.979
+# Age_like: 1456.72  434.667 456.647 0 0 171.564 925.279
+
+####################################################################
+modelnames <- c("NWFSC Slope Marginals", "NWFSC CAAL")
+mysummary <- SSsummarize(list(base, caal))
+SSplotComparisons(mysummary, 
+				  filenameprefix = "5.3_data_",
+				  ylimAdj  = 1.1,
+				  legendloc = 'topright', 
+				  legendlabels = modelnames, 	
+				  plotdir = file.path(wd, "_plots"),
+				  pdf = TRUE)
+####################################################################
+
+# Reduce OR/WA Discard input N to try to correct weighting
+model = "5.3.1_selex_data_orwa_disc_inputN - Copy"
+disc = SS_output(file.path(wd, model))
+SS_plots(disc, plot = c(2, 16, 17, 18))
+SS_tune_comps(replist = disc, option = "MI", dir = file.path(wd, model))
+# NLL = 2167.56
+# Length_like: 815.177  329.769 192.553 150.901 58.3792 66.9462 311.262
+# Age_like: 1572.32  435.389 465.284 0 0 378.837 932.57
+# Natural mortality low ~ 0.08
+# Old using control.ss file
+# NLL = 1960.6
+# Length_like: 731.101  329.617 206.631 64.0511 57.4277 70.4983 306.248
+
+# Turn off m estimates due to downward creeping values
+# Reset the or/wa discard input N back to full values
+# Pin some parameters at estimates due to gradient issues (or/wa female early peaks)
+# Change end rec dev year and move early devs to an earlier phase
+model = "5.3.2_selex_clean_up"
+selex = SS_output(file.path(wd, model))
+SS_tune_comps(replist = selex, option = "MI", dir = file.path(wd, model))
+SS_plots(selex)
+# NLL = 1765
+# Pinning M increases R0 to ~12.0, Slope Qs < 1.0 WCGBT = 1.39
+# Length_like: 732.543  328.124 226.045 69.3574 63.5284 68.8072 288.17
+# Age_like: 1254.9  430.342 459.472 0 0 378.385 620.8
+
+# Allow AFSC Slope to estimate females as the offset
+model = "5.3.3_selex_afslope"
+aslope = SS_output(file.path(wd, model))
+SS_plots(aslope, plot = c(2, 16))
+# NLL = 1713
+# Length_like: 685.78  331.225 228.191 15.4606 63.9392 71.9852 290.679
+# Age_like: 1244.83  433.36 458.762 0 0 371.719 612.914
+
+model = "5.4.0_data_nwslope"
+nw_index = SS_output(file.path(wd, model))
+SS_plots(nw_index)
+
+model = "5.4.1_data_afslope"
+af_index = SS_output(file.path(wd, model))
+SS_plots(af_index)
+# NLL = 1765
+# Length_like: 732.537  328.106 226.047 69.3472 63.5329 68.798 288.182
+# Age_like: 1254.91  430.32 459.494 0 0 378.391 620.808
+# Qs: AFSC Slope = 0.67, NWFSC Slope = 0.85, WCGBT = 1.4
+#              vs. 5.3.2 selex clean up 
+# Qs: AFSC Slope = 0.85, NWFSC Slope = 0.69, WCGBT = 1.4
+
+####################################################################
+modelnames <- c("Base (fixed M)", "Update NWFSC Slope Index", "Update AFSC Slope Index")
+mysummary <- SSsummarize(list(selex, nw_index, af_index))
+SSplotComparisons(mysummary, 
+				  filenameprefix = "5.4_data_",
+				  ylimAdj  = 1.1,
+				  legendloc = 'topright', 
+				  legendlabels = modelnames, 	
+				  plotdir = file.path(wd, "_plots"),
+				  pdf = TRUE)
+####################################################################
+
+model = "5.5.0_data_log_sd"
+log_sd = SS_output(file.path(wd, model))
+SS_plots(log_sd, plot = 1)
+# NLL = 1757
+# Improves fit to the length data but fits slightly worse to age data
+# R0 = 12.0
+
+model = "5.5.1_data_cv_a"
+cv_a = SS_output(file.path(wd, model))
+SS_plots(cv_a, plot = 1)
+# NLL = 1771.5 - slighty better fit to the lengths but worse to the age data
+
+model = "5.5.2_data_sd_a"
+sd_a = SS_output(file.path(wd, model))
+# NLL 3087 - worse fit to everything!
+
+model = "5.5.3_data_sd_laa"
+sd_laa = SS_output(file.path(wd, model))
+SS_plots(sd_laa, plot = 1)
+# NLL = 1780 - worse fit to both lengths and ages!
+
+
+####################################################################
+modelnames <- c("Base - cv(laa)", "log_sd(A)", "cv(a)", "sd(a)", "sd(laa)")
+mysummary <- SSsummarize(list(af_slope, log_sd, cv_a, sd_a, sd_laa))
+SSplotComparisons(mysummary, 
+				  filenameprefix = "5.5_data_cv_sd_",
+				  ylimAdj  = 1.1,
+				  legendloc = 'topright', 
+				  legendlabels = modelnames, 	
+				  plotdir = file.path(wd, "_plots"),
+				  pdf = TRUE)
+####################################################################
+
+model = "5.6.0_data_larval_period"
+larval = SS_output(file.path(wd, model))
+SS_plots(larval, plot = 1:5)
+# NLL = 1761.8
+
+model = "5.6.1_data_larval_period_1.5"
+larval_v2 = SS_output(file.path(wd, model))
+SS_plots(larval_v2, plot = 1:5)
+# NLL = 1757
+
+####################################################################
+modelnames <- c("Base", "Laval Period = 1 yr", "Larval Period = 1.5 yr")
+mysummary <- SSsummarize(list(af_index, larval, larval_v2))
+SSplotComparisons(mysummary, 
+				  filenameprefix = "5.6_data_larval_",
+				  ylimAdj  = 1.1,
+				  legendloc = 'topright', 
+				  legendlabels = modelnames, 	
+				  plotdir = file.path(wd, "_plots"),
+				  pdf = TRUE)
+####################################################################
+
+model = "5.7.0_dw_mi"
+mi = SS_output(file.path(wd, model))
+SS_tune_comps(replist = mi, option = "MI", dir = file.path(wd, model))
+SS_plots(mi)
+
+model = "5.7.1_dw_francis"
+francis = SS_output(file.path(wd, model))
+SS_tune_comps(replist = francis, option = "Francis", dir = file.path(wd, model))
+SS_plots(francis)
+# NL = 1145
+
+####################################################################
+modelnames <- c("5.7.0 MI", "5.7.1 Francis")
+mysummary <- SSsummarize(list(mi, francis))
+SSplotComparisons(mysummary, 
+				  filenameprefix = "5.7_dw_",
+				  ylimAdj  = 1.1,
+				  legendloc = 'topright', 
+				  legendlabels = modelnames, 	
+				  plotdir = file.path(wd, "_plots"),
+				  pdf = TRUE)
+####################################################################
+
+model = "5.8.0_selex_afsc_slope"
+afsc = SS_output(file.path(wd, model))
+SS_plots(afsc, plot = c(2, 16))
+# afsc slope using a spline 
+# NLL = 1041
+
+####################################################################
+modelnames <- c("Base - AFSC Slope Asym.", "AFSC Slope Spline")
+mysummary <- SSsummarize(list(francis, afsc))
+SSplotComparisons(mysummary, 
+				  filenameprefix = "5.8_data_selex_",
+				  ylimAdj  = 1.1,
+				  legendloc = 'topright', 
+				  legendlabels = modelnames, 	
+				  plotdir = file.path(wd, "_plots"),
+				  pdf = TRUE)
+####################################################################
+
+# 1) add pre-model devs, 2) reduce pop len bin, 3) rec bias adj and
+# 4) update data weighting
+model = "5.8.1_minor_adj"
+minor = SS_output(file.path(wd, model))
+SS_plots(minor, plot = c(2, 16))
+SS_tune_comps(replist = minor, option = "Francis", dir = file.path(wd, model))
+# NLL = 973.8
+
+modelnames <- c("AFSC Slope Spline", "Minor Adj.")
+mysummary <- SSsummarize(list(afsc, minor))
+SSplotComparisons(mysummary, 
+				  #filenameprefix = "5.8_data_selex_",
+				  ylimAdj  = 1.1,
+				  legendloc = 'topright', 
+				  legendlabels = modelnames, 	
+				  #plotdir = file.path(wd, "_plots"),
+				  print = FALSE,
+				  pdf = FALSE)
+
+model = "5.8.2_selex_orwa"
+orwa = SS_output(file.path(wd, model))
+SS_plots(orwa, plot = c(2))
+# NLL = 1005
 
