@@ -1,12 +1,30 @@
 ## Base Model Results
 
+The base model parameter estimates along with approximate asymptotic standard errors are shown in Table \ref{tab:params} and the likelihood components are shown in Table \ref{tab:likes}. Estimates of derived reference points and approximate 95% asymptotic confidence intervals are shown in Table \ref{tab:referenceES}. Estimates of stock size over time are shown in Table \ref{tab:timeseries}. 
 
 ### Parameter Estimates
+
+There are numerous types of data for which the fits are discussed: survey abundance indices, discard data (biomass and length compositions), length-composition data for the fisheries and surveys, marginal age compositions for the fisheries and surveys, and conditional age-at-length observations for the surveys.
+
+The fits to the survey indices are shown in FigureXX.  Extra standard error was estimated for the \gls{s-tri}, \gls{s-nwslope}, and \gls{s-aslope}.   
+
+
+
+
+
 
 ### Fits to the Data
 
 ### Population Trajectory
 
-### Reference Points
+### Convergence
+
+### Likelihood Profiles
+
+### Retrospective Analysis
+
+### Historical Analysis
+
+The estimated spawning output from previous assessments since 2001 are shown in Figure \ref{fig:past-assess}.    
 
 

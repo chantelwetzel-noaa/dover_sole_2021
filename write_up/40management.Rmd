@@ -2,12 +2,39 @@
 
 ## Reference Points
 
+Reference points were calculated using the estimated selectivities and catch distributions among fleets in the most recent year of the model, 2020 (Table \ref{tab:referenceES}). Sustainable total yields (landings plus discards) were r round(model$derived_quants[model$derived_quants$Label == 'Dead_Catch_SPR', 'Value'], 2)` mt when using an $SPR_{30}$. The spawning output equivalent to 25 percent of the unfished spawning output ($SB_{25}$) was `r round(model$derived_quants[model$derived_quants$Label == 'SSB_SPR', 'Value'], 0)` millions of eggs. The recent catches (landings plus discards) have been below the point estimate of potential long-term yields calculated using an $SPR_{30}$ reference point and the population has been relatively stable in recent years.
+
+The predicted spawning output from the base model generally showed a decline during the 1980s followed by increasing biomass until the mid-2000s with the stock being relatively stable in recent years (Figure \ref{fig:ssb}). The 2021 spawning output relative to unfished equilibrium spawning output is well above the management target of 25 percent of unfished spawning output (Figure \ref{fig:depl}). The fishing intensity has been below the current management harvest rate limit ($SPR_{30}$) across all modeled years (Figure \ref{fig:1-spr}).  Figure \ref{fig:yield} shows the equilibrium curve based on a steepness value fixed at `r round(model$parameters[model$parameters$Label == "SR_BH_steep","Value"], 2)`.
+
 ## Unresolved Problems and Major Uncertainties
+
 
 ## Harvest Projections and Decision Tables
 
+The forecast of stock abundance and yield was developed using the base model. The total catches in 2021 and 2021 are set at values provided by the Groundfish Management Team (GMT) of the PFMC at XX and XX mt, respectively. The management adopted ACL values for these years is 50,000 mt. The exploitation rate for 2021 and beyond is based upon an SPR of 30% and the 25:5 harvest control rule. The average exploitation rates, across recent years, by fleet were used to distribute catches during the forecast period. 
+
+The ABC values were estimated using a category 1 $\sigma_y$ starting at 0.50 and increasing annually combined with a P* value of 0.45. The catches during the projection period were set equal to the year-specific ABC using the current flatfish harvest control rule, 25:5. The catches during the forecasted period are projected from the base model to start at XX mt in 2021 and decline to XX mt in 2030 as the stock declines towards the target spawning biomass (Table \ref{tab:project}). 
+
+
 ## Evaluation of Scientific Uncertainty
+
+Uncertainty in the forecasts is based upon the uncertainty around the `r endyr+1` spawning biomass, $\sigma$ = `r round(model$Pstar_sigma,2)`. The uncertainty around the OFL was $\sigma$ = `r round(model$OFL_sigm, 2)`.
+
+## Regional Management Considerations
+
+Currently `r spp` are managed using a coastwide harvest; therefore this assessment does not provide a recommended method for allocating harvests regionally. The resource is modeled as a single stock. There is currently no genetic evidence that there are distinct biological stocks of `r spp` off the U.S. coast and the limited tagging data that describes adult movement suggests that movement may be significant across depth and latitude.
+
 
 ## Research and Data Needs
 
-- spread California age samples across ports. Since 1990, nearly 60 percent of fish aged have been landed at the Crescent City port with some years all aged fish being landed here. 
+Investigating and or addressing the following items could improve future assessments of `r spp`: 
+
+\begin{itemize}
+
+\item Patterns with depth:  There are patterns of length and sex ratios with depth which may indicate that the stock is more complex than currently modeled.  Further research into the causes of these patterns as well as differences between seasons would help with understanding the stock characteristics such that a more realistic model could be built.  This may also provide further insight into migration and help determine if there are localized populations.
+
+\item Stock boundaries: A common question in stock assessments is whether or not the entire stock is being accounted for. `r spp` live deeper than the range of the fisheries and surveys.  The assessment model attempts to account for out of area biomass through catchability coefficients and selectivity curves, but that portion of the stock is unknown and can only be guessed at.  Research into abundance in deep areas would be useful to verify that the assessment adequately predicts the entire spawning stock of `r spp`.
+
+\item California Sampling for Ages: Since 1990, nearly 60 percent of fish aged have been landed at the Crescent City port with some years all aged fish being landed here. In contrast, the majority of `r spp` are landed at the Eureka port (approximately 67 percent over the last 10 years). Ensuring that sampling is spread across California ports and otoliths selected for ageing are spread across ports proportional to area removals may provide additional insights to area specific population attributes.
+
+\end{itemize}

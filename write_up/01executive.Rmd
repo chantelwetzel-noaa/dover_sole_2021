@@ -20,7 +20,7 @@ width = 75,
 height = 100)
 ```	
 
-\include{tex_tables/a_Catches_ES.tex}
+\input{tex_tables/a_Catches_ES.tex}
 
 ## Data and Assessment{-}
 
@@ -28,7 +28,7 @@ height = 100)
 
 All of the data sources included in the base model for `r spp` have re-evaluated for `r endyr`. Changes in varying degress have occurred in the data from those used in the previous assessments. The historical landings has been updated for California and Oregon relative to those used in 2011. Survey data from the Alaska and Northwest Fisheries Science Centers have been used to construct indices of abundance analyzed using a spatio-temporal delta-model (e.g., VAST). 
 
-The definition of fishing fleets have changed from those in the 2011 assessment. The new assessment assumed two fishing fleets in the model: 1) a combined gear California fleet and 2) a combined gear Oregon/Washington fleet. The update in fleet grouping for Oregon and Washington was meant to capture the fishing behavior of fishing and landing across state boundaries which makes separating data by state challenging. 
+The definition of fishing fleets have changed from those in the 2011 assessment. The new assessment assumed two fishing fleets in the model: 1) a combined gear California fleet and 2) a combined gear Oregon/Washington fleet. The update in fleet grouping for Oregon and Washington was suggested by state representative during the pre-assessment data meeting. Separating data between Oregon and Washington can be challenging due to fishing and landing across state boundaries. 
 
 The assessment uses landings data and discard estimates; survey indices of abundance, length- or age-composition data for each year and fishery or survey (with conditional age-at-length data used for the \Gls{s-wcgbt} survey); information on weight-at-length, maurity-at-length, and fecundity-at-length; information on natural mortality and the steepness of the Beverton-Holt stock-recruitment relationship; and estiamtes of ageing error. Recruitment at "equilibrium spawning output", length-based selectivity of the fisheries and surveys, retention of the fishery, catchability of the surveys, growth, the time series of spawning output, age and size structure, and current and project future stock status are outputs of the model. 
 
@@ -40,7 +40,7 @@ A base model was selected that best captures the central tendency for those sour
 
 The estimated spawning output from the base model generally shows...
 
-\include{tex_tables/b_SSB_ES.tex}
+\input{tex_tables/b_SSB_ES.tex}
 
 ```{r, results = 'asis'}
 add_figure(
@@ -64,7 +64,7 @@ height = 75)
 ## Recruitment{-}
 Replace text.
 
-\include{tex_tables/c_Recr_ES.tex}
+\input{tex_tables/c_Recr_ES.tex}
 
 ```{r, results = 'asis'}
 add_figure(
@@ -76,7 +76,7 @@ label = 'es-recruits')
 ## Exploitation Status{-}
 Replace text.
 
-\include{tex_tables/d_SPR_ES.tex}
+\input{tex_tables/d_SPR_ES.tex}
 
 ```{r, results = 'asis'}
 add_figure(
@@ -97,22 +97,56 @@ height = 75)
 ## Reference Points{-}
 Replace text.
 
-\include{tex_tables/e_ReferencePoints_ES.tex}
+\input{tex_tables/e_ReferencePoints_ES.tex}
 
 ## Management Performance{-}
-Replace text.
 
-\include{tex_tables/f_Manage_ES.tex}
+Exploitation on `r spp` slowly increased starting around 1940 and reached a high the early 1990s. After peaking exploitation rates declined steadily through 2006, increased in 2007, but have steadily declined since. In the last ten years the annual catch limit (ACL) has been set well below the overfishing limit (OFL) and acceptable biological catch (ABC).  Total mortality has ranged between 10 - 15 percent of the ACL in the most recent five years.
+
+```{r, results = 'asis'}
+yrs = hist = 2011:endyr
+nfleets = 2
+catch = dead = est.dead = input.catch =  0
+for (i in 1:nfleets){
+  name = paste0("retain(B):_",i)
+  input.catch = model$timeseries[model$timeseries$Yr %in% yrs, name]
+  catch = cbind(catch, input.catch)
+
+  name = paste0("dead(B):_",i)
+  est.dead = model$timeseries[model$timeseries$Yr %in% yrs, name]
+  dead = cbind(dead, est.dead)
+}
+total.catch <- round(apply(catch, 1, sum),0)
+total.dead  <- round(apply(dead, 1, sum), 0)
+
+man = read.csv("//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/management/dover_man_for_doc.csv")
+man = man[man$Year %in% yrs, ]
+out = cbind(man,  total.catch, total.dead)
+
+col_names = c("Year", "OFL", "ABC", "ACL", "Landings", "Est. Total mortality")
+
+table_format(x = out,
+             caption = "The OFL, ABC, ACL, landings, and the estimated total mortality in metric tons.",
+             label = "ofl-es",
+             align = 'l',
+             col_names = col_names)
+```
 
 ## Unresolved Problems and Major Uncertainties{-}
-Replace text.
+
+The base case model was developed with the goal of balancing parsimony with realism and fitting the data.  There were, however, some pieces of data that were fit poorly.  Specifically, the commercial length and age data for the combined Washington/Oregon fleet showed some unsatisfactory patterns in the early years of data. It is uncertain if these patterns are related to a lack of fit due to retention curves, selectivity curves, issues with historic data collection, or growth.  It is possible that `r spp` exhibit different life-history patterns in the north and the model is unable to capture these differences without introducing additional complexity.
+
+Add other uncertainties - natural mortality
+
+`r spp` life-history parameters exhibit strong relationships with depth that indicate the stock is more complex than the model assumes.  Small fish are found in shallow water, while mid-sized and larger fish are found in middle and deeper depths.  There is not a trend of larger fish being found deeper, but there is a trend of fewer smaller fish found deeper.  In addition, there is a pattern of sex ratio by depth with more males found in middle depths and more females found in shallow and deeper depths.  These patterns are apparent in the summer fisheries and surveys.  It is uncertain how the patterns affect the data (they may be a cause of the bimodal length distributions seen in the slope surveys) and if these patterns can be effectively modeled to produce better fits to the data and better predictions of biomass.
 
 ## Decision Table{-}
-Replace text.
+
+The axis of uncertainty chosen for this assessment was ...
 
 The estimated uncertainty in the base model around the `r endyr + 1` spawning output is $\sigma$ = `r round(model$Pstar_sigma,2)` and the uncertainty in the base model around the `r endyr + 1` OFL is $\sigma$ = `r round(model$OFL_sigma,2)`. The estimated model uncertainty was less than the category 1 groundfish data moderate assessment default value of  $\sigma$ = 0.50. 
 
-\include{tex_tables/g_Projections_ES.tex}
+\input{tex_tables/g_Projections_ES.tex}
 
 ## Research and Data Needs{-}
-Replace text.
+

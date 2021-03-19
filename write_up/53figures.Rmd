@@ -1,6 +1,17 @@
 \clearpage
 # Figures
 
+<!-- ====================================================================== --> 
+<!-- *******************    Assessment Map      *************************** --> 
+<!-- ====================================================================== --> 
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path("figs", "map.png"), 
+caption = "Map of the assessment area.",
+label = 'map')
+```	
+
 <!-- ====================================================================== -->  
 <!-- ****************** Catches Used in the Model ************************* --> 
 <!-- ====================================================================== -->  
@@ -18,7 +29,7 @@ label = 'catch')
 
 ```{r, results = 'asis'}
 add_figure(
-filein = file.path(mod_loc, "plots", "data_plot.png"), 
+filein = file.path("figs", "data_plot.png"), 
 caption = "Summary of data sources used in the base model",
 label = 'data-plot')
 ```	
@@ -64,17 +75,11 @@ label = 'ca-disc-len-ob')
 
 ```{r, results = 'asis'}
 add_figure(
-filein = file.path(mod_loc, "plots", "comp_lendat_flt2mkt1_page1.png"), 
+filein = file.path(mod_loc, "plots", "comp_lendat_flt2mkt1.png"), 
 caption = "Observed discard lengths for the Oregon-Washington fleet",
 label = 'orwa-disc-len-ob')
 ```
 
-```{r, results = 'asis'}
-add_figure(
-filein = file.path(mod_loc, "plots", "comp_lendat_flt2mkt1_page2.png"), 
-caption = "Observed discard lengths for the Oregon-Washington fleet",
-label = 'orwa-disc-len-ob-2')
-```
 
 <!-- ======================================================= -->
 <!-- *************** Commercial Data *********************** --> 
@@ -110,7 +115,7 @@ label = 'mean-ca-age-data')
 
 ```{r, results = 'asis'}
 add_figure(
-filein = file.path(mod_loc, "plots", "comp_lendat_bubflt2mkt2_page4.png"), 
+filein = file.path(mod_loc, "plots", "comp_lendat_bubflt2mkt2_page3.png"), 
 caption = "Length composition data from the Oregon-Washington commercial fleet",
 label = 'orwa-len-data')
 ```
@@ -353,6 +358,32 @@ label = 'mean-afsc-len-data')
 <!-- ***************   NWFSC Slope   *********************** --> 
 <!-- ======================================================= -->
 
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(data_loc, "survey_indices", "nwfsc_slope", "VASTWestCoast_Index_2002.png"), 
+caption = "The estimated index of abundance for the NWFSC Slope survey",
+label = 'nwfsc-index')
+```	
+
+\newpage
+
+```{r, results = 'asis'}
+#add_figure(
+#filein = file.path(data_loc, "survey_indices", "nwfsc_slope", "quantile_residuals.png"), 
+#caption = "Q-Q and diagnostics for the NWFSC Slope survey ",
+#label = 'nwfsc-qq')
+```
+
+\newpage	
+
+```{r, results = 'asis'}
+#add_figure(
+#filein = file.path(data_loc, "survey_indices", "nwfsc_slope", "quantile_residuals_on_map.png"), 
+#caption = "Residuals for the NWFSC Slope survey",
+#label = 'nwfsc-resid')
+```	
+
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(mod_loc, "plots", "comp_lendat_bubflt5mkt0.png"), 
@@ -369,18 +400,17 @@ label = 'mean-nw-slope-len-data')
 
 ```{r, results = 'asis'}
 add_figure(
-filein = file.path(mod_loc, "plots", "comp_agedat_bubflt5mkt0.png"), 
+filein = file.path(mod_loc, "plots", "comp_gstagedat_bubflt5mkt0.png"), 
 caption = "Age composition data from the NWFSC Slope survey",
 label = 'nw-slope-age-data')
 ```
 
 ```{r, results = 'asis'}
 add_figure(
-filein = file.path(mod_loc, "plots", "comp_agedat_data_weighting_TA1.8_NWFSC_Slope.png"), 
+filein = file.path(mod_loc, "plots", "comp_condAALdat_data_weighting_TA1.8_condAgeNWFSC_Slope.png"), 
 caption = "Mean age for NWFSC Slope survey with 95 percent confidence intervals",
 label = 'mean-nw-slope-age-data')
 ```
-
 
 <!-- ======================================================= -->  
 <!-- ******************   Biology  ************************* --> 
@@ -535,7 +565,7 @@ label = 'structure-bridge-depl')
 
 ```{r, results = 'asis'}
 add_figure(
-filein = file.path(getwd(), "figs", "h_prior.png"),
+filein = file.path("figs", "h_prior.png"),
 caption = "Prior distribution for steepness",
 label = 'h-prior')
 ```
@@ -546,26 +576,17 @@ label = 'h-prior')
 
 ```{r, results = 'asis'}
 add_figure(
-filein = file.path(getwd(), "figs", "selectivity.png"),
+filein = file.path("figs", "selectivity.png"),
 caption = "Selectivity by fleet",
 label = 'selex')
 ```
 
 ```{r, results = 'asis'}
 add_figure(
-filein = file.path(getwd(), "figs", "dover_retention.png"),
+filein = file.path("figs", "dover_retention.png"),
 caption = "Estimated retention curves by time block",
 label = 'retention')
 ```
-
-<!-- ====================================================================== -->
-<!-- ****************** Fit to the Length Data **************************** --> 
-<!-- ====================================================================== -->
-
-
-<!-- ====================================================================== -->
-<!-- ****************** Fit to the Age Data    **************************** --> 
-<!-- ====================================================================== -->
 
 
 <!-- ======================================================= -->  
@@ -596,10 +617,305 @@ label = 'rec-devs')
 
 ```{r, results = 'asis'}
 add_figure(
-filein = file.path(getwd(), "figs", "recruit_fit_bias_adjust.png"),
+filein = file.path("figs", "recruit_fit_bias_adjust.png"),
 caption = "Recruitment bias adjustment applied in the base model",
 label = 'bias-adj')
 ```
+
+<!-- ====================================================================== -->
+<!-- ****************** Fit to the Index Data  **************************** --> 
+<!-- ====================================================================== -->
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "index2_cpuefit_Triennial"), 
+caption = "Fit to the Triennial survey index of abundance. Thicker lines indicate input uncertainty before the addition of estimated additional uncertainty parameter",
+label = 'tri-index-fit')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "index2_cpuefit_AFSC_Slope"), 
+caption = "Fit to the AFSC Slope survey index of abundance. Thicker lines indicate input uncertainty before the addition of estimated additional uncertainty parameter",
+label = 'afsc-index-fit')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "index2_cpuefit_NWFSC_Slope"), 
+caption = "Fit to the NWFSC Slope survey index of abundance. Thicker lines indicate input uncertainty before the addition of estimated additional uncertainty parameter",
+label = 'nwslope-index-fit')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "index2_cpuefit_NWFSC_WCGBT"), 
+caption = "Fit to the NWFSC WCGBTS index of abundance",
+label = 'wcgbt-index-fit')
+```
+
+<!-- ====================================================================== -->
+<!-- ****************** Fit to the Discard Data *************************** --> 
+<!-- ====================================================================== -->
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "discard_fitCA.png"), 
+caption = "Fit to the annual discard rates for the California fleet",
+label = 'ca-disc-fit')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "discard_fitOR_WA.png"), 
+caption = "Fit to the annual discard rates for the Oregon/Washington fleet",
+label = 'orwa-disc-fit')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "bodywt_fit_fltCA.png"), 
+caption = "Fit to the annual mean body weight observations for the California fleet",
+label = 'ca-disc-mbw-fit')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "bodywt_fit_fltOR_WA.png"), 
+caption = "Fit to the annual mean body weight observations for the Oregon/Washington fleet",
+label = 'orwa-disc-mbw-fit')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_lenfit_flt1mkt1.png"), 
+caption = "Fit to the annual length composition of discarded fish for the California fleet",
+label = 'ca-disc-len-fit')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_lenfit_flt2mkt1.png"), 
+caption = "Fit to the annual length composition of discarded fish for the Oregon/Washington fleet",
+label = 'orwa-disc-len-fit')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_lenfit_residsflt1mkt1.png"), 
+caption = "Pearson residuals to annual length composition of discarded fish for the California fleet. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected)",
+label = 'ca-disc-pearson')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_lenfit_residsflt2mkt1.png"), 
+caption = "Pearson residuals to annual length composition of discarded fish for the Oregon/Washington fleet. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected)",
+label = 'orwa-disc-pearson')
+```
+
+<!-- ====================================================================== -->
+<!-- ****************** Fit to the Composition Data **************************** --> 
+<!-- ====================================================================== -->
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_lenfit_residsflt1mkt2_page4.png"), 
+caption = "Pearson residuals to annual length composition for the California fleet. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected)",
+label = 'ca-pearson')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_lenfit_data_weighting_TA1.8_CA.png"), 
+caption = "Mean length observations for the California fleet",
+label = 'ca-mean-len')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_lenfit__aggregated_across_time.png"), 
+caption = "Aggregated length composition fit across time by fleet",
+label = 'agg-fits')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_agefit_residsflt1mkt2_page2.png"), 
+caption = "Pearson residuals to annual age composition for the California fleet. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected)",
+label = 'ca-pearson-age')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_agefit_data_weighting_TA1.8_CA.png"), 
+caption = "Mean age observations for the California fleet",
+label = 'ca-mean-age')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_agefit__aggregated_across_time.png"), 
+caption = "Aggregated age composition fit across time by fleet",
+label = 'agg-age-fits')
+```
+
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_lenfit_residsflt2mkt2_page3.png"), 
+caption = "Pearson residuals to annual length composition for the Oregon/Washington fleet. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected)",
+label = 'orwa-pearson')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_lenfit_data_weighting_TA1.8_OR_WA.png"), 
+caption = "Mean length observations for the Oregon/Washington fleet",
+label = 'orwa-mean-len')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_agefit_residsflt2mkt2_page2.png"), 
+caption = "Pearson residuals to annual age composition for the Oregon/Washington fleet. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected)",
+label = 'orwa-pearson-age')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_agefit_data_weighting_TA1.8_OR_WA.png"), 
+caption = "Mean age observations for the Oregon/Washington fleet",
+label = 'orwa-mean-age')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_lenfit_residsflt4mkt0.png"), 
+caption = "Pearson residuals to annual length composition for the Triennial survey. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected)",
+label = 'tri-pearson')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_lenfit_data_weighting_TA1.8_Triennial.png"), 
+caption = "Mean length observations for the Triennial",
+label = 'tri-mean-len')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_lenfit_residsflt3mkt0.png"), 
+caption = "Pearson residuals to annual length composition for the AFSC Slope survey. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected)",
+label = 'afsc-pearson')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_lenfit_data_weighting_TA1.8_AFSC_Slope.png"), 
+caption = "Mean length observations for the AFSC Slope survey",
+label = 'afsc-mean-len')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_lenfit_residsflt5mkt0.png"), 
+caption = "Pearson residuals to annual length composition for the NWFSC Slope survey. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected)",
+label = 'nwslope-pearson')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_lenfit_data_weighting_TA1.8_NWFSC_Slope.png"), 
+caption = "Mean length observations for the NWFSC Slope survey",
+label = 'nwslope-mean-len')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_condAALfit_data_weighting_TA1.8_condAgeNWFSC_Slope.png"), 
+caption = "Mean age from conditional age-at-length data for the NWFSC Slope survey",
+label = 'nwslope-mean-caal')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_condAALfit_Andre_plotsflt5mkt0_page1.png"), 
+caption = "Conditional age-at-length for mean age and standard deviation for the NWFSC Slope survey (plot 1 of 2) Left plots are mean conditional age-at-length by size-class (observed and predicted) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and predicted) with 90 percent confidence intervalss based on the chi-square distribution",
+label = 'nwslope-caal-fit-1')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_condAALfit_Andre_plotsflt5mkt0_page2.png"), 
+caption = "Conditional age-at-length for mean age and standard deviation for the NWFSC Slope survey (plot 2 of 2) Left plots are mean conditional age-at-length by size-class (observed and predicted) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and predicted) with 90 percent confidence intervalss based on the chi-square distribution",
+label = 'nwslope-caal-fit-2')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_lenfit_residsflt6mkt0_page2.png"), 
+caption = "Pearson residuals to annual length composition for the NWFSC WCGBTS. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected)",
+label = 'wcgbt-pearson')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_lenfit_data_weighting_TA1.8_NWFSC_WCGBT.png"), 
+caption = "Mean length observations for the NWFSC WCGBTS",
+label = 'wcgbt-mean-len')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_condAALfit_data_weighting_TA1.8_condAgeNWFSC_WCGBT.png"), 
+caption = "Mean age observations from the conditional age-at-length data from the NWFSC WCGBTS",
+label = 'wcgbt-mean-age')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_condAALfit_Andre_plotsflt6mkt0_page1.png"), 
+caption = "Conditional age-at-length for mean age and standard deviation for the NWFSC WCGBT (plot 1 of 6) Left plots are mean conditional age-at-length by size-class (observed and predicted) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and predicted) with 90 percent confidence intervalss based on the chi-square distribution",
+label = 'wcgbt-caal-fit-1')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_condAALfit_Andre_plotsflt6mkt0_page2.png"), 
+caption = "Conditional age-at-length for mean age and standard deviation for the NWFSC WCGBT (plot 2 of 6) Left plots are mean conditional age-at-length by size-class (observed and predicted) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and predicted) with 90 percent confidence intervalss based on the chi-square distribution",
+label = 'wcgbt-caal-fit-2')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_condAALfit_Andre_plotsflt6mkt0_page3.png"), 
+caption = "Conditional age-at-length for mean age and standard deviation for the NWFSC WCGBT (plot 3 of 6) Left plots are mean conditional age-at-length by size-class (observed and predicted) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and predicted) with 90 percent confidence intervalss based on the chi-square distribution",
+label = 'wcgbt-caal-fit-3')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_condAALfit_Andre_plotsflt6mkt0_page4.png"), 
+caption = "Conditional age-at-length for mean age and standard deviation for the NWFSC WCGBT (plot 4 of 6) Left plots are mean conditional age-at-length by size-class (observed and predicted) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and predicted) with 90 percent confidence intervalss based on the chi-square distribution",
+label = 'wcgbt-caal-fit-4')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_condAALfit_Andre_plotsflt6mkt0_page5.png"), 
+caption = "Conditional age-at-length for mean age and standard deviation for the NWFSC WCGBT (plot 5 of 6) Left plots are mean conditional age-at-length by size-class (observed and predicted) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and predicted) with 90 percent confidence intervalss based on the chi-square distribution",
+label = 'wcgbt-caal-fit-5')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "comp_condAALfit_Andre_plotsflt6mkt0_page6.png"), 
+caption = "Conditional age-at-length for mean age and standard deviation for the NWFSC WCGBT (plot 6 of 6) Left plots are mean conditional age-at-length by size-class (observed and predicted) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and predicted) with 90 percent confidence intervalss based on the chi-square distribution",
+label = 'wcgbt-caal-fit-6')
+```
+
+
 
 
 <!-- ======================================================= -->  
@@ -630,7 +946,7 @@ label = 'depl')
 
 ```{r, results = 'asis'}
 add_figure(
-filein = file.path(getwd(), "figs", "unavailable_biomass.png"),
+filein = file.path("figs", "unavailable_biomass.png"),
 caption = "Proportion of biomass unavailable due to selectivity for small and large fish.",
 label = 'unavail-bio')
 ```
@@ -675,3 +991,10 @@ label = 'yield')
 <!-- ======================================================= -->  
 <!-- ************* Compare w/ 2011 & 2005 ****************** --> 
 <!-- ======================================================= -->
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path("figs", "assessment_history.png"), 
+caption = "Estimates of spawning output across the base model and previous assessments of Dover sole",
+label = 'past-assess')
+```

@@ -16,86 +16,55 @@ The 2005 assessment of `r spp` also concluded that the biomass of `r spp` off of
 
 Recommendation: Complete and review the Washington catch reconstruction and review the California and Oregon catch reconstructions. The accuracy and wide availability of consistent basic information is essential to the development of Pacific coast assessments. In addition to the raw data, the reliability and availability of more spatially dis-aggregated forms of the data should be investigated to determine if they could be used to develop more spatially explicit models without causing sacrifices in accuracy.
 
-\begin{itemize}
+Response: In 2016 a [groundfish historical catch reconstruction workshop](https://www.pcouncil.org/documents/2017/03/i2_att1_catch_reconstruction_workshop_report_mar2017bb.pdf/) was held to review catch reconstructions (landings prior to 1981) for California, Oregon, and Washington. During this workshop a divergence in approaches between California and Oregon catch reconstructions was identified. The California catch reconstruction did not include fish caught north of the California/Oregon border by trawlers that landed at ports in California between 1948 - 1968 and these fish were not accounted in the Oregon catch reconstruction. Flatfish (petrale sole and `r spp`) were approximately 75 percent of these landings. Estimates of these landings attributed to `r spp` were provided by Dr. John Field and were added to historical catches for the Oregon/Washington fleet in this assessment. Additionally, while California has created catch reconstruction for many species going back to the early 1900s, `r spp` historical catches are not available prior to 1948.  Future assessments of `r spp` would benefit from extending the catch reconstruction to earlier years, especially for species that have experienced long time series of exploitation. WDFW is still undertaking efforts to develop historical catch reconstructions for groundfish species landed in Washington's waters and significant progress has been made. After discussions with WDFW it was determined that the historical catches used in the 2011 assessment still represented the best estimates of `r spp` removals. 
 
-  \item Response: In 2016 a groundfish historical catch reconstruction workshop was held to review catch reconstructions (landings prior to 1981) for California, Oregon, and Washington. During this workshop a divergence in approaches between California and Oregon catch reconstructions was identified. The California catch reconstruction did not include fish caught north of the California/Oregon border by trawlers that landed at ports in California between 1948 - 1968 and these fish were not accounted in the Oregon catch reconstruction. Flatfish (petrale sole and `r spp`) were approximately 75 percent of these landings. Estimates of these landings attributed to `r spp` were provided by Dr. John Field and were added to historical catches for the Oregon/Washington fleet in this assessment. Additionally, while California has created catch reconstruction for many species going back to the early 1900s, `r spp` historical catches are not available prior to 1948.  Future assessments of `r spp` would benefit from extending the catch reconstruction to earlier years, especially for species that have experienced long time series of exploitation. WDFW is still undertaking efforts to develop historical catch reconstructions for groundfish species landed in Washington's waters and significant progress has been made. After discussions with WDFW it was determined that the historical catches used in the 2011 assessment still represented the best estimates of `r spp` removals. 
-
-\end{itemize}
 
 Recommendation: The difficulties encountered in the `r spp` assessment and some other flatfish assessments with respect to the linkage between selectivities require addressing. Although in many instances sized based selectivity may be appropriate, when sexes separate spatially there is a requirement for models to at least be able to investigate complete independence between genders. It is important that this be implemented in an updated version of Stock Synthesis.
 
-\begin{itemize}
+Response: Stock Synthesis now provides additional flexibility in the parameterization of sex-specific selectivity curves for both the double normal and logistic selectivity functions. To take advantage of this new flexibility fleets in this assessment assumed double normal selectivity parameterization.  The new approach in Stock Synthesis allows the user to specify a sex (male or female) to apply the main parameter lines with the other sex being estimated as offsets from the main selectivity curve.  The offset selectivity estimates sex-specific parameters for the peak, ascending width, descending with, final selectivity, and a scale parameter.   
 
-  \item Response: Stock Synthesis now provides additional flexibility in the parameterization of sex-specific selectivity curves for both the double normal and logistic selectivity functions. To take advantage of this new flexibility fleets in this assessment assumed double normal selectivity parameterization.  The new approach in Stock Synthesis allows the user to specify a sex (male or female) to apply the main parameter lines with the other sex being estimated as offsets from the main selectivity curve.  The offset selectivity estimates sex-specific parameters for the peak, ascending width, descending with, final selectivity, and a scale parameter.   
-
-\end{itemize}
 
 Recommendation: The panel investigated the use of age-specific natural mortality in both assessments presented during the STAR panel. In each case, one of the reasons for exploring different mortality schedules was the difficulty in fitting the imbalanced abundance at age information (as seen through residuals to fits), either in the sex ratio at older ages (`r spp`) or the ratio of young to old fish (sablefish). The use of Lorenzen M based on a decline in natural mortality by the inverse of the growth rate implies a link with predation; however, wider use and development of some guidance on the appropriateness of the implementation in other stock assessments should be investigated.
 
-\begin{itemize}
+Response: Alternative parameterization of natural mortality by age and sex were explored during model development. Assuming either Lorenzen natural mortality or linear changes in natural mortality at age had limited impact in model estimates and generally did not result in improved fit to data. Estimating natural mortality for `r spp` was challanges in general due to variable observations by sex, size, and age resulting from complex ontogenetic movementment patterns.
 
-  \item Response: 
-
-\end{itemize}
 
 Recommendation: Currently the only available error distribution for age information is the multinomial probability function. It appears that this may have some impact with respect to underestimating strong year classes and it would be desirable to explore the use of alternative error assumptions in order to analyze survey information, in particular where variance estimates in catches-at-age may be less than independent on abundance.
 
-\begin{itemize}
+Response: 
 
-  \item Response: 
 
-\end{itemize}
 
 Recommendation: There should be new studies of maturity by length and age based on more comprehensive coastwide and depth-based sampling and using histological techniques for determining maturity stage. Given that there is uncertainty regarding the temporal stability of maturity schedules, there should be periodic monitoring to explore for changes in maturity.
 
-\begin{itemize}
+Response: A new coastwide estimate of functional maturity was developed for use in this assessment.  The new functional maturity estimate of length at 50 percent maturity was similar to the assumed maturity in the 2011 assessment, however, the new slope reflected a more gradual increase in maturity-at-length. This new analysis also identified large spatial differences in maturity-at-length and age spatially north and south of Point Reyes in California. This assessment did not explicitly account for this potential difference in maturity-at-length due to limited information on `r spp` movement patterns (latitudal or/and water depth movements).  Additionally, the fine scale information of historical data (catches, lengths, and age) creates challenges from splitting data by area.  Additional, research should be conducted to evaluate movement and the variation in life history traits in `r spp` off the West Coast to improve future assessments. 
 
-  \item Response: A new coastwide estimate of functional maturity was developed for use in this assessment.  The new functional maturity estimate of length at 50 percent maturity was similar to the assumed maturity in the 2011 assessment, however, the new slope reflected a more gradual increase in maturity-at-length. This new analysis also identified large spatial differences in maturity-at-length and age spatially north and south of Point Reyes in California. This assessment did not explicitly account for this potential difference in maturity-at-length due to limited information on `r spp` movement patterns (latitudal or/and water depth movements).  Additionally, the fine scale information of historical data (catches, lengths, and age) creates challenges from splitting data by area.  Additional, research should be conducted to evaluate movement and the variation in life history traits in `r spp` off the West Coast to improve future assessments. 
 
-\end{itemize}
 
 Recommendation: Update the STAR Terms of Reference (TOR) to ensure that assessment documents include standard plots (or tables) of likelihood profiles that include likelihood components by data source and fleet. Such plots are an important diagnostic tool for displaying tensions among data sources profiles. 
 
-\begin{itemize}
-
-  \item Response: The groundfish assessment TOR now requires standardized tables and figures and are provided in this assessment.
-
-\end{itemize}
+Response: The groundfish assessment TOR now requires standardized tables and figures and are provided in this assessment.
 
 *Recommendations Specific to `r spp`*
 
 Recommendation: Researching ageing error, particularly aging bias, is important for `r spp` given the current base models difficulty with reconciling some tensions between different data sources regarding the sex ratio at the oldest ages. In addition, the ability of the model to track cohorts accurately would be significantly disrupted if there were severe size-based bimodality in cohorts caused by vastly different times of settlement (`r spp` are thought to have a larval period of 6 - 18 months). Consequently, larval period should also be examined.
 
-\begin{itemize}
-
-  \item Response: 
-
-\end{itemize}
+Response: Stock Synthesis now provides the ability to account for age at settlement.  A range of alternative age at settlement and timing were explored during model development. Model fits to data did not appreciably improve across these senstivities.  Additionally, model estimates across models were similar with the main difference across models were the years associated with recruitment deviation.    
 
 
 Recommendation: For the \gls{s-wcgbt}, raw age and length information appeared to imply persistently different sex ratios when viewed in isolation. The concern is that there is some unrepresentative sampling occurring in the age distribution as ages are sub-sampled from length. The sampling procedure should be investigated more closely and potentially improved.
 
-\begin{itemize}
-
-  \item Response: Examinations of the \gls{s-wcgbt} data were conducted examining the observations by sex across depths and examining potential non-representative sampling by sex, length, and age.  The sex ratio across depths for `r spp` are approximately 50:50 at shallower depth sampled by the survey, shifting to a higher proportion of males observed in mid-depths (300 - 800 m), and then shifting to a higher proportion of females at the deepest depths. This sex ratio pattern was observed across all of the four surveys used in this assessment implying a biological mechanism rather than non-representative sampling. Other studies have observed `r spp` movement to shallower and deeper depths based on the season likely linked to spawning behavior (Hagerman 1952).  All available survey data were sampled during late-spring to early-fall and observations made in late-fall or winter could reflect alternative sex ratio distributions by depth. 
-
-\end{itemize}
+Response: Examinations of the \gls{s-wcgbt} data were conducted examining the observations by sex across depths and examining potential non-representative sampling by sex, length, and age.  The sex ratio across depths for `r spp` are approximately 50:50 at shallower depth sampled by the survey, shifting to a higher proportion of males observed in mid-depths (300 - 800 m), and then shifting to a higher proportion of females at the deepest depths. This sex ratio pattern was observed across all of the four surveys used in this assessment implying a biological mechanism rather than non-representative sampling. 
 
 Recommendation: The conclusions of the NMFS workshop on developing priors on catchability were not available to the Panel. These should be made available and the information reconsidered specifically with respect to `r spp`, in an attempt to reconcile the relatively low catchability estimates for the surveys, particularly the NWFSC WCGBT survey which is thought to cover the majority of the stock distribution.
 
-\begin{itemize}
+Response: Unfortunately, there is still limited guidance regarding what catchability values by survey and species would be considered reasonable or expected. The derived catchability for the \gls{s-wcgbt} was greater than the 2011 value (0.69) and sometimes greater than 1.0 for the majority of models explored during development of the base model. This change in the catchability was not driven by a single change in the model structure but due to an aggregate of minor changes (e.g., combine Oregon and Washington into a single fleet, update and reprocess data based on current methodologies).  A catchability greater than 1.0 is not unprecidented for a flatfish species. Recent assessments for petrale sole captured by the \gls{s-wcgbt} have shown catchabilties great the 1.0 (q = 2.85 in the 2019 update assessment). Trawl gear video analysis for petrale has shown herding behavior when encountering trawl gear. Additionaly studies looking at other species behavior would provide improved understanding of catchability. 
 
-  \item Response: Unfortunately, there is still limited guidance regarding what catchability values by survey and species would be considered reasonable or expected. The derived catchability for the NWFSC WCGBT survey was greater than the 2011 value (0.69) and sometimes greater than 1.0 for the majority of models explored during development of the base model. This change in the catchability was not driven by a single change in the model structure but due to an aggregate of minor changes (e.g., combine Oregon and Washington into a single fleet, update and reprocess data based on current methodologies).  A catchability greater than 1.0 is not unprecidented for a flatfish species. Recent assessments for petrale sole captured by the NWFSC WCGBT survey have shown catchabilties great the 1.0. Trawl gear video analysis has shown herding behavior when encountering trawl gear. Additionaly studies looking at other species behavior would provide improved understanding of catchability. 
-
-\end{itemize}
 
 Recommendation: Having simplified the model compared to previous assessments, especially with respect to uniform growth, it is important to continue investigating if this is likely to introduce undesirable levels of bias into the assessment process as more information becomes available. Spatial information on the distribution by age/size of females, particularly in the southern part of the range, particularly across the stratification boundaries of the survey as well as between stocks, should be the primary focus of this work. 
 
-\begin{itemize}
+Response: 
 
-  \item Response: 
-
-\end{itemize}
 
 ### Response to 2021 Groundfish Subcommittee Requests 
 

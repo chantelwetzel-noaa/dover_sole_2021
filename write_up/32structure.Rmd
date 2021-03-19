@@ -1,5 +1,12 @@
 ## Model Structure and Assumptions
 
+### Modeling Platform and Structure
+
+The STAT team used Stock Synthesis version 3.30.16 developed by Dr. Richard Methot at the NWFSC [@methot_stock_2013]. This most recent version was used because it included improvements and corrections to older model versions.  The previous assessment of `r spp` also used Stock Synthesis but an earlier version, 3.21f; model bridging was performed between both versions of Stock Synthesis and are shown discussed below.  The R package [r4ss](https://github.com/r4ss/r4ss), version 1.38.0, along with R version 4.0.1 were used to investigate and plot model fits. 
+
+### Model Selection and Evaluation
+
+The base assessment model for `r spp` was developed to balance parsimony and realism, and the goal was to estimate a spawning output trajectory for the population of `r spp` off the west coast of the U.S. The model contains many assumptions to achieve parsimony and uses many different sources of data to estimate reality. A series of investigative model runs were done to achieve the final base model.
 
 ### Model Changes from the Last Assessment 
 
@@ -12,10 +19,6 @@ Fleet structure
 Biological offsets
 
 Data weighting
-
-### Modeling Platform and Structure
-
-The STAT team used Stock Synthesis version 3.30.16 developed by Dr. Richard Methot at the NWFSC [@methot_stock_2013]. This most recent version was used because it included improvements and corrections to older model versions.  The previous assessment of `r spp` also used Stock Synthesis but an earlier version, 3.21f; model bridging was performed between both versions of Stock Synthesis and are shown discussed below.  The R package [r4ss](https://github.com/r4ss/r4ss), version 1.38.0, along with R version 4.0.1 were used to investigate and plot model fits. 
 
 
 ### Bridging Analysis
@@ -30,7 +33,13 @@ The selectivity form used in this model bridging reflects the initial parameteri
 
 ### Model Parameters
 
-Describe estimated vs. fixed parameters
+There were XXX estimated parameters in the base model. These included one parameter for $R_0$, XX parameters for growth, X parameters for extra variability for the survey indices, XX parameters for selectivity, retention, and time blocking of the fleets and the surveys, XX recruitment deviations, and 12 forecast recruitment deviations (Table XX).
+
+Fixed parameters in the model were as follows. Steepness was fixed at 0.80, the mean of the prior. A sensitivity analysis and a likelihood profile were performed for steepness. Natural mortality was fixed at
+0.108 yr-1 for females and males, which is the median of the prior. The standard deviation of recruitment deviates was fixed at 0.40. Maturity-at-length was fixed as described above in [Maturation and Fecundity](#maturation-and-fecundity) section.Length-weight parameters were fixed at estimates using all length-weight observations (Figure \ref{fig:est-len-wght}).
+
+Dome-shaped selectivity was explored for all fleets within the model. Older `r spp`, particularly females, are often found in deeper waters and may move into areas that limit their availability to fishing gear. 
+
 
 ### Key Assumptions and Structural Choices
 
@@ -45,3 +54,11 @@ Priors were applied only to parameters for steepness ($h$) and natural mortality
 
 The prior distribution for natural mortality was based on the Hamel [-@hamel_method_2015] meta-analytic approach with  an assumed maximum age of 60 years for both males and females. The prior assumed a log normal distribution for natural mortality. The log normal prior has a median of 0.09 and a standard error of 0.438. 
 
+
+### Data Weighting
+
+Length and age-at-length compositions from the \gls{s-wcgbt} and \gls{s-nwslope}  were fit along with length and marginal age compositions from the fishery and other survey fleets. Length and marginal age data started with a sample size determined from the equation listed in [Commercial Fishery Length and Age Data](#commercial-fishery-length-and-age-data) sectionfor both fishing fleets in the model. Input sample sizes for survey length data were calculcated according according the method described in [\gls{s-wcgbt}](#nwfsc-west-coast-groundfish-bottom-trawl-survey) section.  It was assumed for age-at-length data that each age was a random sample within the length bin and the model started with a sample size equal to the number of fish in that length bin.
+
+Extra variability parameters were estimated and added to the input variance for the indices of abundance for three surveys in the model; 1) \gls{s-tri}, 2) \gls{s-nwslope}, and 3) \gls{s-aslope}. Estimating additional variance for the \gls{s-wcgbt} was explored and determined to not be required. WCGOP discard rate data during the pre-ITQ period (prior to 2011) were bootstrapped to provide uncertainty of the total discards.
+
+The base assessment model was weighted using the “Francis method”, which was based on equation TA1.8 in Francis [@francis_data_2011]. This formulation looks at the mean length or age and the variance of the mean to determine if across years, the variability is explained by the model. If the variability around the mean does not encompass the model predictions, then that data source should be down-weighted. This method accounts for correlation in the data (i.e., the multinomial distribution).  Sensitivities were performed examining the difference between the McAllister and Ianelli [@mcallister_bayesian_1997] method (Harmonic Mean weighting) and and the Dirichlet Multinomial Weighting [-@thorson_model-based_2017]  approaches. The weights applied to each length and age data set for the base model are shown in Table XX.
