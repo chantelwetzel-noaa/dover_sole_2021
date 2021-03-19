@@ -72,7 +72,7 @@ Sim_Settings <- list( "Species" = paste0("AFSC.Slope_", sci_name),
                       "ObsModelcondition" = obs_model,
                       "nknots" = 500,
                       "strata" = strata.limits,
-                      field = c(Omega1 = 0, Epsilon1 = 1, Omega2 = 0, Epsilon2 = 1)
+                      field = c(Omega1 = 1, Epsilon1 = 0, Omega2 = 1, Epsilon2 = 1)
                       )
 
 test <- VAST_condition(conditiondir = wd,
@@ -110,7 +110,7 @@ VAST_diagnostics(dir = wd)
 ############################################################################################
 devtools::load_all("C:/Users/Chantel.Wetzel/Documents/GitHub/nwfscSurvey")
 
-wd = "C:/Assessments/2021/dover_sole_2021/vast/nwfsc_slope"
+wd = "C:/Assessments/2021/dover_sole_2021/vast/kfj/gamma_state"
 dir = "//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey/nwfsc_slope"
 
 load(file.path(dir, "Catch__NWFSC.Slope_2020-09-10.rda"))
@@ -118,18 +118,17 @@ catch = Out
 
 sci_name = "Microstomus_pacificus"
 # This is probably not necessarily needed
-#strata.limits = data.frame('STRATA' = c("ca_or_wa", "ca", "or", "wa"),
-#                          'north_border'   = c(49.0, 42.0, 46.0, 49.0),  
-#                          'south_border'   = c(33.0, 33.0, 42.0, 46.0),
-#                          'shallow_border' = c( 183,  183, 183, 183), 
-#                          'deep_border'    = c(1280, 1280, 1280, 1280) )
+strata.limits = data.frame('STRATA' = c("ca_or_wa", "ca", "or", "wa"),
+                          'north_border'   = c(49.0, 42.0, 46.0, 49.0),  
+                          'south_border'   = c(33.0, 33.0, 42.0, 46.0),
+                          'shallow_border' = c( 183,  183, 183, 183), 
+                          'deep_border'    = c(1280, 1280, 1280, 1280) )
 
 
 Sim_Settings <- list( "Species" = paste0("NWFSC.Slope_", sci_name), 
                       "ObsModelcondition" = obs_model,
-                      "nknots" = 100,
                       "strata" = strata.limits,
-                      field = c(Omega1 = 0, Epsilon1 = 0, Omega2 = 0, Epsilon2 = 0)
+                      field = c(Omega1 = 1, Epsilon1 = 0, Omega2 = 1, Epsilon2 = 1)
                       )
 
 test <- VAST_condition(conditiondir = wd,
@@ -164,7 +163,7 @@ VAST_diagnostics(dir = wd)
 ############################################################################################
 devtools::load_all("C:/Users/Chantel.Wetzel/Documents/GitHub/nwfscSurvey")
 
-wd = "C:/Assessments/2021/dover_sole_2021/vast/wcgbt/north_south_pt_reyes"
+wd = "C:/Assessments/2021/dover_sole_2021/vast/wcgbt"
 
 sci_name = "Microstomus_pacificus"
 
@@ -177,9 +176,7 @@ strata.limits = data.frame('STRATA' = c("coastwide", "south", "north"),
 obs_model = c(2,0) # do the gamma only for now
 Sim_Settings <- list( "Species" = paste0("NWFSC.Combo_", sci_name), 
                       "ObsModelcondition" = obs_model,
-                      "strata" = strata.limits,
-                      'nknots' = 50
-                      )
+                      "strata" = strata.limits)
 
 test <- VAST_condition(conditiondir = wd,
                        settings = Sim_Settings, 
