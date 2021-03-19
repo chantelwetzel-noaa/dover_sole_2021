@@ -926,8 +926,18 @@ SSplotComparisons(mysummary,
 				  print = FALSE,
 				  pdf = FALSE)
 
-model = "5.8.2_selex_orwa"
-orwa = SS_output(file.path(wd, model))
-SS_plots(orwa, plot = c(2))
-# NLL = 1005
 
+model = "5.8.2_data_lambda_nwfsc_slope"
+lambda = SS_output(file.path(wd, model))
+SS_tune_comps(replist = lambda, option = "Francis", dir = file.path(wd, model))
+
+modelnames <- c("AFSC Slope Spline", "Minor Adj.", "Lambda")
+mysummary <- SSsummarize(list(afsc, minor, lambda))
+SSplotComparisons(mysummary, 
+				  #filenameprefix = "5.8_data_selex_",
+				  ylimAdj  = 1.1,
+				  legendloc = 'topright', 
+				  legendlabels = modelnames, 	
+				  #plotdir = file.path(wd, "_plots"),
+				  print = FALSE,
+				  pdf = FALSE)

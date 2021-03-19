@@ -323,6 +323,8 @@ age = SS_output(file.path(wd, "_bridging", "1.8.0_all_data_disc0"))
 all = SS_output(file.path(wd, "_bridging", "1.8.10_all_data_disc_2019"))
 data20 = SS_output(file.path(wd, "_bridging", "1.8.11_all_data_disc_t_dist"))
 mi = SS_output(file.path(wd, "_bridging", "1.9.0_dw_mi_t_dist"))
+# Pstar sigma = 0.32
+# OFL sigma = 0.27
 
 modelnames <- c("2011", "+Catch", "+Index", 
 				"+Lengths", "+Ages", "+Discard", "DW- All Data")
@@ -344,9 +346,13 @@ SSplotComparisons(mysummary,
 prior = SS_output(file.path(wd, "_bridging", "2.0_m_priors_t_dist"))
 bio = SS_output(file.path(wd, "_bridging", "2.1_bio_params_t_dist"))
 offsets = SS_output(file.path(wd, "_bridging", "2.2_bio_offsets_t_dist"))
+# Pstar Sigma = 0.32 
+# OFL Sigma = 0.30
 fishery_selex = SS_output(file.path(wd, "1.0_selex_fishery"))
 survey_selex = SS_output(file.path(wd, "1.1_selex_survey"))
 selex = SS_output(file.path(wd, "1.3_selex_dw_mi"))
+spline = SS_output(file.path(wd, "1.1.1_selex_dn_spline"))
+# Pstar sigma = 0.175
 modelnames <- c( "2011", "Update - 2020 All Data", "+M Prior", "+Bio Values",
 				 "+Offset Params", "+Fishery Selectivity", "+Survey Selectivity")
 mysummary <- SSsummarize(list(base2011, mi, prior, bio, offsets,fishery_selex,
