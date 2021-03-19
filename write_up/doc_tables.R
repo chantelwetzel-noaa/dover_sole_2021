@@ -1,10 +1,42 @@
 library(sa4ss)
 
+setwd("C:/Assessments/2021/dover_sole_2021/write_up")
+
 load("00mod.Rdata")
 save_loc = file.path(getwd(), "tex_tables")
 
 
+##########################################################################################
+# Discard Data tables
+##########################################################################################
+
+ca_disc = model$discard[model$discard$Fleet_Name == "CA", c("Fleet_Name", "Yr", "Obs", "Std_in")]
+ca_source = c("Humboldt State University", rep("WCGOP", dim(ca_disc)[1]-1))
+ca_disc[, "Fleet_Name"] = "CA"
+
+
+orwa_disc = model$discard[model$discard$Fleet_Name == "OR_WA", c("Fleet_Name", "Yr", "Obs", "Std_in")]
+orwa_disc[, "Fleet_Name"] = "OR/WA"
+orwa_source = c(rep("Hermann and Harry 1963", 3), "Methot et al. 1990", 
+              rep("Pikitch Study", 3), rep("WCGOP",18))
+
+out = cbind(rbind(ca_disc, orwa_disc), c(ca_source, orwa_source))
+out[,3:4] = round(out[,3:4], 3)
+rownames(out) = NULL
+t = table_format(x = out,
+                caption = "Discard rates by source used in the base model",
+                label = "disc-rates",
+                col_names = c("Fleet", "Year", "Observation", "Std. Dev.", "Source"),
+                align = 'l')
+
+kableExtra::save_kable(t,
+             file = file.path(save_loc, paste0('discard_rate_table.tex')))
+
+
+
+##########################################################################################
 # Let's create index tables
+##########################################################################################
 names =  unique(model$cpue[,"Fleet_name"])
 survey.list = list()
 for(i in 1:length(names)){
