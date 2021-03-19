@@ -7,7 +7,7 @@ library(r4ss)
 dat_loc = "//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey"
 mod_loc = "C:/Assessments/2021/dover_sole_2021/models"
 
-base_name = "4.0.0_bio_est_m"
+base_name = "5.7.1_dw_francis"
 
 # Grab the design-based index
 wcgbt_db = read.csv(file.path(dat_loc, "wcgbts", "forSS", "nwfsc_wcgbts_design_based_indices.csv"), header = TRUE)
@@ -30,7 +30,7 @@ mod_2011 = SS_output(file.path(mod_loc, "_2011_model"))$cpue
 mod_2021 = SS_output(file.path(mod_loc, base_name))$cpue
 
 name = c("AFSC Slope", "Triennial", "NWFSC Slope", "NWFSC WCGBT")
-add = c(0.10, 0.30, 0.10, 0.20)
+add = c(0.10, 0.50, 0.10, 0.2)
 
 png(file.path(dat_loc, 'plots', 'db_index_comparison.png'),
     width = 12, height = 12, units='in', res=300, pointsize=10)

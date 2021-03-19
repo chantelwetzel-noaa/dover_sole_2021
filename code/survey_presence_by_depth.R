@@ -229,8 +229,17 @@ dev.off()
 
 #################################################################################################
 
-all_ages = c(bio$Age, bio_nwslope$Age, as.numeric(bio_age_aslope$Age), Pdata$Age)
-all_ages = all_ages[all_ages < 75]
+all_ages = rbind(cbind( bio$Age, rep("NWFSC_WCGBT", length(bio$Age))),
+		         cbind( bio_nwslope$Age,  rep("NWFSC_Slope", length(bio_nwslope$Age))),
+		         cbind( as.numeric(bio_age_aslope$Age), rep("AFSC_Slope", length(bio_age_aslope$Age))),
+		         cbind( Pdata$Age, rep("Fishery", length(Pdata$Age))))
+
+remove = which(is.na(all_ages))
+all_ages = all_ages[-remove,]
+age = as.data.frame(all_ages)
+colnames(age) = c("Age", "Source")
+
+#all_ages = all_ages[all_ages < 75]
 quantile(all_ages, c(seq(0.99, 1, 0.0005)), na.rm = TRUE)
 
 all_ages = c(bio$Age, bio_nwslope$Age, as.numeric(bio_age_aslope$Age))
@@ -239,6 +248,18 @@ quantile(all_ages, c(seq(0.99, 1, 0.0005)), na.rm = TRUE)
 quantile(bio$Age, c(0.5, 0.99, 0.995, 0.999, 1), na.rm = TRUE)
 quantile(bio_nwslope$Age, c(0.5, 0.99, 0.995, 0.999, 1), na.rm = TRUE)
 quantile(as.numeric(bio_age_aslope$Age), c(0.5, 0.99, 0.995, 0.999, 1), na.rm = TRUE)
+
+hist(as.numeric(age[,"Age"]), xlim = c(0,60))
+library(ggplot2)
+ggplot(age, aes(x = Age)) +
+	#facet_wrap(facets = c("Source")) + #, "Source")) +
+	#scale_color_manual(values = c("F" = alpha('red',0.5), "M" = alpha('blue', 0.5), "U" = alpha('black', 0.2))) 
+	geom_density(alpha = 0.4, lwd = 0.8, adjust = 0.5, bw = 1)
+
+
+ggplot(age, aes(Age, color = Source)) +
+	facet_wrap(facets = c("Source")) +
+	geom_density(alpha = 0.4, lwd = 0.8, adjust = 0.5, bw = 1)
 
 
 ###########################################################################################

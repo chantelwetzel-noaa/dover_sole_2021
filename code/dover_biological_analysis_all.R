@@ -209,6 +209,13 @@ for (ss in c("F", "M")){
 		ylab = "Age", xlab = "Latitude", main = ss)
 }
 dev.off()
+#############################################################################################
+
+
+tmp = out[out$Sex != "U" & out$Age < 70,]
+ggplot(tmp, aes(Age, color = Sex)) +
+	#facet_wrap(facets = c("Source")) +
+	geom_density(alpha = 0.4, lwd = 0.8, adjust = 0.5, bw = 1)
 
 
 ############################################################################################
