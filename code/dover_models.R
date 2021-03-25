@@ -929,6 +929,7 @@ SSplotComparisons(mysummary,
 
 model = "5.8.2_data_lambda_nwfsc_slope"
 lambda = SS_output(file.path(wd, model))
+SS_plots(lambda)
 SS_tune_comps(replist = lambda, option = "Francis", dir = file.path(wd, model))
 
 modelnames <- c("AFSC Slope Spline", "Minor Adj.", "Lambda")
@@ -941,3 +942,102 @@ SSplotComparisons(mysummary,
 				  #plotdir = file.path(wd, "_plots"),
 				  print = FALSE,
 				  pdf = FALSE)
+
+# The early retention block for or/wa did not have any length data to 
+# inform it since I removed that Hermann & Harry lengths
+# This run removes the early block and only applies 2 blocks
+# 1910 - 2001 (pikitch lengths) 2002 - 2010 (WCGOP) 
+model = "5.8.3_data_orwa_ret_block"
+ret = SS_output(file.path(wd, model))
+SS_plots(ret)
+# NLL = 1033.61, R0 = 12.14
+# Disc_like: -71.2769  -5.8105 -65.4665 0 0 0 0
+# Length_like: 350.546  153.174 176.587 31.4346 24.3489 21.5751 108.306
+#
+
+model = "5.8.4_data_hermann_harry_data"
+hh_dat = SS_output(file.path(wd, model))
+
+modelnames <- c("5.8.3 No Early Disc Lengths", "5.8.4 w/ HH Discard Lengths")
+mysummary <- SSsummarize(list(ret, hh_dat))
+SSplotComparisons(mysummary, 
+				  filenameprefix = "5.8.3_orwa_disc_lengths_",
+				  ylimAdj  = 1.1,
+				  legendloc = 'topright', 
+				  legendlabels = modelnames, 	
+				  plotdir = file.path(wd, "_plots"),
+				  pdf = TRUE)
+
+model = "5.9.0_selex_nwfsc_slope"
+nwslope = SS_output(file.path(wd, model))
+SS_plots(nwslope, plot = c(2, 16:20))
+# NLL = 1018.2
+# Length_like: 339.151  155.54 170.402 29.4033 24.6534 13.2897 108.833
+
+model = "5.9.1_selex_spline_adj_peak"
+adj_peak = SS_output(file.path(wd, model))
+SS_plots(adj_peak, plot = c(2, 16))
+# NLL = 1018.7
+# Length_like: 333.479  155.671 167.05 25.5374 24.6742 13.3339 108.573
+# better fit to length but slightly worse fit to discards and ages
+
+# Removing super-year 
+# NLL = 1019.18
+
+# Now with the disc length/block fixed - try estimating early selex 
+# offset for female for OR/WA
+# Also added forecast catch and tv-buffers
+model = "5.9.3_selex_clean_up"
+selex = SS_output(file.path(wd, model))
+SS_plots(selex)
+# NLL = 1013.5
+# Both of the slope spline has a female flat high selex at the large sizes
+
+# Reduce the spline knots from 5 to 4
+model = "5.9.4_selex_spline_rm_knot"
+knot = SS_output(file.path(wd, model))
+SS_plots(knot, plot = c(2, 16))
+# NLL = 1015
+
+# Try only 3 knots for each spline
+model = "5.9.5_selex_spline_knot_3"
+knot3 = SS_output(file.path(wd, model))
+SS_plots(knot3, plot = c(2, 16))
+# NLL = 1025
+
+model = "5.9.6_selex_spline_fem_offset"
+offset = SS_output(file.path(wd, model))
+SS_plots(offset, plot = c(2, 16))
+# NLL = 1016.5
+
+model = "5.9.7_selex_"
+selex = SS_output(file.path(wd, model))
+SS_plots(selex)
+# NLL = 1015.23
+# Surv_like: -49.8651  0 0 -6.32421 -3.53247 -7.95552 -32.0529
+# Disc_like: -71.8564  -5.82537 -66.031 0 0 0 0
+# mnwt_like: -81.1762  -35.0972 -46.079 0 0 0 0
+# Length_like: 337.663  157.085 171.948 26.2034 24.9036 13.1391 108.9
+# Age_like: 896.363  104.389 154.276 0 0 71.205 695.825
+
+model = "5.9.8_selex_spline_auto"
+auto = SS_output(file.path(wd, model))
+SS_plots(auto)
+# NLL = 1015.23
+# Surv_like: -49.8651  0 0 -6.32422 -3.53248 -7.95553 -32.0529
+# Disc_like: -71.8564  -5.82538 -66.0311 0 0 0 0
+# mnwt_like: -81.1762  -35.0972 -46.079 0 0 0 0
+# Length_like: 337.663  157.085 171.947 26.2035 24.9036 13.1391 108.9
+# Age_like: 896.363  104.389 154.276 0 0 71.2051 695.826
+
+##########################################################################
+modelnames <- c("Only AFSC Spline", "Both Slopes as Splines",
+				 "Adj Spline Knots","Spline 4 Knots")
+mysummary <- SSsummarize(list(ret, nwslope,adj_peak,selex))
+SSplotComparisons(mysummary, 
+				  filenameprefix = "5.9_splines_",
+				  ylimAdj  = 1.1,
+				  legendloc = 'topright', 
+				  legendlabels = modelnames, 	
+				  plotdir = file.path(wd, "_plots"),
+				  pdf = TRUE)
