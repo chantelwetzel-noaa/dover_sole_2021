@@ -12,6 +12,42 @@ pngfun(wd = savedir, 'unavailable_biomass.png', w = 10, h = 7)
 	SSunavailableSpawningOutput(model, plot=TRUE)
 dev.off()
 
+fleets = c("AFSC Slope", "Triennial", "NWFSC Slope", "NWFSC WCGBT")
+
+# index fits
+pngfun(wd = savedir, 'index_fits.png', h = 10, w = 10)
+par(mfrow=c(2,2),mar=c(2,2,2,1),oma=c(2,2,0,0)+.1)
+for(a in 1:4){
+  f = c(3:6)[a]
+  SSplotIndices(model, fleets = f, subplot = 2, fleetnames = fleets)
+  mtext(side = 3, fleets[a])
+}
+mtext(side=1,line=1,outer=TRUE,'Year')
+mtext(side=2,line=1,outer=TRUE,'Index')
+dev.off()
+
+
+# discard fits
+fleets = c("CA", "OR/WA")
+pngfun(wd = savedir, 'discard_fits.png')
+par(mfcol=c(2,1),mar=c(2,2,2,1),oma=c(2,2,0,0)+.1)
+for(f in 1:2){
+  SSplotDiscard(model, fleets=f,subplot=2,fleetnames=fleets, datplot = TRUE, ymax = 0.4)
+}
+mtext(side=1,line=1,outer=TRUE,'Year')
+mtext(side=2,line=1,outer=TRUE,'Discard fraction')
+dev.off()
+
+# discard without fits
+pngfun(wd = savedir, 'discard_data.png')
+par(mfcol=c(2,1),mar=c(2,2,2,1),oma=c(2,2,0,0)+.1)
+for(f in 1:2){
+  SSplotDiscard(model, fleets=f,subplot=1,fleetnames=fleets, datplot = TRUE, ymax = 0.40)
+}
+mtext(side=1,line=1,outer=TRUE,'Year')
+mtext(side=2,line=1,outer=TRUE,'Discard fraction')
+dev.off()
+
 
  SSplotData(
           replist = model, print = TRUE,
