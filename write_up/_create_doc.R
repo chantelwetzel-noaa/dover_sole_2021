@@ -8,7 +8,7 @@ devtools::load_all("C:/Users/Chantel.Wetzel/Documents/GitHub/r4ss")
 # Specify the directory for the document
 setwd("C:/Assessments/2021/dover_sole_2021/write_up")
 
-base = "C:/Assessments/2021/dover_sole_2021/models/3.2.0_selex_data_dw"
+base = "//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/5.7.1_dw_francis"
 
 # Create the needed items to generate the "right" template that would be based on the inputs here:
 draft(authors = c("Chantel R. Wetzel", "Aaron M. Berger"),
@@ -23,7 +23,7 @@ draft(authors = c("Chantel R. Wetzel", "Aaron M. Berger"),
 # Create a model Rdata object
 read_model(
           mod_loc = base,
-				  create_plots = FALSE, 
+				  create_plots = TRUE, 
           fecund_mult = 'mt',
           bub_scale = 12,
 				  save_loc = file.path(getwd(), "tex_tables"),
