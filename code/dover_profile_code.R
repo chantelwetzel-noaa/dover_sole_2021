@@ -22,12 +22,13 @@ base_name = "3.0.4_data_ages"
 base_name = "5.1.4_dw_mi_orwa_disc_w_best_jitter_fix_selex"
 base_name = "5.3.2_selex_clean_up"
 base_name = "5.7.1_dw_francis"
+base_name = "5.8.2_data_lambda_nwfsc_slope"
 
-get = get_settings_profile( parameters =  c("NatM_p_1_Fem_GP_1","NatM_p_1_Male_GP_1", "SR_BH_steep", "SR_LN(R0)"),
-							low =  c(0.09, -0.1,  0.30, -2.0),
-							high = c(0.13, 0.2, 1.0,  3),
-							step_size = c(0.005, 0.01, 0.10, 0.25),
-							param_space = c('real', 'real', 'real', 'relative'))
+get = get_settings_profile( parameters =  c("NatM_p_1_Mal_GP_1", "SR_BH_steep", "SR_LN(R0)"),
+							low =  c(-0.1,  0.30, -2.0),
+							high = c( 0.2, 1.0,  3),
+							step_size = c(0.01, 0.10, 0.25),
+							param_space = c('real', 'real', 'relative'))
 
 get = get_settings_profile( parameters =  c("NatM_p_1_Fem_GP_1", "NatM_p_1_Mal_GP_1"),
 							low =  c(0.07, -0.35),
@@ -54,6 +55,11 @@ model_settings = get_settings(settings = list(base_name = base_name,
 											  profile_details = get))
 
 model_settings = get_settings(settings = list(base_name = base_name,
+											  run = "profile",
+											  profile_details = get))
+
+model_settings = get_settings(settings = list(base_name = base_name,
+											  run = c('profile', 'jitter'),
 											  retro_yrs = -1:-10,
 											  profile_details = get))
 
