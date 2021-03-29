@@ -26,19 +26,18 @@ height = 100)
 
 `r spp` off the west coast of the U.S. was assessed here using the length- and age-structured model Stock Synthesis (version 3.30.16).  The last assessment was done in 2011 and showed the stock to be increasing with a 2011 depletion level at 84 percent of virgin spawning biomass. In this assessment, aspects of the model including fleet structure, landings, data, and modelling assumptions were re-evaluated. The coastwide population was modeled allowing separate growth and mortality parameters for each sex (i.e., a two-sex model) from `r startyr` to `r endyr` and forecasted beyond `r endyr`.
 
-All of the data sources included in the base model for `r spp` have re-evaluated for `r endyr`. Changes in varying degress have occurred in the data from those used in the previous assessments. The historical landings has been updated for California and Oregon relative to those used in 2011. Survey data from the Alaska and Northwest Fisheries Science Centers have been used to construct indices of abundance analyzed using a spatio-temporal delta-model (e.g., VAST). 
+All of the data sources included in the base model for `r spp` have been re-evaluated for this assessment. Changes in varying degress have occurred in the data from those used in the previous assessment. The historical landings has been updated for California and Oregon relative to those used in 2011. Survey data from the Alaska and Northwest Fisheries Science Centers have been used to construct indices of abundance analyzed using a spatio-temporal delta-model (e.g., VAST). 
 
 The definition of fishing fleets have changed from those in the 2011 assessment. The new assessment assumed two fishing fleets in the model: 1) a combined gear California fleet and 2) a combined gear Oregon/Washington fleet. The update in fleet grouping for Oregon and Washington was suggested by state representative during the pre-assessment data meeting. Separating data between Oregon and Washington can be challenging due to fishing and landing across state boundaries. 
 
-The assessment uses landings data and discard estimates; survey indices of abundance, length- or age-composition data for each year and fishery or survey (with conditional age-at-length data used for the \Gls{s-wcgbt} survey); information on weight-at-length, maurity-at-length, and fecundity-at-length; information on natural mortality and the steepness of the Beverton-Holt stock-recruitment relationship; and estiamtes of ageing error. Recruitment at "equilibrium spawning output", length-based selectivity of the fisheries and surveys, retention of the fishery, catchability of the surveys, growth, the time series of spawning output, age and size structure, and current and project future stock status are outputs of the model. 
+This assessment uses landings data and discard estimates; survey indices of abundance, length- or age-composition data for each fishery or survey (with conditional age-at-length data used for the \gls{s-nwslope} and \gls{s-wcgbt}); information on weight-at-length, maurity-at-length, and fecundity-at-length; information on natural mortality and the steepness of the Beverton-Holt stock-recruitment relationship; and estiamtes of ageing error. Estimates of recruitment at equilibrium spawning output ($R_0$), annual recruitment deviations, sex-specific length-based selectivity of the fisheries and surveys, retention for each of the fishery fleets, catchability of the surveys, sex-specific growth, the time series of spawning output, age and size structure, and current and project future stock status are outputs of the model. 
 
-A number of sources of uncertainty are explicitly included in this assessment. 
-
-A base model was selected that best captures the central tendency for those sources of uncertainty considered in the model.
+A number of sources of uncertainty are explicitly included in this assessment. A base model was selected that best captures the central tendency for those sources of uncertainty considered in the model.
 
 ## Stock Biomass{-}
 
-The estimated spawning output from the base model generally shows...
+The estimated spawning biomass across all years had the most significant decline occuring in the late 1990s following high catch levels in the 1980s and early 1990s. 
+
 
 \input{tex_tables/b_SSB_ES.tex}
 

@@ -5,26 +5,64 @@ The base model parameter estimates along with approximate asymptotic standard er
 ### Parameter Estimates
 
 There are numerous types of data for which the fits are discussed: survey abundance indices, discard data (biomass and length compositions), length-composition data for the fisheries and surveys, marginal age compositions for the fisheries and surveys, and conditional age-at-length observations for the surveys.
-
-The fits to the survey indices are shown in FigureXX.  Extra standard error was estimated for the \gls{s-tri}, \gls{s-nwslope}, and \gls{s-aslope}.   
-
-
-
-
+   
+Figure \ref{fig:selex}
+Figure \ref{fig:retention}  
+Figure \ref{fig:bh-curve}
+Figure \ref{fig:recruits}
+Figure \ref{fig:rec-devs}
+Figure \ref{fig:bias-adj}
 
 
 ### Fits to the Data
 
+The fits to the survey indices are shown in Figure \ref{fig:wcgbt-index-fit} - \ref{fig:nwslope-index-fit}.  Extra standard error was estimated for the \gls{s-tri}, \gls{s-nwslope}, and \gls{s-aslope}.
+
+Figure \ref{fig:ca-disc-fit}
+Figure \ref{fig:orwa-disc-fit}
+Figure \ref{fig:ca-disc-mbw-fit}
+Figure \ref{fig:orwa-disc-mbw-fit}
+Figure \ref{fig:ca-disc-len-fit}
+Figure \ref{fig:orwa-disc-len-fit}
+Figure \ref{fig:ca-disc-pearson}
+Figure \ref{fig:orwa-disc-pearson}
+Figure \ref{fig:ca-pearson}
+Figure \ref{fig:ca-mean-len}
+Figure \ref{fig:agg-fits}
+Figure \ref{fig:orwa-pearson}
+Figure \ref{fig:ca-pearson-age}
+Figure \ref{fig:ca-mean-age}
+Figure \ref{fig:agg-age-fits}
+Figure \ref{fig:orwa-pearson}
+Figure \ref{fig:orwa-mean-len}
+Figure \ref{fig:orwa-pearson-age}
+Figure \ref{fig:orwa-mean-age}
+Figure \ref{fig:tri-pearson}
+Figure \ref{fig:tri-mean-len}
+Figure \ref{fig:afsc-pearson}
+Figure \ref{fig:afsc-mean-len}
+Figure \ref{fig:nwslope-pearson}
+Figure \ref{fig:nwslope-mean-len}
+Figure \ref{fig:nwslope-mean-caal}
+Figure \ref{fig:nwslope-caal-fit-1}
+Figure \ref{fig:nwslope-caal-fit-2}
+Figure \ref{fig:wcgbt-pearson}
+Figure \ref{fig:wcgbt-mean-len}
+Figure \ref{fig:wcgbt-mean-age}
+Figure \ref{fig:wcgbt-caal-fit-1}
+Figure \ref{fig:wcgbt-caal-fit-2}
+Figure \ref{fig:wcgbt-caal-fit-3}
+Figure \ref{fig:wcgbt-caal-fit-4}
+Figure \ref{fig:wcgbt-caal-fit-5}
+Figure \ref{fig:wcgbt-caal-fit-6}
+
+
 ### Population Trajectory
 
-### Convergence
-
-### Likelihood Profiles
-
-### Retrospective Analysis
-
-### Historical Analysis
-
-The estimated spawning output from previous assessments since 2001 are shown in Figure \ref{fig:past-assess}.    
+Figure \ref{fig:ssb}
+Figure \ref{fig:tot-bio}
+Figure \ref{fig:depl}
+Figure \ref{fig:unavail-bio}
+   
 
 

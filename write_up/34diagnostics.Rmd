@@ -1,12 +1,45 @@
 ## Model Diagnostics
-Describe all diagnostics
 
 ### Convergence
 
+Proper convergence was determined by starting the minimization process from dispersed values of the maximum likelihood estimates to determine if the model found a better minimum. Starting parameters were jittered by 5 percent. This was repeated 100 times with XX out of 100 runs returned to the base model likelihood. A better, lower negative log-likelihood, model fit was not found. The model did not experience convergence issues when provided reasonable starting values. Through the jittering done as explained and likelihood profiles, we are confident that the base model as presented represents the best fit to the data given the assumptions made. There were no difficulties in inverting the Hessian to obtain estimates of variability, although much of the early model investigation was done without attempting to estimate a Hessian.
+
 ### Sensitivity Analyses
+
+A number of sensitivity analyses were conducted.  The majority of the sensitivities conducted was a single exploration from the base model assumptions and/or data, and were not performed in a cumulative fashion.
+
+\begin{enumerate}
+   
+  \item 
+
+\end{enumerate}
+
+Table \ref{tab:sensitivities}
+Figure \ref{fig:sens-ssb}
+Figure \ref{fig:sens-depl}
+
+### Likelihood Profiles
+
+
+Likelihood profiles were conducted for $R_0$, steepness, and female natural mortality values separately. These likelihood profiles were conducted by fixing the parameter at specific values and estimated the remaining parameters based on the fixed parameter value.
+
+Figure \ref{fig:r0-profile}
+Figure \ref{fig:r0-ssb}
+Figure \ref{fig:r0-depl}
+Figure \ref{fig:h-profile}
+Figure \ref{fig:h-ssb}
+Figure \ref{fig:h-depl}
+Figure \ref{fig:m-profile}
+Figure \ref{fig:m-ssb}
+Figure \ref{fig:m-depl}
+
 
 ### Retrospective Analysis
 
-### Likelihood Profiles
+A ten-year retrospective analysis was conducted by peeling off years of data ranging from 2010 - 2019 (i.e., "Data -1 Years" corresponds to data through 2019). The estimated spawning output was generally consistent with the base model when recent years of data were removed (Figures \ref{fig:retro-ssb} and \ref{fig:retro-depl}).
+
+### Historical Analysis
+
+The estimated spawning output from previous assessments since 2001 are shown in Figure \ref{fig:past-assess}. 
 
 ### Unresolved Problems and Major Uncertainties
