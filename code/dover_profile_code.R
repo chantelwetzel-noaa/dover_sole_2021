@@ -23,11 +23,11 @@ base_name = "5.1.4_dw_mi_orwa_disc_w_best_jitter_fix_selex"
 base_name = "5.3.2_selex_clean_up"
 base_name = "5.7.1_dw_francis"
 base_name = "5.8.2_data_lambda_nwfsc_slope"
-base_name = "5.9.9_selex_pin_slope_wcgbt"
+base_name = "5.9.9_selex_pin_slope_wcgbt_params"
 
-get = get_settings_profile( parameters =  c("NatM_p_1_Mal_GP_1", "SR_BH_steep", "SR_LN(R0)"),
-							low =  c(0.07,  0.30, -1.0),
-							high = c( 0.014, 1.0,  2),
+get = get_settings_profile( parameters =  c("NatM_p_1_Fem_GP_1", "SR_BH_steep", "SR_LN(R0)"),
+							low =  c(0.06,  0.30, -1.0),
+							high = c( 0.14, 1.0,  2),
 							step_size = c(0.01, 0.10, 0.25),
 							param_space = c('real', 'real', 'relative'))
 

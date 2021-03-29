@@ -99,7 +99,7 @@ for(i in nrow(des):1) {  #start at 113 because pretty close to MLE and ss3Base.p
 ###############################################################################################
 
 #setwd("F:\\M\\Dover\\profileMoffset")
-load("output.Rdat")
+#load("output.Rdat")
 
 out.mle <- output[nrow(output),]
 out <- as.data.frame(output[ -nrow(output), ])
@@ -146,6 +146,7 @@ contour(x, y, z, levels = c(3), lwd = 3, add = TRUE)
 load("C:\\NOAA2011\\Dover\\Models\\base_20110701\\profileM\\output.Rdat")
 out.mle <- output[nrow(output),]
 out <- as.data.frame(output[-nrow(output),])
+# 2011 M values by sex
 fmM <- c(0.116243,0.141)  #estimates form model (with prior)
 
 #doPNG <- T
@@ -164,6 +165,7 @@ z <- matrix(out$diffNegLogLike,
 contour(x,y,z,levels=c(0.5,1,2,3,5,10,20,30,50,100,150),xlab="Female M",ylab="Male M")
 contour(x,y,z,levels=c(3),lwd=3,add=T)
 points(fmM[1],fmM[2],pch=4,cex=1.2,lwd=5)
+# Fixed M values for 2021
 points(0.108, 0.108, pch = 4, cex = 1.2, lwd = 5, col = 'red')
 #plot Bcurr
 z <- matrix(out$Bcurr/1000,
