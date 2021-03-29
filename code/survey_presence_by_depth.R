@@ -35,10 +35,16 @@ bio = Data
 wcgbt = get_prop_present(catch = catch, bio = bio, bin = 100)
 
 catch$state = NA
-catch$state[catch$Latitude_dd < 36] = "s_ca"
-catch$state[catch$Latitude_dd > 36 & catch$Latitude_dd < 42] = "n_ca"
+catch$state[catch$Latitude_dd < 38] = "s_ca"
+catch$state[catch$Latitude_dd > 38 & catch$Latitude_dd < 42] = "n_ca"
 catch$state[catch$Latitude_dd > 42 & catch$Latitude_dd < 46] = "or"
 catch$state[catch$Latitude_dd > 46] = "wa"
+
+bio$state = NA
+bio$state[bio$Latitude_dd < 38] = "a_s_ca"
+bio$state[bio$Latitude_dd > 38 & bio$Latitude_dd < 42] = "b_n_ca"
+bio$state[bio$Latitude_dd > 42 & bio$Latitude_dd < 46] = "or"
+bio$state[bio$Latitude_dd > 46] = "wa"
 
 catch_deep = catch[catch$Depth_m > 550,]
 pos = sum(catch_deep$total_catch_wt_kg> 0)
@@ -46,7 +52,6 @@ pos / dim(catch_deep)[1]
 # 0.75
 
 bio$depth_bin_50 = round_any(bio$Depth_m, 50, floor)
-
 
 
 find = which(catch$cpue_kg_km2 > 0)
@@ -60,6 +65,74 @@ n_ca = which(med_cpue$state == "n_ca")
 lines(med_cpue$depth_bin_50[n_ca], med_cpue$cpue_kg_km2[n_ca], lwd = 2, col = 'red')
 s_ca = which(med_cpue$state == "s_ca")
 lines(med_cpue$depth_bin_50[s_ca], med_cpue$cpue_kg_km2[s_ca], lwd = 2, col = 'orange')
+
+find = bio$Sex != "U"
+by_sex = table(bio$state[find], bio$Sex[find])
+sex_ratio = by_sex / apply(by_sex, 1, sum)
+dimnames(sex_ratio)[[2]] = c("Females", "Males")
+dimnames(sex_ratio)[[1]] = c("CA S. 38.0","CA N. 38.0", "OR", "WA")
+
+png(file.path(getwd(), 'plots', 'sex_ratio_area_length_data.png'),
+    width = 20, height = 14, units='in', res=300, pointsize=10)
+par(mfrow = c(1,1), mar = c(1, 1, 1, 0.1))
+plot(sex_ratio, col=c('red','blue' ), main = "", cex = 2.5)
+abline(h = 0.5, col = 'white', lty = 1, lwd = 4)
+dev.off()
+
+bio$depth_bin_100 = round_any(bio$Depth_m, 100, floor)
+sex_by_depth = table(bio$depth_bin[find],  bio$Sex[find], bio$state[find])
+ratio = list()
+for (a in 1:4){
+	prop = sex_by_depth[,,a] / apply(sex_by_depth[,,a], 1, sum)
+	ratio[[a]] = prop
+}	
+names(ratio) = c("CA S. 38.0","CA N. 38.0", "OR", "WA")
+ratio[[4]] = ratio[[4]][-dim(ratio[[4]])[1], ]
+
+
+png(file.path(getwd(), 'plots', 'sex_ratio_by_depth_area.png'),
+    width = 20, height = 14, units='in', res=300, pointsize=10)
+par(mfrow = c(2,2), mar = c(1, 1, 3, 0.1))
+for(a in 1:4){
+	plot(ratio[[a]], col=c('red','blue' ), main = "", cex = 2)
+	mtext(side = 3, text = names(ratio)[[a]], cex = 2)
+	abline(h = 0.5, col = 'white', lty = 1, lwd = 4)
+}
+dev.off()
+
+find = which(!is.na(bio$Age) & bio$Sex != "U")
+by_sex = table(bio$state[find], bio$Sex[find])
+sex_ratio = by_sex / apply(by_sex, 1, sum)
+dimnames(sex_ratio)[[2]] = c("Females", "Males")
+dimnames(sex_ratio)[[1]] = c("CA S. 38.0","CA N. 38.0", "OR", "WA")
+
+png(file.path(getwd(), 'plots', 'sex_ratio_area_age_data.png'),
+    width = 20, height = 14, units='in', res=300, pointsize=10)
+par(mfrow = c(1,1), mar = c(1, 1, 1, 0.1))
+plot(sex_ratio, col=c('red','blue' ), main = "", cex = 2.5)
+abline(h = 0.5, col = 'white', lty = 1, lwd = 4)
+dev.off()
+
+
+bio$depth_bin_100 = round_any(bio$Depth_m, 100, floor)
+sex_by_depth = table(bio$depth_bin[find],  bio$Sex[find], bio$state[find])
+ratio = list()
+for (a in 1:4){
+	prop = sex_by_depth[,,a] / apply(sex_by_depth[,,a], 1, sum)
+	ratio[[a]] = prop
+}	
+names(ratio) = c("CA S. 38.0","CA N. 38.0", "OR", "WA")
+ratio[[4]] = ratio[[4]][-dim(ratio[[4]])[1], ]
+
+png(file.path(getwd(), 'plots', 'sex_ratio_by_depth_area_aged_fish.png'),
+    width = 20, height = 14, units='in', res=300, pointsize=10)
+par(mfrow = c(2,2), mar = c(1, 1, 3, 0.1))
+for(a in 1:4){
+	plot(ratio[[a]], col=c('red','blue' ), main = "", cex = 2)
+	mtext(side = 3, text = names(ratio)[[a]], cex = 2)
+	abline(h = 0.5, col = 'white', lty = 1, lwd = 4)
+}
+dev.off()
 
 #============================================================================================
 # 	Triennial Early
