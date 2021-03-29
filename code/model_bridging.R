@@ -1,7 +1,7 @@
 # Bridging Comparison
 
 devtools::load_all("C:/Users/Chantel.Wetzel/Documents/GitHub/r4ss")
-wd = "C:/Assessments/2021/dover_sole_2021/models/"
+wd = "C:/Assessments/2021/dover_sole_2021/models"
 
 base2011 = SS_output(file.path(wd, "_2011_model"))
 convert = SS_output(file.path(wd, "_bridging", "0.0_bridge"))
@@ -349,7 +349,7 @@ offsets = SS_output(file.path(wd, "_bridging", "2.2_bio_offsets_t_dist"))
 # Pstar Sigma = 0.32 
 # OFL Sigma = 0.30
 fishery_selex = SS_output(file.path(wd, "1.0_selex_fishery"))
-survey_selex = SS_output(file.path(wd, "1.1_selex_survey"))
+survey_selex = SS_output(file.path(wd, "1.1.0_selex_survey"))
 selex = SS_output(file.path(wd, "1.3_selex_dw_mi"))
 spline = SS_output(file.path(wd, "1.1.1_selex_dn_spline"))
 # Pstar sigma = 0.175
@@ -366,3 +366,32 @@ SSplotComparisons(mysummary,
 				  plotdir = file.path(wd, "_bridging", "_plots"),
 				  print = TRUE,
 				  pdf = FALSE)
+
+modelnames <- c( "2011 - Converted", "Update - 2020 All Data", 
+				 "+Offset Params", "+Fishery Selectivity (offsets)", 
+				 "All Selectivity (offsets)")
+mysummary <- SSsummarize(list(convert, mi, offsets, fishery_selex,
+						survey_selex))
+SSplotComparisons(mysummary, 
+				  filenameprefix = "2.0_offset_selex_bridge_",
+				  subplot = c(2,4),
+				  legendlabels = modelnames, 
+				  ylimAdj = 1.25,
+				  legendloc = 'topright',	
+				  plotdir = file.path(wd, "_bridging", "_plots"),
+				  print = TRUE,
+				  pdf = FALSE)
+
+# > convert$Pstar_sigma
+# [1] 0.3790634
+# > mi$Pstar_sigma
+# [1] 0.3225509
+# > offsets$Pstar_sigma
+# [1] 0.3210477
+# > fishery_selex$Pstar_sigma
+# [1] 0.2474693
+# > survey_selex$Pstar_sigma (survey + fishery together)
+# [1] 0.1811659
+# > spline$Pstar_sigma
+# [1] 0.1752396
+
