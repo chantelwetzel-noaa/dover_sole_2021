@@ -545,14 +545,14 @@ label = 'all-data-bridge-depl')
 
 ```{r, results = 'asis'}
 add_figure(
-filein = file.path(brid_loc, "_plots", "2.0_biology_compare2_spawnbio_uncertainty.png"),
+filein = file.path(brid_loc, "_plots", "2.0_offset_selex_bridge_compare2_spawnbio_uncertainty.png"),
 caption = "Estimated spawning output based on select structural changes and parameter updates",
 label = 'structure-bridge-ssb')
 ```
 
 ```{r, results = 'asis'}
 add_figure(
-filein = file.path(brid_loc, "_plots", "2.0_biology_compare4_Bratio_uncertainty.png"),
+filein = file.path(brid_loc, "_plots", "2.0_offset_selex_bridge_compare4_Bratio_uncertainty.png"),
 caption = "Estimated fraction of unfished based on select structural changes and parameter updates",
 label = 'structure-bridge-depl')
 ```
@@ -628,6 +628,13 @@ label = 'bias-adj')
 
 ```{r, results = 'asis'}
 add_figure(
+filein = file.path(mod_loc, "plots", "index2_cpuefit_NWFSC_WCGBT"), 
+caption = "Fit to the NWFSC WCGBTS index of abundance",
+label = 'wcgbt-index-fit')
+```
+
+```{r, results = 'asis'}
+add_figure(
 filein = file.path(mod_loc, "plots", "index2_cpuefit_Triennial"), 
 caption = "Fit to the Triennial survey index of abundance. Thicker lines indicate input uncertainty before the addition of estimated additional uncertainty parameter",
 label = 'tri-index-fit')
@@ -647,12 +654,7 @@ caption = "Fit to the NWFSC Slope survey index of abundance. Thicker lines indic
 label = 'nwslope-index-fit')
 ```
 
-```{r, results = 'asis'}
-add_figure(
-filein = file.path(mod_loc, "plots", "index2_cpuefit_NWFSC_WCGBT"), 
-caption = "Fit to the NWFSC WCGBTS index of abundance",
-label = 'wcgbt-index-fit')
-```
+
 
 <!-- ====================================================================== -->
 <!-- ****************** Fit to the Discard Data *************************** --> 
