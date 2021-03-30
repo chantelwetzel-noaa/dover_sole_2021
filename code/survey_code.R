@@ -492,3 +492,24 @@ PlotFreqData.fn(dir = getwd(), dat = slope.lfs, main = "AFSC Slope", inch = 0.10
 
 # The AFSC Slope age data do not appear to be a random sample from the lengths.
 # This data set was omitted in the 2011 assessment as well.
+n = GetN.fn(dir=getwd(), dat = age, type = "age", species = "flatfish", printfolder = "forSS")
+file.rename(file.path(getwd(), "forSS", "age_SampleSize.csv"), 
+            file.path(getwd(), "forSS", "afsc_slope_age_samps.csv") )
+
+Ages <- SurveyAFs.fn(dir = getwd(), datA = age, datTows = catch,  
+                     strat.df = strata, ageBins = age.bins, 
+                     sexRatioStage = 2, sexRatioUnsexed = 0.50, maxSizeUnsexed = 1, 
+                     sex = 3, nSamps = n, month = 10, fleet = 3, ageErr = 2, 
+                     agelow = -1, agehigh = -1)
+
+file.rename(file.path(getwd(), "forSS", "Survey_Sex3_Bins_1_60_AgeComps.csv"), 
+            file.path(getwd(), "forSS", "afsc_slope_Bins_1_60_AgeComps.csv") )
+file.remove(file.path(getwd(), "forSS", "Survey_Sex3_Bins_-999_60_AgeComps.csv") )
+
+
+#============================================================================================
+# Conditional Ages
+#============================================================================================
+Ages <- SurveyAgeAtLen.fn (dir = getwd(), datAL = age, datTows = catch, 
+                          strat.df = strata, lgthBins = len.bins, ageBins = age.bins, 
+                          partition = 0, ageErr = 1, month = 10, fleet = 3)
