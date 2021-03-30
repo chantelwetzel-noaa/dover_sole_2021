@@ -163,6 +163,7 @@ rownames(out) = c("Total Likelihood",
 
 write.csv(out, file = file.path(out.dir, paste0(base_model, "_sensitivities.csv")))
 
+library(sa4ss)
 t = table_format(x = out,
       caption = 'Sensitivities relative to the base model.',
       label = 'sensitivities',
