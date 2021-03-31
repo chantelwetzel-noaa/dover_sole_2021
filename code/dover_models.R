@@ -1030,12 +1030,57 @@ SS_plots(auto)
 # Length_like: 337.663  157.085 171.947 26.2035 24.9036 13.1391 108.9
 # Age_like: 896.363  104.389 154.276 0 0 71.2051 695.826
 
+model = "5.9.9_selex_pin_slope_wcgbt_params"
+wcgbt = SS_output(file.path(wd, model))
+
 ##########################################################################
 modelnames <- c("Only AFSC Spline", "Both Slopes as Splines",
 				 "Adj Spline Knots","Spline 4 Knots")
 mysummary <- SSsummarize(list(ret, nwslope,adj_peak,selex))
 SSplotComparisons(mysummary, 
 				  filenameprefix = "5.9_splines_",
+				  ylimAdj  = 1.1,
+				  legendloc = 'topright', 
+				  legendlabels = modelnames, 	
+				  plotdir = file.path(wd, "_plots"),
+				  pdf = TRUE)
+
+#########################################################################
+
+model = "6.0.0_data_caal_afsc_slope"
+caal = SS_output(file.path(wd, model))
+SS_plots(caal, plot = 16:20)
+
+SS_tune_comps(replist = caal, option = "Francis", dir = file.path(wd, model))
+
+##########################################################################
+modelnames <- c("Base 5.9.9", "AFSC Slope CAAL Data")
+mysummary <- SSsummarize(list(wcgbt, caal))
+SSplotComparisons(mysummary, 
+				  filenameprefix = "6.0_caal_data_",
+				  ylimAdj  = 1.1,
+				  legendloc = 'topright', 
+				  legendlabels = modelnames, 	
+				  plotdir = file.path(wd, "_plots"),
+				  pdf = TRUE)
+
+#########################################################################
+
+model = "6.2.0_selex_mirror_com_fleets"
+mirror = SS_output(file.path(wd, model))
+SS_plots(mirror)
+SS_tune_comps(replist = mirror, option = "Francis", dir = file.path(wd, model))
+# I had to pin the 2003-2010 OR/WA discard parameters to keep them from shooting
+# up discards in this run.
+# I reweighted the model so can't compare NLL.
+# However, the visual fits to the OR/WA fleet length data is fairly bad, especially
+# for males. 
+
+##########################################################################
+modelnames <- c("Base 5.9.9", "Mirror Fishery Selex")
+mysummary <- SSsummarize(list(wcgbt, mirror))
+SSplotComparisons(mysummary, 
+				  filenameprefix = "6.2_selex_mirror_",
 				  ylimAdj  = 1.1,
 				  legendloc = 'topright', 
 				  legendlabels = modelnames, 	
