@@ -23,7 +23,7 @@ Figure \ref{fig:orwa-disc-fit}
 Figure \ref{fig:ca-disc-mbw-fit}
 Figure \ref{fig:orwa-disc-mbw-fit}
 Figure \ref{fig:ca-disc-len-fit}
-Figure \ref{fig:orwa-disc-len-fit}
+Figure \ref{fig:orwa-disc-len-fit-1} and \ref{fig:orwa-disc-len-fit-2}
 Figure \ref{fig:ca-disc-pearson}
 Figure \ref{fig:orwa-disc-pearson}
 Figure \ref{fig:ca-pearson}

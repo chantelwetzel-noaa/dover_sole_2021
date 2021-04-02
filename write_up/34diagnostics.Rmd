@@ -10,9 +10,26 @@ A number of sensitivity analyses were conducted.  The majority of the sensitivit
 
 \begin{enumerate}
    
-  \item 
+  \item Estimate Lorenzen natural mortality ($M$) by sex with the change of $M$ occurring at approximately age-at-50-percent maturity of 10 years old.
+
+  \item Allow the model to estimate sex-specific $M$ values.
+
+  \item Fix $M$ values by sex equal to the estimates from the 2011 assessment of `r spp`. 
+
+  \item Assume the 2011 length-at-maturity estimates.
+
+  \item Mirror the selectivity by sex and retention for the CA and OR/WA fishing fleets.
+
+  \item Assume the 2011 parameterization of fishery selectivity.
+
+  \item Assume the 2011 parameterization of survey selectivity. 
+
+  \item Fix the NWFSC Slope Survey female selectivity to asymptote at 1.0.  
 
 \end{enumerate}
+
+Likelihood values and estimates of key parameters from each sensitivity are available in Table \ref{tab:sensitivities}.  Plots of the estimated time-series of spawning biomass and relative spawning biomass are shown in Figures \ref{fig:sens-ssb} and \ref{fig:sens-depl}.
+
 
 Table \ref{tab:sensitivities}
 Figure \ref{fig:sens-ssb}
@@ -20,23 +37,18 @@ Figure \ref{fig:sens-depl}
 
 ### Likelihood Profiles
 
-
 Likelihood profiles were conducted for $R_0$, steepness, and female natural mortality values separately. These likelihood profiles were conducted by fixing the parameter at specific values and estimated the remaining parameters based on the fixed parameter value.
 
-Figure \ref{fig:r0-profile}
-Figure \ref{fig:r0-ssb}
-Figure \ref{fig:r0-depl}
-Figure \ref{fig:h-profile}
-Figure \ref{fig:h-ssb}
-Figure \ref{fig:h-depl}
-Figure \ref{fig:m-profile}
-Figure \ref{fig:m-ssb}
-Figure \ref{fig:m-depl}
+For steepness, the negative log-likelihood supported values between 0.40 - 1.0 (Figure \ref{fig:r0-profile}).  Likelihood components by data source show that the  age data from the \gls{s-wcgbt} support a lower steepness values while the length data across most fleets in the model were relatively flat.  The surveys generally provide very little information concerning steepness but tend to support higher values of steepness. The estimated spawning biomass for `r spp` diverges most at the start of the timeseries (estimates of $SB0$) and across the final 25 years of the model (Figure \ref{fig:h-ssb})  The stock was estimated to be most depleted at the end of the timeseries with lower values of steepness (Figure \ref{fig:h-depl}).
+
+The negative log-likelihood was minimized at a female natural mortality value of 0.08 with values from 0.07 - 0.09 supported based on the total negative-log-likelihood. The profile was run under the base model assumption that male natural mortality was set equal to female natural mortality (Figure \ref{fig:m-profile}).  The length data was generally uniformative across fleets except for the \gls{s-wcgbt} that supported higher natural mortality values while the age data from this survey fleet supported lower natural mortality values.  This divergence of information by data type is commonly observed across species and the mechanisms behind this behavior is not fully understood. The stock scale and status was highly variable across natural mortality values where lower values resulted in lower stock scale and status (Figures \ref{fig:m-ssb} and \ref{fig:m-depl}).
+
+In regards to values of $R_0$, the negative log-likelihood was minimized at approximately log($R_0$) of `r round(log(model$derived_quants[model$derived_quants$Label == "Recr_Virgin",2]),2)`  (Figure \ref{fig:r0-profile}).  The estimate of $R_0$ was informed by a relatively consistent signal from length data across fleets.  The most influential source of age data on the estimate of $R_0$ was the \gls{s-wcgbt} which supported higher values of $R_0$. 
 
 
 ### Retrospective Analysis
 
-A ten-year retrospective analysis was conducted by peeling off years of data ranging from 2010 - 2019 (i.e., "Data -1 Years" corresponds to data through 2019). The estimated spawning output was generally consistent with the base model when recent years of data were removed (Figures \ref{fig:retro-ssb} and \ref{fig:retro-depl}).
+A ten-year retrospective analysis was conducted by peeling off years of data ranging from 2010 - 2019 (i.e., "Data -1 Years" corresponds to data through 2019). The estimated spawning output was generally consistent with the base model when recent years of data were removed (Figures \ref{fig:retro-ssb} and \ref{fig:retro-depl}). As data years were subsequently removed the overall stock scale declined with the largest drops in stock size and status estimates occurring after 9 or 10 years of recent data were removed.
 
 ### Historical Analysis
 
