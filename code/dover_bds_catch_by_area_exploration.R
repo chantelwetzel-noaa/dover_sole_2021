@@ -3,14 +3,14 @@ library(dplyr)
 options(stringsAsFactors = FALSE)
 devtools::load_all("C:/Users/Chantel.Wetzel/Documents/GitHub/PacFIN.Utilities")
 
-comp_dir = "N://Assessments/CurrentAssessments/Dover_sole_2021/data"
+comp_dir = "N://Assessments/CurrentAssessments/Dover_sole_2021/data/commercial_comps"
 catch_dir = "//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/catches"
 
 #-----------------------------------------------------------------------------------
 # Load the Commercial Comps
 #-----------------------------------------------------------------------------------
 bds_file = "PacFIN.DOVR.bds.12.Feb.2021.RData"
-load(file.path(comp_dir, "commercial_comps", "pacfin", bds_file))
+load(file.path(comp_dir, "pacfin", bds_file))
 out = bds.pacfin 
 
 # Example code below from the updated PacFIN.Utilities package
@@ -26,6 +26,80 @@ Pdata$area[Pdata$PACFIN_PORT_NAME %in% south_port] = "south"
 # table(Pdata$area)
 #  north  south 
 # 202427  24899 
+
+
+ca_area = aggregate(lengthcm~fishyr+area, Pdata[Pdata$SOURCE_AGID == "C",], function(x) length(x))
+ca_dat = aggregate(lengthcm~fishyr+PACFIN_PORT_NAME,  Pdata[Pdata$SOURCE_AGID == "C",], function(x) length(x))
+library(ggplot2)
+
+pngfun(wd = file.path(comp_dir, "plots"), file = "Length_by_CA_port.png", w = 10, h = 7, pt = 12)
+ggplot(ca_dat[ca_dat$fishyr>1988,], aes(fill=PACFIN_PORT_NAME, y=lengthcm, x=fishyr)) + 
+    geom_bar(position="stack", stat="identity") + 
+    xlab("Year") + ylab("Number of Length Samples")
+dev.off()
+
+pngfun(wd = file.path(comp_dir, "plots"), file = "Length_by_CA_n_s_sf.png", w = 10, h = 7, pt = 12)
+ggplot(ca_area[ca_area$fishyr>1988,], aes(fill=area, y=lengthcm, x=fishyr)) + 
+    geom_bar(position="stack", stat="identity") + 
+    xlab("Year") + ylab("Number of Length Samples")
+dev.off()
+
+ca_area = aggregate(age~fishyr+area, Pdata[Pdata$SOURCE_AGID == "C",], function(x) length(x))
+ca_dat  = aggregate(age~fishyr+PACFIN_PORT_NAME,  Pdata[Pdata$SOURCE_AGID == "C",], function(x) length(x))
+
+pngfun(wd = file.path(comp_dir, "plots"), file = "Age_by_CA_port.png", w = 10, h = 7, pt = 12)
+ggplot(ca_dat[ca_dat$fishyr>1988,], aes(fill=PACFIN_PORT_NAME, y=age, x=fishyr)) + 
+    geom_bar(position="stack", stat="identity") +
+    xlab("Year") + ylab("Number of Age Samples")
+dev.off()
+
+pngfun(wd = file.path(comp_dir, "plots"), file = "Age_by_CA_n_s_sf.png", w = 10, h = 7, pt = 12)
+ggplot(ca_area[ca_area$fishyr>1988,], aes(fill=area, y=age, x=fishyr)) + 
+    geom_bar(position="stack", stat="identity") +
+    xlab("Year") + ylab("Number of Age Samples")
+dev.off()
+
+or_dat  = aggregate(age~fishyr+PACFIN_PORT_NAME,  Pdata[Pdata$SOURCE_AGID == "O",], function(x) length(x))
+pngfun(wd = file.path(comp_dir, "plots"), file = "Age_by_OR_port.png", w = 10, h = 7, pt = 12)
+ggplot(or_dat, aes(fill=PACFIN_PORT_NAME, y=age, x=fishyr)) + 
+    geom_bar(position="stack", stat="identity")+
+    xlab("Year") + ylab("Number of Age Samples")
+dev.off()
+
+or_dat  = aggregate(lengthcm~fishyr+PACFIN_PORT_NAME,  Pdata[Pdata$SOURCE_AGID == "O",], function(x) length(x))
+pngfun(wd = file.path(comp_dir, "plots"), file = "Length_by_OR_port.png", w = 10, h = 7, pt = 12)
+ggplot(or_dat, aes(fill=PACFIN_PORT_NAME, y=lengthcm, x=fishyr)) + 
+    geom_bar(position="stack", stat="identity")+
+    xlab("Year") + ylab("Number of Length Samples")
+dev.off()
+
+wa_dat  = aggregate(age~fishyr+PACFIN_PORT_NAME,  Pdata[Pdata$SOURCE_AGID == "W",], function(x) length(x))
+pngfun(wd = file.path(comp_dir, "plots"), file = "Age_by_WA_port.png", w = 10, h = 7, pt = 12)
+ggplot(wa_dat, aes(fill=PACFIN_PORT_NAME, y=age, x=fishyr)) + 
+    geom_bar(position="stack", stat="identity")+
+    xlab("Year") + ylab("Number of Age Samples")
+dev.off()
+
+wa_dat  = aggregate(lengthcm~fishyr+PACFIN_PORT_NAME,  Pdata[Pdata$SOURCE_AGID == "W",], function(x) length(x))
+pngfun(wd = file.path(comp_dir, "plots"), file = "Length_by_WA_port.png", w = 10, h = 7, pt = 12)
+ggplot(wa_dat, aes(fill=PACFIN_PORT_NAME, y=lengthcm, x=fishyr)) + 
+    geom_bar(position="stack", stat="identity") + 
+    xlab("Year") + ylab("Number of Length Samples")
+dev.off()
+
+all  = aggregate(lengthcm~fishyr+area,  Pdata, function(x) length(x))
+pngfun(wd = file.path(comp_dir, "plots"), file = "Length_by_area.png", w = 10, h = 7, pt = 12)
+ggplot(all, aes(fill=area, y=lengthcm, x=fishyr)) + 
+    geom_bar(position="stack", stat="identity") + 
+    xlab("Year") + ylab("Number of Length Samples")
+dev.off()
+
+all  = aggregate(age~fishyr+area,  Pdata, function(x) length(x))
+pngfun(wd = file.path(comp_dir, "plots"), file = "Age_by_area.png", w = 10, h = 7, pt = 12)
+ggplot(all, aes(fill=area, y=age, x=fishyr)) + 
+    geom_bar(position="stack", stat="identity") +
+    xlab("Year") + ylab("Number of Age Samples")
+dev.off()
 
 par(mfrow = c(1,1))
 boxplot(Pdata$lengthcm ~ Pdata$area)
@@ -57,7 +131,7 @@ colnames(catch) = c('year', 'south', 'north')
 # Stacked barplot of catches by state
 pngfun(wd = file.path(catch_dir, "plots"), file = "Commercial_Catch_by_North_South.png", w = 7, h = 7, pt = 12)
 barplot(as.vector(apply(catch[,2:3], 1, sum)), border = TRUE, col="Red", xlab = "Years", ylab = "Catch (mt)", 
-	axes = TRUE, names.arg = seq(1981, 2021, 1), angle = 45)
+	axes = TRUE, names.arg = seq(1981, 2021, 1), angle = 45) 
 barplot(as.vector(catch[,3]),border = TRUE, col = "Purple", add = TRUE)
 legend("topright", bty = 'n', legend = c("South", "North"),
 	lwd = 6, lty = 1, col = c('red', 'purple'))
@@ -67,4 +141,94 @@ pngfun(wd = file.path(catch_dir, "plots"), file = "Percent_Catch_South.png", w =
 plot(1981:2021, catch[,2] / (catch[,2] + catch[,3]), type = 'l', lwd = 2,
 	ylab = "Percent of South Catch", xlab = "Year")
 abline(h = mean(catch[,2] / (catch[,2] + catch[,3])), lty = 2, col = 'grey')
+dev.off()
+
+
+ca_catch  = aggregate(round_mt~YEAR+PACFIN_PORT_CODE, pacfin[pacfin$AGENCY_CODE == "C",], sum)
+pngfun(wd = file.path(catch_dir, "plots"), file = "Catch_by_CA_Port.png", w = 10, h = 7, pt = 12)
+ggplot(ca_catch, aes(fill=PACFIN_PORT_CODE, y=round_mt, x=YEAR)) + 
+    geom_bar(position="stack", stat="identity") + 
+    xlab("Year") + ylab("Catch (mt)")
+dev.off()
+
+ca_catch  = aggregate(round_mt~YEAR+area, pacfin[pacfin$AGENCY_CODE == "C",], sum)
+pngfun(wd = file.path(catch_dir, "plots"), file = "Catch_by_CA_s=1A1B.png", w = 10, h = 7, pt = 12)
+ggplot(ca_catch, aes(fill=area, y=round_mt, x=YEAR)) + 
+    geom_bar(position="stack", stat="identity")+
+    xlab("Year") + ylab("Catch (mt)")
+dev.off()
+
+port  = aggregate(round_mt~YEAR+PACFIN_PORT_CODE+AGENCY_CODE, pacfin, sum)
+pngfun(wd = file.path(catch_dir, "plots"), file = "Catch_by_OR_Port.png", w = 10, h = 7, pt = 12)
+ggplot(port[port$AGENCY_CODE == "O",], aes(fill=PACFIN_PORT_CODE, y=round_mt, x=YEAR)) + 
+    geom_bar(position="stack", stat="identity") + 
+    xlab("Year") + ylab("Catch (mt)")
+dev.off()
+
+pngfun(wd = file.path(catch_dir, "plots"), file = "Catch_by_WA_Port.png", w = 10, h = 7, pt = 12)
+ggplot(port[port$AGENCY_CODE == "W",], aes(fill=PACFIN_PORT_CODE, y=round_mt, x=YEAR)) + 
+    geom_bar(position="stack", stat="identity") +
+    xlab("Year") + ylab("Catch (mt)")
+dev.off()
+
+area  = aggregate(round_mt~YEAR+area, pacfin, sum)
+pngfun(wd = file.path(catch_dir, "plots"), file = "Catch_by_Area.png", w = 10, h = 7, pt = 12)
+ggplot(area, aes(fill=area, y=round_mt, x=YEAR)) + 
+    geom_bar(position="stack", stat="identity")+
+    xlab("Year") + ylab("Catch (mt)")
+dev.off()
+
+#################################################################################
+library(gridExtra)
+
+catch_port = aggregate(round_mt~YEAR+PACFIN_PORT_CODE+AGENCY_CODE, pacfin, sum)
+catch_PMFSC = aggregate(round_mt~YEAR+PACFIN_CATCH_AREA_CODE+AGENCY_CODE, pacfin, sum)
+
+write.csv(catch_port, file = file.path(catch_dir, "Catch_by_Port.csv"))
+len_port  = aggregate(lengthcm~fishyr+PACFIN_PORT_NAME+SOURCE_AGID,  Pdata, function(x) length(x))
+age_port  = aggregate(age~fishyr+PACFIN_PORT_NAME+SOURCE_AGID,  Pdata, function(x) length(x))
+
+catch_area = aggregate(round_mt~YEAR+area+AGENCY_CODE, pacfin, sum)
+len_area  = aggregate(lengthcm~fishyr+area+SOURCE_AGID,  Pdata, function(x) length(x))
+age_area  = aggregate(age~fishyr+area+SOURCE_AGID,  Pdata, function(x) length(x))
+
+pngfun(wd = file.path(catch_dir, "plots"), file = "CA_by_port_3_panel.png", w = 10, h = 7, pt = 12)
+ggplot(catch_PMFSC[catch_PMFSC$AGENCY_CODE == "C",], aes(fill=PACFIN_CATCH_AREA_CODE, y=round_mt, x=YEAR)) + 
+    geom_bar(position="stack", stat="identity") +
+    xlab("Year") + ylab("Catches (mt)")
+dev.off()
+
+
+pngfun(wd = file.path(catch_dir, "plots"), file = "CA_by_port_3_panel.png", w = 17, h = 20, pt = 12)
+plot1 <- ggplot(catch_port[catch_port$AGENCY_CODE == "C",], aes(fill=PACFIN_PORT_CODE, y=round_mt, x=YEAR)) + 
+    geom_bar(position="stack", stat="identity") +
+    xlab("Year") + ylab("Catches (mt)")
+plot2 <- ggplot(len_port[len_port$SOURCE_AGID == "C",], aes(fill=PACFIN_PORT_NAME, y=lengthcm, x=fishyr)) + 
+    geom_bar(position="stack", stat="identity") +
+    xlab("Year") + ylab("Number of Length Samples")
+plot3 <- ggplot(age_port[age_port$SOURCE_AGID == "C",], aes(fill=PACFIN_PORT_NAME, y=age, x=fishyr)) + 
+    geom_bar(position="stack", stat="identity") +
+    xlab("Year") + ylab("Number of Age Samples")
+grid.arrange(plot1, plot2, plot3, nrow = 3, ncol = 1)
+dev.off()
+
+pngfun(wd = file.path(comp_dir, "plots"), file = "CA_by_port_2_panel.png", w = 17, h = 20, pt = 12)
+grid.arrange(plot2, plot3, nrow = 2, ncol = 1)
+dev.off()
+
+pngfun(wd = file.path(catch_dir, "plots"), file = "CA_by_area_3_panel.png", w = 17, h = 20, pt = 12)
+plot1 <- ggplot(catch_area[catch_area$AGENCY_CODE == "C",], aes(fill=area, y=round_mt, x=YEAR)) + 
+    geom_bar(position="stack", stat="identity") +
+    xlab("Year") + ylab("Catches (mt)")
+plot2 <- ggplot(len_area[len_area$SOURCE_AGID == "C",], aes(fill=area, y=lengthcm, x=fishyr)) + 
+    geom_bar(position="stack", stat="identity") +
+    xlab("Year") + ylab("Number of Length Samples")
+plot3 <- ggplot(age_area[age_area$SOURCE_AGID == "C",], aes(fill=area, y=age, x=fishyr)) + 
+    geom_bar(position="stack", stat="identity") +
+    xlab("Year") + ylab("Number of Age Samples")
+grid.arrange(plot1, plot2, plot3, nrow = 3, ncol = 1)
+dev.off()
+
+pngfun(wd = file.path(comp_dir, "plots"), file = "CA_by_area_2_panel.png", w = 17, h = 20, pt = 12)
+grid.arrange(plot2, plot3, nrow = 2, ncol = 1)
 dev.off()
