@@ -232,6 +232,7 @@ data_sum = summarize_data(dir = file.path(start_dir, "data", "biology"), data = 
 survey_dat <- out[out$Source %in% c("NWFSC_WCGBTS", "Triennial", "NWFSC_Slope", "AFSC_Slope"),]
 
 est_growth <- estimate_length_weight(data = survey_dat)
+estimate_length_weight(data = out[out$Source %in% c("NWFSC_Slope"),])
 
 # Estimate growth by years
 wcgbt <- out[out$Source %in% "NWFSC_WCGBTS",]
@@ -258,31 +259,34 @@ save(len_weight_list, file = file.path(start_dir, "data", "biology", "growth_est
 lens = 1:max(wcgbt$Length, na.rm = TRUE)
 ymax = max(wcgbt$Weight, na.rm = TRUE)
 xmax = max(wcgbt$Length, na.rm = TRUE)
-col.vec = rainbow(18)
-pngfun(wd = file.path(start_dir, "data", "biology", "plots"), file = "Length_Weight_by_Year.png", w = 10, h = 7, pt = 12)
+col.vec = c('black', rainbow(18))
+pngfun(wd = file.path(start_dir, "data", "biology", "plots"), file = "Length_Weight_by_Year.png", w = 15, h = 10, pt = 12)
 par(mfrow = c(1, 2))
 plot(lens, 
 	len_weight_list$all_F[1] * lens ^ len_weight_list$all_F[2], 
-	col = col.vec[1], type = 'l', lwd = 2, xlim = c(0, xmax), ylim = c(0, ymax), 
-	xlab = "Length (cm)", ylab = "Weight (kg)", main = "Females")
+	col = col.vec[1], type = 'l', lwd = 2, xlim = c(0, xmax), ylim = c(0, ymax), cex.main = 1.25,
+	cex.lab = 1.25, cex.axis = 1.25, xlab = "Length (cm)", ylab = "Weight (kg)", main = "Females")
 ind = 3
 for(y in 1:length(2003:2019)){
 lines(lens, len_weight_list[[ind]][1] * lens ^ len_weight_list[[ind]][2], 
 	col = col.vec[y + 1], lty = 1, lwd = 2) 
 ind = ind + 2
 }
+lines(len_weight_list$all_F[1] * lens ^ len_weight_list$all_F[2], lwd = 3, lty = 2,col = col.vec[1])
 legend('topleft', bty = 'n', col = col.vec, legend = c("All Years", 2003:2019), 
-	lty = 1, lwd = 4, cex = 1.1)
+	lty = c(2, rep(1, length(2003:2019))), lwd = 4, cex = 1.2)
 plot(lens, 
 	len_weight_list$all_M[1] * lens ^ len_weight_list$all_M[2], 
 	col = col.vec[1], type = 'l', lwd = 2, xlim = c(0, xmax), ylim = c(0, ymax), 
-	xlab = "Length (cm)", ylab = "Weight (kg)", main = "Females")
+	xlab = "Length (cm)", ylab = "Weight (kg)", main = "Males", cex.main = 1.25,
+	cex.lab = 1.25, cex.axis = 1.25)
 ind = 4
 for(y in 1:length(2003:2019)){
 lines(lens, len_weight_list[[ind]][1] * lens ^ len_weight_list[[ind]][2], 
 	col = col.vec[y + 1], lty = 1, lwd = 2) 
 ind = ind + 2
 }
+lines(len_weight_list$all_M[1] * lens ^ len_weight_list$all_M[2], lwd = 3, lty = 2, col = col.vec[1])
 dev.off()
 
 
@@ -389,7 +393,7 @@ for(y in sort(unique(wcgbt$Year))){
 names(len_age_list) <- nm
 save(len_age_list, file = file.path(start_dir, "data", "biology", "len_age_estimates_wcgbt_by_year.Rdat"))
 
-col.vec = rainbow(18)
+col.vec = c(1, rainbow(18))
 xmax = 60
 pngfun(wd = file.path(start_dir, "data", "biology", "plots"), file = "Length_Age_by_Year.png", w = 10, h = 7, pt = 12)
 par(mfrow = c(1, 2))
@@ -402,8 +406,10 @@ lines(0:xmax, vb_fn(age = 0:xmax, Linf = len_age_list[[ind]][1], L0 = len_age_li
 	col = col.vec[y + 1], lty = 1, lwd = 2) 
 ind = ind + 2
 }
+lines(0:xmax, vb_fn(age = 0:xmax, Linf = len_age_list$all_F[1], L0 = len_age_list$all_F[2], k = len_age_list$all_F[3]),
+	col = col.vec[1], lty = 2, lwd = 3)
 legend('bottomright', bty = 'n', col = col.vec, legend = c("All Years", 2003:2019), 
-	lty = 1, lwd = 4, cex = 1.1)
+	lty = c(2, rep(1, length(2003:2019))), lwd = 4, cex = 1.1)
 plot(0:xmax, 
 	vb_fn(age = 0:xmax, Linf = len_age_list$all_M[1], L0 = len_age_list$all_M[2], k = len_age_list$all_M[3]), 
 	col = col.vec[1], type = 'l', lwd = 2, ylim = c(10, 50), ylab = "Length (cm)", xlab = "Age", main = "Males")
@@ -413,6 +419,8 @@ lines(0:xmax, vb_fn(age = 0:xmax, Linf = len_age_list[[ind]][1], L0 = len_age_li
 	col = col.vec[y + 1], lty = 1, lwd = 2) 
 ind = ind + 2
 }
+lines(0:xmax, vb_fn(age = 0:xmax, Linf = len_age_list$all_M[1], L0 = len_age_list$all_M[2], k = len_age_list$all_M[3]),
+	col = col.vec[1], lty = 2, lwd = 3)
 dev.off()
 
 
