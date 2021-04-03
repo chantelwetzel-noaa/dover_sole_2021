@@ -4,9 +4,9 @@ library(r4ss)
 savedir = "C:/Assessments/2021/dover_sole_2021/write_up/figs"
 mydir = "C:/Assessments/2021/dover_sole_2021/models"
 
-#base_name = "1.8_selex_dome_m"
-#model = SS_output(file.path(mydir, base_name))
-load(file.path("C:/Assessments/2021/dover_sole_2021/write_up", "00mod.Rdata"))
+base_name = "7.0.1_base"
+model = SS_output(file.path(mydir, base_name))
+#load(file.path("C:/Assessments/2021/dover_sole_2021/write_up", "00mod.Rdata"))
 
 pngfun(wd = savedir, 'unavailable_biomass.png', w = 10, h = 7)
 	SSunavailableSpawningOutput(model, plot=TRUE)
@@ -77,17 +77,17 @@ test1$infotable$longname = c("OR-WA (f): 1910-1984",   "OR-WA (m): 1910-1984",
 							 "OR-WA (f): 1996 - 2020", "OR-WA (m): 1996 - 2020")
 test2 <- SSplotSelex(model, fleets=3, fleetnames=fleets[3], subplot=1)
 test2$infotable$col <- c("blue")#rich.colors.short(8)[c(4,6)]
-test2$infotable$longname = "AFSC Slope"
+test2$infotable$longname = c("AFSC Slope (f)", "AFSC Slope (m)")
 test3 <- SSplotSelex(model, fleets=4, fleetnames=fleets[4], subplot=1)
 test3$infotable$col <- c("purple")
-test3$infotable$longname = "Triennial"
+test3$infotable$longname = c("Triennial (f)", "Triennial (m)")
 test4 <- SSplotSelex(model, fleets=5, fleetnames=fleets[5], subplot=1)
 test4$infotable$col <- c("green")
-test4$infotable$longname = "NWFSC Slope"
+test4$infotable$longname = c("NWFSC Slope (f)", "NWFSC Slope (m)")
 test5 <- SSplotSelex(model, subplot=1)
 test5$infotable = test5$infotable[test5$infotable$Fleet == 6, ]
 test5$infotable$col <- c("red")
-test5$infotable$longname = "NWFSC WCGBT"
+test5$infotable$longname = c("NWFSC WCGBT (f)", "NWFSC WCGBT (m)")
 
 
 pngfun(wd = savedir, 'selectivity.png', w = 10, h = 12)
@@ -100,20 +100,20 @@ SSplotSelex(model, fleets=2, infotable=test1$infotable,
 	subplot=1, legendloc='topleft',showmain=FALSE, year = c(1980, 1995, 2020))
 grid()
 SSplotSelex(model, fleets=3, infotable=test2$infotable,subplot=1, 
-	legendloc='bottomright',showmain=FALSE)
+	legendloc='topleft',showmain=FALSE)
 grid()
 SSplotSelex(model, fleets=4, infotable=test3$infotable,subplot=1, 
 	legendloc='topleft',showmain=FALSE)
 grid()
 SSplotSelex(model, fleets=5, infotable=test4$infotable,subplot=1, 
-	legendloc='bottomright',showmain=FALSE)
+	legendloc='topleft',showmain=FALSE)
 grid()
 SSplotSelex(model, fleets=6, infotable=test5$infotable, subplot=1, 
 	legendloc='bottomright',showmain=FALSE)
 grid()
 dev.off()
 
-lens = 5.5:65.5
+lens = 5.5:60.5
 
 ret = model$sizeselex[model$sizeselex$Fleet %in% c(1,2), ]
 ret = ret[ret$Factor == "Ret", ]
