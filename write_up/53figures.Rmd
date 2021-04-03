@@ -87,6 +87,13 @@ label = 'orwa-disc-len-ob')
 
 ```{r, results = 'asis'}
 add_figure(
+filein = file.path(data_loc, "commercial_comps", "plots", "Length_by_CA_port.png"), 
+caption = "The number of length samples by port and year from California",
+label = 'ca-len-port')
+```
+
+```{r, results = 'asis'}
+add_figure(
 filein = file.path(mod_loc, "plots", "comp_lendat_bubflt1mkt2_page4.png"), 
 caption = "Length composition data from the California commercial fleet",
 label = 'ca-len-data')
@@ -97,6 +104,14 @@ add_figure(
 filein = file.path(mod_loc, "plots", "comp_lendat_data_weighting_TA1.8_CA.png"), 
 caption = "Mean length for California commercial fleet with 95 percent confidence intervals",
 label = 'mean-ca-len-data')
+```
+
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(data_loc, "commercial_comps", "plots", "Age_by_CA_port.png"), 
+caption = "The number of read otoliths samples by port and year from California",
+label = 'ca-age-port')
 ```
 
 ```{r, results = 'asis'}
@@ -115,6 +130,21 @@ label = 'mean-ca-age-data')
 
 ```{r, results = 'asis'}
 add_figure(
+filein = file.path(data_loc, "commercial_comps", "plots", "Length_by_OR_port.png"), 
+caption = "The number of length samples by port and year from Oregon",
+label = 'or-len-port')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(data_loc, "commercial_comps", "plots", "Length_by_WA_port.png"), 
+caption = "The number of length samples by port and year from Washington",
+label = 'wa-len-port')
+```
+
+
+```{r, results = 'asis'}
+add_figure(
 filein = file.path(mod_loc, "plots", "comp_lendat_bubflt2mkt2_page3.png"), 
 caption = "Length composition data from the Oregon-Washington commercial fleet",
 label = 'orwa-len-data')
@@ -125,6 +155,20 @@ add_figure(
 filein = file.path(mod_loc, "plots", "comp_lendat_data_weighting_TA1.8_OR_WA.png"), 
 caption = "Mean length for Oregon-Washington commercial fleet with 95 percent confidence intervals",
 label = 'mean-orwa-len-data')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(data_loc, "commercial_comps", "plots", "Age_by_OR_port.png"), 
+caption = "The number of read otoliths samples by port and year from Oregon",
+label = 'or-age-port')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(data_loc, "commercial_comps", "plots", "Age_by_WA_port.png"), 
+caption = "The number of read otoliths samples by port and year from Washington",
+label = 'wa-age-port')
 ```
 
 ```{r, results = 'asis'}
@@ -571,6 +615,17 @@ label = 'h-prior')
 ```
 
 <!-- ====================================================================== -->
+<!-- *********************  Model Est. Biology       ********************** --> 
+<!-- ====================================================================== -->
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "bio1_sizeatage.png"),
+caption = "Model estimated length-at-age in the bginning of the year. Shaded area indicates 95 percent distribution of length-at-age around the estimaed growth curve",
+label = 'mod-est-len-age')
+```
+
+<!-- ====================================================================== -->
 <!-- *********************    Selectivity            ********************** --> 
 <!-- ====================================================================== -->
 
@@ -593,13 +648,6 @@ label = 'retention')
 <!-- ****************** Recruitment ************************ --> 
 <!-- ======================================================= -->
 
-```{r, results = 'asis'}
-add_figure(
-filein = file.path(mod_loc, "plots", "SR_curve.png"), 
-caption = "Stock-recruit curve. Point colors indicate year, with warmer colors indicating earlier years and cooler colors in showing later years",
-label = 'bh-curve')
-```
-
 
 ```{r, results = 'asis'}
 add_figure(
@@ -613,6 +661,13 @@ add_figure(
 filein = file.path(mod_loc, "plots", "recdevs2_withbars.png"), 
 caption = "Estimated time series of recruitment deviations",
 label = 'rec-devs')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "SR_curve.png"), 
+caption = "Stock-recruit curve. Point colors indicate year, with warmer colors indicating earlier years and cooler colors in showing later years",
+label = 'bh-curve')
 ```
 
 ```{r, results = 'asis'}
