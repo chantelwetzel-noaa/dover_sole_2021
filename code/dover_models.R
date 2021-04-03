@@ -1086,3 +1086,97 @@ SSplotComparisons(mysummary,
 				  legendlabels = modelnames, 	
 				  plotdir = file.path(wd, "_plots"),
 				  pdf = TRUE)
+###############################################################################
+
+model = "6.3.0_data_humboldt_disc_rate"
+disc = SS_output(file.path(wd, model))
+SS_plots(disc)
+
+##########################################################################
+modelnames <- c("Base 5.9.9", "Update Humboldt Discard Rate")
+mysummary <- SSsummarize(list(wcgbt, disc))
+SSplotComparisons(mysummary, 
+				  filenameprefix = "6.3_data_humboldt_",
+				  ylimAdj  = 1.1,
+				  legendloc = 'topright', 
+				  legendlabels = modelnames, 	
+				  plotdir = file.path(wd, "_plots"),
+				  pdf = TRUE)
+###############################################################################
+
+# Change to B0-S2 run which has a better AIC but a higher change in uncertainty
+model = "6.3.2_data_age_error_b0_s2"
+cap = SS_output(file.path(wd, model))
+SS_plots(cap)
+
+model = "6.3.3_data_age_error_b0_s2_cdfw_b1_s2"
+cdfw = SS_output(file.path(wd, model))
+SS_plots(cdfw)
+
+##########################################################################
+modelnames <- c("6.3.0", "CAP B0 S2", "CDFW B1 S2")
+mysummary <- SSsummarize(list(disc, cap, cdfw))
+SSplotComparisons(mysummary, 
+				  filenameprefix = "6.3_data_age_error_",
+				  ylimAdj  = 1.1,
+				  legendloc = 'topright', 
+				  legendlabels = modelnames, 	
+				  plotdir = file.path(wd, "_plots"),
+				  pdf = TRUE)
+###############################################################################
+
+model = "6.3.0_data_humboldt_disc_rate"
+disc = SS_output(file.path(wd, model))
+# > disc$Pstar_sigma
+# [1] 0.1213638
+
+model = "6.3.4_data_bio_no_offsets_est_m"
+offset_estm = SS_output(file.path(wd, model))
+# > offset_estm$Pstar_sigma
+# [1] 0.1813876
+
+model = "6.3.5_data_bio_no_offsets"
+offset = SS_output(file.path(wd, model))
+# > offset$Pstar_sigma
+# [1] 0.1212076
+
+##########################################################################
+modelnames <- c("6.3.0", "Offset Est M", "Offset")
+mysummary <- SSsummarize(list(disc, offset_estm, offset))
+SSplotComparisons(mysummary, 
+				  filenameprefix = "6.3_data_offset_",
+				  ylimAdj  = 1.1,
+				  legendloc = 'topright', 
+				  legendlabels = modelnames, 	
+				  plotdir = file.path(wd, "_plots"),
+				  pdf = TRUE)
+##########################################################################
+model = "6.3.7_data_est_male_m"
+est_male_m = SS_output(file.path(wd, model))
+
+model = "7.0.0_base"
+base = SS_output(file.path(wd, model))
+SS_plots(base)
+
+model = "7.0.0_base"
+base_jitter = SS_output(file.path(wd, model))
+SS_plots(base_jitter)
+SS_tune_comps(replist = base_jitter, option = "Francis", dir = file.path(wd, model))
+
+
+##########################################################################
+modelnames <- c("7.0.0 Base", "7.0.1 Estimate Male M")
+mysummary <- SSsummarize(list(base_jitter, new_base))
+SSplotComparisons(mysummary, 
+				  filenameprefix = "7.0.1_base_",
+				  ylimAdj  = 1.1,
+				  legendloc = 'topright', 
+				  legendlabels = modelnames, 	
+				  plotdir = file.path(wd, "_plots"),
+				  pdf = TRUE)
+
+
+model = "7.0.1_base"
+new_base = SS_output(file.path(wd, model))
+SS_plots(new_base)
+SS_tune_comps(replist = new_base, option = "Francis", dir = file.path(wd, model))
