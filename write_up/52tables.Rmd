@@ -57,9 +57,9 @@ table_format(x = out,
 <!-- *************** Commercial Data *********************** --> 
 <!-- ======================================================= -->
 
-\include{tex_tables/Com_Length_Samples.tex}
+\include{tex_tables/Com_Length_Samples_by_State_CALCOM.tex}
 
-\include{tex_tables/Com_Age_Samples.tex}
+\include{tex_tables/Com_Age_Samples_by_State_CALCOM.tex}
 
 <!-- ======================================================= -->
 <!-- ***************   Survey  Data  *********************** --> 
