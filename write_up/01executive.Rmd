@@ -69,7 +69,9 @@ Replace text.
 add_figure(
 filein = file.path(mod_loc, "plots", "ts11_Age-0_recruits_(1000s)_with_95_asymptotic_intervals.png"), 
 caption = "Estimated time series of age-0 recruits (1000s) for the base model with 95 percent intervals",
-label = 'es-recruits')
+label = 'es-recruits',
+width = 100,
+height = 75)
 ```
 
 ## Exploitation Status{-}
@@ -81,7 +83,9 @@ Replace text.
 add_figure(
 filein = file.path(mod_loc, "plots", "SPR2_minusSPRseries.png"), 
 caption = "Estimated 1 - relative spawning ratio (SPR) by year for the base model. The management target is plotted as a red horizontal line and values above this reflect harvest in excess of the proxy harvest rate",
-label = 'es-1-spr')
+label = 'es-1-spr',
+width = 100,
+height = 75)
 ```
 
 ```{r, results = 'asis'}
@@ -93,8 +97,24 @@ width = 100,
 height = 75)
 ```
 
+--------------AARON STOP EDITING HERE----------------------
+
+
 ## Reference Points{-}
-Replace text.
+
+The 2021 spawning output relative to unfished equilibrium spawning output is well above the management target of 25 percent of unfished spawning output. The fishing intensity has been below the current management harvest rate limit ($SPR_{30\%}$) across all modeled years (Figure \ref{fig:es-1-spr}).  The relative biomass compared to the ratio of the estimated SPR to the management target ($SPR_{30\%}$) across all model years are shown in Figure \ref{fig:es-phase} where warmer colors (red) represent early years and colder colors (blue) represent recent years.  The relative biomass and estimated SPR has been well above the management biomass target (25 percent) and well below the SPR target across all model years. Figure \ref{fig:es-yield} shows the equilibrium curve based on a steepness value fixed at `r round(model$parameters[model$parameters$Label == "SR_BH_steep","Value"], 2)` with vertical dashed lines to indicate the estimate of fraction unfish at the start of `r endyr +1` (current) and the estimated management targets calculated based on the relative target biomass (B target), the SPR target, and the maximum sustainable yield (MSY).
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "yield2_yield_curve_with_refpoints.png"), 
+caption = "Equilibrium yield curve for the base case model. Values are based on the 2020
+fishery selectivities and with steepness fixed at 0.80",
+label = 'es-yield',
+width = 100,
+height = 75)
+```
+
+Reference points were calculated using the estimated selectivities and catch distributions among fleets in the most recent year of the model, `r endyr`. Sustainable total yield, landings plus discards, using an $SPR_{30\%}$ is `r round(model$derived_quants[model$derived_quants$Label == 'Dead_Catch_SPR', 'Value'], 2)` mt. The spawning output equivalent to 25 percent of the unfished spawning output ($SB_{25\%}$) calculated using the SPR target ($SPR_{30\%}$) was `r round(model$derived_quants[model$derived_quants$Label == 'SSB_SPR', 'Value'], 0)` millions of eggs. Recent removals have been below the point estimate of the potential long-term yields calculated using an $SPR_{30\%}$ reference point and the population scale has been relatively stable in recent years.
 
 \input{tex_tables/e_ReferencePoints_ES.tex}
 
@@ -133,19 +153,64 @@ table_format(x = out,
 
 ## Unresolved Problems and Major Uncertainties{-}
 
-The base case model was developed with the goal of balancing parsimony with realism and fitting the data.  There were, however, some pieces of data that were fit poorly.  Specifically, the commercial length and age data for the combined Washington/Oregon fleet showed some unsatisfactory patterns in the early years of data. It is uncertain if these patterns are related to a lack of fit due to retention curves, selectivity curves, issues with historic data collection, or growth.  It is possible that `r spp` exhibit different life-history patterns in the north and the model is unable to capture these differences without introducing additional complexity.
+```{r, echo=FALSE, results='asis'}
+filein = file.path(getwd(), "shared_text",'unresolved_problems_uncertainties.Rmd')
+read_child(filein)
+```
 
-Add other uncertainties - natural mortality
 
-`r spp` life-history parameters exhibit strong relationships with depth that indicate the stock is more complex than the model assumes.  Small fish are found in shallow water, while mid-sized and larger fish are found in middle and deeper depths.  There is not a trend of larger fish being found deeper, but there is a trend of fewer smaller fish found deeper.  In addition, there is a pattern of sex ratio by depth with more males found in middle depths and more females found in shallow and deeper depths.  These patterns are apparent in the summer fisheries and surveys.  It is uncertain how the patterns affect the data (they may be a cause of the bimodal length distributions seen in the slope surveys) and if these patterns can be effectively modeled to produce better fits to the data and better predictions of biomass.
+## Scientific Uncertainty{-}
+
+```{r, echo=FALSE, results='asis'}
+filein = file.path(getwd(), "shared_text",'scientific_uncertainty.Rmd')
+read_child(filein)
+```
 
 ## Decision Table{-}
 
-The axis of uncertainty chosen for this assessment was ...
+The axis of uncertainty chosen for this assessment was ... 
 
-The estimated uncertainty in the base model around the `r endyr + 1` spawning output is $\sigma$ = `r round(model$Pstar_sigma,2)` and the uncertainty in the base model around the `r endyr + 1` OFL is $\sigma$ = `r round(model$OFL_sigma,2)`. The estimated model uncertainty was less than the category 1 groundfish data moderate assessment default value of  $\sigma$ = 0.50. 
+```{r, results = 'asis'}
+tab = read.csv(file.path(mod_loc, 'tables', 'g_Projections_ES.csv'))
+spex_removal = c(model$derived_quants[model$derived_quants$Label == "ForeCatch_2021", "Value"], 
+                 model$derived_quants[model$derived_quants$Label == "ForeCatch_2022", "Value"])
 
-\input{tex_tables/g_Projections_ES.tex}
+out = cbind(tab$Year,
+            c(93547, 87540, rep("-",10)),
+            c(84192, 78436, rep("-",10)),
+            c(50000, 50000, rep("-", 10)),
+            c(round(spex_removal,0), rep("-", 10)),
+            c(rep("-",2), round(tab[3:12,2], 0)),
+            c(rep("-",2), round(tab[3:12,3], 0)),
+            c(rep("-",2), round(tab[3:12,3]/tab[3:12,2], 3)),
+            round(tab[ ,5:ncol(tab)], 2))
+
+col_names = c('Year',
+              'Adopted OFL (mt)',
+              'Adopted ABC (mt)',
+              "Adopted ACL (mt)",
+              "Assumed Removal (mt)", 
+              "OFL (mt)", 
+              "ABC (mt)", 
+              "Buffer",
+              "Spawning Output",
+              "Fraction Unfished")
+
+table_format(x = out,
+             caption = "Projections of potential OFLs (mt), ABCs (mt), estimated spawning output, and fraction unfished. The adopted OFL, ABC, and ACL for 2021 and 2022 reflect adopted management limits and the assumed removal is the amount assumed in the projection for 2021 and 2022. The full ABC was assumed to be removed for 2023 - 2032",
+             label = "es-project",
+             align = 'l',
+             landscape = TRUE,
+             custom_width = TRUE,
+             col_to_adjust = 1:10, 
+             width = rep("2cm", 10),
+             col_names = col_names)
+```
 
 ## Research and Data Needs{-}
+
+```{r, echo=FALSE, results='asis'}
+filein = file.path(getwd(), "shared_text",'research_and_data_needs.Rmd')
+read_child(filein)
+```
 
