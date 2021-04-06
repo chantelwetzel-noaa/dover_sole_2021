@@ -11,7 +11,7 @@ The predicted spawning output from the base model generally showed a decline dur
 
 ## Harvest Projections and Decision Tables
 
-The forecast of stock abundance and yield was developed using the base model. The total catches in 2021 and 2021 are set at values provided by the Groundfish Management Team (GMT) of the PFMC at XX and XX mt, respectively. The management adopted ACL values for these years is 50,000 mt. The exploitation rate for 2021 and beyond is based upon an SPR of 30% and the 25:5 harvest control rule. The average exploitation rates, across recent years, by fleet were used to distribute catches during the forecast period. 
+The forecast of stock abundance and yield was developed using the base model. The total catches in 2021 and 2021 are set at values provided by the Groundfish Management Team (GMT) of the PFMC at XX and XX mt, respectively. The management adopted ACL values for these years is 50,000 mt. The exploitation rate for 2021 and beyond is based upon an SPR of 30 percent and the 25:5 harvest control rule. The average exploitation rates, across recent years, by fleet were used to distribute catches during the forecast period. 
 
 The ABC values were estimated using a category 1 $\sigma_y$ starting at 0.50 and increasing annually combined with a P* value of 0.45. The catches during the projection period were set equal to the year-specific ABC using the current flatfish harvest control rule, 25:5. The catches during the forecasted period are projected from the base model to start at XX mt in 2021 and decline to XX mt in 2030 as the stock declines towards the target spawning biomass (Table \ref{tab:project}). 
 

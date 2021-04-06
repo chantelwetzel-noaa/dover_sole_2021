@@ -172,6 +172,14 @@ table_format(x = mod_params,
 
 \include{tex_tables/likelihoods.tex}
 
+<!-- ======================================================= -->
+<!-- ***********       Time Series      ******************** --> 
+<!-- ======================================================= -->
+
+\include{tex_tables/TimeSeries.tex}
+
+\newpage
+
 
 <!-- ======================================================= -->
 <!-- ********  Reference Points & Management *************** --> 
@@ -181,28 +189,22 @@ table_format(x = mod_params,
 
 
 <!-- ======================================================= -->
-<!-- ***********       Time Series      ******************** --> 
-<!-- ======================================================= -->
-
-\include{tex_tables/TimeSeries.tex}
-
-\newpage
-
-<!-- ======================================================= -->
 <!-- ****************     Sensitivities      *************** --> 
 <!-- ======================================================= -->
 
-
 ```{r, results = 'asis'}
-# tab = read.csv(file.path(mod_loc, 'tables', 'data_weights.csv'))
-# col_names = c('Method',
-# 			  'Commercial Lengths',
-#               'Recreational Lengths')
-# table_format(x = tab,
-#              caption = "Data weights applied by each alternative data weighting methods.",
-#              label = "dw",
-#              align = 'l',
-#              col_names = col_names)
+tab = read.csv(file.path(mod_loc, 'tables', 'data_weights.csv'))
+
+col_names = c('Data',
+ 			        'Francis',
+              'McAllister Ianelli',
+              'Dirichlet Multinomial')
+table_format(x = tab,
+              caption = "Data weights applied by each alternative data weighting methods.",
+              label = "dw",
+              align = 'l',
+              digits = 3, 
+              col_names = col_names)
 ```
 
 \newpage
@@ -213,29 +215,38 @@ table_format(x = mod_params,
 
 ```{r, results = 'asis'}
 tab = read.csv(file.path(mod_loc, 'tables', 'g_Projections_ES.csv'))
+spex_removal = c(model$derived_quants[model$derived_quants$Label == "ForeCatch_2021", "Value"], 
+                 model$derived_quants[model$derived_quants$Label == "ForeCatch_2022", "Value"])
 
 out = cbind(tab$Year,
             c(93547, 87540, rep("-",10)),
             c(84192, 78436, rep("-",10)),
             c(50000, 50000, rep("-", 10)),
+            c(round(spex_removal,0), rep("-", 10)),
             c(rep("-",2), round(tab[3:12,2], 0)),
             c(rep("-",2), round(tab[3:12,3], 0)),
             c(rep("-",2), round(tab[3:12,3]/tab[3:12,2], 3)),
             round(tab[ ,5:ncol(tab)], 2))
 
 col_names = c('Year',
-              'Adopted OFL',
-              'Adopted ABC',
-              "Adopted ACL",
-              "OFL", 
-              "ABC", 
+              'Adopted OFL (mt)',
+              'Adopted ABC (mt)',
+              "Adopted ACL (mt)",
+              "Assumed Removal (mt)", 
+              "OFL (mt)", 
+              "ABC (mt)", 
               "Buffer",
               "Spawning Output",
               "Fraction Unfished")
+
 table_format(x = out,
-             caption = "Projections of potential OFLs (mt), ABCs (mt), estimated spawning output, and fraction unfished. The adopted OFL, ABC, and ACL for 2021 and 2022 reflect adopted management limits.",
+             caption = "Projections of potential OFLs (mt), ABCs (mt), estimated spawning output, and fraction unfished. The adopted OFL, ABC, and ACL for 2021 and 2022 reflect adopted management limits and the assumed removal is the amount assumed in the projection for 2021 and 2022. The full ABC was assumed to be removed for 2023 - 2032",
              label = "project",
              align = 'l',
+             landscape = TRUE,
+             custom_width = TRUE,
+             col_to_adjust = 1:10, 
+             width = rep("2cm", 10),
              col_names = col_names)
 ```
 
