@@ -1080,6 +1080,99 @@ label = 'yield')
 <!-- ****************** Sensitivities ********************** --> 
 <!-- ======================================================= -->
 
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(sens_loc, "_plots", "7.0.1_base_1_compare2_spawnbio_uncertainty.png")
+caption = "Estimates of spawning biomass for the base model and alternative sensitivity models that remove (-) sources of length data.",
+label = 'sens-length-ssb')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(sens_loc, "_plots", "7.0.1_base_1_compare4_Bratio_uncertainty.png")
+caption = "Estimates of relative spawning biomass for the base model and alternative sensitivity models that remove (-) sources of length data.",
+label = 'sens-length-relssb')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(sens_loc, "_plots", "7.0.1_base_2_compare2_spawnbio_uncertainty.png")
+caption = "Estimates of spawning biomass for the base model and alternative sensitivity models that remove (-) sources of age data.",
+label = 'sens-age-ssb')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(sens_loc, "_plots", "7.0.1_base_2_compare4_Bratio_uncertainty.png")
+caption = "Estimates of relative spawning biomass for the base model and alternative sensitivity models that remove (-) sources of age data.",
+label = 'sens-age-relssb')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(sens_loc, "_plots", "7.0.1_base_3_compare2_spawnbio_uncertainty.png")
+caption = "Estimates of spawning biomass for the base model and alternative sensitivity models that remove (-) sources of index data.",
+label = 'sens-index-ssb')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(sens_loc, "_plots", "7.0.1_base_3_compare4_Bratio_uncertainty.png")
+caption = "Estimates of relative spawning biomass for the base model and alternative sensitivity models that remove (-) sources of index data.",
+label = 'sens-index-relssb')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(sens_loc, "_plots", "7.0.1_base_4_compare2_spawnbio_uncertainty.png")
+caption = "Estimates of spawning biomass for the base model and alternative sensitivity models to natural mortality including estimating females, estimating
+an age-specific Lorenzen relationship for males and females, fixing male and female parameters at the median of the prior, and fixing natural mortality at estimates
+from the 2011 assessment.",
+label = 'sens-m-ssb')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(sens_loc, "_plots", "7.0.1_base_4_compare4_Bratio_uncertainty.png")
+caption = "Estimates of relative spawning biomass for the base model and alternative sensitivity models to natural mortality including estimating females, estimating
+an age-specific Lorenzen relationship for males and females, fixing male and female parameters at the median of the prior, and fixing natural mortality at estimates
+from the 2011 assessment.",
+label = 'sens-m-relssb')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(sens_loc, "_plots", "7.0.1_base_5_compare2_spawnbio_uncertainty.png")
+caption = "Estimates of spawning biomass for the base model and alternative sensitivity models to selectivity including the parameterization of fishery selectivity following
+the 2011 assessment, the parameterization of survey selectivity following the 2011 assessment, mirroring California  and Oregon/Washing commercial selectivity, and forcing 
+one index (the NWFSC slope survey) to be asymptotic.",
+label = 'sens-select-ssb')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(sens_loc, "_plots", "7.0.1_base_5_compare4_Bratio_uncertainty.png")
+caption = "Estimates of relative spawning biomass for the base model and alternative sensitivity models to selectivity including the parameterization of fishery selectivity following
+the 2011 assessment, the parameterization of survey selectivity following the 2011 assessment, mirroring California  and Oregon/Washing commercial selectivity, and forcing 
+one index (the NWFSC slope survey) to be asymptotic.",
+label = 'sens-select-relssb')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(sens_loc, "_plots", "7.0.1_base_6_compare2_spawnbio_uncertainty.png")
+caption = "Estimates of spawning biomass for the base model and alternative sensitivity models including using the maturity ogive from the 2011 assessment, estimating no recruitment
+deviations, effectively not allowing extra survey variance (standard deviation), and applying the McAllistar and Ianelli approach to data weighting.",
+label = 'sens-biodata-ssb')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(sens_loc, "_plots", "7.0.1_base_6_compare4_Bratio_uncertainty.png")
+caption = "Estimates of relative spawning biomass for the base model and alternative sensitivity models including using the maturity ogive from the 2011 assessment, estimating no recruitment
+deviations, effectively not allowing extra survey variance (standard deviation), and applying the McAllistar and Ianelli approach to data weighting.",
+label = 'sens-biodata-relssb')
+```
 
 <!-- ======================================================= -->  
 <!-- ******************  Likelihoods  ********************** --> 

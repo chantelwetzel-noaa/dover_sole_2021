@@ -34,5 +34,6 @@ if(file.exists("00mod.Rdata")){
 
 data_loc = "//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data"
 brid_loc = "//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_bridging"
+sens_loc = "//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_sensitivities"
 
 ```
