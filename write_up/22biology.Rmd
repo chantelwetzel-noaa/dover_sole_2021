@@ -27,9 +27,9 @@ Maturity-at-length was examined spatially splitting `r spp` samples into north a
 
 This assessment did not account for these spatial differences in maturity and assumed a homogeneous population structure for `r spp` off the West Coast due to challenges in the ability to split data by area combined with the uncertain spatial migration patterns off `r spp` off the West Coast. Future analysis should be conducted to further understand potential patterns in life history traits across the coast combined with tagging studies which could provide insight in movement.    
 
-Fecundity is related to size. Yoklavich and Pikitch [-@yoklavich_reproductive_1989] estimated fecundity of `r spp` off the Oregon coast reporting that 40 cm female produce about 40,000 oocytes and a 55 cm female produce about 160,000 oocytes.  Hunter et al. [-@hunter_fecundity_1992] estimated the fecundity of `r spp` samples off the coasts of Oregon and California and found no statistical difference in the fecundity by area and estimated no statistical difference in Oregon between their results and those from Yoklavich and Pikitch [-@yoklavich_reproductive_1989].
+Fecundity is related to body size of `r spp`. Yoklavich and Pikitch [-@yoklavich_reproductive_1989] estimated fecundity of `r spp` off the Oregon coast reporting that 40 cm female produce about 40,000 oocytes and a 55 cm female produce about 160,000 oocytes.  Hunter et al. [-@hunter_fecundity_1992] estimated the fecundity of `r spp` samples off the coasts of Oregon and California and found no statistical difference in the fecundity by area and estimated no statistical difference in Oregon between their results and those from Yoklavich and Pikitch [-@yoklavich_reproductive_1989].
 
-The relationship of fecundity to weight concluded by Yoklavich and Pikitch [-@yoklavich_reproductive_1989] was nearly linear when translated from length to weight. Based on the work of Yoklavich and Pikitch [-@yoklavich_reproductive_1989] fecundity was assumed to be equal to weight in this assessment. 
+The relationship of fecundity to weight concluded by Yoklavich and Pikitch [-@yoklavich_reproductive_1989] was nearly linear when translated from length to weight. Based on the work of Yoklavich and Pikitch [-@yoklavich_reproductive_1989] fecundity was assumed to be equal to body weight in this assessment (e.g., spawning output equal to spawning biomass).  
 
 
 ### Length-Weight Relationship
@@ -65,8 +65,6 @@ Males $L_{\infty}$ = 43.1 cm; $L1$ = 15.5 cm; $k$ = 0.106 per year
 These values were used as starting parameter values within the base model prior to estimating each parameter for male and female `r spp`.
 
 The \gls{s-wcgbt} was used to examine the variation in length-at-age by year. The base model assumes that length-at-age and weight-at-age were static across the modeled years.  However, if there are significant variations in growth by year that are not accounted for in the model, could result in bias parameter and model estimates due to the model attributing patterns in the data to other sources (e.g., recruitment, growth parameters). Variations in growth by year could result from annual recruitment strength or positive or negative oceanographic conditions. The \gls{s-wcgbt} data did not indicate large meaningful variations in observed length-at-age or weight-at-age across the survey years (Figures \ref{fig:tv-len-at-age} and \ref{fig:tv-wght-at-age}). 
-
-
 
 
 ### Sex Ratio

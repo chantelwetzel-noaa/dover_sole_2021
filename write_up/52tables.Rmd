@@ -173,19 +173,18 @@ table_format(x = mod_params,
 \include{tex_tables/likelihoods.tex}
 
 <!-- ======================================================= -->
+<!-- ********  Reference Points & Management *************** --> 
+<!-- ======================================================= -->
+
+\include{tex_tables/e_ReferencePoints_ES.tex}
+
+<!-- ======================================================= -->
 <!-- ***********       Time Series      ******************** --> 
 <!-- ======================================================= -->
 
 \include{tex_tables/TimeSeries.tex}
 
 \newpage
-
-
-<!-- ======================================================= -->
-<!-- ********  Reference Points & Management *************** --> 
-<!-- ======================================================= -->
-
-\include{tex_tables/e_ReferencePoints_ES.tex}
 
 
 <!-- ======================================================= -->
@@ -208,6 +207,10 @@ table_format(x = tab,
 ```
 
 \newpage
+
+\include{tex_tables/sensitivities_crw.tex}
+
+\include{tex_tables/sensitivities2_crw.tex}
 
 <!-- ======================================================= -->
 <!-- ********  Reference Points & Management *************** --> 

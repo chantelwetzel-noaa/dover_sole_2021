@@ -2,7 +2,7 @@
 
 ### Commercial Fishery Landings
 
-The commercial removals were extracted from the PacFIN database for 1981 - 2020 for California and Washington and 1987 - 2020 for Oregon on January 28, 2021. The majority of removals for `r spp` arise from trawl gear (e.g., greater than 99 percent). Commercial removals for all gear types were combined into two area specific fleets: a California fleet and a combined Oregon-Washington fleet. This fleet structure was decided based on feedback received during the pre-assessment data webinar where combining Oregon and Washington was suggested due to cross state fishing and landing practices that make separating by state challenging.
+The commercial removals were extracted from the PacFIN database for 1981 - 2020 for California and Washington and 1987 - 2020 for Oregon on January 28, 2021. The majority of removals for `r spp` arise from trawl gear (i.e., greater than 99 percent). Commercial removals for all gear types were combined into two area specific fleets: a California fleet and a combined Oregon-Washington fleet. This fleet structure was decided based on feedback received during the pre-assessment data webinar where combining Oregon and Washington was suggested due to cross state fishing and landing practices that make separating by state challenging.
 
 #### Washington Prior to 1981
 
@@ -17,7 +17,7 @@ Historical commercial fishery landings of `r spp` in Oregon for the years `r sta
 
 Historical commercial fishery landings of `r spp` from 1948-1980 were obtained directly from E.J. Dick (SWFSC, NOAA) who retrieved the data from the California Cooperative Groundfish Survey data system (CALCOM). The method of reconstructing California historical landings are described by Ralston et al. [-@ralston_documentation_2010]. 
 
-At present, no landing for `r spp` before 1948 are available in CALCOM.  For years prior to 1948, the landings from the 2005 assessment [@sampson_status_2005] were used (as was done in the 2011 assessment). The data from Sampson [-@sampson_status_2005] for the years of 1911 - 1947 include assumed discards of `r spp` from other fisheries operating at the time in California and represent total removals (e.g., in comparison to the data from CALCOM account for only landed `r spp`). To account for this difference in the input catches for California a retention block was applied for 1911 - 1947 that assumed 100 percent retention (e.g., no additional discarding would be assumed since the removals during this period represent landings + discards). 
+At present, no landing for `r spp` before 1948 are available in CALCOM.  For years prior to 1948, the landings from the 2005 assessment [@sampson_status_2005] were used (as was done in the 2011 assessment). The data from Sampson [-@sampson_status_2005] for the years of 1911 - 1947 include assumed discards of `r spp` from other fisheries operating at the time in California and represent total removals in comparison to the data from CALCOM account for only landed `r spp`. To account for this difference in the input catches for California a retention block was applied for 1911 - 1947 that assumed 100 percent retention (i.e., no additional discarding would be assumed since the removals during this period represent landings + discards). 
 
 ### Commercial Discards
 

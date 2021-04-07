@@ -574,7 +574,7 @@ label = 'age-error')
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(brid_loc, "_plots", "model_bridge_compare2_spawnbio_uncertainty.png"),
-caption = "Model version bridge comparison of estimated spawning output",
+caption = "Model version bridge comparison of estimated spawning biomass",
 label = 'bridge-ssb')
 ```
 
@@ -589,7 +589,7 @@ label = 'bridge-depl')
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(brid_loc, "_plots", "data_2010_bridge_compare2_spawnbio_uncertainty.png"),
-caption = "Data updated through 2010 bridge comparison of estimated spawning output",
+caption = "Data updated through 2010 bridge comparison of estimated spawning biomass",
 label = 'data-bridge-ssb')
 ```
 
@@ -603,7 +603,7 @@ label = 'data-bridge-depl')
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(brid_loc, "_plots", "1.9_all_data_2020_compare2_spawnbio_uncertainty.png"),
-caption = "All data updated through 2020 bridge comparison of estimated spawning output",
+caption = "All data updated through 2020 bridge comparison of estimated spawning biomass",
 label = 'all-data-bridge-ssb')
 ```
 
@@ -617,7 +617,7 @@ label = 'all-data-bridge-depl')
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(brid_loc, "_plots", "2.0_offset_selex_bridge_compare2_spawnbio_uncertainty.png"),
-caption = "Estimated spawning output based on select structural changes and parameter updates",
+caption = "Estimated spawning biomass based on select structural changes and parameter updates",
 label = 'structure-bridge-ssb')
 ```
 
@@ -779,6 +779,13 @@ label = 'ca-disc-len-fit')
 
 ```{r, results = 'asis'}
 add_figure(
+filein = file.path(mod_loc, "plots", "comp_lenfit_residsflt1mkt1.png"), 
+caption = "Pearson residuals to annual length composition of discarded fish for the California fleet. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected)",
+label = 'ca-disc-pearson')
+```
+
+```{r, results = 'asis'}
+add_figure(
 filein = file.path(mod_loc, "plots", "comp_lenfit_flt2mkt1_page1.png"), 
 caption = "Fit to the annual length composition of discarded fish for the Oregon/Washington fleet",
 label = 'orwa-disc-len-fit-1')
@@ -790,13 +797,6 @@ add_figure(
 filein = file.path(mod_loc, "plots", "comp_lenfit_flt2mkt1_page2.png"), 
 caption = "Fit to the annual length composition of discarded fish for the Oregon/Washington fleet",
 label = 'orwa-disc-len-fit-2')
-```
-
-```{r, results = 'asis'}
-add_figure(
-filein = file.path(mod_loc, "plots", "comp_lenfit_residsflt1mkt1.png"), 
-caption = "Pearson residuals to annual length composition of discarded fish for the California fleet. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected)",
-label = 'ca-disc-pearson')
 ```
 
 ```{r, results = 'asis'}
@@ -1015,7 +1015,7 @@ label = 'wcgbt-mean-age')
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(mod_loc, "plots", "ts7_Spawning_biomass_(mt)_with_95_asymptotic_intervals_intervals.png"), 
-caption = "Estimated time series of spawning output",
+caption = "Estimated time series of spawning biomass",
 label = 'ssb')
 ```
 
@@ -1028,8 +1028,8 @@ label = 'tot-bio')
 
 ```{r, results = 'asis'}
 add_figure(
-filein = file.path(mod_loc, "plots", "ts9_Relative_spawning_biomass_intervals.png"), 
-caption = "Estimated time series of fraction of unfished spawning output",
+filein = file.path(mod_loc, "plots", "ts9_Fraction_of_unfished_with_95_asymptotic_intervals_intervals.png"), 
+caption = "Estimated time series of fraction of unfished spawning biomass",
 label = 'depl')
 ```
 
@@ -1063,7 +1063,7 @@ label = '1-spr')
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(mod_loc, "plots", "SPR4_phase.png"), 
-caption = "Phase plot of the relative biomass versus the SPR ratio where each point represents the biomass ratio at the start of the year and the relative fishing intensity in that same year. Lines through the final point show the 95 percent intervals based on the asymptotic uncertainty for each dimension. The shaded ellipse is a 95 percent region which accounts for the estiamted correlations between the biomass ratio and SPR ratio.",
+caption = "Phase plot of the relative biomass (also referred to as fraction unfished) versus the SPR ratio where each point represents the biomass ratio at the start of the year and the relative fishing intensity in that same year. Lines through the final point show the 95 percent intervals based on the asymptotic uncertainty for each dimension. The shaded ellipse is a 95 percent region which accounts for the estiamted correlations between the biomass ratio and SPR ratio.",
 label = 'phase')
 ```
 
@@ -1082,95 +1082,87 @@ label = 'yield')
 
 ```{r, results = 'asis'}
 add_figure(
-filein = file.path(sens_loc, "_plots", "7.0.1_base_1_compare2_spawnbio_uncertainty.png")
-caption = "Estimates of spawning biomass for the base model and alternative sensitivity models that remove (-) sources of length data.",
+filein = file.path(sens_loc, "_plots", "7.0.1_base_1_compare2_spawnbio_uncertainty.png"),
+caption = "Estimates of spawning biomass for the base model and alternative sensitivity models that remove (-) sources of length data",
 label = 'sens-length-ssb')
 ```
 
 ```{r, results = 'asis'}
 add_figure(
-filein = file.path(sens_loc, "_plots", "7.0.1_base_1_compare4_Bratio_uncertainty.png")
-caption = "Estimates of relative spawning biomass for the base model and alternative sensitivity models that remove (-) sources of length data.",
+filein = file.path(sens_loc, "_plots", "7.0.1_base_1_compare4_Bratio_uncertainty.png"),
+caption = "Estimates of relative spawning biomass for the base model and alternative sensitivity models that remove (-) sources of length data",
 label = 'sens-length-relssb')
 ```
 
 ```{r, results = 'asis'}
 add_figure(
-filein = file.path(sens_loc, "_plots", "7.0.1_base_2_compare2_spawnbio_uncertainty.png")
-caption = "Estimates of spawning biomass for the base model and alternative sensitivity models that remove (-) sources of age data.",
+filein = file.path(sens_loc, "_plots", "7.0.1_base_2_compare2_spawnbio_uncertainty.png"),
+caption = "Estimates of spawning biomass for the base model and alternative sensitivity models that remove (-) sources of age data",
 label = 'sens-age-ssb')
 ```
 
 ```{r, results = 'asis'}
 add_figure(
-filein = file.path(sens_loc, "_plots", "7.0.1_base_2_compare4_Bratio_uncertainty.png")
-caption = "Estimates of relative spawning biomass for the base model and alternative sensitivity models that remove (-) sources of age data.",
+filein = file.path(sens_loc, "_plots", "7.0.1_base_2_compare4_Bratio_uncertainty.png"),
+caption = "Estimates of relative spawning biomass for the base model and alternative sensitivity models that remove (-) sources of age data",
 label = 'sens-age-relssb')
 ```
 
 ```{r, results = 'asis'}
 add_figure(
-filein = file.path(sens_loc, "_plots", "7.0.1_base_3_compare2_spawnbio_uncertainty.png")
-caption = "Estimates of spawning biomass for the base model and alternative sensitivity models that remove (-) sources of index data.",
+filein = file.path(sens_loc, "_plots", "7.0.1_base_3_compare2_spawnbio_uncertainty.png"),
+caption = "Estimates of spawning biomass for the base model and alternative sensitivity models that remove (-) sources of index data",
 label = 'sens-index-ssb')
 ```
 
 ```{r, results = 'asis'}
 add_figure(
-filein = file.path(sens_loc, "_plots", "7.0.1_base_3_compare4_Bratio_uncertainty.png")
-caption = "Estimates of relative spawning biomass for the base model and alternative sensitivity models that remove (-) sources of index data.",
+filein = file.path(sens_loc, "_plots", "7.0.1_base_3_compare4_Bratio_uncertainty.png"),
+caption = "Estimates of relative spawning biomass for the base model and alternative sensitivity models that remove (-) sources of index data",
 label = 'sens-index-relssb')
 ```
 
 ```{r, results = 'asis'}
 add_figure(
-filein = file.path(sens_loc, "_plots", "7.0.1_base_4_compare2_spawnbio_uncertainty.png")
-caption = "Estimates of spawning biomass for the base model and alternative sensitivity models to natural mortality including estimating females, estimating
-an age-specific Lorenzen relationship for males and females, fixing male and female parameters at the median of the prior, and fixing natural mortality at estimates
-from the 2011 assessment.",
+filein = file.path(sens_loc, "_plots", "7.0.1_base_4_compare2_spawnbio_uncertainty.png"),
+caption = "Estimates of spawning biomass for the base model and alternative sensitivity models to natural mortality including estimating females, estimating an age-specific Lorenzen relationship for males and females, fixing male and female parameters at the median of the prior, and fixing natural mortality at estimates
+from the 2011 assessment",
 label = 'sens-m-ssb')
 ```
 
 ```{r, results = 'asis'}
 add_figure(
-filein = file.path(sens_loc, "_plots", "7.0.1_base_4_compare4_Bratio_uncertainty.png")
-caption = "Estimates of relative spawning biomass for the base model and alternative sensitivity models to natural mortality including estimating females, estimating
-an age-specific Lorenzen relationship for males and females, fixing male and female parameters at the median of the prior, and fixing natural mortality at estimates
-from the 2011 assessment.",
+filein = file.path(sens_loc, "_plots", "7.0.1_base_4_compare4_Bratio_uncertainty.png"),
+caption = "Estimates of relative spawning biomass for the base model and alternative sensitivity models to natural mortality including estimating females, estimating an age-specific Lorenzen relationship for males and females, fixing male and female parameters at the median of the prior, and fixing natural mortality at estimates
+from the 2011 assessment",
 label = 'sens-m-relssb')
 ```
 
 ```{r, results = 'asis'}
 add_figure(
-filein = file.path(sens_loc, "_plots", "7.0.1_base_5_compare2_spawnbio_uncertainty.png")
-caption = "Estimates of spawning biomass for the base model and alternative sensitivity models to selectivity including the parameterization of fishery selectivity following
-the 2011 assessment, the parameterization of survey selectivity following the 2011 assessment, mirroring California  and Oregon/Washing commercial selectivity, and forcing 
-one index (the NWFSC slope survey) to be asymptotic.",
+filein = file.path(sens_loc, "_plots", "7.0.1_base_5_compare2_spawnbio_uncertainty.png"),
+caption = "Estimates of spawning biomass for the base model and alternative sensitivity models to selectivity including the parameterization of fishery selectivity following the 2011 assessment, the parameterization of survey selectivity following the 2011 assessment, mirroring California  and Oregon/Washing commercial selectivity, and forcing one index (the NWFSC slope survey) to be asymptotic",
 label = 'sens-select-ssb')
 ```
 
 ```{r, results = 'asis'}
 add_figure(
-filein = file.path(sens_loc, "_plots", "7.0.1_base_5_compare4_Bratio_uncertainty.png")
-caption = "Estimates of relative spawning biomass for the base model and alternative sensitivity models to selectivity including the parameterization of fishery selectivity following
-the 2011 assessment, the parameterization of survey selectivity following the 2011 assessment, mirroring California  and Oregon/Washing commercial selectivity, and forcing 
-one index (the NWFSC slope survey) to be asymptotic.",
+filein = file.path(sens_loc, "_plots", "7.0.1_base_5_compare4_Bratio_uncertainty.png"),
+caption = "Estimates of relative spawning biomass for the base model and alternative sensitivity models to selectivity including the parameterization of fishery selectivity following the 2011 assessment, the parameterization of survey selectivity following the 2011 assessment, mirroring California  and Oregon/Washing commercial selectivity, and forcing one index (the NWFSC slope survey) to be asymptotic",
 label = 'sens-select-relssb')
 ```
 
 ```{r, results = 'asis'}
 add_figure(
-filein = file.path(sens_loc, "_plots", "7.0.1_base_6_compare2_spawnbio_uncertainty.png")
-caption = "Estimates of spawning biomass for the base model and alternative sensitivity models including using the maturity ogive from the 2011 assessment, estimating no recruitment
-deviations, effectively not allowing extra survey variance (standard deviation), and applying the McAllistar and Ianelli approach to data weighting.",
+filein = file.path(sens_loc, "_plots", "7.0.1_base_6_compare2_spawnbio_uncertainty.png"),
+caption = "Estimates of spawning biomass for the base model and alternative sensitivity models including using the maturity ogive from the 2011 assessment, estimating no recruitment deviations, effectively not allowing extra survey variance (standard deviation), and applying the McAllistar and Ianelli approach to data weighting",
 label = 'sens-biodata-ssb')
 ```
 
 ```{r, results = 'asis'}
 add_figure(
-filein = file.path(sens_loc, "_plots", "7.0.1_base_6_compare4_Bratio_uncertainty.png")
-caption = "Estimates of relative spawning biomass for the base model and alternative sensitivity models including using the maturity ogive from the 2011 assessment, estimating no recruitment
-deviations, effectively not allowing extra survey variance (standard deviation), and applying the McAllistar and Ianelli approach to data weighting.",
+filein = file.path(sens_loc, "_plots", "7.0.1_base_6_compare4_Bratio_uncertainty.png"),
+caption = "Estimates of relative spawning biomass for the base model and alternative sensitivity models including using the maturity ogive from the 2011 assessment, estimating no recruitment deviations, effectively not allowing extra survey variance (standard deviation), and applying the McAllistar and Ianelli approach to data weighting",
 label = 'sens-biodata-relssb')
 ```
 
@@ -1188,7 +1180,7 @@ label = 'r0-profile')
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(paste0(mod_loc, "_profile_SR_LN(R0)"),  "SR_LN(R0)_trajectories_compare1_spawnbio.png"), 
-caption = "Change in the estimate of spawning output across a range of log(R0) values",
+caption = "Change in the estimate of spawning biomass across a range of log(R0) values",
 label = 'r0-ssb')
 ```
 
@@ -1209,7 +1201,7 @@ label = 'h-profile')
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(paste0(mod_loc, "_profile_SR_BH_steep"),  "SR_BH_steep_trajectories_compare1_spawnbio.png"), 
-caption = "Change in the estimate of spawning output across a range of steepness values",
+caption = "Change in the estimate of spawning biomass across a range of steepness values",
 label = 'h-ssb')
 ```
 
@@ -1230,7 +1222,7 @@ label = 'm-profile')
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(paste0(mod_loc, "_profile_NatM_p_1_Fem_GP_1"),  "NatM_p_1_Fem_GP_1_trajectories_compare1_spawnbio.png"), 
-caption = "Change in the estimate of spawning output across a range of female natural mortality values",
+caption = "Change in the estimate of spawning biomass across a range of female natural mortality values",
 label = 'm-ssb')
 ```
 
@@ -1248,7 +1240,7 @@ label = 'm-depl')
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(paste0(mod_loc, "_retro"),  "compare2_spawnbio_uncertainty.png"), 
-caption = "Change in the estimate of spawning output when the most recent 10 years of data area removed sequentially",
+caption = "Change in the estimate of spawning biomass when the most recent 10 years of data area removed sequentially",
 label = 'retro-ssb')
 ```
 
@@ -1266,6 +1258,6 @@ label = 'retro-depl')
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path("figs", "assessment_history.png"), 
-caption = "Estimates of spawning output across the base model and previous assessments of Dover sole",
+caption = "Estimates of spawning output (also referred to as spawning biomass) across the base model and previous assessments of Dover sole",
 label = 'past-assess')
 ```

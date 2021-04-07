@@ -2,7 +2,7 @@
 
 # Appendix A
 
-## Detailed Fit to Length Composition Data 
+## Detailed Fit to Length Composition Data {#len-fit-data}
 
 ```{r, results='asis'}
 plot_info = read.csv(file.path(mod_loc, "plots", "plotinfotable_for_doc.csv"))
@@ -43,7 +43,7 @@ for (a in plot.vec){
 
 \clearpage
 
-## Detailed Fit to Conditional-Age-at-Length Composition Data 
+## Detailed Fit to Conditional-Age-at-Length Composition Data {#detailed-caal}
 
 ```{r, results='asis'}
 plot_info = read.csv(file.path(mod_loc, "plots", "plotinfotable_for_doc.csv"))
