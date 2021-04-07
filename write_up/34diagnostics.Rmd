@@ -6,25 +6,71 @@ Proper convergence was determined by starting the minimization process from disp
 
 ### Sensitivity Analyses
 
-A number of sensitivity analyses were conducted.  The majority of the sensitivities conducted was a single exploration from the base model assumptions and/or data, and were not performed in a cumulative fashion.
+Sensitivity analyses were conducted to examine the relative influence of specific changes to data inputs and model structural assumptions to further address uncertainty associated with the base model estimates and derived management quantities.  The majority of the sensitivity models are the result of a single change relative to base model, and .  Sensitivity models are therefore individually relative to the base model (i.e., they are not the result of cumulative changes such as the modeling approach used with the bridging analysis). Comparisons of parameter estimates from the sensitivity analysis are shown in Tables \ref{tab:sensitivities1} and \ref{tab:sensitivities2}. Many additional sensitivity runs were explored during development and testing of the base model. This section focuses on the main data and structural sensitivity model runs and includes the following:
+
+Data Sensitivities
 
 \begin{enumerate}
    
-  \item Estimate Lorenzen natural mortality ($M$) by sex with the change of $M$ occurring at approximately age-at-50-percent maturity of 10 years old.
+  \item Remove the California commercial length data
+  
+  \item Remove the Oregon/Washington commercial length data
+  
+  \item Remove the AFSC slope survey length data
+  
+  \item Remove the Triennial survey length data
+  
+  \item Remove the NWFSC slope survey length data
+  
+  \item Remove the NWFSC WCGBT survey length data
+  
+  \item Remove the California commercial age data
+  
+  \item Remove the Oregon/Washington commercial age data
+  
+  \item Remove the NWFSC slope survey age data
+  
+  \item Remove the NWFSC WCGBT survey age data
+  
+  \item Remove the AFSC slope survey index
+  
+  \item Remove the Triennial survey index
+  
+  \item Remove the NWFSC slope survey index
+  
+  \item Remove the NWFSC WCGBT survey index
+  
+\end{enumerate}
 
-  \item Allow the model to estimate sex-specific $M$ values.
+Structural Sensitivities
 
-  \item Fix $M$ values by sex equal to the estimates from the 2011 assessment of `r spp`. 
+\begin{enumerate}
+   
+  \item Estimate Lorenzen natural mortality ($M$) by sex with the change of $M$ occurring at approximately age-at-50-percent maturity of 10 years old;
 
-  \item Assume the 2011 length-at-maturity estimates.
+  \item Allow the model to estimate sex-specific $M$ values;
 
-  \item Mirror the selectivity by sex and retention for the CA and OR/WA fishing fleets.
+  \item Fix $M$ values by sex at the estimates from the 2011 assessment of `r spp`;
+  
+  \item Fix $M$ values for each sex at the median of the prior distribution (0.108);
+  
+  \item Mirror the selectivity by sex and retention for the CA and OR/WA fishing fleets;
 
-  \item Assume the 2011 parameterization of fishery selectivity.
+  \item Assume the 2011 parameterization of fishery selectivity;
 
-  \item Assume the 2011 parameterization of survey selectivity. 
+  \item Assume the 2011 parameterization of survey selectivity;
 
-  \item Fix the NWFSC Slope Survey female selectivity to asymptote at 1.0.  
+  \item Fix the NWFSC Slope Survey female selectivity to asymptote at 1.0;
+
+  \item Assume the 2011 length-at-maturity estimate;
+  
+  \item No estimation of recruitment deviations;
+  
+  \item Use of the McAllister and Ianelli method for data-weighting;
+  
+  \item Use of the Dirichlet Multinomial method for data-weighting; and
+  
+  \item Fix the extra standard deviation parameters for the AFSC slope, NWFSC slope, and Triennial surveys at a near negligible level (0.01).
 
 \end{enumerate}
 
