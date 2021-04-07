@@ -98,22 +98,6 @@ A ten-year retrospective analysis was conducted by peeling off years of data ran
 
 ### Historical Analysis
 
-The estimated spawning output from previous assessments since 2001 are shown in Figure \ref{fig:past-assess}. The estimate of stock scale from the base model is considerably lower relative to the 2011 assessment estimate which was highly uncertain. The base model $SB0$ was also less than the value estimated in 2005 but was highly similar between 1960-2005. The relative stock status from the base model was between the 2011 and the 2005 estimate.  
+The estimated spawning output from previous assessments since 2001 are shown in Figure \ref{fig:past-assess}. The estimate of stock scale from the base model is considerably lower relative to the 2011 assessment estimate which was highly uncertain. The base model $SB0$ was nearly identical to the value estimated in 2005 but diverged between 1960-2005. The relative stock status of the base model was relatively consistent in trend and scale with the estimate from the 2011 assessment.  
 
-### Unresolved Problems and Major Uncertainties
 
-Parameter uncertainty is explicitly captured in the asymptotic confidence intervals reported throughout this assessment for key parameters and management quantities. These intervals reflect the uncertainty in the model fit to the data sources included in the assessment, but do not include uncertainty associated with alternative model configurations, weighting of data sources (a combination of input sample sizes and relative weighting of likelihood components), or fixed parameters.
-
-There are a number of major uncertainties regarding model parameters that have been explored via sensitivity analysis. The most notable explorations involved the sensitivity of model estimates to:
-
-\begin{enumerate}
-
-\item The stocks rapid increase in biomass since 2010 was driven by reduced catches and three strong year-classes, 2006-2008, entering the population.  In recent years, strong recruitments in a single year have been observed leading to sharp increases in biomass in other West Coast groundfish stocks. However, the observation of three subsequent strong recruitments has not been commonly observed in other stocks and the specific mechanisms that led to these three strong-year classes are currently unknown. 
-
-\item The value of natural mortality by sex.	Natural mortality by sex and steepness are uncertain for `r spp`.  Currently, both natural mortality and steepness are estimated within the model and are negatively correlated.  This provides information regarding these parameters combined values, but there is large uncertainty regarding the value of each parameter individually.
-
-\item New fecundity data for `r spp` supports a fecundity relationship that differs from the current assumption (fecundity equals body weights) in this update assessment. A sensitivity to the new data results in a less optimistic estimate of relative spawning biomass, declining to 35% from the base model 39%, when the new coast-wide fecundity relationship was included in the model. The new data supports differences in fecundity estimated between `r spp` observed in the north and south off the U.S. west coast.  However, some of the contrast in estimates between the northern and southern fish may be due to sample sizes differences. The next full assessment for `r spp` will want to explore methods of how best to include the new fecundity data. 
-
-\item Additionally, a reconstructed historical Washington catch history has not been included in the `r spp` stock assessment.  Washington state is currently undergoing efforts to determine historical catches for `r spp` and the next stock assessment is likely to incorporate these new historical catch estimates. 
-
-\end{enumerate}
