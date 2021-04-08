@@ -8,6 +8,7 @@ rownames(myQ) <- x_name
 png("N:/Assessments/CurrentAssessments/Dover_sole_2021/models/SurveyQ_vs_M.png", width = 480, height = 350)
 barplot(myQ,
         xlab = "Survey",
+        ylab = "Catchability",
         col = c("green","red", "yellow","orange", "blue"),
         beside = TRUE,
         cex.names = 0.75,
