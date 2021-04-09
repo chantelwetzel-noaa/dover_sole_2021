@@ -10,11 +10,13 @@ library(sa4ss)
 base_model = "7.0.1_base"
 
 wd = file.path("C:/Assessments/2021/dover_sole_2021/models", "_sensitivities")
+wd = "//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_sensitivities"
 #wd = file.path("C:\\Users\\Aaron.Berger\\Documents\\AMB\\Groundfish\\Assessments\\Dover Sole\\2021\\Models\\Base\\_sensitivities")
 
 setwd(wd)
 out.dir = wd
 base.loc = file.path("C:/Assessments/2021/dover_sole_2021/models", base_model)
+base.loc = file.path("//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models", base_model)
 #base.loc=file.path("C:\\Users\\Aaron.Berger\\Documents\\AMB\\Groundfish\\Assessments\\Dover Sole\\2021\\Models\\Base", base_model)
 
 model.list <- c(paste0(base_model, "_remove_CA_length"), #1
@@ -76,41 +78,41 @@ sens_26 = SS_output( file.path(wd, model.list[26]), printstats = FALSE, verbose 
 
 
 modelnames1 <- c("Base Model",
-                "- CA lengths",
-                "- OR/WA lengths",
-                "- AFSC slope lengths",
-                "- Triennial lengths",
-                "- NWFSC slope lengths",
-                "- NWFSC WCGBT lengths")
+                "- CA Lengths",
+                "- OR/WA Lengths",
+                "- AFSC Slope Lengths",
+                "- Triennial Lengths",
+                "- NWFSC Slope Lengths",
+                "- NWFSC WCGBT Lengths")
 
 modelnames2 <- c("Base Model",
-                "- CA ages", 
-                "- OR/WA ages",
-                "- NWFSC slope ages",
-                "- NWFSC WCGBT ages")
+                "- CA Ages", 
+                "- OR/WA Ages",
+                "- NWFSC Slope Ages",
+                "- NWFSC WCGBT Ages")
 
 modelnames3 <- c("Base Model",
-                 "- AFSC slope index",
-                 "- Trienniel index",
-                 "- NWFSC slope index",
-                 "- NWFSC WCGBT index")
+                 "- AFSC Slope Index",
+                 "- Trienniel Index",
+                 "- NWFSC Slope Index",
+                 "- NWFSC WCGBT Index")
 
 modelnames4 <- c("Base Model",
-                 "est. Fem M",
-                 "est. Lorenz. M",
-                 "fix M median prior",
-                 "fix M 2011 est.")
+                 "Est. Fem. M",
+                 "Est. Lorenz. M",
+                 "Fix M median prior",
+                 "Fix M 2011 est.")
 
 modelnames5 <- c("Base Model",
-                 "2011 fish. Sel.",
-                 "2011 surv. Sel.",
+                 "2011 Fish. Sel.",
+                 "2011 Surv. Sel.",
                  "Mirror Com. Sel.",
-                 "NWFSC slope Asympt. Sel.")
+                 "NWFSC Alope Asympt. Sel.")
 
 modelnames6 <- c("Base Model",
                  "2011 Maturity",
-                 "No recdevs",
-                 "No add Surv. SD",
+                 "No RecDevs",
+                 "No Add Surv. SD",
                  "MI Data Weight")
 
 x1 <- SSsummarize(list(base, sens_1, sens_2, sens_3, sens_4, sens_5, sens_6)) #remove lengths
@@ -197,37 +199,36 @@ modelnames <- c("Base Model",
                   "NWFSC slope index",
                   "NWFSC WCGBT index")
 
-
 ii = 1:length(modelnames)
 n = length(modelnames)
 out<- matrix(NA, 24, max(ii))
 
 out = rbind(
-            as.numeric(x$likelihoods[x$likelihoods$Label == "TOTAL",1:n]), 
-            as.numeric(x$likelihoods[x$likelihoods$Label == "Survey",1:n]), 
-            as.numeric(x$likelihoods[x$likelihoods$Label == "Length_comp",1:n]),
-            as.numeric(x$likelihoods[x$likelihoods$Label == "Age_comp",1:n]), 
-            as.numeric(x$likelihoods[x$likelihoods$Label == "Recruitment",1:n]), 
-            as.numeric(x$likelihoods[x$likelihoods$Label == "Forecast_Recruitment",1:n]),
-            as.numeric(x$likelihoods[x$likelihoods$Label == "Parm_priors",1:n]),
-            as.numeric(x$pars[x$pars$Label == "SR_LN(R0)", 1:n]), 
-            as.numeric(x$SpawnBio[x$SpawnBio$Label == "SSB_Virgin", 1:n]),
-            as.numeric(x$SpawnBio[x$SpawnBio$Label == "SSB_2021", 1:n]),
-            as.numeric(x$Bratio[x$Bratio$Label == "Bratio_2021", 1:n]), 
-            as.numeric(x$quants[x$quants$Label == "Dead_Catch_SPR", 1:n]),
+            round(as.numeric(x$likelihoods[x$likelihoods$Label == "TOTAL",1:n]),2), 
+            round(as.numeric(x$likelihoods[x$likelihoods$Label == "Survey",1:n]),2), 
+            round(as.numeric(x$likelihoods[x$likelihoods$Label == "Length_comp",1:n]),2),
+            round(as.numeric(x$likelihoods[x$likelihoods$Label == "Age_comp",1:n]),2), 
+            round(as.numeric(x$likelihoods[x$likelihoods$Label == "Recruitment",1:n]),2), 
+            round(as.numeric(x$likelihoods[x$likelihoods$Label == "Forecast_Recruitment",1:n]),2),
+            round(as.numeric(x$likelihoods[x$likelihoods$Label == "Parm_priors",1:n]),2),
+            round(as.numeric(x$pars[x$pars$Label == "SR_LN(R0)", 1:n]),2), 
+            round(as.numeric(x$SpawnBio[x$SpawnBio$Label == "SSB_Virgin", 1:n]),0),
+            round(as.numeric(x$SpawnBio[x$SpawnBio$Label == "SSB_2021", 1:n]),0),
+            round(as.numeric(x$Bratio[x$Bratio$Label == "Bratio_2021", 1:n]),2), 
+            round(as.numeric(x$quants[x$quants$Label == "Dead_Catch_SPR", 1:n]),0),
             as.numeric(x$pars[x$pars$Label == "SR_BH_steep", 1:n]),
-            as.numeric(x$pars[x$pars$Label == "NatM_p_1_Fem_GP_1", 1:n]),
-            as.numeric(x$pars[x$pars$Label == "L_at_Amin_Fem_GP_1", 1:n]),
-            as.numeric(x$pars[x$pars$Label == "L_at_Amax_Fem_GP_1", 1:n]),
-            as.numeric(x$pars[x$pars$Label == "VonBert_K_Fem_GP_1", 1:n]),
-            as.numeric(x$pars[x$pars$Label == "CV_young_Fem_GP_1", 1:n]),
-            as.numeric(x$pars[x$pars$Label == "CV_old_Fem_GP_1", 1:n]),
-            as.numeric(x$pars[x$pars$Label == "NatM_p_1_Fem_GP_1", 1:n]) * exp(as.numeric(x$pars[x$pars$Label == "NatM_p_1_Mal_GP_1", 1:n])),
-            as.numeric(x$pars[x$pars$Label == "L_at_Amin_Fem_GP_1", 1:n])* exp(as.numeric(x$pars[x$pars$Label == "L_at_Amin_Mal_GP_1", 1:n])),
-            as.numeric(x$pars[x$pars$Label == "L_at_Amax_Fem_GP_1", 1:n])* exp(as.numeric(x$pars[x$pars$Label == "L_at_Amax_Mal_GP_1", 1:n])),
-            as.numeric(x$pars[x$pars$Label == "VonBert_K_Fem_GP_1", 1:n])* exp(as.numeric(x$pars[x$pars$Label == "VonBert_K_Mal_GP_1", 1:n])),
-            as.numeric(x$pars[x$pars$Label == "CV_young_Fem_GP_1", 1:n])* exp(as.numeric(x$pars[x$pars$Label == "CV_young_Mal_GP_1", 1:n])),
-            as.numeric(x$pars[x$pars$Label == "CV_old_Fem_GP_1", 1:n])* exp(as.numeric(x$pars[x$pars$Label == "CV_old_Mal_GP_1", 1:n])) )  
+            round(as.numeric(x$pars[x$pars$Label == "NatM_p_1_Fem_GP_1", 1:n]),3),
+            round(as.numeric(x$pars[x$pars$Label == "L_at_Amin_Fem_GP_1", 1:n]),2),
+            round(as.numeric(x$pars[x$pars$Label == "L_at_Amax_Fem_GP_1", 1:n]),2),
+            round(as.numeric(x$pars[x$pars$Label == "VonBert_K_Fem_GP_1", 1:n]),2),
+            round(as.numeric(x$pars[x$pars$Label == "CV_young_Fem_GP_1", 1:n]),2),
+            round(as.numeric(x$pars[x$pars$Label == "CV_old_Fem_GP_1", 1:n]),2),
+            round(as.numeric(x$pars[x$pars$Label == "NatM_p_1_Fem_GP_1", 1:n]) * exp(as.numeric(x$pars[x$pars$Label == "NatM_p_1_Mal_GP_1", 1:n])),3),
+            round(as.numeric(x$pars[x$pars$Label == "L_at_Amin_Fem_GP_1", 1:n])* exp(as.numeric(x$pars[x$pars$Label == "L_at_Amin_Mal_GP_1", 1:n])),2),
+            round(as.numeric(x$pars[x$pars$Label == "L_at_Amax_Fem_GP_1", 1:n])* exp(as.numeric(x$pars[x$pars$Label == "L_at_Amax_Mal_GP_1", 1:n])),2),
+            round(as.numeric(x$pars[x$pars$Label == "VonBert_K_Fem_GP_1", 1:n])* exp(as.numeric(x$pars[x$pars$Label == "VonBert_K_Mal_GP_1", 1:n])),2),
+            round(as.numeric(x$pars[x$pars$Label == "CV_young_Fem_GP_1", 1:n])* exp(as.numeric(x$pars[x$pars$Label == "CV_young_Mal_GP_1", 1:n])),2),
+            round(as.numeric(x$pars[x$pars$Label == "CV_old_Fem_GP_1", 1:n])* exp(as.numeric(x$pars[x$pars$Label == "CV_old_Mal_GP_1", 1:n])),2) )  
 
 out = as.data.frame(out)
 colnames(out) = modelnames
@@ -257,7 +258,6 @@ rownames(out) = c("Total Likelihood",
                   "CV young - Male",
                   "CV old - Male")
 
-
 write.csv(out, file = file.path(out.dir, paste0(base_model, "_sensitivities.csv")))
 
 library(sa4ss)
@@ -267,25 +267,29 @@ t = table_format(x = out,
       label = 'sensitivities1',
       longtable = TRUE,
       font_size = 9,
-      digits = 2,
+      #digits = 2,
       landscape = TRUE,
       col_names = modelnames)
+
+kableExtra::save_kable(t,
+file = file.path(out.dir, "sensitivities_crw.tex"))
+
 
 kableExtra::save_kable(t,
 file = file.path("C:/Users/Aaron.Berger/Documents/GitHub/dover_sole_2021/write_up/tables/sensitivities.tex"))
 
 ##################################
 
-y <- SSsummarize(list(base, sens_15, sens_16, sens_17, sens_18, sens_19, 
+x <- SSsummarize(list(base, sens_15, sens_16, sens_17, sens_18, sens_19, 
                       sens_20, sens_21, sens_22, sens_23, sens_24, sens_25, sens_26))
 
 modelnames2 <- c("Base Model",
-                 "est. Fem M",
-                 "est. Lorenz. M",
-                 "fix M median prior",
-                 "fix M 2011 est.",
-                 "2011 fish. Sel.",
-                 "2011 surv. Sel.",
+                 "Est. Fem M",
+                 "Est. Lorenz. M",
+                 "Fix M median prior",
+                 "Fix M 2011 est.",
+                 "2011 Fish. Sel.",
+                 "2011 Surv. Sel.",
                  "Mirror Com. Sel.",
                  "NWFSC slope Asympt. Sel.",
                  "2011 Maturity",
@@ -299,33 +303,34 @@ n = length(modelnames2)
 out<- matrix(NA, 24, max(ii))
 
 out = rbind(
-   as.numeric(x$likelihoods[x$likelihoods$Label == "TOTAL",1:n]), 
-   as.numeric(x$likelihoods[x$likelihoods$Label == "Survey",1:n]), 
-   as.numeric(x$likelihoods[x$likelihoods$Label == "Length_comp",1:n]),
-   as.numeric(x$likelihoods[x$likelihoods$Label == "Age_comp",1:n]), 
-   as.numeric(x$likelihoods[x$likelihoods$Label == "Recruitment",1:n]), 
-   as.numeric(x$likelihoods[x$likelihoods$Label == "Forecast_Recruitment",1:n]),
-   as.numeric(x$likelihoods[x$likelihoods$Label == "Parm_priors",1:n]),
-   as.numeric(x$pars[x$pars$Label == "SR_LN(R0)", 1:n]), 
-   as.numeric(x$SpawnBio[x$SpawnBio$Label == "SSB_Virgin", 1:n]),
-   as.numeric(x$SpawnBio[x$SpawnBio$Label == "SSB_2021", 1:n]),
-   as.numeric(x$Bratio[x$Bratio$Label == "Bratio_2021", 1:n]), 
-   as.numeric(x$quants[x$quants$Label == "Dead_Catch_SPR", 1:n]),
-   as.numeric(x$pars[x$pars$Label == "SR_BH_steep", 1:n]),
-   as.numeric(x$pars[x$pars$Label == "NatM_p_1_Fem_GP_1", 1:n]),
-   as.numeric(x$pars[x$pars$Label == "L_at_Amin_Fem_GP_1", 1:n]),
-   as.numeric(x$pars[x$pars$Label == "L_at_Amax_Fem_GP_1", 1:n]),
-   as.numeric(x$pars[x$pars$Label == "VonBert_K_Fem_GP_1", 1:n]),
-   as.numeric(x$pars[x$pars$Label == "CV_young_Fem_GP_1", 1:n]),
-   as.numeric(x$pars[x$pars$Label == "CV_old_Fem_GP_1", 1:n]),
-   as.numeric(x$pars[x$pars$Label == "NatM_p_1_Fem_GP_1", 1:n]) * exp(as.numeric(x$pars[x$pars$Label == "NatM_p_1_Mal_GP_1", 1:n])),
-   as.numeric(x$pars[x$pars$Label == "L_at_Amin_Fem_GP_1", 1:n])* exp(as.numeric(x$pars[x$pars$Label == "L_at_Amin_Mal_GP_1", 1:n])),
-   as.numeric(x$pars[x$pars$Label == "L_at_Amax_Fem_GP_1", 1:n])* exp(as.numeric(x$pars[x$pars$Label == "L_at_Amax_Mal_GP_1", 1:n])),
-   as.numeric(x$pars[x$pars$Label == "VonBert_K_Fem_GP_1", 1:n])* exp(as.numeric(x$pars[x$pars$Label == "VonBert_K_Mal_GP_1", 1:n])),
-   as.numeric(x$pars[x$pars$Label == "CV_young_Fem_GP_1", 1:n])* exp(as.numeric(x$pars[x$pars$Label == "CV_young_Mal_GP_1", 1:n])),
-   as.numeric(x$pars[x$pars$Label == "CV_old_Fem_GP_1", 1:n])* exp(as.numeric(x$pars[x$pars$Label == "CV_old_Mal_GP_1", 1:n])) )  
+            round(as.numeric(x$likelihoods[x$likelihoods$Label == "TOTAL",1:n]),2), 
+            round(as.numeric(x$likelihoods[x$likelihoods$Label == "Survey",1:n]),2), 
+            round(as.numeric(x$likelihoods[x$likelihoods$Label == "Length_comp",1:n]),2),
+            round(as.numeric(x$likelihoods[x$likelihoods$Label == "Age_comp",1:n]),2), 
+            round(as.numeric(x$likelihoods[x$likelihoods$Label == "Recruitment",1:n]),2), 
+            round(as.numeric(x$likelihoods[x$likelihoods$Label == "Forecast_Recruitment",1:n]),2),
+            round(as.numeric(x$likelihoods[x$likelihoods$Label == "Parm_priors",1:n]),2),
+            round(as.numeric(x$pars[x$pars$Label == "SR_LN(R0)", 1:n]),2), 
+            round(as.numeric(x$SpawnBio[x$SpawnBio$Label == "SSB_Virgin", 1:n]),0),
+            round(as.numeric(x$SpawnBio[x$SpawnBio$Label == "SSB_2021", 1:n]),0),
+            round(as.numeric(x$Bratio[x$Bratio$Label == "Bratio_2021", 1:n]),2), 
+            round(as.numeric(x$quants[x$quants$Label == "Dead_Catch_SPR", 1:n]),0),
+            as.numeric(x$pars[x$pars$Label == "SR_BH_steep", 1:n]),
+            round(as.numeric(x$pars[x$pars$Label == "NatM_p_1_Fem_GP_1", 1:n]),3),
+            round(as.numeric(x$pars[x$pars$Label == "L_at_Amin_Fem_GP_1", 1:n]),2),
+            round(as.numeric(x$pars[x$pars$Label == "L_at_Amax_Fem_GP_1", 1:n]),2),
+            round(as.numeric(x$pars[x$pars$Label == "VonBert_K_Fem_GP_1", 1:n]),2),
+            round(as.numeric(x$pars[x$pars$Label == "CV_young_Fem_GP_1", 1:n]),2),
+            round(as.numeric(x$pars[x$pars$Label == "CV_old_Fem_GP_1", 1:n]),2),
+            round(as.numeric(x$pars[x$pars$Label == "NatM_p_1_Fem_GP_1", 1:n]) * exp(as.numeric(x$pars[x$pars$Label == "NatM_p_1_Mal_GP_1", 1:n])),3),
+            round(as.numeric(x$pars[x$pars$Label == "L_at_Amin_Fem_GP_1", 1:n])* exp(as.numeric(x$pars[x$pars$Label == "L_at_Amin_Mal_GP_1", 1:n])),2),
+            round(as.numeric(x$pars[x$pars$Label == "L_at_Amax_Fem_GP_1", 1:n])* exp(as.numeric(x$pars[x$pars$Label == "L_at_Amax_Mal_GP_1", 1:n])),2),
+            round(as.numeric(x$pars[x$pars$Label == "VonBert_K_Fem_GP_1", 1:n])* exp(as.numeric(x$pars[x$pars$Label == "VonBert_K_Mal_GP_1", 1:n])),2),
+            round(as.numeric(x$pars[x$pars$Label == "CV_young_Fem_GP_1", 1:n])* exp(as.numeric(x$pars[x$pars$Label == "CV_young_Mal_GP_1", 1:n])),2),
+            round(as.numeric(x$pars[x$pars$Label == "CV_old_Fem_GP_1", 1:n])* exp(as.numeric(x$pars[x$pars$Label == "CV_old_Mal_GP_1", 1:n])),2) )  
 
 out = as.data.frame(out)
+
 colnames(out) = modelnames2
 rownames(out) = c("Total Likelihood",
                   "Survey Likelihood",
@@ -353,18 +358,20 @@ rownames(out) = c("Total Likelihood",
                   "CV young - Male",
                   "CV old - Male")
 
-
 write.csv(out, file = file.path(out.dir, paste0(base_model, "_sensitivities2.csv")))
 
 library(sa4ss)
 t = table_format(x = out,
                  caption = 'Sensitivities to changes in structural assumptions relative to the base model.',
-                 label = 'sensitivities1',
+                 label = 'sensitivities2',
                  longtable = TRUE,
-                 font_size = 9,
-                 digits = 2,
+                 font_size = 8,
+                 digits = 3,
                  landscape = TRUE,
                  col_names = modelnames2)
 
 kableExtra::save_kable(t,
                        file = file.path("C:/Users/Aaron.Berger/Documents/GitHub/dover_sole_2021/write_up/tables/sensitivities2.tex"))
+
+kableExtra::save_kable(t,
+file = file.path(out.dir, "sensitivities2_crw.tex"))

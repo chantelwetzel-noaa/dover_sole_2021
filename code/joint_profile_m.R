@@ -7,14 +7,17 @@
 library(r4ss)
 mydir = "C:/Assessments/2021/dover_sole_2021/models"
 base_name = "5.9.2_data_pikitch"
+base_name = "6.3.5_data_bio_no_offsets"
+base_name = "7.0.1_base"
 para = "M"
 param = c("MGparm[1]", "MGparm[12]")
+offset = TRUE
 
 # Profile range for female M
 M_f <- seq(0.06, 0.16, 0.01)
 # Profile range for male M (in offset space)
 M_m <- seq(0.06, 0.16, 0.01)
-#M_m <- seq(-0.1, 0.1, 0.04) #seq(0.08, 0.16, 0.01)
+#M_m <- seq(0, 0.08, 0.01) #seq(0.08, 0.16, 0.01)
 # Create a grid of all possible combinations
 des <- expand.grid(M_f, M_m)
 names(des) <- c("M_female", "M_male")
@@ -38,8 +41,12 @@ output <- matrix(NA,
 # Grab MLE values from base model
 model <- r4ss::SS_output(profile_dir)
 Mf.mle <- model$parameters[model$parameters$Label == "NatM_p_1_Fem_GP_1", "Value"]
-Mm.mle <- model$parameters[model$parameters$Label == "NatM_p_1_Fem_GP_1", "Value"] * 
-          exp( model$parameters[model$parameters$Label == "NatM_p_1_Mal_GP_1", "Value"])
+if(offset){ 
+    Mm.mle <- model$parameters[model$parameters$Label == "NatM_p_1_Fem_GP_1", "Value"] * 
+            exp( model$parameters[model$parameters$Label == "NatM_p_1_Mal_GP_1", "Value"])   
+} else {
+    Mm.mle <- model$parameters[model$parameters$Label == "NatM_p_1_Mal_GP_1", "Value"]
+}
 Mm.offset.mle <- model$parameters[model$parameters$Label == "NatM_p_1_Mal_GP_1", "Value"]
 negloglike <- model$likelihoods_used$values[1]
 depletion <- model$derived_quants[model$derived_quants$Label == "Bratio_2021", "Value"] 
@@ -117,8 +124,9 @@ z <- matrix(out$diffNegLogLike,
 # Plot NLL Differences
 contour(x, y, z, 
     levels = -5:20,
+    xlim = c(0.08, 0.12), ylim = c(0.08, 0.14),
     xlab = "Female M", ylab = "Male M")
-points(0.108, 0.108, pch = 16, col = 'red')
+points(0.108, 0.114, pch = 16, col = 'red')
 contour(x, y, z, levels = c(3), lwd = 3, add = TRUE)
 # Plot depletion
 z <- matrix(out$depletion, 

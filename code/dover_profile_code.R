@@ -6,7 +6,7 @@ devtools::load_all("C:/Users/Chantel.Wetzel/Documents/GitHub/nwfscDiag")
 # Dover sole Profiling Script
 #######################################################################################################
 
-mydir = "C:/Assessments/2021/dover_sole_2021/models"
+mydir = "C:/Assessments/2021/dover_sole_2021/models/_sensitivities"
 base_name = "1.8_selex_dome_m"
 base_name = "0.0_updated_data_model_structure"
 base_name = "4.0.4_bio_rm_tri"
@@ -26,6 +26,7 @@ base_name = "5.8.2_data_lambda_nwfsc_slope"
 base_name = "5.9.9_selex_pin_slope_wcgbt_params"
 base_name = "7.0.0_base"
 base_name = "7.0.1_base"
+base_name = "7.0.1_base_no_bio_offsets"
 
 get = get_settings_profile( parameters =  c("NatM_p_1_Fem_GP_1", "SR_BH_steep", "SR_LN(R0)", "NatM_p_1_Mal_GP_1"),
 							low =  c(0.06,  0.30, -1.0, -0.30),
@@ -34,9 +35,9 @@ get = get_settings_profile( parameters =  c("NatM_p_1_Fem_GP_1", "SR_BH_steep", 
 							param_space = c('real', 'real', 'relative', 'real'))
 
 get = get_settings_profile( parameters =  c("NatM_p_1_Fem_GP_1", "NatM_p_1_Mal_GP_1"),
-							low =  c(0.07, -0.35),
-							high = c(0.15, 0.35),
-							step_size = c(0.01, 0.10),
+							low =  c(0.06, 0.06),
+							high = c(0.14, 0.14),
+							step_size = c(0.01, 0.01),
 							param_space = c('real', 'real'))
 
 get = get_settings_profile( parameters =  c("SR_LN(R0)", "NatM_p_1_Fem_GP_1", "SR_BH_steep"),
@@ -54,7 +55,8 @@ get = get_settings_profile( parameters =  c("SR_LN(R0)"),
 
 model_settings = get_settings(settings = list(base_name = base_name,
 											  run = "jitter",
-											  Njitter = 50,
+											  Njitter = 25,
+											  jitter_fraction = 0.02,
 											  profile_details = get))
 
 model_settings = get_settings(settings = list(base_name = base_name,

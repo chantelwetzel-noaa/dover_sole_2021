@@ -1,0 +1,1 @@
+The model uncertainty around the `r endyr+1` estimate of spawning biomass was $\sigma$ = `r round(model$Pstar_sigma,2)`. The uncertainty estimated around the OFL was $\sigma$ = `r round(model$OFL_sigma, 2)`. The time-varying forecast uncertainty applied in the base model is based on the adopted value of $\sigma$ = 0.50 for a category 1 stock combined with a P* value of 0.45.

@@ -1,0 +1,11 @@
+Investigating and or addressing the following items could improve future assessments of `r spp`: 
+
+\begin{itemize}
+
+\item Patterns with depth:  There are patterns of length and sex ratios with depth which may indicate that the stock is more complex than currently modeled.  Further research into the causes of these patterns as well as differences between seasons would help with understanding the stock characteristics such that a more realistic model could be built.  This may also provide further insight into migration and help determine if there are localized populations.
+
+\item Stock boundaries: A common question in stock assessments is whether or not the entire stock is being accounted for. `r spp` live deeper than the range of the fisheries and surveys.  The assessment model attempts to account for out of area biomass through catchability coefficients and selectivity curves, but that portion of the stock is unknown and can only be guessed at.  Research into abundance in deep areas would be useful to verify that the assessment adequately predicts the entire spawning stock of `r spp`.
+
+\item California Sampling for Ages: Since 1990, nearly 60 percent of fish aged have been landed at the Crescent City port, with some years 100 percent of aged fish coming from this port. In contrast, the majority of `r spp` are landed at the Eureka port (approximately 67 percent over the last 10 years). Ensuring that sampling is spread across California ports and otoliths selected for ageing are spread across ports proportional to area removals may provide additional insights to area specific population attributes.
+
+\end{itemize}

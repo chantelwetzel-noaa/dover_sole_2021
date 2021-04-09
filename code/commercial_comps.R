@@ -12,6 +12,16 @@ devtools::load_all("C:/Users/Chantel.Wetzel/Documents/GitHub/PacFIN.Utilities")
 dir = "N://Assessments/CurrentAssessments/Dover_sole_2021/data"
 setwd(dir)
 
+bds = PullBDS.PacFIN(
+  					 pacfin_species_code = "DOVR",
+  					 password = "ards1753",
+  					 savedir = getwd(),
+  					 verbose = TRUE
+  					 )
+
+ rawdata <- getDB(sql.bds("DOVR"),
+    username = "cwetzel", password = "ards1753")
+
 bds_file = "PacFIN.DOVR.bds.08.Jan.2021.RData"
 bds_file = "PacFIN.DOVR.bds.13.Aug.2020.RData"
 bds_file = "PacFIN.DOVR.bds.12.Feb.2021.RData"
