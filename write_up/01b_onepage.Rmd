@@ -2,19 +2,19 @@
 
 \begin{itemize}
 
-\item Fleet change
+\item This assessment for `r spp` incorporates a wide range of data sources: lengths data from two fishery fleets and four surveys, age data from two fishery fleets (marginals) and from two surveys (conditional-age-at-length), fishery discard data (rates, lengths, and mean weights), and four survey indices. 
 
-\item Key data sources
+\item The longest source of fishery-independent information off the U.S. west coast arises from the \gls{s-wcgbt} that has been conducted annual from 2003 - 2019. The data from the length and age data from this survey were highly influential in the model estimates of stock size and status.  
 
-\item Data concerns
+\item `r spp` off the U.S. west coast appear to have fairly complex movement patterns, moving between the continental shelf and slope likely driven by season, spawning, and by size. Additionally, observation of `r spp` by sex across depths indicates possible sex specific aggregations where a higher proportion of female fish are found in shallower (less than 300 m) and deeper waters (greater than 900 m), with higher proportion of male observed at intermediary depths (300 - 700 m).
 
-\item Major change in selectivity parameterization
+\item Selectivity in the model is parameterized allowing sex-specific selectivity for sources of compositional data where female `r spp` are never fully selected (maximum selectivity less than 1.0). Large female `r spp` are observed at the deepest depth sampled (1,280 m) off the West Coast and likely extend into unobserved deeper depths. Lack of full selectivity of female `r spp` results in a fraction of unobserved spawning biomass in the population, increasing uncertainty in the estimate of the stock scale that the base model may not be fully capturing (via asymptotic error assumptions around estimated parameters).  
 
-\item Natural mortality uncertainty
+\item The model was highly sensitive to the assumed value of natural mortality.  The base model fixed natural mortality for females at the median of the prior, 0.108 per year, and estimated male natural mortality as an offset from the female value. When estimated, female natural mortality was well below the median of the prior, around 0.08 per year, which did appear well supported by the data.  However, the relative difference in natural mortality by sex appeared to be well defined which informed the decision to only estimate male natural mortality parameterized as an offset from females.
 
-\item The over-all stock size and status
+\item The base model estimates the `r endyr+1` fraction of unfished biomass at the start of the year at `r 100*round(model$derived_quants[model$derived_quants$Label == "Bratio_2021", 2], 2)` percent, well above the management target of 25 percent. The spawning biomass at the start of `r endyr+1` is `r format(model$derived_quants[model$derived_quants$Label == "SSB_2021", 2], digits = 0, scientific = FALSE)` mt. Sustainable total yield, landings plus discards, using an $SPR_{30\%}$ is estimate at `r format(model$derived_quants[model$derived_quants$Label == 'Dead_Catch_SPR', 'Value'], digits = 0, scientific = FALSE)` mt.
 
-\item Compare to the 2011 results
+\item The estimate of stock status (fraction of unfished biomass) from this assessment (`r 100*round(model$derived_quants[model$derived_quants$Label == "Bratio_2021", 2], 2)` percent) is relatively consistent with the estimate from the 2011 assessment of 84 percent.  However, the estimate scale of the stock ($SB_0$) from this assessment, `r format(model$derived_quants[model$derived_quants$Label == "SSB_Virgin", 2], digits = 0, scientific = FALSE)` mt, is lower than the value estimated in the 2011 assessment of 393,507 mt. 
 
 \end{itemize}
 
