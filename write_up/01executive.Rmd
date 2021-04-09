@@ -37,7 +37,7 @@ Multiple sources of uncertainty are explicitly included in this assessment, incl
 
 ## Stock Biomass{-}
 
-The estimated spawning biomass across all years had the most significant decline occuring in the late 1990s following high catch levels in the 1980s and early 1990s. 
+The terms "spawning output" and "spawning biomass" are used interchangeably in this document in reference to total female spawning biomass.  For the purposes of this assessment, female spawning biomass is assumed to be proportional to egg and larval production.  The estimated spawning biomass at the beginning of 2021 was 232,065 mt (~95% asymptotic intervals: 154,153 to 309,978 mt), which when compared to unfished spawning biomass (294,070 mt) equates to a relative stock status level of 79\% (~95% asymptotic intervals: 71\% to 87\%).  Overall, spawning stock biomass has steadily declined from near unfished levels in the 1940's to a time series low of 60\% of unfished levels in the 1990's following high landings in the 1980's and early 1990's. Over the past two decades, spawning stock biomass has generally been increasing as total landings have decreased, returning to levels similar to those seen in the 1950's and 1960's. The stock is estimated to be well above the management target of $SB_{25\%}$ in 2021, and has remained well above the target throughout the time series.
 
 
 \input{tex_tables/b_SSB_ES.tex}
@@ -62,7 +62,8 @@ height = 75)
 ```
 
 ## Recruitment{-}
-Replace text.
+
+There is large uncertainty associated with annual differences in recruitment across much of the time series due to a lack of informative data during the early period and little contrast in composition and index data in the later period to signal much variation in cohort strength. Data were most informative from the early 2000's to the mid 2010's, where estimates showed periods of below average recruitment (2002-2006) and above average recruitment (2008-2010). The 2000 and 2009 year classes are estimated to be the largest across the time series and were well determined as being well above average (i.e., ~95% asymptotic intervals did not span 0). Overall, the `r spp` stock has not been reduced to levels that would provide considerable information on how recruitment changes with spawning biomass at low spawning biomass levels (i.e., inform the steepness parameter).  Thus, all recruitment is based on a fixed assumption about steepness (0.80) and recruitment variability (0.35).
 
 \input{tex_tables/c_Recr_ES.tex}
 
@@ -76,7 +77,8 @@ height = 75)
 ```
 
 ## Exploitation Status{-}
-Replace text.
+
+Trends in fishing intensity (1 - SPR) largely mirrored that of landings given the relative lack of large variations in annual recruitment such that there was a steady increase from the 1940's to the mid to late 1980's before decreasing to current levels of 11\% for 2020.  The maximum fishing intensity was 0.45 in 1991, well below the target harvest rate of 0.70. Exploitation rates over the past decade have ranged between 0.01 and 0.02.  Current estimates indicate that `r spp` spawning biomass is 3.2 times higher than the target biomass level ($SB_{25\%}$), and fishing intensity remains 6.3 times lower than the target harvest rate.
 
 \input{tex_tables/d_SPR_ES.tex}
 
@@ -97,10 +99,6 @@ label = 'es-phase',
 width = 100,
 height = 75)
 ```
-
-
---------------AARON STOP EDITING HERE----------------------
-
 
 
 ## Ecosystem Considerations{-}
