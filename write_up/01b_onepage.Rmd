@@ -1,0 +1,21 @@
+# One Page Summary{-}
+
+\begin{itemize}
+
+\item Fleet change
+
+\item Key data sources
+
+\item Data concerns
+
+\item Major change in selectivity parameterization
+
+\item Natural mortality uncertainty
+
+\item The over-all stock size and status
+
+\item Compare to the 2011 results
+
+\end{itemize}
+
+\newpage

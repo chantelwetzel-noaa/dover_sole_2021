@@ -1149,6 +1149,13 @@ label = 'sens-m-relssb')
 
 ```{r, results = 'asis'}
 add_figure(
+filein = file.path(sens_loc, "_plots", "SurveyQ_vs_M.png"),
+caption = "Survey catchability estimates for the base model and alternative natural mortality sensitivity runs",
+label = 'sens-m-survQ')
+```
+
+```{r, results = 'asis'}
+add_figure(
 filein = file.path(sens_loc, "_plots", "7.0.1_base_5_compare2_spawnbio_uncertainty.png"),
 caption = "Estimates of spawning biomass for the base model and alternative sensitivity models to selectivity including the parameterization of fishery selectivity following the 2011 assessment, the parameterization of survey selectivity following the 2011 assessment, mirroring California  and Oregon/Washington commercial selectivity, and forcing one index (the NWFSC slope survey) to be asymptotic",
 label = 'sens-select-ssb')

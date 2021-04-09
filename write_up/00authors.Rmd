@@ -1,0 +1,30 @@
+---
+author:
+  - name: Chantel R. Wetzel
+    code: 1
+    first: C
+    middle: R
+    family: Wetzel
+  - name: Aaron M. Berger
+    code: 2
+    first: A
+    middle: M
+    family: Berger
+author_list: Wetzel, C.R., A.M. Berger
+affiliation:
+  - code: 1
+    address: Northwest Fisheries Science Center, U.S. Department of Commerce, National
+      Oceanic and Atmospheric Administration, National Marine Fisheries Service, 2725
+      Montlake Boulevard East, Seattle, Washington 98112
+  - code: 2
+    address: Northwest Fisheries Science Center, U.S. Department of Commerce, National
+      Oceanic and Atmospheric Administration, National Marine Fisheries Service, 2032
+      Southeast OSU Drive, Newport, Oregon 97365
+address:
+  - ^1^Northwest Fisheries Science Center, U.S. Department of Commerce, National Oceanic
+    and Atmospheric Administration, National Marine Fisheries Service, 2725 Montlake
+    Boulevard East, Seattle, Washington 98112
+  - ^2^Northwest Fisheries Science Center, U.S. Department of Commerce, National Oceanic
+    and Atmospheric Administration, National Marine Fisheries Service, 2032 Southeast
+    OSU Drive, Newport, Oregon 97365
+---

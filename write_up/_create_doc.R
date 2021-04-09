@@ -25,7 +25,7 @@ read_model(
           mod_loc = base,
 				  create_plots = FALSE, 
           fecund_mult = 'mt',
-          bub_scale = 5,
+          bub_scale = 4,
 				  save_loc = file.path(getwd(), "tex_tables"),
 				  verbose = TRUE)
 
