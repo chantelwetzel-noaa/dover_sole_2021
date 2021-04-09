@@ -2,7 +2,7 @@
 
 ### Convergence
 
-Proper convergence was determined by starting the minimization process from dispersed values of the maximum likelihood estimates to determine if the model found a better minimum. Starting parameters were jittered by 5 percent. This was repeated 100 times with only 1 out of 100 runs returning to the base model likelihood. However, a better, lower negative log-likelihood, model fit was not found. In the jittering analysis models with similar log-likelihood values (difference < 0.50 units) were often found with little difference in overall model estimates indicating a relatively flat likelihood surface around the maximum likelihood estiamat. Through the jittering done as explained and likelihood profiles, we are confident that the base model as presented represents the best fit to the data given the assumptions made. There were no difficulties in inverting the Hessian to obtain estimates of variability, although much of the early model investigation was done without attempting to estimate a Hessian.
+Proper convergence was determined by starting the minimization process from dispersed values of the maximum likelihood estimates to determine if the model found a better minimum. Starting parameters were jittered by 5 percent. This was repeated 100 times with only 1 out of 100 runs returning to the base model likelihood. However, a better, lower negative log-likelihood, model fit was not found. In the jittering analysis models with similar log-likelihood values (difference < 0.50 units) were often found with little difference in overall model estimates indicating a relatively flat likelihood surface around the maximum likelihood estimate. Additional, jitters using a smaller jitter value yielded an increased frequency of runs returning to the base model with no models finding a better fit to the data. Through the jittering done as explained and likelihood profiles, we are confident that the base model as presented represents the best fit to the data given the assumptions made. There were no difficulties in inverting the Hessian to obtain estimates of variability, although much of the early model investigation was done without attempting to estimate a Hessian.
 
 ### Sensitivity Analyses
 
@@ -16,25 +16,25 @@ Data Sensitivities
   
   \item Remove Oregon/Washington commercial length data
   
-  \item Remove AFSC slope survey length data
+  \item Remove \gls{s-aslope} length data
   
-  \item Remove Triennial survey length data
+  \item Remove \gls{s-tri} length data
   
-  \item Remove NWFSC slope survey length data
+  \item Remove \gls{s-nwslope} length data
   
-  \item Remove NWFSC WCGBT survey length data
+  \item Remove \gls{s-wcgbt} length data
   
   \item Remove California commercial age data
   
   \item Remove Oregon/Washington commercial age data
   
-  \item Remove NWFSC slope survey age data
+  \item Remove \gls{s-nwslope} age data
   
-  \item Remove NWFSC WCGBT survey age data
+  \item Remove \gls{s-wcgbt} age data
   
-  \item Remove AFSC slope survey index
+  \item Remove \gls{s-aslope} index
   
-  \item Remove Triennial survey index
+  \item Remove \gls{s-tri} index
   
   \item Remove \gls{s-nwslope} index
   
@@ -54,7 +54,7 @@ Structural Sensitivities
   
   \item Fix $M$ values for each sex at the median of the prior distribution (0.108)
   
-  \item Mirror the selectivity by sex for the CA and OR/WA fishing fleets
+  \item Mirror the selectivity by sex for the California and Oregon/Washington fishing fleets
 
   \item Assume the 2011 parameterization of fishery selectivity
 
@@ -70,15 +70,15 @@ Structural Sensitivities
   
   \item Use of the Dirichlet Multinomial method for data-weighting (Table \ref{tab:dw}) and
   
-  \item Fix the extra standard deviation parameters for the AFSC Slope, NWFSC Slope, and Triennial Surveys at a near negligible level (0.01)
+  \item Fix the extra standard deviation parameters for the \gls{s-aslope}, \gls{s-nwslope}, and \gls{s-tri} at a near negligible level (0.01)
 
 \end{enumerate}
 
-In general, the base model was the most sensitive (i.e., spawning biomass estimates beyond the 95% confidence interval for the base model) to models that applied alternative approaches to estimating or fixing natural mortality parameters and when the largest source of survey age data (NWFSC WCGBT) was removed. Fixing sex-specific $M$ at the 2011 assessment estimates (i.e., higher than the base model) resulted in an increase in overall spawning stock biomass and the fraction of unfished biomass (i.e., stock status), while adding the estimation of female $M$ or sex-specific Lorenzen $M$ (i.e., lower estimates than the base model) resulted in decreases relative to the base model (Table \ref{tab:sensitivities2}; Figures \ref{fig:sens-m-ssb} and \ref{fig:sens-m-relssb}). In general, natural mortality (fixed or estimated) ranged from 0.082 to 0.116 for females and 0.082 to 0.142 for males across sensitivity runs. The total negative log likelihood was slightly less for the models that estimated female $M$ and sex-specific Lorenzen $M$, suggesting a slightly better fit to the available data. However, natural mortality is often a difficult parameter to estimate in stock assessment such that model misspecification is always a concern. These two alternative $M$ models were not chosen as the base model for the following reasons. First, estimates near the lower range of $M$ values relate to a longevity of about 65 years (following from Hamel [-@hamel_method_2015]), which is not well supported by the observed data (i.e., few observations more than 50 years old). Second, the scale of the population was considerably reduced to the point where catchability doubled for the surveys, which for the NWFSC WCGBT and NWFSC slope surveys meant unrealistically high (at or above 2) catchability coefficients (Figure \ref{fig:sens-m-survQ}). Third, the lack of contrast in data and in the population trajectory through time, as seen with `r spp`, are often limitations to estimating $M$ reliably without auxiliary information (e.g., tagging data) due to the inability of the model to decipher otherwise confounding causes of demographic change [@Wang1999; @Lee_est_m_2011].
+In general, the base model was the most sensitive (i.e., spawning biomass estimates beyond the 95 percent confidence interval for the base model) to models that applied alternative approaches to estimating or fixing natural mortality parameters and when the largest source of survey age data (\gls{s-wcgbt}) was removed. Fixing sex-specific $M$ at the 2011 assessment estimates (i.e., higher than the base model) resulted in an increase in overall spawning stock biomass and the fraction of unfished biomass (i.e., stock status), while adding the estimation of female $M$ or sex-specific Lorenzen $M$ (i.e., lower estimates than the base model) resulted in decreases relative to the base model (Table \ref{tab:sensitivities2}; Figures \ref{fig:sens-m-ssb} and \ref{fig:sens-m-relssb}). In general, natural mortality (fixed or estimated) ranged from 0.082 to 0.116 for females and 0.082 to 0.142 for males across sensitivity runs. The total negative log likelihood was slightly less for the models that estimated female $M$ and sex-specific Lorenzen $M$, suggesting a slightly better fit to the available data. However, natural mortality is often a difficult parameter to estimate in stock assessment such that model misspecification is always a concern. These two alternative $M$ models were not chosen as the base model for the following reasons. First, estimates near the lower range of $M$ values relate to a longevity of about 65 years (following from Hamel [-@hamel_method_2015]), which is not well supported by the observed data (i.e., few observations more than 50 years old). Second, the scale of the population was considerably reduced to the point where catchability doubled for the surveys, which for the \gls{s-wcgbt} and \gls{s-nwslope} meant unrealistically high (at or above 2) catchability coefficients (Figure \ref{fig:sens-m-survQ}). Third, the lack of contrast in data and in the population trajectory through time, as seen with `r spp`, are often limitations to estimating $M$ reliably without auxiliary information (e.g., tagging data) due to the inability of the model to decipher otherwise confounding causes of demographic change [@Wang1999; @Lee_est_m_2011].
 
-The removal of ages from the NWFSC WCGBT survey, which represent a considerable amount of the total available age data since 2009, resulted in lower estimates of spawning biomass and the fraction of unfished biomass compared to the inclusion of these data in the base model (Figures \ref{fig:sens-age-ssb} and \ref{fig:sens-age-relssb}). This result is not surprising given that these age data suggest a higher population scale (Figure \ref{fig:r0-profile}) compared to other sources of age information. Whereas the removal of the Oregon/Washington commercial age data had the opposite effect (increase spawning biomass), though not quite as large of an effect as the removal of the WCGBT survey age data. The removal of other sources of age data led to largely insensitive results relative to the base model, as did the removal on any one source of length data (Figures \ref{fig:sens-length-ssb} and \ref{fig:sens-length-relssb}) or survey index (Figures \ref{fig:sens-index-ssb} and \ref{fig:sens-index-relssb}).   
+The removal of ages from the \gls{s-wcgbt}, which represent a considerable amount of the total available age data since 2009, resulted in lower estimates of spawning biomass and the fraction of unfished biomass compared to the inclusion of these data in the base model (Figures \ref{fig:sens-age-ssb} and \ref{fig:sens-age-relssb}). This result is not surprising given that these age data suggest a higher population scale (Figure \ref{fig:r0-profile}) compared to other sources of age information. Whereas the removal of the Oregon/Washington commercial age data had the opposite effect (increase spawning biomass), though not quite as large of an effect as the removal of the \gls{s-wcgbt} age data. The removal of other sources of age data led to largely insensitive results relative to the base model, as did the removal on any one source of length data (Figures \ref{fig:sens-length-ssb} and \ref{fig:sens-length-relssb}) or survey index (Figures \ref{fig:sens-index-ssb} and \ref{fig:sens-index-relssb}).   
 
-Other changes in model structure that led to moderately sensitive results (i.e., divergent from, but within the 95% confidence interval of, the base model) include assumptions based upon selectivity (Figures \ref{fig:sens-select-ssb} and \ref{fig:sens-select-relssb}) and the method for weighting data (Figures \ref{fig:sens-biodata-ssb} and \ref{fig:sens-biodata-relssb}). While the McAllister and Ianneli approach to data weighting led to an 11%, on average, decline in spawning biomass across the time series compared to the base model, it had less of an impact on overall stock status (76% compared to 79% in 2021, respectively). In general, the Francis approach to data weighting used in the base model applied less weight relative to input sample sizes compared to the McAllister and Ianelli approach (Table \ref{tab:dw}). The Dirichlet multinomial approach to data weighting was abandoned due to inconsistent results relative to input sample sizes and parameters hitting bounds. Specifying survey selectivity patterns to match that used in the 2011 assessment was the most sensitive among alternative selectivity scenarios examined in terms of overall stock size, and was also the most plausible of these in terms of the lowest total likelihood (Table \ref{tab:sensitivities2}), though not lower than the base model. This difference in stock size is largely explained by the increase in the male natural mortality estimate for this sensitivity model (Table \ref{tab:sensitivities2}).  
+Other changes in model structure that led to moderately sensitive results (i.e., divergent from, but within the 95 percent confidence interval of, the base model) include assumptions based upon selectivity (Figures \ref{fig:sens-select-ssb} and \ref{fig:sens-select-relssb}) and the method for weighting data (Figures \ref{fig:sens-biodata-ssb} and \ref{fig:sens-biodata-relssb}). While the McAllister and Ianneli approach to data weighting led to an 11 percent, on average, decline in spawning biomass across the time series compared to the base model, it had less of an impact on overall stock status (76 percent compared to 79 percent in 2021, respectively). In general, the Francis approach to data weighting used in the base model applied less weight relative to input sample sizes compared to the McAllister and Ianelli approach (Table \ref{tab:dw}). The Dirichlet multinomial approach to data weighting was abandoned due to inconsistent results relative to input sample sizes and parameters hitting bounds. Specifying survey selectivity patterns to match that used in the 2011 assessment was the most sensitive among alternative selectivity scenarios examined in terms of overall stock size, and was also the most plausible of these in terms of the lowest total likelihood (Table \ref{tab:sensitivities2}), though not lower than the base model. This difference in stock size is largely explained by the increase in the male natural mortality estimate for this sensitivity model (Table \ref{tab:sensitivities2}).  
 
 ### Likelihood Profiles
 

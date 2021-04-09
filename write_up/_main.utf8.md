@@ -99,19 +99,19 @@ _These materials do not constitute a formal publication and are for information 
 # Executive Summary{-}
 
 ## Stock{-}
-This assessment reports the status of Dover sole (_Microstomus pacificus_) off the U.S. West coast using data through 2020. Dover sole are also harvested from the waters off British Columbia and in the Gulf of Alaska, and although those catches were not included in this assessment, it is not certain if those populations contribute to the biomass of Dover sole off of the U.S. West Coast. In general, Dover sole exhibit seasonal ontogenetic movement behavior from shallower feeding grounds on the continental shelf to deeper spawning habitat on the outer continental shelf and slope as they age. However, the specific mechanisms that drive stock structure, and related variability over space and time, are not well understood.
+This assessment reports the status of Dover sole (_Microstomus pacificus_) off the U.S. west coast using data through 2020. Dover sole are also harvested from the waters off British Columbia and in the Gulf of Alaska, and although those catches were not included in this assessment, it is not certain if those populations contribute to the biomass of Dover sole off of the U.S. west coast. In general, Dover sole exhibit seasonal ontogenetic movement behavior from shallower feeding grounds on the continental shelf to deeper spawning habitat on the outer continental shelf and slope as they age. However, the specific mechanisms that drive stock structure, and related variability over space and time, are not well understood.
 
 ## Landings{-}
-Dover sole were first landed in California in the early part of the 20th century and the fishery began increasing landings in Oregon and Washington in the 1940's.  Landings remained relatively constant throughout the 1950's and 1960's before increasing rapidly into the early 1990's.  Subsequently, the landings declined by nearly 60\% in California and in Oregon/Washington until 2007 when harvest guidelines increased the allowable catch.  Since that time, landings have been steadily decreasing to a level in 2020 that is the lowest on record since the 1940's. Groundfish trawl fisheries land the majority of Dover sole while fixed gears, shrimp trawls, and recreational fisheries collectively make up a very small amount of fishing mortality.  Some discarding of Dover sole has occurred in these fisheries, primarily prior to the implementation of the Catch Shares Program in 2011.  Discards were estimated in the model and total catches are reported, as opposed to landings.
-
-
-![Landings by fleet used in the base model.\label{fig:es-catch}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/7.0.1_base/plots/catch2 landings stacked.png){width=75% height=100% alt="Landings by fleet used in the base model."}
+Dover sole were first landed in California in the early part of the 20th century and the fishery began increasing landings in Oregon and Washington in the 1940's. Landings remained relatively constant throughout the 1950's and 1960's before increasing rapidly into the early 1990's.  Subsequently, the landings declined by nearly 60 percent in California and in Oregon/Washington until 2007 when harvest guidelines increased the allowable catch.  Since that time, landings have been steadily decreasing to a level in 2020 that is the lowest on record since the 1940's. Groundfish trawl fisheries land the majority of Dover sole while fixed gears, shrimp trawls, and recreational fisheries collectively make up a very small amount of fishing mortality.  Some discarding of Dover sole has occurred in these fisheries, primarily prior to the implementation of the Individual Fishing Quota (IFQ) Catch Shares Program in 2011.  Discards were estimated in the model and total catches are reported, as opposed to landings.
 
 \input{tex_tables/a_Catches_ES.tex}
 
+
+![Landings by fleet used in the base model where catches in metric tons by fleet are stacked.\label{fig:es-catch}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/7.0.1_base/plots/catch2 landings stacked.png){width=100% height=100% alt="Landings by fleet used in the base model where catches in metric tons by fleet are stacked."}
+
 ## Data and Assessment{-}
 
-This stock assessment for Dover sole off the west coast of the U.S. was developed using the length- and age-structured model Stock Synthesis (version 3.30.16).  The most recent stock assessment was done in 2011 and showed the stock to be increasing with a stock status determination of 84\% of virgin (or unfished) spawning biomass at the beginning of 2011. During the development of this assessment, model specifications including fleet structure, landings, data, and model structural assumptions were re-evaluated. Similar to the previous assessment, a single coastwide population was modeled that allowed for area-specific fleets and separate growth and mortality parameters for each sex (i.e., a two-sex model).  The model time domain was 1911 to 2020, with forecasts going beyond 2020.
+This stock assessment for Dover sole off the west coast of the U.S. was developed using the length- and age-structured model Stock Synthesis (version 3.30.16).  The most recent stock assessment was done in 2011 and showed the stock to be increasing with a stock status determination of 84 percent of virgin (or unfished) spawning biomass at the beginning of 2011. During the development of this assessment, model specifications including fleet structure, landings, data, and model structural assumptions were re-evaluated. Similar to the previous assessment, a single coastwide population was modeled that allowed for area-specific fleets and separate growth and mortality parameters for each sex (i.e., a two-sex model).  The model time domain was 1911 to 2020, with forecasts going beyond 2020.
 
 All of the data sources included in the base model for Dover sole have been re-evaluated for this assessment, including improvements and updates in the data (and associated analyses) that were used in the previous assessment. Landings prior to the mid-1980s have also been updated since the 2011 assessment using the new historical catch reconstruction time-series for California and Oregon. Survey data from the Alaska and Northwest Fisheries Science Centers have been used to construct 4-sets of relative abundance indices, each spanning a different time period, that were independently developed using a spatio-temporal delta-generalized linear mixed model (i.e., VAST) to take into account the survey spatial domain. 
 
@@ -123,38 +123,42 @@ Multiple sources of uncertainty are explicitly included in this assessment, incl
 
 ## Stock Biomass{-}
 
-The terms "spawning output" and "spawning biomass" are used interchangeably in this document in reference to total female spawning biomass.  For the purposes of this assessment, female spawning biomass is assumed to be proportional to egg and larval production.  The estimated spawning biomass at the beginning of 2021 was 232,065 mt (~95% asymptotic intervals: 154,153 to 309,978 mt), which when compared to unfished spawning biomass (294,070 mt) equates to a relative stock status level of 79\% (~95% asymptotic intervals: 71\% to 87\%).  Overall, spawning stock biomass has steadily declined from near unfished levels in the 1940's to a time series low of 60\% of unfished levels in the 1990's following high landings in the 1980's and early 1990's. Over the past two decades, spawning stock biomass has generally been increasing as total landings have decreased, returning to levels similar to those seen in the 1950's and 1960's. The stock is estimated to be well above the management target of $SB_{25\%}$ in 2021, and has remained well above the target throughout the time series.
-
+The terms "spawning output" and "spawning biomass" are used interchangeably in this document in reference to total female spawning biomass.  For the purposes of this assessment, female spawning biomass is assumed to be proportional to egg and larval production.  The estimated spawning biomass at the beginning of 2021 was 232,065 mt (~95 percent asymptotic intervals: 154,153 to 309,978 mt), which when compared to unfished spawning biomass (294,070 mt) equates to a relative stock status level of 79 percent (~95 percent asymptotic intervals: 71 to 87 percent).  Overall, spawning stock biomass has steadily declined from near unfished levels in the 1940's to a time series low of 60 percent of unfished levels in the 1990's following high landings in the 1980's and early 1990's. Over the past two decades, spawning stock biomass has generally been increasing as total landings have decreased, returning to levels similar to those seen in the 1950's and 1960's. The stock is estimated to be well above the management target of $SB_{25\%}$ in 2021, and has remained well above the target throughout the time series.
 
 \input{tex_tables/b_SSB_ES.tex}
 
 
-![Estimated time series of spawning output (circles and line: median; light broken lines: 95 percent intervals) for the base model.\label{fig:es-ssb}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/7.0.1_base/plots/ts7_Spawning_biomass_(mt)_with_95_asymptotic_intervals_intervals.png){width=100% height=75% alt="Estimated time series of spawning output (circles and line: median; light broken lines: 95 percent intervals) for the base model."}
+![Estimated time series of spawning output (circles and line: median; light broken lines: 95 percent intervals) for the base model.\label{fig:es-ssb}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/7.0.1_base/plots/ts7_Spawning_biomass_(mt)_with_95_asymptotic_intervals_intervals.png){width=100% height=100% alt="Estimated time series of spawning output (circles and line: median; light broken lines: 95 percent intervals) for the base model."}
 
 
-![Estimated time series of fraction of unfished spawning output (circles and line: median; light broken lines: 95 percent intervals) for the base model.\label{fig:es-depl}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/7.0.1_base/plots/ts9_Relative_spawning_biomass_intervals.png){width=100% height=75% alt="Estimated time series of fraction of unfished spawning output (circles and line: median; light broken lines: 95 percent intervals) for the base model."}
+![Estimated time series of fraction of unfished spawning output (circles and line: median; light broken lines: 95 percent intervals) for the base model.\label{fig:es-depl}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/7.0.1_base/plots/ts9_Relative_spawning_biomass_intervals.png){width=100% height=100% alt="Estimated time series of fraction of unfished spawning output (circles and line: median; light broken lines: 95 percent intervals) for the base model."}
+
+\clearpage
 
 ## Recruitment{-}
 
-There is large uncertainty associated with annual differences in recruitment across much of the time series due to a lack of informative data during the early period and little contrast in composition and index data in the later period to signal much variation in cohort strength. Data were most informative from the early 2000's to the mid 2010's, where estimates showed periods of below average recruitment (2002-2006) and above average recruitment (2008-2010). The 2000 and 2009 year classes are estimated to be the largest across the time series and were well determined as being well above average (i.e., ~95% asymptotic intervals did not span 0). Overall, the Dover sole stock has not been reduced to levels that would provide considerable information on how recruitment changes with spawning biomass at low spawning biomass levels (i.e., inform the steepness parameter).  Thus, all recruitment is based on a fixed assumption about steepness (0.80) and recruitment variability (0.35).
+There is large uncertainty associated with annual differences in recruitment across much of the time series due to a lack of informative data during the early period and little contrast in composition and index data in the later period to signal much variation in cohort strength. Data were most informative from the early 2000's to the mid 2010's, where estimates showed periods of below average recruitment (2002-2006) and above average recruitment (2008-2010). The 2000 and 2009 year classes are estimated to be the largest across the time series and were well determined as being well above average (i.e., ~95 percent asymptotic intervals did not span 0). Overall, the Dover sole stock has not been reduced to levels that would provide considerable information on how recruitment changes with spawning biomass at low spawning biomass levels (i.e., inform the steepness parameter).  Thus, all recruitment is based on a fixed assumption about steepness (0.80) and recruitment variability ($\sigma_R$ = 0.35).
 
 \input{tex_tables/c_Recr_ES.tex}
 
 
-![Estimated time series of age-0 recruits (1000s) for the base model with 95 percent intervals.\label{fig:es-recruits}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/7.0.1_base/plots/ts11_Age-0_recruits_(1000s)_with_95_asymptotic_intervals.png){width=100% height=75% alt="Estimated time series of age-0 recruits (1000s) for the base model with 95 percent intervals."}
+![Estimated time series of age-0 recruits (1000s) for the base model with 95 percent intervals.\label{fig:es-recruits}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/7.0.1_base/plots/ts11_Age-0_recruits_(1000s)_with_95_asymptotic_intervals.png){width=100% height=100% alt="Estimated time series of age-0 recruits (1000s) for the base model with 95 percent intervals."}
+
+\clearpage
 
 ## Exploitation Status{-}
 
-Trends in fishing intensity (1 - SPR) largely mirrored that of landings given the relative lack of large variations in annual recruitment such that there was a steady increase from the 1940's to the mid to late 1980's before decreasing to current levels of 11\% for 2020.  The maximum fishing intensity was 0.45 in 1991, well below the target harvest rate of 0.70. Exploitation rates over the past decade have ranged between 0.01 and 0.02.  Current estimates indicate that Dover sole spawning biomass is 3.2 times higher than the target biomass level ($SB_{25\%}$), and fishing intensity remains 6.3 times lower than the target harvest rate.
+Trends in fishing intensity (1 - SPR) largely mirrored that of landings given the relative lack of large variations in annual recruitment such that there was a steady increase from the 1940's to the mid to late 1980's before decreasing to current levels of 11 percent for 2020.  The maximum fishing intensity was 0.45 in 1991, well below the target harvest rate of 0.70. Exploitation rates over the past decade have ranged between 0.01 and 0.02.  Current estimates indicate that Dover sole spawning biomass is 3.2 times higher than the target biomass level ($SB_{25\%}$), and fishing intensity remains 6.3 times lower than the target harvest rate.
 
 \input{tex_tables/d_SPR_ES.tex}
 
 
-![Estimated 1 - relative spawning ratio (SPR) by year for the base model. The management target is plotted as a red horizontal line and values above this reflect harvest in excess of the proxy harvest rate.\label{fig:es-1-spr}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/7.0.1_base/plots/SPR2_minusSPRseries.png){width=100% height=75% alt="Estimated 1 - relative spawning ratio (SPR) by year for the base model. The management target is plotted as a red horizontal line and values above this reflect harvest in excess of the proxy harvest rate."}
+![Estimated 1 - relative spawning ratio (SPR) by year for the base model. The management target is plotted as a red horizontal line and values above this reflect harvest in excess of the proxy harvest rate.\label{fig:es-1-spr}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/7.0.1_base/plots/SPR2_minusSPRseries.png){width=100% height=100% alt="Estimated 1 - relative spawning ratio (SPR) by year for the base model. The management target is plotted as a red horizontal line and values above this reflect harvest in excess of the proxy harvest rate."}
 
 
-![Phase plot of estimated 1-SPR versus fraction unfished for the base model.\label{fig:es-phase}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/7.0.1_base/plots/SPR4_phase.png){width=100% height=75% alt="Phase plot of estimated 1-SPR versus fraction unfished for the base model."}
+![Phase plot of estimated 1-SPR versus fraction unfished for the base model.\label{fig:es-phase}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/7.0.1_base/plots/SPR4_phase.png){width=100% height=100% alt="Phase plot of estimated 1-SPR versus fraction unfished for the base model."}
 
+\clearpage
 
 ## Ecosystem Considerations{-}
 
@@ -167,12 +171,14 @@ The 2021 spawning output relative to unfished equilibrium spawning output is wel
 
 
 ![Equilibrium yield curve for the base case model. Values are based on the 2020
-fishery selectivities and with steepness fixed at 0.80.\label{fig:es-yield}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/7.0.1_base/plots/yield2_yield_curve_with_refpoints.png){width=100% height=75% alt="Equilibrium yield curve for the base case model. Values are based on the 2020
+fishery selectivities and with steepness fixed at 0.80.\label{fig:es-yield}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/7.0.1_base/plots/yield2_yield_curve_with_refpoints.png){width=100% height=100% alt="Equilibrium yield curve for the base case model. Values are based on the 2020
 fishery selectivities and with steepness fixed at 0.80."}
 
-Reference points were calculated using the estimated selectivities and catch distributions among fleets in the most recent year of the model, 2020. Sustainable total yield, landings plus discards, using an $SPR_{30\%}$ is \ensuremath{2.28909\times 10^{4}} mt. The spawning output equivalent to 25 percent of the unfished spawning output ($SB_{25\%}$) calculated using the SPR target ($SPR_{30\%}$) was \ensuremath{7.4498\times 10^{4}} millions of eggs. Recent removals have been below the point estimate of the potential long-term yields calculated using an $SPR_{30\%}$ reference point and the population scale has been relatively stable in recent years.
+Reference points were calculated using the estimated selectivities and catch distributions among fleets in the most recent year of the model, 2020. Sustainable total yield, landings plus discards, using an $SPR_{30\%}$ is 22891 mt. The spawning output equivalent to 25 percent of the unfished spawning output ($SB_{25\%}$) calculated using the SPR target ($SPR_{30\%}$) was 74498 mt. Recent removals have been below the point estimate of the potential long-term yields calculated using an $SPR_{30\%}$ reference point and the population scale has been relatively stable in recent years.
 
 \input{tex_tables/e_ReferencePoints_ES.tex}
+
+\clearpage
 
 ## Management Performance{-}
 
@@ -184,12 +190,12 @@ Exploitation on Dover sole slowly increased starting around 1940 and reached a h
 \begin{longtable}[t]{l>{\raggedright\arraybackslash}p{1.83cm}>{\raggedright\arraybackslash}p{1.83cm}>{\raggedright\arraybackslash}p{1.83cm}>{\raggedright\arraybackslash}p{1.83cm}>{\raggedright\arraybackslash}p{1.83cm}}
 \caption{(\#tab:ofl-es)The OFL, ABC, ACL, landings, and the estimated total mortality in metric tons.}\\
 \toprule
-Year & OFL & ABC & ACL & Landings & Est. Total mortality\\
+Year & OFL & ABC & ACL & Landings & Est. Total Mortality\\
 \midrule
 \endfirsthead
 \caption[]{(\#tab:ofl-es)The OFL, ABC, ACL, landings, and the estimated total mortality in metric tons. \textit{(continued)}}\\
 \toprule
-Year & OFL & ABC & ACL & Landings & Est. Total mortality\\
+Year & OFL & ABC & ACL & Landings & Est. Total Mortality\\
 \midrule
 \endhead
 
@@ -218,7 +224,6 @@ The base case model was developed with the goal of balancing parsimony with real
 Uncertainty in natural mortality translates into uncertain estimates of status and sustainable fishing levels for Dover sole. In the base model, a balence between fixing and estimating this key parameter was struck by fixing female natural mortality at the median of the prior while estimating the relative difference in male natural mortality. The profile across values of female natural the likelihood supported lower values which may not have been expected _apriori_ based on the available age data.  This could be due to limited information about maximum age for Dover sole in the data, the limited selection of female Dover sole by the fisheries and surveys, or could indicate model mis-specification. It is unclear what is driving this behavior in the model. 
 
 Dover sole life-history parameters exhibit strong relationships with depth that indicate the stock is more complex than the model assumes.  Small fish are found in shallow water, while mid-sized and larger fish are observed across all depths. Specifically, the \gls{s-wcgbt} observes some of the largest female Dover sole in waters less than 300 meters. The variability of sizes obseved by sex increases moving from deeper to shallower waters. Conversly, the median observed size by depth increases with depth. In addition, there is a pattern of sex ratio by depth with more males found in middle depths and more females found in shallow and deeper depths.  These patterns are apparent in the summer fisheries and surveys.  It is uncertain how the patterns affect the data (they may be a cause of the bimodal length distributions seen in the slope surveys) and if these patterns can be effectively modeled to produce better fits to the data and better predictions of biomass.
-
 
 ## Scientific Uncertainty{-}
 
@@ -780,7 +785,7 @@ Recruitment deviations were estimated for the entire time series that was modele
 
 ### Convergence
 
-Proper convergence was determined by starting the minimization process from dispersed values of the maximum likelihood estimates to determine if the model found a better minimum. Starting parameters were jittered by 5 percent. This was repeated 100 times with only 1 out of 100 runs returning to the base model likelihood. However, a better, lower negative log-likelihood, model fit was not found. In the jittering analysis models with similar log-likelihood values (difference < 0.50 units) were often found with little difference in overall model estimates indicating a relatively flat likelihood surface around the maximum likelihood estiamat. Through the jittering done as explained and likelihood profiles, we are confident that the base model as presented represents the best fit to the data given the assumptions made. There were no difficulties in inverting the Hessian to obtain estimates of variability, although much of the early model investigation was done without attempting to estimate a Hessian.
+Proper convergence was determined by starting the minimization process from dispersed values of the maximum likelihood estimates to determine if the model found a better minimum. Starting parameters were jittered by 5 percent. This was repeated 100 times with only 1 out of 100 runs returning to the base model likelihood. However, a better, lower negative log-likelihood, model fit was not found. In the jittering analysis models with similar log-likelihood values (difference < 0.50 units) were often found with little difference in overall model estimates indicating a relatively flat likelihood surface around the maximum likelihood estimate. Additional, jitters using a smaller jitter value yielded an increased frequency of runs returning to the base model with no models finding a better fit to the data. Through the jittering done as explained and likelihood profiles, we are confident that the base model as presented represents the best fit to the data given the assumptions made. There were no difficulties in inverting the Hessian to obtain estimates of variability, although much of the early model investigation was done without attempting to estimate a Hessian.
 
 ### Sensitivity Analyses
 
@@ -794,25 +799,25 @@ Data Sensitivities
   
   \item Remove Oregon/Washington commercial length data
   
-  \item Remove AFSC slope survey length data
+  \item Remove \gls{s-aslope} length data
   
-  \item Remove Triennial survey length data
+  \item Remove \gls{s-tri} length data
   
-  \item Remove NWFSC slope survey length data
+  \item Remove \gls{s-nwslope} length data
   
-  \item Remove NWFSC WCGBT survey length data
+  \item Remove \gls{s-wcgbt} length data
   
   \item Remove California commercial age data
   
   \item Remove Oregon/Washington commercial age data
   
-  \item Remove NWFSC slope survey age data
+  \item Remove \gls{s-nwslope} age data
   
-  \item Remove NWFSC WCGBT survey age data
+  \item Remove \gls{s-wcgbt} age data
   
-  \item Remove AFSC slope survey index
+  \item Remove \gls{s-aslope} index
   
-  \item Remove Triennial survey index
+  \item Remove \gls{s-tri} index
   
   \item Remove \gls{s-nwslope} index
   
@@ -832,7 +837,7 @@ Structural Sensitivities
   
   \item Fix $M$ values for each sex at the median of the prior distribution (0.108)
   
-  \item Mirror the selectivity by sex for the CA and OR/WA fishing fleets
+  \item Mirror the selectivity by sex for the California and Oregon/Washington fishing fleets
 
   \item Assume the 2011 parameterization of fishery selectivity
 
@@ -848,15 +853,15 @@ Structural Sensitivities
   
   \item Use of the Dirichlet Multinomial method for data-weighting (Table \ref{tab:dw}) and
   
-  \item Fix the extra standard deviation parameters for the AFSC Slope, NWFSC Slope, and Triennial Surveys at a near negligible level (0.01)
+  \item Fix the extra standard deviation parameters for the \gls{s-aslope}, \gls{s-nwslope}, and \gls{s-tri} at a near negligible level (0.01)
 
 \end{enumerate}
 
-In general, the base model was the most sensitive (i.e., spawning biomass estimates beyond the 95% confidence interval for the base model) to models that applied alternative approaches to estimating or fixing natural mortality parameters and when the largest source of survey age data (NWFSC WCGBT) was removed. Fixing sex-specific $M$ at the 2011 assessment estimates (i.e., higher than the base model) resulted in an increase in overall spawning stock biomass and the fraction of unfished biomass (i.e., stock status), while adding the estimation of female $M$ or sex-specific Lorenzen $M$ (i.e., lower estimates than the base model) resulted in decreases relative to the base model (Table \ref{tab:sensitivities2}; Figures \ref{fig:sens-m-ssb} and \ref{fig:sens-m-relssb}). In general, natural mortality (fixed or estimated) ranged from 0.082 to 0.116 for females and 0.082 to 0.142 for males across sensitivity runs. The total negative log likelihood was slightly less for the models that estimated female $M$ and sex-specific Lorenzen $M$, suggesting a slightly better fit to the available data. However, natural mortality is often a difficult parameter to estimate in stock assessment such that model misspecification is always a concern. These two alternative $M$ models were not chosen as the base model for the following reasons. First, estimates near the lower range of $M$ values relate to a longevity of about 65 years (following from Hamel [-@hamel_method_2015]), which is not well supported by the observed data (i.e., few observations more than 50 years old). Second, the scale of the population was considerably reduced to the point where catchability doubled for the surveys, which for the NWFSC WCGBT and NWFSC slope surveys meant unrealistically high (at or above 2) catchability coefficients (Figure \ref{fig:sens-m-survQ}). Third, the lack of contrast in data and in the population trajectory through time, as seen with Dover sole, are often limitations to estimating $M$ reliably without auxiliary information (e.g., tagging data) due to the inability of the model to decipher otherwise confounding causes of demographic change [@Wang1999; @Lee_est_m_2011].
+In general, the base model was the most sensitive (i.e., spawning biomass estimates beyond the 95 percent confidence interval for the base model) to models that applied alternative approaches to estimating or fixing natural mortality parameters and when the largest source of survey age data (\gls{s-wcgbt}) was removed. Fixing sex-specific $M$ at the 2011 assessment estimates (i.e., higher than the base model) resulted in an increase in overall spawning stock biomass and the fraction of unfished biomass (i.e., stock status), while adding the estimation of female $M$ or sex-specific Lorenzen $M$ (i.e., lower estimates than the base model) resulted in decreases relative to the base model (Table \ref{tab:sensitivities2}; Figures \ref{fig:sens-m-ssb} and \ref{fig:sens-m-relssb}). In general, natural mortality (fixed or estimated) ranged from 0.082 to 0.116 for females and 0.082 to 0.142 for males across sensitivity runs. The total negative log likelihood was slightly less for the models that estimated female $M$ and sex-specific Lorenzen $M$, suggesting a slightly better fit to the available data. However, natural mortality is often a difficult parameter to estimate in stock assessment such that model misspecification is always a concern. These two alternative $M$ models were not chosen as the base model for the following reasons. First, estimates near the lower range of $M$ values relate to a longevity of about 65 years (following from Hamel [-@hamel_method_2015]), which is not well supported by the observed data (i.e., few observations more than 50 years old). Second, the scale of the population was considerably reduced to the point where catchability doubled for the surveys, which for the \gls{s-wcgbt} and \gls{s-nwslope} meant unrealistically high (at or above 2) catchability coefficients (Figure \ref{fig:sens-m-survQ}). Third, the lack of contrast in data and in the population trajectory through time, as seen with Dover sole, are often limitations to estimating $M$ reliably without auxiliary information (e.g., tagging data) due to the inability of the model to decipher otherwise confounding causes of demographic change [@Wang1999; @Lee_est_m_2011].
 
-The removal of ages from the NWFSC WCGBT survey, which represent a considerable amount of the total available age data since 2009, resulted in lower estimates of spawning biomass and the fraction of unfished biomass compared to the inclusion of these data in the base model (Figures \ref{fig:sens-age-ssb} and \ref{fig:sens-age-relssb}). This result is not surprising given that these age data suggest a higher population scale (Figure \ref{fig:r0-profile}) compared to other sources of age information. Whereas the removal of the Oregon/Washington commercial age data had the opposite effect (increase spawning biomass), though not quite as large of an effect as the removal of the WCGBT survey age data. The removal of other sources of age data led to largely insensitive results relative to the base model, as did the removal on any one source of length data (Figures \ref{fig:sens-length-ssb} and \ref{fig:sens-length-relssb}) or survey index (Figures \ref{fig:sens-index-ssb} and \ref{fig:sens-index-relssb}).   
+The removal of ages from the \gls{s-wcgbt}, which represent a considerable amount of the total available age data since 2009, resulted in lower estimates of spawning biomass and the fraction of unfished biomass compared to the inclusion of these data in the base model (Figures \ref{fig:sens-age-ssb} and \ref{fig:sens-age-relssb}). This result is not surprising given that these age data suggest a higher population scale (Figure \ref{fig:r0-profile}) compared to other sources of age information. Whereas the removal of the Oregon/Washington commercial age data had the opposite effect (increase spawning biomass), though not quite as large of an effect as the removal of the \gls{s-wcgbt} age data. The removal of other sources of age data led to largely insensitive results relative to the base model, as did the removal on any one source of length data (Figures \ref{fig:sens-length-ssb} and \ref{fig:sens-length-relssb}) or survey index (Figures \ref{fig:sens-index-ssb} and \ref{fig:sens-index-relssb}).   
 
-Other changes in model structure that led to moderately sensitive results (i.e., divergent from, but within the 95% confidence interval of, the base model) include assumptions based upon selectivity (Figures \ref{fig:sens-select-ssb} and \ref{fig:sens-select-relssb}) and the method for weighting data (Figures \ref{fig:sens-biodata-ssb} and \ref{fig:sens-biodata-relssb}). While the McAllister and Ianneli approach to data weighting led to an 11%, on average, decline in spawning biomass across the time series compared to the base model, it had less of an impact on overall stock status (76% compared to 79% in 2021, respectively). In general, the Francis approach to data weighting used in the base model applied less weight relative to input sample sizes compared to the McAllister and Ianelli approach (Table \ref{tab:dw}). The Dirichlet multinomial approach to data weighting was abandoned due to inconsistent results relative to input sample sizes and parameters hitting bounds. Specifying survey selectivity patterns to match that used in the 2011 assessment was the most sensitive among alternative selectivity scenarios examined in terms of overall stock size, and was also the most plausible of these in terms of the lowest total likelihood (Table \ref{tab:sensitivities2}), though not lower than the base model. This difference in stock size is largely explained by the increase in the male natural mortality estimate for this sensitivity model (Table \ref{tab:sensitivities2}).  
+Other changes in model structure that led to moderately sensitive results (i.e., divergent from, but within the 95 percent confidence interval of, the base model) include assumptions based upon selectivity (Figures \ref{fig:sens-select-ssb} and \ref{fig:sens-select-relssb}) and the method for weighting data (Figures \ref{fig:sens-biodata-ssb} and \ref{fig:sens-biodata-relssb}). While the McAllister and Ianneli approach to data weighting led to an 11 percent, on average, decline in spawning biomass across the time series compared to the base model, it had less of an impact on overall stock status (76 percent compared to 79 percent in 2021, respectively). In general, the Francis approach to data weighting used in the base model applied less weight relative to input sample sizes compared to the McAllister and Ianelli approach (Table \ref{tab:dw}). The Dirichlet multinomial approach to data weighting was abandoned due to inconsistent results relative to input sample sizes and parameters hitting bounds. Specifying survey selectivity patterns to match that used in the 2011 assessment was the most sensitive among alternative selectivity scenarios examined in terms of overall stock size, and was also the most plausible of these in terms of the lowest total likelihood (Table \ref{tab:sensitivities2}), though not lower than the base model. This difference in stock size is largely explained by the increase in the male natural mortality estimate for this sensitivity model (Table \ref{tab:sensitivities2}).  
 
 ### Likelihood Profiles
 
@@ -887,7 +892,7 @@ The estimated spawning output from previous assessments since 2001 are shown in 
 
 The 2021 spawning output relative to unfished equilibrium spawning output is well above the management target of 25 percent of unfished spawning output. The fishing intensity has been below the current management harvest rate limit ($SPR_{30\%}$) across all modeled years (Figure \ref{fig:1-spr}).  The relative biomass compared to the ratio of the estimated SPR to the management target ($SPR_{30\%}$) across all model years are shown in Figure \ref{fig:phase} where warmer colors (red) represent early years and colder colors (blue) represent recent years.  The relative biomass and estimated SPR has been well above the management biomass target (25 percent) and well below the SPR target across all model years. Figure \ref{fig:yield} shows the equilibrium curve based on a steepness value fixed at 0.8 with vertical dashed lines to indicate the estimate of fraction unfish at the start of 2021 (current) and the estimated management targets calculated based on the relative target biomass (B target), the SPR target, and the maximum sustainable yield (MSY).
 
-Reference points were calculated using the estimated selectivities and catch distributions among fleets in the most recent year of the model, 2020 (Table \ref{tab:referenceES}). Sustainable total yield, landings plus discards, using an $SPR_{30\%}$ is \ensuremath{2.28909\times 10^{4}} mt. The spawning output equivalent to 25 percent of the unfished spawning output ($SB_{25\%}$) calculated using the SPR target ($SPR_{30\%}$) was \ensuremath{7.4498\times 10^{4}} millions of eggs. Recent removals have been below the point estimate of the potential long-term yields calculated using an $SPR_{30\%}$ reference point and the population scale has been relatively stable in recent years.
+Reference points were calculated using the estimated selectivities and catch distributions among fleets in the most recent year of the model, 2020 (Table \ref{tab:referenceES}). Sustainable total yield, landings plus discards, using an $SPR_{30\%}$ is 22891 mt. The spawning output equivalent to 25 percent of the unfished spawning output ($SB_{25\%}$) calculated using the SPR target ($SPR_{30\%}$) was 74498 millions of eggs. Recent removals have been below the point estimate of the potential long-term yields calculated using an $SPR_{30\%}$ reference point and the population scale has been relatively stable in recent years.
 
  
 
@@ -1515,14 +1520,14 @@ Year & Adopted OFL (mt) & Adopted ABC (mt) & Adopted ACL (mt) & Assumed Removal 
 <!-- ====================================================================== --> 
 
 
-![Map of the assessment area..\label{fig:map}](figs/map.png){width=100% height=100% alt="Map of the assessment area.."}
+![Map of the assessment area.\label{fig:map}](figs/map.png){width=100% height=100% alt="Map of the assessment area."}
 
 <!-- ====================================================================== -->  
 <!-- ****************** Catches Used in the Model ************************* --> 
 <!-- ====================================================================== -->  
 
 
-![Landings by fleet used in the base model.\label{fig:catch}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/7.0.1_base/plots/catch2 landings stacked.png){width=100% height=100% alt="Landings by fleet used in the base model."}
+![Landings by fleet used in the base model where catches in metric tons by fleet are stacked.\label{fig:catch}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/7.0.1_base/plots/catch2 landings stacked.png){width=100% height=100% alt="Landings by fleet used in the base model where catches in metric tons by fleet are stacked."}
 
 <!-- ====================================================================== --> 
 <!-- ******************* Data Used in the Model *************************** --> 
