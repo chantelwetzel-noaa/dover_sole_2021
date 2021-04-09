@@ -22,7 +22,7 @@ for (a in plot.vec){
 
 \clearpage
 
-## Detailed Fit to Age Composition Data 
+## Detailed Fit to Age Composition Data {#age-fit-data}
 
 
 ```{r, results='asis'}
@@ -48,7 +48,10 @@ for (a in plot.vec){
 ```{r, results='asis'}
 plot_info = read.csv(file.path(mod_loc, "plots", "plotinfotable_for_doc.csv"))
 len_fit = plot_info[which(plot_info$category == "A@LComp"), ]
-plot.vec = grep("comp_condAALfit_resids", len_fit$label)
+plot.vec = c(grep("comp_condAALfit_residsflt5mkt0", len_fit$label),
+			 grep("comp_condAALfit_residsflt6mkt0", len_fit$label))
+find = sort(len_fit$label[plot.vec], index.return = TRUE)$ix
+plot.vec = plot.vec[find[2:length(find)]]
 filein = file.path(mod_loc, "plots")
 
 for (a in plot.vec){
