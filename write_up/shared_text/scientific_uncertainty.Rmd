@@ -1,1 +1,1 @@
-Uncertainty in the forecasts is based upon the uncertainty around the `r endyr+1` spawning biomass, $\sigma$ = `r round(model$Pstar_sigma,2)`. The uncertainty around the OFL was $\sigma$ = `r round(model$OFL_sigm, 2)`.
+The model estimated uncertainty around the `r endyr+1` spawning biomass was $\sigma$ = `r round(model$Pstar_sigma,2)` and the uncertainty around the OFL was $\sigma$ = `r round(model$OFL_sigm, 2)`.

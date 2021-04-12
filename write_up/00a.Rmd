@@ -36,4 +36,6 @@ data_loc = "//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data"
 brid_loc = "//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_bridging"
 sens_loc = "//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_sensitivities"
 
+source("derived_quants.R")
+
 ```

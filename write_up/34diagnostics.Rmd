@@ -99,3 +99,5 @@ A ten-year retrospective analysis was conducted by peeling off years of data ran
 ### Historical Analysis
 
 The estimated spawning output from previous assessments since 2001 are shown in Figure \ref{fig:past-assess}. The estimate of stock scale from the base model is considerably lower relative to the 2011 assessment estimate which was highly uncertain. The base model $SB_0$ was highly similar to the value estimated by the 2005 assessment, the stock trajectory from the base model diverged between 1960-2005 in comparison to the 2005 estimate. The relative stock status of the base model was relatively consistent in trend and scale with the estimate from the 2011 assessment, although slightly less optomistic but still well above the management target.  
+
+A comparison between the estimate of spawning biomass and fraction unfished from the 2011 and this assessemnt are shown in Figures \ref{fig:ssb-2011-2021} and \ref{fig:depl-2011-2021}. The 2001 and 2005 assessments were not included because they were conducted in early version of Stock Synthesis which did not faciliate easy comparison of uncertainty estimates.   
