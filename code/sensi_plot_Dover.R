@@ -173,8 +173,8 @@ if (plot.figs[1] == 1) {
         expression(SB[0]),
         as.expression(bquote("SB"[.(current.year)])),
         bquote(frac(SB[.(current.year)], SB[0])),
-        expression(MSY[SPR]),
-        expression(F[SPR])
+        expression(Yield['SPR=0.30']),
+        expression(F['SPR=0.30'])
       )
     ) +
     scale_color_manual(
@@ -184,8 +184,8 @@ if (plot.figs[1] == 1) {
         expression(SB[0]),
         as.expression(bquote("SB"[.(current.year)])),
         bquote(frac(SB[.(current.year)], SB[0])),
-        expression(MSY[SPR]),
-        expression(F[SPR])
+        expression(Yield['SPR=0.30']),
+        expression(F['SPR=0.30'])
       )
     ) +
     labs(x = sensi_xlab, y = "Relative change") +
@@ -214,8 +214,8 @@ if (plot.figs[1] == 1) {
         expression(SB[0]),
         as.expression(bquote("SB"[.(current.year)])),
         bquote(frac(SB[.(current.year)], SB[0])),
-        expression(MSY[SPR]),
-        expression(F[SPR])
+        expression(Yield['SPR=0.30']),
+        expression(F['SPR=0.30'])
       )
     ) +
     scale_color_manual(
@@ -225,8 +225,8 @@ if (plot.figs[1] == 1) {
         expression(SB[0]),
         as.expression(bquote("SB"[.(current.year)])),
         bquote(frac(SB[.(current.year)], SB[0])),
-        expression(MSY[SPR]),
-        expression(F[SPR])
+        expression(Yield['SPR=0.30']),
+        expression(F['SPR=0.30'])
       )
     ) +
     labs(x = sensi_xlab, y = "Log relative change") +
@@ -314,12 +314,12 @@ if (plot.figs[1] == 1) {
     scale_shape_manual(
       values = c(16, 17),
       name = "",
-      labels = expression(MSY, F[SPR])
+      labels = expression(Yield['SPR=0.30'], F['SPR=0.30'])
     ) +
     scale_color_manual(
       values = four.colors[4:5],
       name = "",
-      labels = expression(MSY, F[SPR])
+      labels = expression(Yield['SPR=0.30'], F['SPR=0.30'])
     ) +
     labs(x = sensi_xlab, y = "") +
     guides(fill = FALSE) +
@@ -329,7 +329,7 @@ if (plot.figs[1] == 1) {
   
   # p4<-grid.arrange(p1,p2,p3,heights=c(5,5,8))
   p4 <- ggpubr::ggarrange(p1, p2, p3, nrow = 3, ncol = 1, align = "v", heights = c(5, 5, 8))
-  ggsave(file.path(dir, "Sensi_REplot_SB_Dep_F_MSY.png"), p4)
+  ggsave(file.path(dir, "Sensi_REplot_SB_Dep_F_Yield.png"), p4)
   
   # Log plots
   Dev.quants.ggplot.SBs <- subset(Dev.quants.ggplot, Metric == unique(Dev.quants.ggplot$Metric)[1] | Metric == unique(Dev.quants.ggplot$Metric)[2])
@@ -407,12 +407,12 @@ if (plot.figs[1] == 1) {
     scale_shape_manual(
       values = c(16, 17),
       name = "",
-      labels = expression(MSY[SPR], F[SPR])
+      labels = expression(Yield['SPR=0.30'], F['SPR=0.30'])
     ) +
     scale_color_manual(
       values = four.colors[4:5],
       name = "",
-      labels = expression(MSY[SPR], F[SPR])
+      labels = expression(Yield['SPR=0.30'], F['SPR=0.30'])
     ) +
     labs(x = sensi_xlab, y = "") +
     guides(fill = FALSE) +
@@ -422,7 +422,7 @@ if (plot.figs[1] == 1) {
   
   p4 <- ggpubr::ggarrange(p1, p2, p3, nrow = 3, ncol = 1, align = "v", heights = c(5, 5, 8))
   # p4<-grid.arrange(p1,p2,p3,heights=c(5,5,8))
-  ggsave(file.path(dir, "Sensi_logREplot_SB_Dep_F_MSY.png"), p4)
+  ggsave(file.path(dir, "Sensi_logREplot_SB_Dep_F_Yield.png"), p4)
 }
 
 if (plot.figs[2] == 1) {
@@ -596,12 +596,12 @@ if (plot.figs[5] == 1) {
     scale_color_manual(
       values = four.colors[4],
       name = "",
-      labels = expression(MSY[SPR])
+      labels = expression(Yield['SPR=0.30'])
     ) +
     labs(x = sensi_xlab, y = "Relative change") +
     annotate("text", x = anno.x, y = anno.y, label = anno.lab) +
     geom_vline(xintercept = c(sensi.type.breaks), lty = lty.in)
-  ggsave(file.path(dir, "Sensi_REplot_MSY.png"))
+  ggsave(file.path(dir, "Sensi_REplot_Yield.png"))
   # Log plots
   Dev.quants.ggplot.MSY <- subset(Dev.quants.ggplot, Metric == unique(Dev.quants.ggplot$Metric)[4])
   ggplot(Dev.quants.ggplot.MSY, aes(.data$Model_num_plot, logRE)) +
@@ -618,12 +618,12 @@ if (plot.figs[5] == 1) {
     scale_color_manual(
       values = four.colors[4],
       name = "",
-      labels = expression(MSY[SPR])
+      labels = expression(Yield['SPR=0.30'])
     ) +
     labs(x = sensi_xlab, y = "Log Relative change") +
     annotate("text", x = anno.x, y = anno.y, label = anno.lab) +
     geom_vline(xintercept = c(sensi.type.breaks), lty = lty.in)
-  ggsave(file.path(dir, "Sensi_logREplot_MSY.png"))
+  ggsave(file.path(dir, "Sensi_logREplot_Yield.png"))
 }
 
 if (plot.figs[6] == 1) {
@@ -643,12 +643,12 @@ if (plot.figs[6] == 1) {
     scale_color_manual(
       values = four.colors[5],
       name = "",
-      labels = expression(F[SPR])
+      labels = expression(F['SPR=0.30'])
     ) +
     labs(x = sensi_xlab, y = "Relative change") +
     annotate("text", x = anno.x, y = anno.y, label = anno.lab) +
     geom_vline(xintercept = c(sensi.type.breaks), lty = lty.in)
-  ggsave(file.path(dir, "Sensi_REplot_FMSY.png"))
+  ggsave(file.path(dir, "Sensi_REplot_FSPR.png"))
   
   # RE plots
   Dev.quants.ggplot.FMSY <- subset(Dev.quants.ggplot, Metric == unique(Dev.quants.ggplot$Metric)[5])
@@ -666,12 +666,12 @@ if (plot.figs[6] == 1) {
     scale_color_manual(
       values = four.colors[5],
       name = "",
-      labels = expression(F[SPR])
+      labels = expression(F['SPR=0.30'])
     ) +
     labs(x = sensi_xlab, y = "Log Relative change") +
     annotate("text", x = anno.x, y = anno.y, label = anno.lab) +
     geom_vline(xintercept = c(sensi.type.breaks), lty = lty.in)
-  ggsave(file.path(dir, "Sensi_logREplot_FMSY.png"))
+  ggsave(file.path(dir, "Sensi_logREplot_FSPR.png"))
 }
 
 }
