@@ -1,11 +1,18 @@
 ########################################################
 # Create Sensitivity table for Dover sole 2021
 #   written by : Chantel Wetzel
+
+#Add aggregated sensitivity summary plots for data and
+#model sensitivities (following Cope and Gertseva 2020)
+
+#note that teh sourced file (sensi_plot_Dover) is a slight
+#adaptation of r4ss SS_Sensi_plot for use with Dover
 ########################################################
 
 library(r4ss)
 library(sa4ss)
 #devtools::load_all("C:/Users/Chantel.Wetzel/Documents/GitHub/r4ss")
+source("sensi_plot_Dover.R")
 
 base_model = "7.0.1_base"
 
@@ -177,8 +184,9 @@ SSplotComparisons(x6, endyrvec = 2021,
                   pdf = FALSE)
 
 ###################################################################################
-# Create a Table of Results
+# Create a Table of Results and a Figure
 ###################################################################################
+#data sensitivities
 x <- SSsummarize(list(base, sens_1, sens_2, sens_3, sens_4, sens_5, sens_6, 
           sens_7, sens_8, sens_9, sens_10, sens_11, sens_12, sens_13, sens_14))
 
@@ -278,8 +286,31 @@ file = file.path(out.dir, "sensitivities_crw.tex"))
 kableExtra::save_kable(t,
 file = file.path("C:/Users/Aaron.Berger/Documents/GitHub/dover_sole_2021/write_up/tables/sensitivities.tex"))
 
-##################################
+#--------------------------------------------------
+#data sensitivity aggregate figures
+dir.create(paste0(wd,"/Data_figures"))
+wd_dat <- file.path(paste0(wd,"/Data_figures")) 
+Sensi_plot_dover(model.summaries=x,
+              dir = wd_dat,
+              current.year=2020,
+              mod.names=modelnames, #List the names of the sensitivity runs
+              likelihood.out = c(1, 1, 1),
+              Sensi.RE.out="Sensi_RE_out.DMP", #Saved file of relative errors
+              CI=0.95, #Confidence interval box based on the reference model
+              TRP.in=0.25, #Target relative abundance value
+              LRP.in=0.125, #Limit relative abundance value
+              sensi_xlab="Sensitivity scenarios", #X-axis label
+              ylims.in=c(-1,2,-1,2,-1,2,-1,2,-1,2,-1,2), #Y-axis label
+              plot.figs=c(1,1,1,1,1,1), #Which plots to make/save? 
+              sensi.type.breaks=c(7.5,11.5), #vertical breaks that can separate out types of sensitivities
+              anno.x=c(4.5,9.5,13.5), # Vertical positioning of the sensitivity types labels
+              anno.y=c(2,2,2), # Horizontal positioning of the sensitivity types labels
+              anno.lab=c("Lengths","Ages","Index")) #Sensitivity types labels
 
+###################################################################################
+# Create a Second Table of Results and a Figure
+###################################################################################
+#model sensitivities
 x <- SSsummarize(list(base, sens_15, sens_16, sens_17, sens_18, sens_19, 
                       sens_20, sens_21, sens_22, sens_23, sens_24, sens_25, sens_26))
 
@@ -375,3 +406,24 @@ kableExtra::save_kable(t,
 
 kableExtra::save_kable(t,
 file = file.path(out.dir, "sensitivities2_crw.tex"))
+
+#--------------------------------------------------
+#model sensitivity aggregate figures
+dir.create(paste0(wd,"/Model_figures"))
+wd_mod <- file.path(paste0(wd,"/Model_figures")) 
+Sensi_plot_dover(model.summaries=x,
+              dir = wd_mod,
+              current.year=2020,
+              mod.names=modelnames2, #List the names of the sensitivity runs
+              likelihood.out = c(1, 1, 1),
+              Sensi.RE.out="Sensi_RE_out.DMP", #Saved file of relative errors
+              CI=0.95, #Confidence interval box based on the reference model
+              TRP.in=0.25, #Target relative abundance value
+              LRP.in=0.125, #Limit relative abundance value
+              sensi_xlab="Sensitivity scenarios", #X-axis label
+              ylims.in=c(-1,2,-1,2,-1,2,-1,2,-1,2,-1,2), #Y-axis label
+              plot.figs=c(1,1,1,1,1,1), #Which plots to make/save? 
+              sensi.type.breaks=c(5.5,9.5), #vertical breaks that can separate out types of sensitivities
+              anno.x=c(3.5,7.5,11.5), # Vertical positioning of the sensitivity types labels
+              anno.y=c(2,2,2), # Horizontal positioning of the sensitivity types labels
+              anno.lab=c("Natural Mortality","Selectivity","Biology/Data")) #Sensitivity types labels
