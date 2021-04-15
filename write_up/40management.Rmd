@@ -16,11 +16,11 @@ read_child(filein)
 
 ## Harvest Projections and Decision Tables
 
-The forecast of stock abundance and yield was developed using the base model. The total catches in 2021 and 2021 were set at 10,000 mt for each year, since recent year removals have been well below the ACLs. These values will be updated based on input provided by the Groundfish Management Team (GMT) of the PFMC. The management adopted ACL values for these years is 50,000 mt. The exploitation rate for 2021 and beyond is based upon an SPR of 30 percent and the 25:5 harvest control rule. The average exploitation rates, across recent years, by fleet were used to distribute catches during the forecast period. 
+The forecast of stock abundance and yield was developed using the base model. The total catches in 2021 and 2022 were set at 10,000 mt for each year since recent year removals have been well below the ACLs. These values will be updated based on input provided by the Groundfish Management Team (GMT) of the PFMC. The ACL values for these years is 50,000 mt. The exploitation rate for 2021 and beyond is based upon an SPR of 30 percent and the 25:5 harvest control rule. The average exploitation rates, across recent years, by fleet were used to distribute catches during the forecast period. 
 
-The ABC values were estimated using a category 1 time-varying $\sigma_y$ starting at 0.50 combined with a P* value of 0.45. The catches during the projection period, 2023 - 2032 were set equal to the year-specific ABC using the current flatfish harvest control rule, 25:5 (Table \ref{tab:project}). 
+The ABC values were estimated using a category 1 time-varying $\sigma_y$ starting at 0.50 combined with a P* value of 0.45. The catches during the projection period, 2023 - 2032 were set equal to the year-specific ABC using the current flatfish 25:5 harvest control rule (Table \ref{tab:project}). 
  
-The axes of uncertainty and catch streams applied in the decision table will determined during the  STAR panel. 
+The axes of uncertainty and catch streams applied in the decision table will be determined during the  STAR panel. 
 
 
 ## Evaluation of Scientific Uncertainty
@@ -32,7 +32,7 @@ read_child(filein)
 
 ## Regional Management Considerations
 
-Currently `r spp` are managed using a coastwide harvest; therefore this assessment does not provide a recommended method for allocating harvests regionally. There is currently no genetic evidence that there are distinct biological stocks of `r spp` off the U.S. coast. The limited historical tagging data available describes adult movement suggesting that there may be significant movement across depth but limited movement across latitude.
+Currently `r spp` are managed using coastwide harvest specifications; therefore, this assessment does not provide a recommended method for allocating harvests regionally. There is currently no genetic evidence that there are distinct biological stocks of `r spp` off the U.S. coast. The limited historical tagging data available describing adult movement suggests that there may be significant movement across depth but limited movement across latitude.
 
 
 ## Research and Data Needs

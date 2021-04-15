@@ -159,12 +159,12 @@ yr = base.yr[base.yr <= 2021]
 base_ssb = model$timeseries[1:length(yr),"SpawnBio"]
 base_depl = base_ssb / base_ssb[1]
 
-colors = c("black", "red", "blue", "darkorange")
+colors = c("blue", "purple", "red", "darkorange")
 
-pngfun(wd =  savedir, file = 'assessment_history.png', w = 7, h = 10)
+pngfun(wd =  savedir, file = 'assessment_history.png', w = 7, h = 7)
 par(mfrow = c(2, 1), mar = c(4, 4, 2, 2))
 plot(yr, base_ssb, type = 'l', lwd = 2, col = colors[1], ylim=c(0, 500000), 
-	ylab = "Spawning output (mt)", xlab = "Year")
+	ylab = "Spawning biomass (mt)", xlab = "Year")
 ssb = dat$X2011
 lines(dat$Year[1:length(ssb)], ssb, lty = 2, col = colors[2], lwd = 2)
 ssb = dat$X2005
@@ -173,7 +173,7 @@ ssb = dat$X2001
 lines(dat$Year[1:length(ssb)], ssb, lty = 2, col = colors[4], lwd = 2)
 
 plot(yr, base_depl, type = 'l', lwd = 2, col = colors[1], 
-	ylab = "Relative Biomass", xlab = "Year", ylim = c(0, 1.05))
+	ylab = "Fraction Unfished", xlab = "Year", ylim = c(0, 1.05))
 depl = dat$X2011 / dat$X2011[1]
 lines(dat$Year[1:length(depl)], depl, lty = 2, col = colors[2], lwd = 2)
 depl = dat$X2005 / dat$X2005[1]
@@ -184,6 +184,20 @@ lines(dat$Year[1:length(depl)], depl, lty = 2, col = colors[4], lwd = 2)
 legend("bottomleft", bty = 'n', legend = c(2021, 2011, 2005, 2001), col = colors, 
        lty = c(1,2,2,2), lwd = 2, cex = 1.1)
 dev.off()
+
+##############################################################
+base_2011 = SS_output("//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_2011_model")
+x <- SSsummarize(list(model, base_2011)) 
+
+SSplotComparisons(x, 
+                  endyrvec = c(2021, 2011), 
+                  legendlabels = c("2021", "2011"), 
+                  plotdir = savedir,
+                  legendloc = "topright", 
+                  filenameprefix = "2021_2011_",
+                  subplot = c(2,4), 
+                  print = TRUE, 
+                  pdf = FALSE)
 
 
 ###################################################################

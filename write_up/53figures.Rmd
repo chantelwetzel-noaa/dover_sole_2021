@@ -216,7 +216,7 @@ label = 'mean-orwa-age-data')
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(data_loc, "biology", "plots", "Length_by_Depth_by_Source.png"), 
-caption = "Observed length by depth from each survey",
+caption = "Observed length by depth from each survey by sex (red - females, blue - males) ",
 label = 'data-len-depth')
 ```	
 
@@ -225,7 +225,7 @@ label = 'data-len-depth')
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(data_loc, "biology", "plots", "Age_by_Depth.png"), 
-caption = "Observed age by depth from the NWFSC Slope and WCGBT surveys",
+caption = "Observed age by depth from the NWFSC Slope Survey and WCGBTS by sex ((red - females, blue - males)",
 label = 'data-age-depth')
 ```
 
@@ -243,7 +243,7 @@ label = 'cpue-len')
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(data_loc, "survey", "wcgbts", "plots", "WCGBTS_presence_by_depth_bin.png"), 
-caption = "Observed proportion of positve tows and sex ratio by depth bins (m) from the WCGBTS",
+caption = "Observed proportion of positive tows and sex ratio by depth bins (m) from the WCGBTS",
 label = 'pos-tows-sex-ratio')
 ```
 
@@ -271,7 +271,7 @@ label = 'wcgbt-resid')
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(data_loc, "survey_indices", "dover_sole", "data", "NWFSC.Combo_gamma", "VASTWestCoast_Index_2019.png"), 
-caption = "The estimated index of abundance for the WCGBTS",
+caption = "The estimated index of abundance for the WCGBTS (coastwide - black line with circles). A loess soother line was fit to the data series and is denoted by the grey dashed line",
 label = 'wcgbt-index')
 ```	
 
@@ -319,7 +319,7 @@ label = 'mean-wcgbt-age-data')
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(data_loc, "survey_indices", "dover_sole", "data", "Triennial_lognormal_early", "VASTWestCoast_Index_1992.png"), 
-caption = "The estimated index of abundance for the early Triennial survey",
+caption = "The estimated index of abundance for the early Triennial survey (coastwide - black line with circles). A loess soother line was fit to the data series and is denoted by the grey dashed line",
 label = 'tri-early-index')
 ```	
 
@@ -328,7 +328,7 @@ label = 'tri-early-index')
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(data_loc, "survey_indices", "dover_sole", "data", "Triennial_lognormal_late", "VASTWestCoast_Index_2004.png"), 
-caption = "The estimated index of abundance for the late Triennial survey",
+caption = "The estimated index of abundance for the late Triennial survey (coastwide - black line with circles). A loess soother line was fit to the data series and is denoted by the grey dashed line",
 label = 'tri-late-index')
 ```	
 
@@ -389,7 +389,7 @@ label = 'mean-tri-len-data')
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(data_loc, "survey_indices", "afsc_slope", "VASTWestCoast_Index_2001.png"), 
-caption = "The estimated index of abundance for the AFSC Slope survey",
+caption = "The estimated index of abundance for the AFSC Slope survey (coastwide - black line with circles). A loess soother line was fit to the data series and is denoted by the grey dashed line",
 label = 'afsc-index')
 ```	
 
@@ -433,7 +433,7 @@ label = 'mean-afsc-len-data')
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(data_loc, "survey_indices", "nwfsc_slope", "VASTWestCoast_Index_2002.png"), 
-caption = "The estimated index of abundance for the NWFSC Slope survey",
+caption = "The estimated index of abundance for the NWFSC Slope survey (coastwide - black line with circles). A loess soother line was fit to the data series and is denoted by the grey dashed line",
 label = 'nwfsc-index')
 ```	
 
@@ -442,7 +442,7 @@ label = 'nwfsc-index')
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(data_loc, "survey_indices", "nwfsc_slope", "QQ_Fn", "Posterior_Predictive-Histogram-1.jpg"), 
-caption = "Q-Q and diagnostics for the NWFSC Slope survey ",
+caption = "Q-Q and diagnostics for the NWFSC Slope survey",
 label = 'nwfsc-qq')
 ```
 
@@ -497,7 +497,7 @@ label = 'compare-mat-at-len')
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(data_loc, "biology", "plots", "Maturity_by_Area.png"), 
-caption = "Comparison of the maturity-at-length between fish sample north and south of Point Reyes where dashed vertical lines indicate the length-at-50-percent maturity associated with each estimate",
+caption = "Comparison of the maturity-at-length between fish sample north (N = 334) and south of Point Reyes (N = 94) where dashed vertical lines indicate the length-at-50-percent maturity associated with each estimate",
 label = 'spat-mat-at-len')
 ```	
 
@@ -661,7 +661,7 @@ label = 'h-prior')
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(mod_loc, "plots", "bio1_sizeatage.png"),
-caption = "Model estimated length-at-age in the bginning of the year. Shaded area indicates 95 percent distribution of length-at-age around the estimaed growth curve",
+caption = "Model estimated length-at-age in the beginning of the year. Shaded area indicates 95 percent distribution of length-at-age around the estimated growth curve",
 label = 'mod-est-len-age')
 ```
 
@@ -952,21 +952,21 @@ label = 'wcgbt-mean-len')
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(mod_loc, "plots", "comp_condAALfit_Andre_plotsflt5mkt0_page1.png"), 
-caption = "Conditional age-at-length for mean age and standard deviation for the NWFSC Slope survey (plot 1 of 2) Left plots are mean conditional age-at-length by size-class (observed and predicted) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and predicted) with 90 percent confidence intervalss based on the chi-square distribution",
+caption = "Conditional age-at-length for mean age and standard deviation for the NWFSC Slope survey (plot 1 of 2) Left plots are mean conditional age-at-length by size-class (observed and predicted) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and predicted) with 90 percent confidence intervals based on the chi-square distribution",
 label = 'nwslope-caal-fit-1')
 ```
 
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(mod_loc, "plots", "comp_condAALfit_Andre_plotsflt5mkt0_page2.png"), 
-caption = "Conditional age-at-length for mean age and standard deviation for the NWFSC Slope survey (plot 2 of 2) Left plots are mean conditional age-at-length by size-class (observed and predicted) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and predicted) with 90 percent confidence intervalss based on the chi-square distribution",
+caption = "Conditional age-at-length for mean age and standard deviation for the NWFSC Slope survey (plot 2 of 2) Left plots are mean conditional age-at-length by size-class (observed and predicted) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and predicted) with 90 percent confidence intervals based on the chi-square distribution",
 label = 'nwslope-caal-fit-2')
 ```
 
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(mod_loc, "plots", "comp_condAALfit_Andre_plotsflt6mkt0_page1.png"), 
-caption = "Conditional age-at-length for mean age and standard deviation for the NWFSC WCGBT (plot 1 of 6) Left plots are mean conditional age-at-length by size-class (observed and predicted) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and predicted) with 90 percent confidence intervalss based on the chi-square distribution",
+caption = "Conditional age-at-length for mean age and standard deviation for the NWFSC WCGBT (plot 1 of 6) Left plots are mean conditional age-at-length by size-class (observed and predicted) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and predicted) with 90 percent confidence intervals based on the chi-square distribution",
 label = 'wcgbt-caal-fit-1')
 ```
 
@@ -980,7 +980,7 @@ label = 'wcgbt-caal-fit-2')
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(mod_loc, "plots", "comp_condAALfit_Andre_plotsflt6mkt0_page3.png"), 
-caption = "Conditional age-at-length for mean age and standard deviation for the NWFSC WCGBT (plot 3 of 6) Left plots are mean conditional age-at-length by size-class (observed and predicted) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and predicted) with 90 percent confidence intervalss based on the chi-square distribution",
+caption = "Conditional age-at-length for mean age and standard deviation for the NWFSC WCGBT (plot 3 of 6) Left plots are mean conditional age-at-length by size-class (observed and predicted) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and predicted) with 90 percent confidence intervals based on the chi-square distribution",
 label = 'wcgbt-caal-fit-3')
 ```
 
@@ -994,14 +994,14 @@ label = 'wcgbt-caal-fit-4')
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(mod_loc, "plots", "comp_condAALfit_Andre_plotsflt6mkt0_page5.png"), 
-caption = "Conditional age-at-length for mean age and standard deviation for the NWFSC WCGBT (plot 5 of 6) Left plots are mean conditional age-at-length by size-class (observed and predicted) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and predicted) with 90 percent confidence intervalss based on the chi-square distribution",
+caption = "Conditional age-at-length for mean age and standard deviation for the NWFSC WCGBT (plot 5 of 6) Left plots are mean conditional age-at-length by size-class (observed and predicted) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and predicted) with 90 percent confidence intervals based on the chi-square distribution",
 label = 'wcgbt-caal-fit-5')
 ```
 
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(mod_loc, "plots", "comp_condAALfit_Andre_plotsflt6mkt0_page6.png"), 
-caption = "Conditional age-at-length for mean age and standard deviation for the NWFSC WCGBT (plot 6 of 6) Left plots are mean conditional age-at-length by size-class (observed and predicted) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and predicted) with 90 percent confidence intervalss based on the chi-square distribution",
+caption = "Conditional age-at-length for mean age and standard deviation for the NWFSC WCGBT (plot 6 of 6) Left plots are mean conditional age-at-length by size-class (observed and predicted) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and predicted) with 90 percent confidence intervals based on the chi-square distribution",
 label = 'wcgbt-caal-fit-6')
 ```
 
@@ -1049,7 +1049,7 @@ label = 'depl')
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path("figs", "unavailable_biomass.png"),
-caption = "Proportion of biomass unavailable due to selectivity for small and large fish.",
+caption = "Proportion of biomass unavailable due to selectivity for small and large fish",
 label = 'unavail-bio')
 ```
 
@@ -1076,7 +1076,7 @@ label = '1-spr')
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(mod_loc, "plots", "SPR4_phase.png"), 
-caption = "Phase plot of the relative biomass (also referred to as fraction unfished) versus the SPR ratio where each point represents the biomass ratio at the start of the year and the relative fishing intensity in that same year. Lines through the final point show the 95 percent intervals based on the asymptotic uncertainty for each dimension. The shaded ellipse is a 95 percent region which accounts for the estiamted correlations between the biomass ratio and SPR ratio.",
+caption = "Phase plot of the relative biomass (also referred to as fraction unfished) versus the SPR ratio where each point represents the biomass ratio at the start of the year and the relative fishing intensity in that same year. Lines through the final point show the 95 percent intervals based on the asymptotic uncertainty for each dimension. The shaded ellipse is a 95 percent region which accounts for the estimated correlations between the biomass ratio and SPR ratio",
 label = 'phase')
 ```
 
@@ -1175,14 +1175,14 @@ label = 'sens-select-relssb')
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(sens_loc, "_plots", "7.0.1_base_6_compare2_spawnbio_uncertainty.png"),
-caption = "Estimates of spawning biomass for the base model and alternative sensitivity models including using the maturity ogive from the 2011 assessment, estimating no recruitment deviations, effectively not allowing extra survey variance (standard deviation), and applying the McAllistar and Ianelli approach to data weighting",
+caption = "Estimates of spawning biomass for the base model and alternative sensitivity models including using the maturity ogive from the 2011 assessment, estimating no recruitment deviations, effectively not allowing extra survey variance (standard deviation), and applying the McAllister and Ianelli approach to data weighting",
 label = 'sens-biodata-ssb')
 ```
 
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(sens_loc, "_plots", "7.0.1_base_6_compare4_Bratio_uncertainty.png"),
-caption = "Estimates of relative spawning biomass for the base model and alternative sensitivity models including using the maturity ogive from the 2011 assessment, estimating no recruitment deviations, effectively not allowing extra survey variance (standard deviation), and applying the McAllistar and Ianelli approach to data weighting",
+caption = "Estimates of relative spawning biomass for the base model and alternative sensitivity models including using the maturity ogive from the 2011 assessment, estimating no recruitment deviations, effectively not allowing extra survey variance (standard deviation), and applying the McAllister and Ianelli approach to data weighting",
 label = 'sens-biodata-relssb')
 ```
 
