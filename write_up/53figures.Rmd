@@ -483,6 +483,14 @@ caption = "Mean age for NWFSC Slope survey with 95 percent confidence intervals"
 label = 'mean-nw-slope-age-data')
 ```
 
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(mod_loc, "plots", "index9_standcpueall.png"), 
+caption = "Standardized indices overlaid. Each index is rescaled to have mean observation = 1.0",
+label = 'index-compare')
+```
+
+
 <!-- ======================================================= -->  
 <!-- ******************   Biology  ************************* --> 
 <!-- ======================================================= -->  
@@ -681,6 +689,13 @@ add_figure(
 filein = file.path("figs", "dover_retention.png"),
 caption = "Estimated retention curves by time block",
 label = 'retention')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path("figs", "catch_w_discards.png"),
+caption = "Landings plus estimated discards in metric tons",
+label = 'landings-discard')
 ```
 
 

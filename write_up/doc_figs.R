@@ -12,7 +12,7 @@ pngfun(wd = savedir, 'unavailable_biomass.png', w = 10, h = 7)
 	SSunavailableSpawningOutput(model, plot=TRUE)
 dev.off()
 
-pngfun(wd = savedir, 'catch_w_discards.png', w = 5, h = 5)
+pngfun(wd = savedir, 'catch_w_discards.png', w = 7, h = 5)
 SSplotCatch(model, subplot=16, add=FALSE, fleetcols = 'grey50', addmax=FALSE, labels=rep("",10), showlegend=FALSE)
 SSplotCatch(model, subplot=2, add=TRUE, fleetcols = c('blue','red'), addmax=FALSE, labels=rep("",10), showlegend=FALSE)
 legend('topleft',
