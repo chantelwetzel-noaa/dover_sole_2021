@@ -12,6 +12,17 @@ pngfun(wd = savedir, 'unavailable_biomass.png', w = 10, h = 7)
 	SSunavailableSpawningOutput(model, plot=TRUE)
 dev.off()
 
+pngfun(wd = savedir, 'catch_w_discards.png', w = 5, h = 5)
+SSplotCatch(model, subplot=16, add=FALSE, fleetcols = 'grey50', addmax=FALSE, labels=rep("",10), showlegend=FALSE)
+SSplotCatch(model, subplot=2, add=TRUE, fleetcols = c('blue','red'), addmax=FALSE, labels=rep("",10), showlegend=FALSE)
+legend('topleft',
+       bg='white',
+       bty='n',
+       fill = c('blue','red','grey25'),
+       legend = c("CA", "OR/WA",  "Discards (CA + OR/WA)"))
+title(ylab = "Landings + dead discards (mt)")
+dev.off()
+
 fleets = c("AFSC Slope", "Triennial", "NWFSC Slope", "NWFSC WCGBT")
 
 # index fits

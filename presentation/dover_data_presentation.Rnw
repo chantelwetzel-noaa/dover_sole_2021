@@ -1,0 +1,102 @@
+\documentclass[pdf]{beamer}
+\mode<presentation>
+\usetheme[beaver]{Berlin} 
+
+\usepackage{graphicx}
+\usepackage{pgf}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{booktabs}          %% Used in risk tables
+\usepackage{multirow}          %% Used in decision tables
+\usepackage{multicol}          %% Used in the toc
+\usepackage[T1]{fontenc}  %to use < or > in tables
+
+
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\newcommand{\specialcell}[2][c]{\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+\newcommand{\subscr}[1]{$_{\text{#1}}$}
+\newcommand{\Fforty}{F_{\text{SPR}=40\%}}       % Needs to be done as $\Fforty$
+\newcommand{\Bforty}{B_{\text{SPR}=40\%}}
+
+\setbeamersize{text margin left=0.1in}
+\setbeamersize{text margin right=0.1in}
+
+\definecolor{pageCol}{rgb}{0.5,0.5,1.0}
+%\definecolor{pageCol}{rgb}{1,1,1}
+
+\usepackage{tikz}
+
+\usebackgroundtemplate{
+  \tikz[overlay,remember picture] 
+  \node[opacity=0.3, at=(current page.south east),anchor=south east,inner sep=0pt] {
+    \includegraphics[height=0.5in]{Noaa1.png}};
+}
+
+\setbeamertemplate{footline}
+{
+  \begin{beamercolorbox}[wd=.05\paperwidth,ht=0ex,dp=0ex,left]{framenumber in head/foot}%
+    \insertframenumber/\inserttotalframenumber
+    
+  \end{beamercolorbox}%
+}
+\setbeamercolor{footline}{fg=pageCol}
+
+\newcounter{saveenumi}
+
+
+\newcommand{\mytableofcontents}{
+  \begin{frame}[t]
+  \frametitle{Outline}
+  \tableofcontents[
+    currentsection, sectionstyle=show/show, subsectionstyle=show/show/hide,
+  ]
+  \end{frame}
+}
+\AtBeginSection[]{\mytableofcontents}
+
+%------------------------------------------------------------------------------------
+% Title Page
+%------------------------------------------------------------------------------------
+\title{2021 Assessment of Dover sole}
+\subtitle{Biology and Data}
+\author{Chantel Wetzel and Aaron Berger}
+\institute[NWFSC]{
+Northwest Fisheries Science Center \\
+\medskip
+}
+\date{{\footnotesize STAR Panel \\ May xx-xx, 2021}}
+
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+
+%------------------------------------------------------------------------------------
+\section{Model Summary}
+%------------------------------------------------------------------------------------
+\subsection{Overview}
+\begin{frame}{Pacific ocean perch (\textit{Sebastes alutus})}
+\begin{columns}
+  \begin{column}{0.5\textwidth}
+      \begin{itemize}
+        \item Distributed from  Alaska Aleutian Islands to Northern California
+        \item Typically distributed between 200 - 400 meters during summer months
+        \item Semi-demersal and can be pelagic
+        \item Both sexes move to deeper water with age
+        \item Currently, no evidence for genetic differences in the assessment area
+      \end{itemize}
+  \end{column}
+  
+  \begin{column}{0.5\textwidth}
+    \begin{itemize}
+        \item Females move to deeper waters post-spawning during winter months and return inshore in spring.
+      \end{itemize}
+  \end{column}
+\end{columns}
+\end{frame}
+
+  
+\end{document}
