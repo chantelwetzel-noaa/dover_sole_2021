@@ -200,7 +200,7 @@ col_names = c('Data',
               'Dirichlet Multinomial')
 table_format(x = tab,
               caption = "Data weights applied by each alternative data weighting method. Weights for the Dirichlet
-              multinomial are not shown due to inconsistent results relative to input sample sizes and parameters
+              multinomial are undetermined due to inconsistent results relative to input sample sizes and parameters
               hitting bounds.",
               label = "dw",
               align = 'l',
