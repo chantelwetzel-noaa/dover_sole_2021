@@ -120,7 +120,7 @@ Reference points were calculated using the estimated selectivities and catch dis
 
 ## Management Performance{-}
 
-Exploitation on `r spp` slowly increased starting around 1940 and reached a high the early 1990s. After peaking exploitation rates declined steadily through 2006, increased in 2007, but have steadily declined since. In the last ten years the annual catch limit (ACL) has been set well below the overfishing limit (OFL) and acceptable biological catch (ABC).  Total mortality has ranged between 10 - 15 percent of the ACL in the most recent five years.
+Exploitation on `r spp` slowly increased starting around 1940 and reached a high in the early 1990s. After peaking exploitation rates declined steadily through 2006, increased in 2007, but have steadily declined since. In the last ten years the annual catch limit (ACL) has been set well below the overfishing limit (OFL) and acceptable biological catch (ABC).  Total mortality has ranged between 10 - 15 percent of the ACL in the most recent five years.
 
 ```{r, results = 'asis'}
 yrs = hist = 2011:endyr
