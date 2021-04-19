@@ -427,3 +427,103 @@ Sensi_plot_dover(model.summaries=x,
               anno.x=c(3.5,7.5,11.5), # Vertical positioning of the sensitivity types labels
               anno.y=c(2,2,2), # Horizontal positioning of the sensitivity types labels
               anno.lab=c("Natural Mortality","Selectivity","Biology/Data")) #Sensitivity types labels
+
+
+
+###################################################################################
+# Cut down sensitivity list for presentation
+###################################################################################
+x <- SSsummarize(list(base, sens_1, sens_2, sens_3, sens_4, sens_5, sens_6, 
+          sens_7, sens_8, sens_9, sens_10))#, sens_11, sens_12, sens_13, sens_14))
+
+modelnames <- c("Base Model",
+                  "CA lengths", #1
+                  "OR/WA lengths",
+                  "AFSC slope lengths",
+                  "Triennial lengths",
+                  "NWFSC slope lengths",
+                  "NWFSC WCGBT lengths",
+                  "CA ages", #7
+                  "OR/WA ages",
+                  "NWFSC slope ages",
+                  "NWFSC WCGBT ages")#,
+                  #"AFSC slope index", #11
+                  #"Trienniel index",
+                  #"NWFSC slope index",
+                  #"NWFSC WCGBT index")
+
+#dir.create(paste0(wd,"/Model_figures"))
+wd_mod <- file.path(paste0(wd,"/_Data_figures")) 
+Sensi_plot_dover(model.summaries=x,
+              dir = wd_mod,
+              current.year=2021,
+              mod.names=modelnames, #List the names of the sensitivity runs
+              likelihood.out = c(1, 1, 1),
+              Sensi.RE.out="Sensi_RE_out.DMP", #Saved file of relative errors
+              CI=0.95, #Confidence interval box based on the reference model
+              TRP.in=0.25, #Target relative abundance value
+              LRP.in=0.125, #Limit relative abundance value
+              sensi_xlab="Sensitivity scenarios", #X-axis label
+              ylims.in=c(-1,1,-1,1,-1,1,-1,1,-1,1,-1,1), #Y-axis label
+              plot.figs= 1, #Which plots to make/save? 
+              sensi.type.breaks=c(7.5), #vertical breaks that can separate out types of sensitivities
+              anno.x=c(12, 6.5), # Vertical positioning of the sensitivity types labels
+              anno.y=c(0.75, 0.75), # Horizontal positioning of the sensitivity types labels
+              anno.lab=c("Ages", "Lengths"), #Sensitivity types labels
+              horizontal = TRUE)
+
+###########################################################################################
+x <- SSsummarize(list(base, sens_15, sens_16, sens_17, sens_18, sens_19, 
+                      sens_20, sens_21, sens_22, sens_23, sens_24, sens_25, sens_26))
+
+modelnames2 <- c("Base Model",
+                 "Est. Fem M",
+                 "Est. Lorenz. M",
+                 "Fix M median prior",
+                 "Fix M 2011 est.",
+                 "2011 Fish. Sel.",
+                 "2011 Surv. Sel.",
+                 "Mirror Com. Sel.",
+                 "NWFSC slope Asympt. Sel.",
+                 "2011 Maturity",
+                 "No recdevs",
+                 "No add Surv. SD",
+                 "MI Data Weight")
+
+#dir.create(paste0(wd,"/Model_figures"))
+wd_mod <- file.path(paste0(wd,"/_Model_figures")) 
+Sensi_plot_dover(model.summaries=x,
+              dir = wd_mod,
+              current.year=2021,
+              mod.names=modelnames2, #List the names of the sensitivity runs
+              likelihood.out = c(1, 1, 1),
+              Sensi.RE.out="Sensi_RE_out.DMP", #Saved file of relative errors
+              CI=0.95, #Confidence interval box based on the reference model
+              TRP.in=0.25, #Target relative abundance value
+              LRP.in=0.125, #Limit relative abundance value
+              sensi_xlab="Sensitivity scenarios", #X-axis label
+              ylims.in=c(-1,2,-1,2,-1,2,-1,2,-1,2,-1,2), #Y-axis label
+              plot.figs=c(1,1,1,1,1,1), #Which plots to make/save? 
+              sensi.type.breaks=c(5.5,9.5), #vertical breaks that can separate out types of sensitivities
+              anno.x=c(3.5,7.5,11.5), # Vertical positioning of the sensitivity types labels
+              anno.y=c(1.5,1.5,1.5), # Horizontal positioning of the sensitivity types labels
+              anno.lab=c("Natural Mortality","Selectivity","Biology/Data"),
+              horizontal = TRUE)
+
+Sensi_plot_dover(model.summaries=x,
+              dir = wd_mod,
+              current.year=2021,
+              mod.names=modelnames2, #List the names of the sensitivity runs
+              likelihood.out = c(1, 1, 1),
+              Sensi.RE.out="Sensi_RE_out.DMP", #Saved file of relative errors
+              CI=0.95, #Confidence interval box based on the reference model
+              TRP.in=0.25, #Target relative abundance value
+              LRP.in=0.125, #Limit relative abundance value
+              sensi_xlab="Sensitivity scenarios", #X-axis label
+              ylims.in=c(-1,2,-1,2,-1,2,-1,2,-1,2,-1,2), #Y-axis label
+              plot.figs=c(1,1,1,1,1,1), #Which plots to make/save? 
+              sensi.type.breaks=c(5.5,9.5), #vertical breaks that can separate out types of sensitivities
+              anno.x=c(3.5,7.5,11.5), # Vertical positioning of the sensitivity types labels
+              anno.y=c(2,2,2), # Horizontal positioning of the sensitivity types labels
+              anno.lab=c("Natural Mortality","Selectivity","Biology/Data")) #Sensitivity types labels
+
