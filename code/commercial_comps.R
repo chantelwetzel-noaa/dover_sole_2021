@@ -12,16 +12,6 @@ devtools::load_all("C:/Users/Chantel.Wetzel/Documents/GitHub/PacFIN.Utilities")
 dir = "N://Assessments/CurrentAssessments/Dover_sole_2021/data"
 setwd(dir)
 
-bds = PullBDS.PacFIN(
-  					 pacfin_species_code = "DOVR",
-  					 password = "ards1753",
-  					 savedir = getwd(),
-  					 verbose = TRUE
-  					 )
-
- rawdata <- getDB(sql.bds("DOVR"),
-    username = "cwetzel", password = "ards1753")
-
 bds_file = "PacFIN.DOVR.bds.08.Jan.2021.RData"
 bds_file = "PacFIN.DOVR.bds.13.Aug.2020.RData"
 bds_file = "PacFIN.DOVR.bds.12.Feb.2021.RData"
@@ -254,3 +244,36 @@ colnames(samples) = c("Year", "CA Ntows", "CA Nfish",
 write.csv(samples, 
 		  file = file.path(dir, "commercial_comps", "forSS", paste0("Com_Age_Samples_by_State.csv")), 
 		  row.names = FALSE)
+######################################################################################################
+######################################################################################################
+
+library(HandyCode)
+data = Pdata
+
+table(data$state, is.na(data$DEPTH_AVG))
+# Depth on availabe for some Oregon and Washington (not all)
+
+table(data$state, data$SAMPLE_MONTH)
+aggregate(lengthcm~state+SAMPLE_MONTH, data, quantile)
+
+
+boxplot(data$lengthcm~data$SAMPLE_MONTH)
+par(mfrow = c(3,1))
+boxplot(data$DEPTH_AVG~data$SAMPLE_MONTH)
+boxplot(data$DEPTH_AVG[data$state == "OR"]~data$SAMPLE_MONTH[data$state == "OR"])
+boxplot(data$DEPTH_AVG[data$state == "WA"]~data$SAMPLE_MONTH[data$state == "WA"])
+
+par(mfrow = c(3,1))
+boxplot(data$lengthcm[data$state == "CA"]~data$SAMPLE_MONTH[data$state == "CA"])
+boxplot(data$lengthcm[data$state == "OR"]~data$SAMPLE_MONTH[data$state == "OR"])
+boxplot(data$lengthcm[data$state == "WA"]~data$SAMPLE_MONTH[data$state == "WA"])
+
+
+plot(data$DEPTH_AVG, data$lengthcm)
+
+par(mfrow = c(2,1))
+f = which(data$SEX == "F")
+plot(data$SAMPLE_MONTH[f], data$lengthcm[f], col = 'red')
+f = which(data$SEX == "M")
+plot(data$SAMPLE_MONTH[f], data$lengthcm[f], col = 'blue')
+
