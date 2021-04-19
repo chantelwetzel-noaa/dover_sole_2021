@@ -5,13 +5,13 @@
 #################################################################
 
 library(r4ss)
-mydir = "C:/Assessments/2021/dover_sole_2021/models"
+mydir = "C:/Assessments/2021/dover_sole_2021/models/_sensitivities"
 base_name = "5.9.2_data_pikitch"
 base_name = "6.3.5_data_bio_no_offsets"
-base_name = "7.0.1_base"
+base_name = "7.0.1_base_no_bio_offsets"
 para = "M"
 param = c("MGparm[1]", "MGparm[12]")
-offset = TRUE
+offset = FALSE
 
 # Profile range for female M
 M_f <- seq(0.06, 0.16, 0.01)
