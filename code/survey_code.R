@@ -63,6 +63,8 @@ PlotBio.fn(dir = getwd(), dat = biomass.nwfsc, main = "NWFSC WCGBTS", dopng = TR
 PlotBioStrata.fn(dir = getwd(), dat = biomass.nwfsc, survey.name = "NWFSC WCGBTS", 
       mfrow.in = c(4,4), gap = 0.01, sameylim = TRUE, dopng = TRUE)
 
+
+PlotMap.fn(dir = getwd(), dat = catch, main = "WCGBTS", dopng = TRUE)
 #============================================================================================
 #Length Biological Data 
 #============================================================================================
