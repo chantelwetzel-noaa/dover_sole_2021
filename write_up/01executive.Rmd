@@ -10,9 +10,9 @@ executive[["stock"]] <- paste0("This assessment reports the status of ",
 This assessment reports the status of `r spp` (_`r spp.sci`_) off the U.S. west coast using data through `r endyr`. `r spp` are also harvested from the waters off the Canadian coast and in the Gulf of Alaska, and although those catches were not included in this assessment, it is not certain if those populations contribute to the biomass of `r spp` off the U.S. west coast. `r spp` exhibit complex seasonal and ontogenetic movement, moving to deeper waters based on size but also shifting seasonally, moving from shallower feeding grounds on the continental shelf during the summer months to deeper spawning habitat on the outer continental shelf and slope in the winter. However, the specific mechanisms that drive stock structure, and related variability over space and time, are not well understood.
 
 ## Landings{-}
-`r spp` were first landed in California in the early part of the 20th century with landings beginning in Oregon and Washington in the 1940's. Landings remained relatively constant throughout the 1950s and 1960s before increasing rapidly into the early 1990s.  Subsequently, the landings declined by nearly 60 percent in California and Oregon/Washington until 2007 when harvest guidelines increased the allowable catch leading to increased landings between 2007 - 2010.  Since 2011, landings have been steadily decreasing, where the landings in 2020 is the lowest on record since the 1940s. There are multiple factors that have led to the recent low landings of `r spp` (e.g., co-occurance with constraining stocks, market forces). 
+`r spp` were first landed in California in the early part of the 20th century with landings beginning in Oregon and Washington in the 1940's. Landings remained relatively constant throughout the 1950s and 1960s before increasing rapidly into the early 1990s.  Subsequently, the landings declined by nearly 60 percent in California and Oregon/Washington until 2007 when harvest guidelines increased the allowable catch leading to increased landings between 2007 - 2010.  Since 2011, landings have been steadily decreasing, where the landings in 2020 is the lowest on record since the 1940s. There are multiple factors that have led to the recent low landings of `r spp` (e.g., co-occurrence with constraining stocks, market forces). 
 
-Groundfish trawl fisheries account for the the majority of `r spp` landings off the West Coast, while fixed gears, shrimp trawls, and recreational fisheries collectively make up a very small amount of fishing mortality (less that 1 percent of the total).  Some discarding of `r spp` has occurred in these fisheries, primarily prior to the implementation of the Individual Fishing Quota (IFQ) Catch Shares Program in 2011. Additional, discard mortality were estimated within the model. Landings and total mortality, landings combined with estimated discards, are reported. 
+Groundfish trawl fisheries account for the majority of `r spp` landings off the West Coast, while fixed gears, shrimp trawls, and recreational fisheries collectively make up a very small amount of fishing mortality (less that 1 percent of the total).  Some discarding of `r spp` has occurred in these fisheries, primarily prior to the implementation of the Individual Fishing Quota (IFQ) Catch Shares Program in 2011. Additional, discard mortality were estimated within the model. Landings and total mortality, landings combined with estimated discards, are reported. 
 
 \clearpage
 
@@ -24,6 +24,8 @@ filein = file.path(mod_loc, "plots", "catch2 landings stacked.png"),
 caption = "Landings by fleet used in the base model where catches in metric tons by fleet are stacked",
 label = 'es-catch')
 ```
+
+\clearpage
 
 ## Data and Assessment{-}
 
@@ -77,7 +79,7 @@ label = 'es-recruits')
 
 ## Exploitation Status{-}
 
-Trends in fishing intensity (1 - SPR) largely mirrored that of landings given the relative lack of large variations in annual recruitment such that there was a steady increase from the 1940s to the mid to late 1980s before decreasing to current levels of `r spr_recent_10[10]` for 2020.  The maximum fishing intensity was `r spr_max` in `r spr_max_yr`, well below the target harvest rate of 0.70 (1 - $SPR_{30\%}$). Fishing intensity over the past decade has ranged between `r min(spr_recent_10)` and `r max(spr_recent_10)` and the exploitation rate has been low (`r min(exploit_recent_10)` - `r max(exploit_recent_10)`). Current estimates indicate that `r spp` spawning biomass is greater than 3 times higher than the target biomass level ($SB_{25\%}$), and fishing intensity remains well below  the target harvest rate.
+Trends in fishing intensity (1 - SPR) largely mirrored that of landings given the relative lack of large variations in annual recruitment such that there was a steady increase from the 1940s to the mid to late 1980s before decreasing to current levels of `r spr_recent_10[10]` for 2020.  The maximum fishing intensity was `r spr_max` in `r spr_max_yr`, well below the target harvest rate of 0.70 (1 - $\text{SPR}_{30\%}$). Fishing intensity over the past decade has ranged between `r min(spr_recent_10)` and `r max(spr_recent_10)` and the exploitation rate has been low (`r min(exploit_recent_10)` - `r max(exploit_recent_10)`). Current estimates indicate that `r spp` spawning biomass is greater than 3 times higher than the target biomass level ($\text{SB}_{25\%}$), and fishing intensity remains well below  the target harvest rate.
 
 \input{tex_tables/d_SPR_ES.tex}
 
@@ -106,7 +108,7 @@ read_child(filein)
 
 ## Reference Points{-}
 
-The 2021 spawning biomass relative to unfished equilibrium spawning biomass is well above the management target of 25 percent of unfished spawning biomass. The fishing intensity has been below the current management harvest rate limit ($SPR_{30\%}$) across all modeled years (Figure \ref{fig:es-1-spr}).  The relative biomass compared to the ratio of the estimated SPR to the management target ($SPR_{30\%}$) across all model years are shown in Figure \ref{fig:es-phase} where warmer colors (red) represent early years and colder colors (blue) represent recent years.  The relative biomass and estimated SPR have been well above the management biomass target (25 percent) and well below the SPR target across all model years. Figure \ref{fig:es-yield} shows the equilibrium curve based on a steepness value fixed at `r round(model$parameters[model$parameters$Label == "SR_BH_steep","Value"], 2)` with vertical dashed lines to indicate the estimate of fraction unfished at the start of `r endyr +1` (current) and the estimated management targets calculated based on the relative target biomass (B target), the SPR target, and the maximum sustainable yield (MSY).
+The 2021 spawning biomass relative to unfished equilibrium spawning biomass is well above the management target of 25 percent of unfished spawning biomass. The fishing intensity has been below the current management harvest rate limit ($\text{SPR}_{30\%}$) across all modeled years (Figure \ref{fig:es-1-spr}).  The relative biomass compared to the ratio of the estimated SPR to the management target ($\text{SPR}_{30\%}$) across all model years are shown in Figure \ref{fig:es-phase} where warmer colors (red) represent early years and colder colors (blue) represent recent years.  The relative biomass and estimated SPR have been well above the management biomass target (25 percent) and well below the SPR target across all model years. Figure \ref{fig:es-yield} shows the equilibrium curve based on a steepness value fixed at `r round(model$parameters[model$parameters$Label == "SR_BH_steep","Value"], 2)` with vertical dashed lines to indicate the estimate of fraction unfished at the start of `r endyr +1` (current) and the estimated management targets calculated based on the relative target biomass (B target), the SPR target, and the maximum sustainable yield (MSY).
 
 ```{r, results = 'asis'}
 add_figure(
@@ -116,7 +118,7 @@ fishery selectivities and with steepness fixed at 0.80",
 label = 'es-yield')
 ```
 
-Reference points were calculated using the estimated selectivities and catch distributions among fleets in the most recent year of the model, `r endyr`. Sustainable total yield, landings plus discards, using an $SPR_{30\%}$ is `r format(model$derived_quants[model$derived_quants$Label == 'Dead_Catch_SPR', 'Value'], digits = 0, scientific = FALSE, big.mark = ',')` mt. The spawning biomass equivalent to 25 percent of the unfished spawning biomass ($SB_{25\%}$) calculated using the SPR target ($SPR_{30\%}$) was `r format(model$derived_quants[model$derived_quants$Label == 'SSB_SPR', 'Value'], digits = 0, scientific = FALSE, big.mark = ',')` mt. Recent removals have been below the point estimate of the potential long-term yields calculated using an $SPR_{30\%}$ reference point and the population scale has been relatively stable or increasing over the last decade.
+Reference points were calculated using the estimated selectivities and catch distributions among fleets in the most recent year of the model, `r endyr`. Sustainable total yield, landings plus discards, using an $\text{SPR}_{30\%}$ is `r format(model$derived_quants[model$derived_quants$Label == 'Dead_Catch_SPR', 'Value'], digits = 0, scientific = FALSE, big.mark = ',')` mt. The spawning biomass equivalent to 25 percent of the unfished spawning biomass ($\text{SB}_{25\%}$) calculated using the SPR target ($\text{SPR}_{30\%}$) was `r format(model$derived_quants[model$derived_quants$Label == 'SSB_SPR', 'Value'], digits = 0, scientific = FALSE, big.mark = ',')` mt. Recent removals have been below the point estimate of the potential long-term yields calculated using an $\text{SPR}_{30\%}$ reference point and the population scale has been relatively stable or increasing over the last decade.
 
 \input{tex_tables/e_ReferencePoints_ES.tex}
 
@@ -200,11 +202,11 @@ col_names = c('Year',
               "OFL (mt)", 
               "ABC (mt)", 
               "Buffer",
-              "Spawning Output",
+              "Spawning Biomass (mt)",
               "Fraction Unfished")
 
 table_format(x = out,
-             caption = "Projections of potential OFLs (mt), ABCs (mt), estimated spawning output, and fraction unfished. The adopted OFL, ABC, and ACL for 2021 and 2022 reflect adopted management limits and the assumed removal is the amount assumed in the projection for 2021 and 2022. The full ABC was assumed to be removed for 2023 - 2032",
+             caption = "Projections of potential OFLs (mt), ABCs (mt), the buffer (ABC = buffer x OFL), estimated spawning biomass, and fraction unfished. The adopted OFL, ABC, and ACL for 2021 and 2022 reflect adopted management limits and the assumed removal is the removal assumptions applied for 2021 and 2022. The full ABC was assumed to be removed for 2023 - 2032",
              label = "es-project",
              align = 'l',
              landscape = TRUE,

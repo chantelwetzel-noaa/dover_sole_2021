@@ -61,4 +61,6 @@ Input effN = $7.06 * N_{\text{trips}}$ if $N_{\text{fish}}/N_{\text{trips}}$ is 
 
 \end{centering}
 
+\vspace{0.50cm}
+
 To avoid double use of the length and age data from individual fish, the length and age data sources were each given 0.50 weight in the likelihood calculations when model fitting.  

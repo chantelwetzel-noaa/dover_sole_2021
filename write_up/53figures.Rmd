@@ -225,7 +225,7 @@ label = 'data-len-depth')
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(data_loc, "biology", "plots", "Age_by_Depth.png"), 
-caption = "Observed age by depth from the NWFSC Slope Survey and WCGBTS by sex ((red - females, blue - males)",
+caption = "Observed age by depth from the NWFSC Slope Survey and WCGBTS by sex (red - females, blue - males)",
 label = 'data-age-depth')
 ```
 
@@ -243,7 +243,7 @@ label = 'cpue-len')
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(data_loc, "survey", "wcgbts", "plots", "WCGBTS_presence_by_depth_bin.png"), 
-caption = "Observed proportion of positive tows and sex ratio by depth bins (m) from the WCGBTS",
+caption = "Observed proportion of positive tows (tows that observed Dover sole, top panel) where positive tows are purple and negative tows are grey and sex ratio (red - females, blue - males, bottom panel) by depth bins (m) from the WCGBTS where the horizontal while line indicates 0.50",
 label = 'pos-tows-sex-ratio')
 ```
 
@@ -254,6 +254,8 @@ label = 'pos-tows-sex-ratio')
 add_figure(
 filein = file.path(data_loc, "survey_indices", "dover_sole", "data", "NWFSC.Combo_gamma", "QQ_Fn", "Posterior_Predictive-Histogram-1.jpg"), 
 caption = "Q-Q and diagnostics for the WCGBTS",
+width = 75,
+height = 75,
 label = 'wcgbt-qq')
 ```	
 
@@ -338,6 +340,8 @@ label = 'tri-late-index')
 add_figure(
 filein = file.path(data_loc, "survey_indices", "dover_sole", "data", "Triennial_lognormal_early", "QQ_Fn", "Posterior_Predictive-Histogram-1.jpg"), 
 caption = "Q-Q and diagnostics for the early Triennial survey (1980 - 1992)",
+width = 75,
+height = 75,
 label = 'tri-early-qq')
 ```
 
@@ -345,6 +349,8 @@ label = 'tri-early-qq')
 add_figure(
 filein = file.path(data_loc, "survey_indices", "dover_sole", "data", "Triennial_lognormal_late", "QQ_Fn", "Posterior_Predictive-Histogram-1.jpg"), 
 caption = "Q-Q and diagnostics for the late Triennial survey (1995 - 2004)",
+width = 75,
+height = 75,
 label = 'tri-late-qq')
 ```	
 
@@ -399,6 +405,8 @@ label = 'afsc-index')
 add_figure(
 filein = file.path(data_loc, "survey_indices", "afsc_slope", "QQ_Fn", "Posterior_Predictive-Histogram-1.jpg"), 
 caption = "Q-Q and diagnostics for the AFSC Slope survey ",
+width = 75,
+height = 75,
 label = 'afsc-qq')
 ```
 
@@ -498,7 +506,7 @@ label = 'index-compare')
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(data_loc, "biology", "plots", "Maturity_Comparison.png"), 
-caption = "Comparison of the maturity-at-length assumed in the 2011 assessment and the new estimate used in the base model",
+caption = "Comparison of the maturity-at-length assumed in the 2011 assessment and the new estimate used in the base model where the vertical dashed lines indicates length-at-50-percent-maturity associated with each estimate",
 label = 'compare-mat-at-len')
 ```	
 
@@ -660,6 +668,13 @@ add_figure(
 filein = file.path("figs", "h_prior.png"),
 caption = "Prior distribution for steepness",
 label = 'h-prior')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path("figs", "M_prior.png"),
+caption = "Prior distribution for natural mortality",
+label = 'm-prior')
 ```
 
 <!-- ====================================================================== -->
@@ -988,35 +1003,35 @@ label = 'wcgbt-caal-fit-1')
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(mod_loc, "plots", "comp_condAALfit_Andre_plotsflt6mkt0_page2.png"), 
-caption = "Conditional age-at-length for mean age and standard deviation for the NWFSC WCGBT (plot 2 of 6) Left plots are mean conditional age-at-length by size-class (observed and predicted) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and predicted) with 90 percent confidence intervalss based on the chi-square distribution",
+caption = "Conditional age-at-length for mean age and standard deviation for the WCGBTS (plot 2 of 6) Left plots are mean conditional age-at-length by size-class (observed and predicted) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and predicted) with 90 percent confidence intervalss based on the chi-square distribution",
 label = 'wcgbt-caal-fit-2')
 ```
 
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(mod_loc, "plots", "comp_condAALfit_Andre_plotsflt6mkt0_page3.png"), 
-caption = "Conditional age-at-length for mean age and standard deviation for the NWFSC WCGBT (plot 3 of 6) Left plots are mean conditional age-at-length by size-class (observed and predicted) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and predicted) with 90 percent confidence intervals based on the chi-square distribution",
+caption = "Conditional age-at-length for mean age and standard deviation for the WCGBTS (plot 3 of 6) Left plots are mean conditional age-at-length by size-class (observed and predicted) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and predicted) with 90 percent confidence intervals based on the chi-square distribution",
 label = 'wcgbt-caal-fit-3')
 ```
 
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(mod_loc, "plots", "comp_condAALfit_Andre_plotsflt6mkt0_page4.png"), 
-caption = "Conditional age-at-length for mean age and standard deviation for the NWFSC WCGBT (plot 4 of 6) Left plots are mean conditional age-at-length by size-class (observed and predicted) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and predicted) with 90 percent confidence intervalss based on the chi-square distribution",
+caption = "Conditional age-at-length for mean age and standard deviation for the WCGBTS (plot 4 of 6) Left plots are mean conditional age-at-length by size-class (observed and predicted) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and predicted) with 90 percent confidence intervals based on the chi-square distribution",
 label = 'wcgbt-caal-fit-4')
 ```
 
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(mod_loc, "plots", "comp_condAALfit_Andre_plotsflt6mkt0_page5.png"), 
-caption = "Conditional age-at-length for mean age and standard deviation for the NWFSC WCGBT (plot 5 of 6) Left plots are mean conditional age-at-length by size-class (observed and predicted) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and predicted) with 90 percent confidence intervals based on the chi-square distribution",
+caption = "Conditional age-at-length for mean age and standard deviation for the WCGBTS (plot 5 of 6) Left plots are mean conditional age-at-length by size-class (observed and predicted) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and predicted) with 90 percent confidence intervals based on the chi-square distribution",
 label = 'wcgbt-caal-fit-5')
 ```
 
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(mod_loc, "plots", "comp_condAALfit_Andre_plotsflt6mkt0_page6.png"), 
-caption = "Conditional age-at-length for mean age and standard deviation for the NWFSC WCGBT (plot 6 of 6) Left plots are mean conditional age-at-length by size-class (observed and predicted) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and predicted) with 90 percent confidence intervals based on the chi-square distribution",
+caption = "Conditional age-at-length for mean age and standard deviation for the WCGBTS (plot 6 of 6) Left plots are mean conditional age-at-length by size-class (observed and predicted) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and predicted) with 90 percent confidence intervals based on the chi-square distribution",
 label = 'wcgbt-caal-fit-6')
 ```
 
@@ -1030,7 +1045,7 @@ label = 'nwslope-mean-caal')
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(mod_loc, "plots", "comp_condAALfit_data_weighting_TA1.8_condAgeNWFSC_WCGBT.png"), 
-caption = "Mean age observations from the conditional age-at-length data from the NWFSC WCGBTS",
+caption = "Mean age observations from the conditional age-at-length data from the WCGBTS",
 label = 'wcgbt-mean-age')
 ```
 
@@ -1168,7 +1183,7 @@ label = 'sens-m-relssb')
 
 ```{r, results = 'asis'}
 add_figure(
-filein = file.path(sens_loc, "_plots", "SurveyQ_vs_M.png"),
+filein = file.path("figs", "SurveyQ_vs_M.png"),
 caption = "Survey catchability estimates for the base model and alternative natural mortality sensitivity runs",
 label = 'sens-m-survQ')
 ```

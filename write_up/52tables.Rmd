@@ -241,11 +241,11 @@ col_names = c('Year',
               "OFL (mt)", 
               "ABC (mt)", 
               "Buffer",
-              "Spawning Output",
+              "Spawning Biomass (mt)",
               "Fraction Unfished")
 
 table_format(x = out,
-             caption = "Projections of potential OFLs (mt), ABCs (mt), estimated spawning output, and fraction unfished. The adopted OFL, ABC, and ACL for 2021 and 2022 reflect adopted management limits and the assumed removal is the amount assumed in the projection for 2021 and 2022. The full ABC was assumed to be removed for 2023 - 2032",
+             caption = "Projections of potential OFLs (mt), ABCs (mt), the buffer (ABC = buffer x OFL), estimated spawning biomass, and fraction unfished. The adopted OFL, ABC, and ACL for 2021 and 2022 reflect adopted management limits and the assumed removal is the removal assumptions applied for 2021 and 2022. The full ABC was assumed to be removed for 2023 - 2032",
              label = "project",
              align = 'l',
              landscape = TRUE,

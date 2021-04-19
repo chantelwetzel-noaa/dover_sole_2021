@@ -125,7 +125,6 @@ grid()
 dev.off()
 
 lens = 5.5:60.5
-
 ret = model$sizeselex[model$sizeselex$Fleet %in% c(1,2), ]
 ret = ret[ret$Factor == "Ret", ]
 col.vec = c("red", "blue", "orange2", "green", "purple", "darkgrey")
@@ -145,17 +144,15 @@ legend ("bottomright", legend = c("1911-1947", "1948-2010", "2011-2014", "2015-2
         col = col.vec[1:4], pch = 1:4,lty = 1, lwd = 2, bty = 'n')
 grid()
 
-plot(  lens, ret[ret$Fleet == 2 & ret$Sex == 1 & ret$Yr == 1979,  6:ncol(ret)], col = col.vec[1], type = 'l', 
+plot(lens, ret[ret$Fleet == 2 & ret$Sex == 1 & ret$Yr == 2001,  6:ncol(ret)], col = col.vec[2], type = 'l', 
 	ylim = c(0, 1.05), ylab = "Retention", xlab = "Length (cm)", main = "Oregon-Washington", lwd = 2)
-points(lens, ret[ret$Fleet == 2 & ret$Sex == 1 & ret$Yr == 1979,  6:ncol(ret)], col = col.vec[1], pch = 1)
-lines( lens, ret[ret$Fleet == 2 & ret$Sex == 1 & ret$Yr == 2001,  6:ncol(ret)], col = col.vec[2], lty = 1, lwd = 2)
-points(lens, ret[ret$Fleet == 2 & ret$Sex == 1 & ret$Yr == 2001,  6:ncol(ret)], col = col.vec[2], pch = 2)
+points(lens, ret[ret$Fleet == 2 & ret$Sex == 1 & ret$Yr == 2001,  6:ncol(ret)], col = col.vec[2], pch = 1)
 lines( lens, ret[ret$Fleet == 2 & ret$Sex == 1 & ret$Yr == 2010,  6:ncol(ret)], col = col.vec[3], lty = 1, lwd = 2)
-points(lens, ret[ret$Fleet == 2 & ret$Sex == 1 & ret$Yr == 2010,  6:ncol(ret)], col = col.vec[3], pch = 3)
+points(lens, ret[ret$Fleet == 2 & ret$Sex == 1 & ret$Yr == 2010,  6:ncol(ret)], col = col.vec[3], pch = 2)
 lines( lens, ret[ret$Fleet == 2 & ret$Sex == 1 & ret$Yr == 2011,  6:ncol(ret)], col = col.vec[4], lty = 1, lwd = 2)
-points(lens, ret[ret$Fleet == 2 & ret$Sex == 1 & ret$Yr == 2011,  6:ncol(ret)], col = col.vec[4], pch = 4)
-legend ("bottomright", legend = c("1911-1979", "1980-2001", "2002-2010", "2011-2020"),
-        col = col.vec[1:4], pch = 1:4,lty = 1, lwd = 2, bty = 'n')
+points(lens, ret[ret$Fleet == 2 & ret$Sex == 1 & ret$Yr == 2011,  6:ncol(ret)], col = col.vec[4], pch = 3)
+legend ("bottomright", legend = c("1911-2001", "2002-2010", "2011-2020"),
+        col = col.vec[2:4], pch = 1:3,lty = 1, lwd = 2, bty = 'n')
 grid()
 dev.off()
 
@@ -254,4 +251,18 @@ text(-119.5, 37, "California")
 text(-115.5, 32.1, "Mexico")
 #
 box()
+dev.off()
+
+
+##############################################################################
+# Prior Distributions
+##############################################################################
+value = seq(0, 1, 0.002)
+fem = dlnorm(value, meanlog = log(5.4/50), sdlog = 0.438)
+
+pngfun(wd = savedir, file = 'M_prior.png', h = 6)
+par(mfrow = c(1,1))
+plot(value, fem, type = 'l', col = 'black', lwd = 2, xlim = c(0, 0.40), ylim = c(0, 9.5),
+  xlab = "Natural Mortality", ylab = "", yaxs = 'i')
+abline(v = (5.4/50), lty = 2, col = 'black')
 dev.off()
