@@ -5,7 +5,7 @@
 
 library(r4ss)
 
-base_name = "5.9.9_selex_pin_slope_wcgbt_params"
+base_name = "7.0.1_base"
 
 dir = file.path("C:/Assessments/2021/dover_sole_2021/models")
 retro.folder = file.path("C:/Assessments/2021/dover_sole_2021/models",
@@ -41,8 +41,13 @@ mysummary <- SSsummarize(list(base, retro1, retro2, retro3, retro4, retro5,
                               retro6, retro7, retro8, retro9, retro10))#,
                               #retro11, retro12, retro13, retro14, retro15))
 # Create plots and save as png files
-SSplotComparisons(mysummary, endyrvec = rev(2010:2021), legendlabels = modelnames, 
-    plotdir = retro.folder, subplot = seq(2, 12, 2), legendloc = "topright", print = TRUE, pdf = FALSE)
+SSplotComparisons(mysummary, 
+                  endyrvec = rev(2010:2021), 
+                  legendlabels = modelnames, 
+                  plotdir = retro.folder, 
+                  subplot = c(2,4), 
+                  ylimAdj = 1.2,
+                  legendloc = "topright", print = TRUE, pdf = FALSE)
 SSplotComparisons(mysummary, endyrvec = rev(2010:2021), legendlabels = modelnames, 
     plotdir = retro.folder, legendloc = "bottomleft", subplot = c(10), print = TRUE, pdf = FALSE)
 
