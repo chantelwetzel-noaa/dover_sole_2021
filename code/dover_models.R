@@ -1180,3 +1180,28 @@ model = "7.0.1_base"
 new_base = SS_output(file.path(wd, model))
 SS_plots(new_base)
 SS_tune_comps(replist = new_base, option = "Francis", dir = file.path(wd, model))
+
+
+########################################################################################
+model = "7.0.1_base"
+base = SS_output(file.path(wd, model))
+model = "_sensitivities/7.0.1_base_wcgbt_marginals_est_bio"
+est = SS_output(file.path(wd, model))
+model = "_sensitivities/7.0.1_base_wcgbt_marginals_fix_bio"
+fix = SS_output(file.path(wd, model))
+SS_tune_comps(replist = est, option = "Francis", dir = file.path(wd, model))
+
+
+modelnames <- c("7.0.1 Base", "WCGBT Marginal Ages (Est. Bio.)", "WCGBT Marginal Ages (Fix Bio.)")
+mysummary <- SSsummarize(list(base, est, fix))
+SSplotComparisons(mysummary, 
+				  filenameprefix = "7.0.1_base_wcgbt_marginal_",
+				  ylimAdj  = 1.1,
+				  legendloc = 'topright', 
+				  legendlabels = modelnames, 	
+				  plotdir = file.path(wd, "_plots"),
+				  pdf = TRUE)
+
+
+
+
