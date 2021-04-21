@@ -8,12 +8,13 @@ Sensi_plot_dover <- function(model.summaries,
                           TRP.in = 0.25,
                           LRP.in = 0.125,
                           sensi_xlab = "Sensitivity scenarios",
-                          ylims.in = c(-1, 2, -1, 2, -1, 2, -1, 2, -1, 2, -1, 2),
+                          ylims.in = c(-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1),
                           plot.figs = c(1, 1, 1, 1, 1, 1),
                           sensi.type.breaks = NA,
                           anno.x = NA,
                           anno.y = NA,
-                          anno.lab = NA) {
+                          anno.lab = NA, 
+                          horizontal = FALSE) {
 # internal function
 gg_color_hue <- function(n) {
   hues <- seq(15, 375, length = n + 1)
@@ -26,32 +27,34 @@ num.likes <- dim(subset(model.summaries$likelihoods_by_fleet, model == 1))[1] # 
 if (missing(mod.names)) {
   mod.names <- paste("model ", 1:model.summaries$n)
 }
+
+# grab the survey likelihoods
 if (likelihood.out[1] == 1) {
   syrvlambda_index <- c(1:num.likes)[subset(model.summaries$likelihoods_by_fleet, model == 1)$Label == "Surv_lambda"]
   survey.lambda <- data.frame(rownames(t(model.summaries$likelihoods_by_fleet))[-1:-2], t(model.summaries$likelihoods_by_fleet[seq(3, dim(model.summaries$likelihoods_by_fleet)[1], num.likes), ][-1:-2]), "Survey_lambda")
-  
   syrvlike_index <- c(1:num.likes)[subset(model.summaries$likelihoods_by_fleet, model == 1)$Label == "Surv_like"]
   survey.like <- data.frame(rownames(t(model.summaries$likelihoods_by_fleet))[-1:-2], t(model.summaries$likelihoods_by_fleet[seq(syrvlike_index, dim(model.summaries$likelihoods_by_fleet)[1], num.likes), ][-1:-2]), "Survey_likelihood")
-}
-else {
+} else {
   survey.lambda <- survey.like <- data.frame(t(rep(NA, model.summaries$n + 2)))
 }
+
+# length likelihoods
 if (likelihood.out[2] == 1) {
   Ltlambda_index <- c(1:num.likes)[subset(model.summaries$likelihoods_by_fleet, model == 1)$Label == "Length_lambda"]
   Lt.lambda <- data.frame(rownames(t(model.summaries$likelihoods_by_fleet))[-1:-2], t(model.summaries$likelihoods_by_fleet[seq(Ltlambda_index, dim(model.summaries$likelihoods_by_fleet)[1], num.likes), ][-1:-2]), "Lt_lambda")
   Ltlike_index <- c(1:num.likes)[subset(model.summaries$likelihoods_by_fleet, model == 1)$Label == "Length_like"]
   Lt.like <- data.frame(rownames(t(model.summaries$likelihoods_by_fleet))[-1:-2], t(model.summaries$likelihoods_by_fleet[seq(Ltlike_index, dim(model.summaries$likelihoods_by_fleet)[1], num.likes), ][-1:-2]), "Lt_likelihood")
-}
-else {
+} else {
   Lt.lambda <- Lt.like <- data.frame(t(rep(NA, model.summaries$n + 2)))
 }
+
+# age likelihood
 if (likelihood.out[3] == 1) {
   Agelambda_index <- c(1:num.likes)[subset(model.summaries$likelihoods_by_fleet, model == 1)$Label == "Age_lambda"]
   Age.lambda <- data.frame(rownames(t(model.summaries$likelihoods_by_fleet))[-1:-2], t(model.summaries$likelihoods_by_fleet[seq(Agelambda_index, dim(model.summaries$likelihoods_by_fleet)[1], num.likes), ][-1:-2]), "Age_lambda")
   Agelike_index <- c(1:num.likes)[subset(model.summaries$likelihoods_by_fleet, model == 1)$Label == "Age_like"]
   Age.like <- data.frame(rownames(t(model.summaries$likelihoods_by_fleet))[-1:-2], t(model.summaries$likelihoods_by_fleet[seq(Agelike_index, dim(model.summaries$likelihoods_by_fleet)[1], num.likes), ][-1:-2]), "Age_likelihood")
-}
-else {
+} else {
   Age.lambda <- Age.like <- data.frame(t(rep(NA, model.summaries$n + 2)))
 }
 
@@ -74,7 +77,8 @@ if (any(model.summaries$nsexes == 1)) {
     model.summaries$quantsSD[model.summaries$quantsSD$Label == "Dead_Catch_SPR", 1] / 2,
     model.summaries$quantsSD[model.summaries$quantsSD$Label == "annF_SPR", 1]
   )
-}
+} # end single-sex check
+
 if (any(model.summaries$nsexes == 2)) {
   dev.quants <- rbind(
     model.summaries$quants[model.summaries$quants$Label == "SSB_Initial", 1:(dim(model.summaries$quants)[2] - 2)],
@@ -91,7 +95,8 @@ if (any(model.summaries$nsexes == 2)) {
     model.summaries$quantsSD[model.summaries$quantsSD$Label == "Dead_Catch_SPR", 1],
     model.summaries$quantsSD[model.summaries$quantsSD$Label == "annF_SPR", 1]
   )
-}
+} # end two-sex check
+
 dev.quants.labs <- data.frame(c("SB0", paste0("SSB_", current.year), paste0("Bratio_", current.year), "MSY_SPR", "F_SPR"), dev.quants, "Derived quantities")
 AICs <- 2 * model.summaries$npars + (2 * as.numeric(model.summaries$likelihoods[1, 1:model.summaries$n]))
 deltaAICs <- AICs - AICs[1]
@@ -147,9 +152,62 @@ if (any(is.na(anno.lab))) {
   anno.lab <- c("", "")
 }
 
+if (horizontal == TRUE) {
+  # RE plot
+  ggplot(Dev.quants.ggplot, aes(RE, .data$Model_num_plot)) +
+    geom_point(aes(shape = .data$Metric, color = .data$Metric), size = 3) +
+    geom_rect(aes(ymin = 1, ymax = model.summaries$n + 1, xmin = -CI_DQs_RE[1], xmax = CI_DQs_RE[1]), fill = NA, color = four.colors[1]) +
+    geom_rect(aes(ymin = 1, ymax = model.summaries$n + 1, xmin = -CI_DQs_RE[2], xmax = CI_DQs_RE[2]), fill = NA, color = four.colors[2]) +
+    geom_rect(aes(ymin = 1, ymax = model.summaries$n + 1, xmin = -CI_DQs_RE[3], xmax = CI_DQs_RE[3]), fill = NA, color = four.colors[3]) +
+    geom_rect(aes(ymin = 1, ymax = model.summaries$n + 1, xmin = -CI_DQs_RE[4], xmax = CI_DQs_RE[4]), fill = NA, color = four.colors[4]) +
+    geom_rect(aes(ymin = 1, ymax = model.summaries$n + 1, xmin = -CI_DQs_RE[5], xmax = CI_DQs_RE[5]), fill = NA, color = four.colors[5]) +
+    geom_vline(xintercept = c(TRP, LRP, 0), lty = c(2, 2, 1), color = c("darkgreen", "darkred", "gray")) +
+    scale_y_continuous(breaks = 2:(model.summaries$n), labels = unique(Dev.quants.ggplot$Model_name)) +
+    # scale_y_continuous(limits=ylims.in[1:2])+
+    coord_cartesian(xlim = ylims.in[1:2]) +
+    theme(
+      axis.text.y = element_text(size = 14, color = 1),
+      axis.text.x = element_text(size = 14, color = 1), 
+      legend.text.align = 0,
+      axis.title.x = element_text(size = 14),
+      legend.text = element_text(size = 15),
+      legend.title = element_text(size = 12),
+      panel.grid.minor = element_blank()
+    )  +
+    scale_shape_manual(
+      values = c(15:18, 12),
+      name = "",
+      labels = c(
+        expression(SB[0]),
+        as.expression(bquote("SB"[.(current.year)])),
+        bquote(frac(SB[.(current.year)], SB[0])),
+        expression(Yield['SPR=0.30']),
+        expression(F['SPR=0.30'])
+      )
+    ) +
+    scale_color_manual(
+      values = four.colors[1:5],
+      name = "",
+      labels = c(
+        expression(SB[0]),
+        as.expression(bquote("SB"[.(current.year)])),
+        bquote(frac(SB[.(current.year)], SB[0])),
+        expression(Yield['SPR=0.30']),
+        expression(F['SPR=0.30'])
+      )
+    ) +
+    labs(y = "", x = "Relative change") +
+    annotate("text", y = anno.x, x = anno.y, label = anno.lab, size = 5, col = 'grey10') +
+    annotate("text", y = c((model.summaries$n + 2), (model.summaries$n + 2)), 
+      x = c(TRP + 0.08, LRP - 0.08), label = c("TRP", "LRP"), size = c(5, 5), color = c("darkgreen", "darkred")) +
+    geom_hline(yintercept = c(sensi.type.breaks), lty = lty.in)
+  ggsave(file.path(dir, "Sensi_REplot_all_horizontal.png"), width = 12, height = 7)
+}
+
+if (horizontal == FALSE){
 pt.dodge <- 0.3
 if (plot.figs[1] == 1) {
-  # RE plot
+   # RE plot
   ggplot(Dev.quants.ggplot, aes(.data$Model_num_plot, RE)) +
     geom_point(aes(shape = .data$Metric, color = .data$Metric), position = position_dodge(pt.dodge)) +
     geom_rect(aes(xmin = 1, xmax = model.summaries$n + 1, ymin = -CI_DQs_RE[1], ymax = CI_DQs_RE[1]), fill = NA, color = four.colors[1]) +
@@ -672,6 +730,7 @@ if (plot.figs[6] == 1) {
     annotate("text", x = anno.x, y = anno.y, label = anno.lab) +
     geom_vline(xintercept = c(sensi.type.breaks), lty = lty.in)
   ggsave(file.path(dir, "Sensi_logREplot_FSPR.png"))
+}
 }
 
 }
