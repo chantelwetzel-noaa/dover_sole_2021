@@ -27,6 +27,7 @@ Pdata$area[Pdata$PACFIN_PORT_NAME %in% south_port] = "south"
 #  north  south 
 # 202427  24899 
 
+unique(Pdata[Pdata$SOURCE_AGID == "C","PACFIN_PORT_NAME"])
 
 ca_area = aggregate(lengthcm~fishyr+area, Pdata[Pdata$SOURCE_AGID == "C",], function(x) length(x))
 ca_dat = aggregate(lengthcm~fishyr+PACFIN_PORT_NAME,  Pdata[Pdata$SOURCE_AGID == "C",], function(x) length(x))
@@ -231,4 +232,101 @@ dev.off()
 
 pngfun(wd = file.path(comp_dir, "plots"), file = "CA_by_area_2_panel.png", w = 17, h = 20, pt = 12)
 grid.arrange(plot2, plot3, nrow = 2, ncol = 1)
+dev.off()
+
+###################################################################################################################
+
+data = Pdata 
+data$Port = data$PACFIN_PORT_NAME
+sub_data_ca = data[data$SOURCE_AGID == "C", ]
+
+sub_data_ca$Port = factor(sub_data_ca$Port, levels = c("NEWPORT B.",
+                        "TERMINAL I",
+                        "OXNARD",
+                        "S. BARBARA",
+                        "MORRO BAY","AVILA", 
+                        "BIG CREEK",
+                        "MOSS LNDG",
+                        "MONTEREY", 
+                        "SANTA CRUZ", 
+                        "PRINCETON",
+                        "SF",
+                        "BODEGA BAY",                        
+                        "FORT BRAGG", 
+                        "FIELDS LDG",
+                        "EUREKA",
+                        "CRESCENT") )
+
+sub_data_or = data[data$SOURCE_AGID == "O", ]
+sub_data_or$Port = factor(sub_data_or$Port, levels = c(
+                        "BROOKINGS",
+                        "ORFORD",
+                        "COOS BAY",
+                        "NEWPORT",
+                        "TLMK/GRBLD", 
+                        "ASTORIA") )
+
+sub_data_wa = data[data$SOURCE_AGID == "W", ]
+sub_data_wa$Port = factor(sub_data_wa$Port, levels = c(
+                        "WESTPORT",
+                        "ILWCO/CHNK",
+                        "LA PUSH",
+                        "NEAH BAY",
+                        "PT ANGELES", 
+                        "BELLINGHAM",
+                        "BLAINE") )
+
+gg_color_hue <- function(n) {
+  hues <- seq(15, 375, length = n + 1)
+  grDevices::hcl(h = hues, l = 65, c = 100)[1:n]
+}
+four.colors <- gg_color_hue(20)
+
+pngfun(wd = file.path(comp_dir, "plots"), file = "CA_length_port_ordered.png", w = 10, h = 7, pt = 12)
+ggplot(sub_data_ca, aes(y=lengthcm, x=fishyr, fill = Port)) + 
+    geom_bar(position="stack", stat="identity") + 
+    geom_col() +
+    scale_fill_manual(values = four.colors[1:17]) +
+    xlab("Year") + ylab("Number of Length Samples")
+dev.off()
+
+pngfun(wd = file.path(comp_dir, "plots"), file = "CA_age_port_ordered.png", w = 10, h = 7, pt = 12)
+ggplot(sub_data_ca, aes(y=Age, x=fishyr, fill = Port)) + 
+    geom_bar(position="stack", stat="identity") + 
+    geom_col() +
+    scale_fill_manual(values = c(four.colors[5:6], four.colors[8:9], four.colors[11:17])) +
+    xlab("Year") + ylab("Number of Age Samples")
+dev.off()
+
+
+pngfun(wd = file.path(comp_dir, "plots"), file = "OR_length_port_ordered.png", w = 10, h = 7, pt = 12)
+ggplot(sub_data_or, aes(y=lengthcm, x=fishyr, fill = Port)) + 
+    geom_bar(position="stack", stat="identity") + 
+    geom_col() +
+    scale_fill_manual(values = four.colors) +
+    xlab("Year") + ylab("Number of Length Samples")
+dev.off()
+
+pngfun(wd = file.path(comp_dir, "plots"), file = "OR_age_port_ordered.png", w = 10, h = 7, pt = 12)
+ggplot(sub_data_or, aes(y=Age, x=fishyr, fill = Port)) + 
+    geom_bar(position="stack", stat="identity") + 
+    geom_col() +
+    scale_fill_manual(values = four.colors) +
+    xlab("Year") + ylab("Number of Age Samples")
+dev.off()
+
+pngfun(wd = file.path(comp_dir, "plots"), file = "WA_length_port_ordered.png", w = 10, h = 7, pt = 12)
+ggplot(sub_data_wa[!is.na(sub_data_wa$Port),], aes(y=lengthcm, x=fishyr, fill = Port)) + 
+    geom_bar(position="stack", stat="identity") + 
+    geom_col() +
+    scale_fill_manual(values = four.colors) +
+    xlab("Year") + ylab("Number of Length Samples")
+dev.off()
+
+pngfun(wd = file.path(comp_dir, "plots"), file = "WA_age_port_ordered.png", w = 10, h = 7, pt = 12)
+ggplot(sub_data_wa[!is.na(sub_data_wa$Port),], aes(y=Age, x=fishyr, fill = Port)) + 
+    geom_bar(position="stack", stat="identity") + 
+    geom_col() +
+    scale_fill_manual(values = c(four.colors[1:2], four.colors[4:7])) +
+    xlab("Year") + ylab("Number of Age Samples")
 dev.off()
