@@ -50,8 +50,8 @@ mtext(side=2,line=1,outer=TRUE,'Discard fraction')
 dev.off()
 
 # discard without fits
-pngfun(wd = savedir, 'discard_data.png')
-par(mfcol=c(2,1),mar=c(2,2,2,1),oma=c(2,2,0,0)+.1)
+pngfun(wd = savedir, 'discard_data.png', w = 12, h = 7)
+par(mfcol=c(1,2),mar=c(2,2,2,1),oma=c(2,2,0,0)+.1)
 for(f in 1:2){
   SSplotDiscard(model, fleets=f,subplot=1,fleetnames=fleets, datplot = TRUE, ymax = 0.40)
 }
@@ -59,15 +59,23 @@ mtext(side=1,line=1,outer=TRUE,'Year')
 mtext(side=2,line=1,outer=TRUE,'Discard fraction')
 dev.off()
 
+# discard without fits
+pngfun(wd = savedir, 'discard_data.png')
+par(mfcol=c(1,2),mar=c(2,2,2,1),oma=c(2,2,0,0)+.1)
+for(f in 1:2){
+  SSplotDiscard(model, fleets=f,subplot=1,fleetnames=fleets, datplot = TRUE, ymax = 0.40)
+}
+mtext(side=1,line=1,outer=TRUE,'Year')
+mtext(side=2,line=1,outer=TRUE,'Discard fraction')
+dev.off()
 
- SSplotData(
-          replist = model, print = TRUE,
-          pwidth = 7, pheight = 7, punits = 'in',
-          ptsize = 10, res = 300, mainTitle = FALSE, cex.main = 1,
-          plotdir = savedir, margins = c(5.1, 2.1, 4.1, 10),
-          fleetnames = model$FleetNames, maxsize = 1.0
-        )
-
+SSplotData(
+         replist = model, print = TRUE,
+         pwidth = 7, pheight = 7, punits = 'in',
+         ptsize = 10, res = 300, mainTitle = FALSE, cex.main = 1,
+         plotdir = savedir, margins = c(5.1, 2.1, 4.1, 10),
+         fleetnames = model$FleetNames, maxsize = 1.0
+       )
 
 SS_fitbiasramp(model,  method="BFGS", twoplots=FALSE,
            transform = FALSE, print = TRUE, plotdir = savedir ,shownew = FALSE,
@@ -141,7 +149,7 @@ points(lens, ret[ret$Fleet == 1 & ret$Sex == 1 & ret$Yr == 2011,  6:ncol(ret)], 
 lines( lens, ret[ret$Fleet == 1 & ret$Sex == 1 & ret$Yr == 2015,  6:ncol(ret)], col = col.vec[4], lty = 1, lwd = 2)
 points(lens, ret[ret$Fleet == 1 & ret$Sex == 1 & ret$Yr == 2015,  6:ncol(ret)], col = col.vec[4], pch = 4)
 legend ("bottomright", legend = c("1911-1947", "1948-2010", "2011-2014", "2015-2020"),
-        col = col.vec[1:4], pch = 1:4,lty = 1, lwd = 2, bty = 'n')
+        col = col.vec[1:4], pch = 1:4,lty = 1, lwd = 2, bty = 'n', cex = 1.5)
 grid()
 
 plot(lens, ret[ret$Fleet == 2 & ret$Sex == 1 & ret$Yr == 2001,  6:ncol(ret)], col = col.vec[2], type = 'l', 
@@ -155,7 +163,6 @@ legend ("bottomright", legend = c("1911-2001", "2002-2010", "2011-2020"),
         col = col.vec[2:4], pch = 1:3,lty = 1, lwd = 2, bty = 'n')
 grid()
 dev.off()
-
 
 #################################################################################################################
 # Assessment History
@@ -266,3 +273,90 @@ plot(value, fem, type = 'l', col = 'black', lwd = 2, xlim = c(0, 0.40), ylim = c
   xlab = "Natural Mortality", ylab = "", yaxs = 'i')
 abline(v = (5.4/50), lty = 2, col = 'black')
 dev.off()
+
+##############################################################################
+# Composition Data By Year
+##############################################################################
+library(ggplot2)
+gg_color_hue <- function(n) {
+  hues <- seq(15, 375, length = n + 1)
+  grDevices::hcl(h = hues, l = 65, c = 100)[1:n]
+}
+colors <- gg_color_hue(20)
+
+loc = "//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/commercial_comps"
+len <- read.csv(file.path(loc, "forSS", "Com_Length_Samples_by_State_CALCOM.csv"))
+
+sub_len = data.frame(Year = rep(len[,1],3), 
+                     State = c(rep("CA", nrow(len)), rep("OR", nrow(len)), rep("WA", nrow(len))),
+                     Number = c(len[,3], len[,5], len[,7]))
+
+pngfun(wd = file.path(loc, "plots"), file = "Lengths_by_State.png", w = 9, h = 7, pt = 12)
+ggplot(sub_len, aes(fill = State, y = Number, x = Year)) + 
+    geom_bar(position="stack", stat="identity")+
+    coord_cartesian(ylim = c(0, 12000)) + 
+    theme(axis.text.y = element_text(size = 13, color = 1),
+          axis.text.x = element_text(size = 13, color = 1), 
+          legend.text.align = 0,
+          axis.title.x = element_text(size = 18),
+          axis.title.y = element_text(size = 18),
+          legend.text = element_text(size = 18),
+          legend.title = element_text(size = 18),
+          panel.grid.minor = element_blank())  +
+    xlab("Year") + ylab("Length Samples (#)")
+dev.off()
+
+len <- read.csv(file.path(loc, "forSS", "Com_Age_Samples_by_State_CALCOM.csv"))
+
+sub_age = data.frame(Year = rep(len[,1],3), 
+                     State = c(rep("CA", nrow(len)), rep("OR", nrow(len)), rep("WA", nrow(len))),
+                     Number = c(len[,3], len[,5], len[,7]))
+
+pngfun(wd = file.path(loc, "plots"), file = "Ages_by_State.png", w = 9, h = 7, pt = 12)
+ggplot(sub_age, aes(fill = State, y = Number, x = Year)) + 
+    geom_bar(position="stack", stat="identity")+
+    theme(axis.text.y = element_text(size = 13, color = 1),
+      axis.text.x = element_text(size = 13, color = 1), 
+      legend.text.align = 0,
+      axis.title.x = element_text(size = 18),
+      axis.title.y = element_text(size = 18),
+      legend.text = element_text(size = 18),
+      legend.title = element_text(size = 18),
+      panel.grid.minor = element_blank())  +
+    xlab("Year") + ylab("Age Samples (#)")
+dev.off()
+
+loc = "//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey/wcgbts"
+len <- read.csv(file.path(loc, "forSS", "nwfsc_wcgbts_length_samps.csv"))
+age <- read.csv(file.path(loc, "forSS", "nwfsc_wcgbts_age_samps.csv"))
+
+sub_len = data.frame(Year = len[,1], 
+                     Lengths = len[,3],
+                     Ages = age[,3])
+
+pngfun(wd = file.path(loc, "plots"), file = "WCGBTS_Lengths.png", w = 9, h = 7, pt = 12)
+ggplot(sub_len, aes(y = Lengths, x = Year)) + 
+    geom_bar(position="stack", stat="identity", fill = 'darkmagenta')+
+    theme(axis.text.y = element_text(size = 13),
+      axis.text.x = element_text(size = 13), 
+      legend.text.align = 0,
+      axis.title.x = element_text(size = 18),
+      axis.title.y = element_text(size = 18),
+      panel.grid.minor = element_blank())  +
+    xlab("Year") + ylab("Length Samples (#)")
+dev.off()
+
+pngfun(wd = file.path(loc, "plots"), file = "WCGBTS_Ages.png", w = 9, h = 7, pt = 12)
+ggplot(sub_len, aes(y = Ages, x = Year)) + 
+    geom_bar(position="stack", stat="identity", fill = 'cyan4')+
+    theme(axis.text.y = element_text(size = 13),
+      axis.text.x = element_text(size = 13), 
+      legend.text.align = 0,
+      axis.title.x = element_text(size = 18),
+      axis.title.y = element_text(size = 18),
+      panel.grid.minor = element_blank())  +
+    xlab("Year") + ylab("Age Samples (#)")
+dev.off()
+
+
+
