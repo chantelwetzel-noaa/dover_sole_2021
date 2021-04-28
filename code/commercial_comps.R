@@ -246,17 +246,26 @@ write.csv(samples,
 		  row.names = FALSE)
 ######################################################################################################
 ######################################################################################################
-
+library(plyr)
 library(HandyCode)
 data = Pdata
 
 table(data$state, is.na(data$DEPTH_AVG))
+table(data$fishyr, data$state, !is.na(data$DEPTH_AVG))
 # Depth on availabe for some Oregon and Washington (not all)
 
-table(data$state, data$SAMPLE_MONTH)
+by_month = table(data$state, data$SAMPLE_MONTH)
+prop_by_month = rbind(by_month[1,] / apply(by_month, 2, sum), 
+					  by_month[2,] / apply(by_month, 2, sum),
+					  by_month[3,] / apply(by_month, 2, sum))
+dimnames(prop_by_month)[[1]] = c("CA", "OR", "WA")
+
+sub_data = data[!is.na(data$DEPTH_AVG), ]
+sub_data$depth_bin = round_any(sub_data$DEPTH_AVG, 50, floor)
+table(sub_data$SAMPLE_MONTH, sub_data$depth_bin)
+boxplot(sub_data$depth_bin~sub_data$SAMPLE_MONTH)
+
 aggregate(lengthcm~state+SAMPLE_MONTH, data, quantile)
-
-
 boxplot(data$lengthcm~data$SAMPLE_MONTH)
 par(mfrow = c(3,1))
 boxplot(data$DEPTH_AVG~data$SAMPLE_MONTH)
