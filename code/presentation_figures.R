@@ -207,3 +207,223 @@ legend('topleft',
 title(ylab = "Landings + dead discards (mt)")
 dev.off()
 
+#################################################################################################
+library(HandyCode)
+library(r4ss)
+
+savedir = "C:/Assessments/2021/dover_sole_2021/write_up/figs"
+mydir = "C:/Assessments/2021/dover_sole_2021/models"
+
+base_name = "7.0.1_base"
+model = SS_output(file.path(mydir, base_name))
+
+
+SSplotComps(replist = model, subplots = 21, print = TRUE,
+            kind = "LEN", fleets = 1:2, fleetnames = c("CA", "OR/WA"),
+            pwidth = 12, pheight = 7, plotdir = savedir,
+            cex.main = 2, datonly = TRUE, showeffN = FALSE
+           )
+
+SSplotComps(replist = model, subplots = 21, print = TRUE,
+            kind = "LEN", fleets = 3:6,
+            pwidth = 12, pheight = 7, plotdir = savedir,
+            cex.main = 2, datonly = TRUE, showeffN = FALSE
+           )
+
+SSplotComps(replist = model, subplots = 21, print = TRUE,
+            kind = "AGE", fleets = 1:2, fleetnames = c("CA", "OR/WA"),
+            pwidth = 12, pheight = 7, plotdir = savedir,
+            cex.main = 2, datonly = TRUE, showeffN = FALSE
+           )
+
+SSplotComps(replist = model, subplots = 3, print = TRUE,
+            kind = "cond", fleets = 6, maxrows = 4, maxcols = 9,
+            maxrows2 = 4, maxcols2 = 9,
+            pwidth = 12, pheight = 7, plotdir = savedir,
+            cex.main = 2, datonly = TRUE, showeffN = FALSE
+           )
+
+no_est = SS_output("C:/Assessments/2021/dover_sole_2021/models/_sensitivities/7.0.1_base_gstage")
+SSplotComps(replist = no_est, subplots = 21, print = TRUE,
+            kind = "AGE", fleets = 6,
+            pwidth = 12, pheight = 7, plotdir = savedir,
+            cex.main = 2, datonly = TRUE, showeffN = FALSE
+           )
+
+
+#############################################################################################
+#  Selectivity
+#############################################################################################
+# Create selectivity plots
+fleets = model$FleetNames
+
+test <- SSplotSelex(model, fleets=1, fleetnames=fleets[1], subplot=1, year = c(1984, 1995, 2020))
+test$infotable$longname = c("CA (f): 1910-1984", "CA (m): 1910-1984", 
+              "CA (f): 1985-1995", "CA (m): 1985-1995", 
+              "CA (f): 1996 - 2020", "CA (m): 1996 - 2020")
+test$infotable$col <- rich.colors.short(8)[c(1,1)]
+test1 <- SSplotSelex(model, fleets=2, fleetnames=fleets[2], year = c(1984, 1995, 2020), subplot=1)
+test1$infotable$col <- "red"
+test1$infotable$longname = c("OR-WA (f): 1910-1984",   "OR-WA (m): 1910-1984", 
+               "OR-WA (f): 1985-1995",   "OR-WA (m): 1985-1995", 
+               "OR-WA (f): 1996 - 2020", "OR-WA (m): 1996 - 2020")
+test2 <- SSplotSelex(model, fleets=3, fleetnames=fleets[3], subplot=1)
+test2$infotable$col <- c("blue")#rich.colors.short(8)[c(4,6)]
+test2$infotable$longname = c("AFSC Slope (f)", "AFSC Slope (m)")
+test3 <- SSplotSelex(model, fleets=4, fleetnames=fleets[4], subplot=1)
+test3$infotable$col <- c("purple")
+test3$infotable$longname = c("Triennial (f)", "Triennial (m)")
+test4 <- SSplotSelex(model, fleets=5, fleetnames=fleets[5], subplot=1)
+test4$infotable$col <- c("green")
+test4$infotable$longname = c("NWFSC Slope (f)", "NWFSC Slope (m)")
+test5 <- SSplotSelex(model, subplot=1)
+test5$infotable = test5$infotable[test5$infotable$Fleet == 6, ]
+test5$infotable$col <- c("red")
+test5$infotable$longname = c("NWFSC WCGBT (f)", "NWFSC WCGBT (m)")
+
+
+test$infotable$col = rep(c("red", "blue"), 3)
+test1$infotable$col = rep(c("red", "blue"), 3)
+test$infotable$lwd = 2
+test1$infotable$lwd = 2
+
+pngfun(wd = savedir, 'selectivity_1_by_2_fishery.png', w = 14, h = 7)
+par(mfrow=c(1,2),mar=c(2,4,3,1))
+#SSplotSelex(mod1, fleets = 1:3, infotable = test$infotable, subplot = 1, showmain = FALSE, legendloc= 'topleft')
+SSplotSelex(model, fleets=1,  infotable=test$infotable, 
+  subplot=1, legendloc='topleft', showmain=FALSE, year = c(1980, 1995, 2020))
+grid()
+SSplotSelex(model, fleets=2, infotable=test1$infotable, 
+  subplot=1, legendloc='topleft',showmain=FALSE, year = c(1980, 1995, 2020))
+grid()
+dev.off() 
+
+pngfun(wd = savedir, 'selectivity_2_by_2_survey.png', w = 12, h = 7)
+par(mfrow=c(2, 2),mar=c(2,4,3,1))
+SSplotSelex(model, fleets=3, infotable=test2$infotable,subplot=1, 
+  legendloc='topleft',showmain=FALSE)
+grid()
+SSplotSelex(model, fleets=4, infotable=test3$infotable,subplot=1, 
+  legendloc='topleft',showmain=FALSE)
+grid()
+SSplotSelex(model, fleets=5, infotable=test4$infotable,subplot=1, 
+  legendloc='topleft',showmain=FALSE)
+grid()
+SSplotSelex(model, fleets=6, infotable=test5$infotable, subplot=1, 
+  legendloc='bottomright',showmain=FALSE)
+grid()
+dev.off()
+
+
+pngfun(wd = savedir, "dover_retention_1_by_2.png", w = 12, h = 7)
+par(mfrow = c(1,2))
+plot(  lens, ret[ret$Fleet == 1 & ret$Sex == 1 & ret$Yr == 1947,  6:ncol(ret)], col = col.vec[1], type = 'l', 
+  ylim = c(0, 1.05), ylab = "Retention", xlab = "Length (cm)", main = "California", 
+  cex.lab = 1.5, cex.axis = 1.25, cex.main = 2, lwd = 2)
+points(lens, ret[ret$Fleet == 1 & ret$Sex == 1 & ret$Yr == 1947,  6:ncol(ret)], col = col.vec[1], pch = 1)
+lines( lens, ret[ret$Fleet == 1 & ret$Sex == 1 & ret$Yr == 1948,  6:ncol(ret)], col = col.vec[2], lty = 1, lwd = 2)
+points(lens, ret[ret$Fleet == 1 & ret$Sex == 1 & ret$Yr == 1948,  6:ncol(ret)], col = col.vec[2], pch = 2)
+lines( lens, ret[ret$Fleet == 1 & ret$Sex == 1 & ret$Yr == 2011,  6:ncol(ret)], col = col.vec[3], lty = 1, lwd = 2)
+points(lens, ret[ret$Fleet == 1 & ret$Sex == 1 & ret$Yr == 2011,  6:ncol(ret)], col = col.vec[3], pch = 3)
+lines( lens, ret[ret$Fleet == 1 & ret$Sex == 1 & ret$Yr == 2015,  6:ncol(ret)], col = col.vec[4], lty = 1, lwd = 2)
+points(lens, ret[ret$Fleet == 1 & ret$Sex == 1 & ret$Yr == 2015,  6:ncol(ret)], col = col.vec[4], pch = 4)
+legend ("bottomright", legend = c("1911-1947", "1948-2010", "2011-2014", "2015-2020"),
+        col = col.vec[1:4], pch = 1:4,lty = 1, lwd = 2, bty = 'n', cex = 1.5)
+grid()
+
+plot(lens, ret[ret$Fleet == 2 & ret$Sex == 1 & ret$Yr == 2001,  6:ncol(ret)], col = col.vec[2], type = 'l', 
+  ylim = c(0, 1.05), ylab = "Retention", xlab = "Length (cm)", main = "Oregon-Washington", 
+  cex.lab = 1.5, cex.axis = 1.25, cex.main = 2, lwd = 2)
+points(lens, ret[ret$Fleet == 2 & ret$Sex == 1 & ret$Yr == 2001,  6:ncol(ret)], col = col.vec[2], pch = 1)
+lines( lens, ret[ret$Fleet == 2 & ret$Sex == 1 & ret$Yr == 2010,  6:ncol(ret)], col = col.vec[3], lty = 1, lwd = 2)
+points(lens, ret[ret$Fleet == 2 & ret$Sex == 1 & ret$Yr == 2010,  6:ncol(ret)], col = col.vec[3], pch = 2)
+lines( lens, ret[ret$Fleet == 2 & ret$Sex == 1 & ret$Yr == 2011,  6:ncol(ret)], col = col.vec[4], lty = 1, lwd = 2)
+points(lens, ret[ret$Fleet == 2 & ret$Sex == 1 & ret$Yr == 2011,  6:ncol(ret)], col = col.vec[4], pch = 3)
+legend ("bottomright", legend = c("1911-2001", "2002-2010", "2011-2020"),
+        col = col.vec[2:4], pch = 1:3,lty = 1, lwd = 2, bty = 'n', cex = 1.5)
+grid()
+dev.off()
+
+##############################################################################
+# Composition Data By Year
+##############################################################################
+library(ggplot2)
+gg_color_hue <- function(n) {
+  hues <- seq(15, 375, length = n + 1)
+  grDevices::hcl(h = hues, l = 65, c = 100)[1:n]
+}
+colors <- gg_color_hue(20)
+
+loc = "//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/commercial_comps"
+len <- read.csv(file.path(loc, "forSS", "Com_Length_Samples_by_State_CALCOM.csv"))
+
+sub_len = data.frame(Year = rep(len[,1],3), 
+                     State = c(rep("CA", nrow(len)), rep("OR", nrow(len)), rep("WA", nrow(len))),
+                     Number = c(len[,3], len[,5], len[,7]))
+
+pngfun(wd = file.path(loc, "plots"), file = "Lengths_by_State.png", w = 9, h = 7, pt = 12)
+ggplot(sub_len, aes(fill = State, y = Number, x = Year)) + 
+    geom_bar(position="stack", stat="identity")+
+    coord_cartesian(ylim = c(0, 12000)) + 
+    theme(axis.text.y = element_text(size = 13, color = 1),
+          axis.text.x = element_text(size = 13, color = 1), 
+          legend.text.align = 0,
+          axis.title.x = element_text(size = 18),
+          axis.title.y = element_text(size = 18),
+          legend.text = element_text(size = 18),
+          legend.title = element_text(size = 18),
+          panel.grid.minor = element_blank())  +
+    xlab("Year") + ylab("Length Samples (#)")
+dev.off()
+
+len <- read.csv(file.path(loc, "forSS", "Com_Age_Samples_by_State_CALCOM.csv"))
+
+sub_age = data.frame(Year = rep(len[,1],3), 
+                     State = c(rep("CA", nrow(len)), rep("OR", nrow(len)), rep("WA", nrow(len))),
+                     Number = c(len[,3], len[,5], len[,7]))
+
+pngfun(wd = file.path(loc, "plots"), file = "Ages_by_State.png", w = 9, h = 7, pt = 12)
+ggplot(sub_age, aes(fill = State, y = Number, x = Year)) + 
+    geom_bar(position="stack", stat="identity")+
+    theme(axis.text.y = element_text(size = 13, color = 1),
+      axis.text.x = element_text(size = 13, color = 1), 
+      legend.text.align = 0,
+      axis.title.x = element_text(size = 18),
+      axis.title.y = element_text(size = 18),
+      legend.text = element_text(size = 18),
+      legend.title = element_text(size = 18),
+      panel.grid.minor = element_blank())  +
+    xlab("Year") + ylab("Age Samples (#)")
+dev.off()
+
+loc = "//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey/wcgbts"
+len <- read.csv(file.path(loc, "forSS", "nwfsc_wcgbts_length_samps.csv"))
+age <- read.csv(file.path(loc, "forSS", "nwfsc_wcgbts_age_samps.csv"))
+
+sub_len = data.frame(Year = len[,1], 
+                     Lengths = len[,3],
+                     Ages = age[,3])
+
+pngfun(wd = file.path(loc, "plots"), file = "WCGBTS_Lengths.png", w = 9, h = 7, pt = 12)
+ggplot(sub_len, aes(y = Lengths, x = Year)) + 
+    geom_bar(position="stack", stat="identity", fill = 'darkmagenta')+
+    theme(axis.text.y = element_text(size = 13),
+      axis.text.x = element_text(size = 13), 
+      legend.text.align = 0,
+      axis.title.x = element_text(size = 18),
+      axis.title.y = element_text(size = 18),
+      panel.grid.minor = element_blank())  +
+    xlab("Year") + ylab("Length Samples (#)")
+dev.off()
+
+pngfun(wd = file.path(loc, "plots"), file = "WCGBTS_Ages.png", w = 9, h = 7, pt = 12)
+ggplot(sub_len, aes(y = Ages, x = Year)) + 
+    geom_bar(position="stack", stat="identity", fill = 'cyan4')+
+    theme(axis.text.y = element_text(size = 13),
+      axis.text.x = element_text(size = 13), 
+      legend.text.align = 0,
+      axis.title.x = element_text(size = 18),
+      axis.title.y = element_text(size = 18),
+      panel.grid.minor = element_blank())  +
+    xlab("Year") + ylab("Age Samples (#)")
+dev.off()

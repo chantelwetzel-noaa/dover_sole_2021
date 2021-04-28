@@ -7,7 +7,7 @@ library(r4ss)
 dat_loc = "//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey"
 mod_loc = "C:/Assessments/2021/dover_sole_2021/models"
 
-base_name = "5.7.1_dw_francis"
+base_name = "7.0.1_base"
 
 # Grab the design-based index
 wcgbt_db = read.csv(file.path(dat_loc, "wcgbts", "forSS", "nwfsc_wcgbts_design_based_indices.csv"), header = TRUE)
@@ -33,7 +33,7 @@ name = c("AFSC Slope", "Triennial", "NWFSC Slope", "NWFSC WCGBT")
 add = c(0.10, 0.50, 0.10, 0.2)
 
 png(file.path(dat_loc, 'plots', 'db_index_comparison.png'),
-    width = 12, height = 12, units='in', res=300, pointsize=10)
+    width = 12, height = 8, units='in', res=300, pointsize=10)
 par(mfrow=c(2,2))
 for(ind in c(2, 1, 3, 4)){
 	a = 2 + ind
@@ -52,7 +52,8 @@ for(ind in c(2, 1, 3, 4)){
 	years = z$Yr
 		
 	plot(0, type = 'n', xlim = range(years), ylim = c(0, 1.1 * max(c(hi2, db_hi))), 
-		xlab = "Year", ylab = "Index", yaxs = 'i', main = name[ind])
+		xlab = "Year", ylab = "Index", yaxs = 'i', main = name[ind],
+		cex = 1.5, cex.axis = 1.25, cex.lab = 1.5, cex.main = 1.5)
 	arrows(x0 = years, y0 = lo2, x1 = years, y1 = hi2, angle = 90, code = 3, length = 0.01, lwd = 2)
 	points(years, z$Obs, pch = 21, bg = 'white', cex = 1.2)
 
@@ -65,7 +66,7 @@ for(ind in c(2, 1, 3, 4)){
 	points(years + add[ind], x$Value / 1000, pch = 21, bg = 'white', cex = 1.2, col = 2)
 	if (ind == 2){
 		legend("topleft", legend=c( "VAST",  "Design-Based"), col = c(1, 2), 
-			lty = 1, bty='n', lwd = 2)
+			lty = 1, bty='n', lwd = 2, cex = 1.5)
 	}
 }
 dev.off()
@@ -90,7 +91,7 @@ name = c("AFSC Slope", "Triennial", "NWFSC Slope", "NWFSC WCGBT")
 add = c(0.10, 0.50, 0.10, 0.2)
 
 png(file.path(dat_loc, 'plots', '2011_index_comparison.png'),
-    width = 12, height = 12, units='in', res=300, pointsize=10)
+    width = 12, height = 8, units='in', res=300, pointsize=10)
 
 par(mfrow=c(2,2))
 for(ind in c(2, 1, 3, 4)){
@@ -107,8 +108,10 @@ for(ind in c(2, 1, 3, 4)){
 	years = z$Yr
 		
 	plot(0, type = 'n', xlim = range(years), ylim = c(0, 1.1 * max(c(hi2, hi))), 
-		xlab = "Year", ylab = "Index", yaxs = 'i', main = name[ind])
-	arrows(x0 = years, y0 = lo2, x1 = years, y1 = hi2, angle = 90, code = 3, length = 0.01, lwd = 2)
+		xlab = "Year", ylab = "Index", yaxs = 'i', main = name[ind], 
+		cex = 1.5, cex.axis = 1.25, cex.lab = 1.5, cex.main = 1.5)
+	arrows(x0 = years, y0 = lo2, x1 = years, y1 = hi2, angle = 90, code = 3, 
+		length = 0.01, lwd = 2)
 	points(years, z$Obs, pch = 21, bg = 'white', cex = 1.2)
 
 	arrows(x0 = years_y + add[ind], y0 = lo, x1 = years_y + add[ind], y1 = hi, angle = 90, 
@@ -117,9 +120,46 @@ for(ind in c(2, 1, 3, 4)){
 
 	if (ind == 2){
 		legend("topleft", legend=c( "2021",  "2011"), col = c(1, 2), 
-			lty = 1, bty='n', lwd = 2)
+			lty = 1, bty='n', lwd = 2, cex = 1.5)
 	}
 }
 dev.off()
 
+###########################################################################################
+# Calculate Proportions by Area
+###########################################################################################
 
+dat_loc = "//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey_indices"
+
+state_based = read.csv(file.path(dat_loc, "dover_sole", "data", "NWFSC.Combo_gamma", "Table_for_SS3.csv"))
+area_based = read.csv(file.path(dat_loc, "KFJ",  "WCGBTS_gamma", "Table_for_SS3.csv"))
+
+state_prop = data.frame(year = sort(unique(state_based$Year)),
+						ca = state_based[state_based$Fleet == "ca", "Estimate_metric_tons"] /  state_based[state_based$Fleet == "ca_or_wa", "Estimate_metric_tons"], 
+						or = state_based[state_based$Fleet == "or", "Estimate_metric_tons"] /  state_based[state_based$Fleet == "ca_or_wa", "Estimate_metric_tons"],
+						wa = state_based[state_based$Fleet == "wa", "Estimate_metric_tons"] /  state_based[state_based$Fleet == "ca_or_wa", "Estimate_metric_tons"])
+
+
+area_prop = data.frame(year = sort(unique(area_based$Year)),
+					   north = area_based[area_based$Fleet == "north", "Estimate_metric_tons"] /  area_based[area_based$Fleet == "north_south", "Estimate_metric_tons"], 
+					   south = area_based[area_based$Fleet == "south", "Estimate_metric_tons"] /  area_based[area_based$Fleet == "north_south", "Estimate_metric_tons"]
+						)
+
+
+fig_loc = "//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey"
+png(file.path(fig_loc, 'plots', 'Proportion_by_Area.png'),
+    width = 12, height = 8, units='in', res=300, pointsize=10)
+color = c('red', 'orange', 'blue')
+par(mfrow = c(1, 2))
+plot( state_prop$year, state_prop$ca, type = 'l', lwd = 2, col = color[1], ylim = c(0, 0.75), 
+	 xlab = "Year", ylab = "Proportion by State", cex.lab = 1.5, cex.axis = 1.5)
+lines(state_prop$year, state_prop$or, col = color[2], lwd = 2)
+lines(state_prop$year, state_prop$wa, col = color[3], lwd = 2)
+legend('bottomleft', bty = 'n', legend = c("CA", "OR", "WA"), col = color, lwd = 2, lty = 1, cex = 1.5)
+
+plot( area_prop$year, area_prop$north, type = 'l', lwd = 2, col = color[1], ylim = c(0, 0.75), 
+	 xlab = "Year", ylab = "Proportion by State", cex.lab = 1.5, cex.axis = 1.5)
+lines(area_prop$year, area_prop$south, col = color[2], lwd = 2)
+legend('bottomleft', bty = 'n', legend = c("North of Point Reyes", "South of Point Reyes"), 
+	col = color[1:2], lwd = 2, lty = 1, cex = 1.5)
+dev.off()
