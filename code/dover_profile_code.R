@@ -6,7 +6,7 @@ devtools::load_all("C:/Users/Chantel.Wetzel/Documents/GitHub/nwfscDiag")
 # Dover sole Profiling Script
 #######################################################################################################
 
-mydir = "C:/Assessments/2021/dover_sole_2021/models/_sensitivities"
+mydir = "C:/Assessments/2021/dover_sole_2021/models"
 base_name = "1.8_selex_dome_m"
 base_name = "0.0_updated_data_model_structure"
 base_name = "4.0.4_bio_rm_tri"
@@ -36,11 +36,11 @@ get = get_settings_profile( parameters =  c("NatM_p_1_Fem_GP_1", "SR_BH_steep", 
 							step_size = c(0.01, 0.10, 0.25, 0.05),
 							param_space = c('real', 'real', 'relative', 'real'))
 
-get = get_settings_profile( parameters =  c("NatM_p_1_Fem_GP_1", "NatM_p_1_Mal_GP_1"),
-							low =  c(0.06, 0.2),
-							high = c(0.14, 0.2),
-							step_size = c(0.01, 0.05),
-							param_space = c('real', 'real'))
+get = get_settings_profile( parameters =  c("NatM_p_1_Fem_GP_1"),
+							low =  c(0.06),
+							high = c(0.12),
+							step_size = c(0.01),
+							param_space = c('real'))
 
 get = get_settings_profile( parameters =  c("SR_LN(R0)", "NatM_p_1_Fem_GP_1", "SR_BH_steep"),
 							low =  c(-1.0, 0.07, 0.40),

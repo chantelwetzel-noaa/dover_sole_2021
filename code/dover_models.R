@@ -1202,6 +1202,72 @@ SSplotComparisons(mysummary,
 				  plotdir = file.path(wd, "_plots"),
 				  pdf = TRUE)
 
+########################################################################################
+model = "7.0.1_base"
+base = SS_output(file.path(wd, model))
+model = "_sensitivities/7.0.1_base_2011_wcgbt_selex"
+wcgbt_selex = SS_output(file.path(wd, model))
+model = "_sensitivities/7.0.1_base_2011_survey_select"
+survey_selex = SS_output(file.path(wd, model))
 
+modelnames <- c("7.0.1 Base", "2011 WCGBTS (DogLeg)", "2011 Survey Selectivity")
+mysummary <- SSsummarize(list(base, wcgbt_selex, survey_selex))
+SSplotComparisons(mysummary, 
+				  filenameprefix = "7.0.1_base_survey_selex_",
+				  ylimAdj  = 1.1,
+				  legendloc = 'topright', 
+				  legendlabels = modelnames, 	
+				  plotdir = file.path(wd, "_plots"),
+				  pdf = TRUE)
 
+###########################################################################################
+model = "7.0.0_base"
+fixed_m = SS_output(file.path(wd, model))
+model = "7.0.1_base"
+base = SS_output(file.path(wd, model))
+model = "_sensitivities/7.0.1_base_no_bio_offsets_est_m"
+no_offset_est_m = SS_output(file.path(wd, model))
+model = "_sensitivities/7.0.1_base_est_m"
+est_m = SS_output(file.path(wd, model))
+model = "_sensitivities/7.0.1_base_no_bio_offsets"
+no_offset = SS_output(file.path(wd, model))
 
+modelnames <- c("7.0.1 Base", "Fix M = 0.108 (both)", "Fix M (f), Est. M (m), No Offsets", 
+				"Est. M (both), Offsets", "Est. M (both), No Offsets")
+mysummary <- SSsummarize(list(base, fixed_m, no_offset, est_m, no_offset_est_m))
+SSplotComparisons(mysummary, 
+				  filenameprefix = "7.0.1_base_offset_m_",
+				  ylimAdj  = 1.25,
+				  legendloc = 'topright', 
+				  legendlabels = modelnames, 	
+				  plotdir = file.path(wd, "_sensitivities/_plots"),
+				   subplot = c(2,4), 
+                  print = TRUE, 
+                  pdf = FALSE)
+
+##############################################################################################
+model = "7.0.1_base"
+base = SS_output(file.path(wd, model))
+model = "_sensitivities/7.0.1_base_tri_full_split"
+tri = SS_output(file.path(wd, model))
+
+modelnames <- c("7.0.1 Base", "Full Triennial Split")
+mysummary <- SSsummarize(list(base, tri))
+SSplotComparisons(mysummary, 
+				  filenameprefix = "7.0.1_base_triennial_",
+				  ylimAdj  = 1.1,
+				  legendloc = 'topright', 
+				  legendlabels = modelnames, 
+				  subplot = 1:8, 	
+				  plotdir = file.path(wd, "_plots"),
+				  pdf = TRUE)
+
+modelnames <- c("7.0.1 Base", "2011 Survey Selectivity")
+mysummary <- SSsummarize(list(base, selex))
+SSplotComparisons(mysummary, 
+				  filenameprefix = "7.0.1_base_2011_survey_selex_",
+				  ylimAdj  = 1.1,
+				  legendloc = 'topright', 
+				  legendlabels = modelnames,  	
+				  plotdir = file.path(wd, "_plots"),
+				  pdf = TRUE)
