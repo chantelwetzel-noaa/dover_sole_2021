@@ -9,15 +9,16 @@ mydir = "C:/Assessments/2021/dover_sole_2021/models/_sensitivities"
 base_name = "5.9.2_data_pikitch"
 base_name = "6.3.5_data_bio_no_offsets"
 base_name = "7.0.1_base_no_bio_offsets"
+base_name = "7.0.1_base_2011_survey_select"
+base_name = "7.0.1_base_2011_survey_select_no_offset"
 para = "M"
 param = c("MGparm[1]", "MGparm[12]")
 offset = FALSE
 
 # Profile range for female M
 M_f <- seq(0.06, 0.16, 0.01)
-# Profile range for male M (in offset space)
 M_m <- seq(0.06, 0.16, 0.01)
-#M_m <- seq(0, 0.08, 0.01) #seq(0.08, 0.16, 0.01)
+#M_m <- seq(-0.3, 0.3, 0.05) #seq(0.08, 0.16, 0.01)
 # Create a grid of all possible combinations
 des <- expand.grid(M_f, M_m)
 names(des) <- c("M_female", "M_male")
@@ -136,7 +137,7 @@ z <- matrix(out$depletion,
 par(new = TRUE)
 contour(x, y, z, 
         levels=c(0.25, 0.35, 0.45, 0.55, 0.65, 0.75, 0.85, 0.95),
-        method = "edge", lwd = 2, labcex = 1.2, col = 'darkorchid4')
+        method = "edge", lwd = 2, col = 'darkorchid4')
 #points(0.108, 0.108, pch = 16, col = 'red')
 z <- matrix(out$diffNegLogLike,
             ncol = length(y),

@@ -6,7 +6,7 @@ devtools::load_all("C:/Users/Chantel.Wetzel/Documents/GitHub/nwfscDiag")
 # Dover sole Profiling Script
 #######################################################################################################
 
-mydir = "C:/Assessments/2021/dover_sole_2021/models"
+mydir = "C:/Assessments/2021/dover_sole_2021/models/_star_panel_requests/day_2_request_5"
 base_name = "1.8_selex_dome_m"
 base_name = "0.0_updated_data_model_structure"
 base_name = "4.0.4_bio_rm_tri"
@@ -37,9 +37,9 @@ get = get_settings_profile( parameters =  c("NatM_p_1_Fem_GP_1", "SR_BH_steep", 
 							param_space = c('real', 'real', 'relative', 'real'))
 
 get = get_settings_profile( parameters =  c("NatM_p_1_Fem_GP_1"),
-							low =  c(0.06),
-							high = c(0.12),
-							step_size = c(0.01),
+							low =  c(0.08),
+							high = c(0.14),
+							step_size = c(0.002),
 							param_space = c('real'))
 
 get = get_settings_profile( parameters =  c("SR_LN(R0)", "NatM_p_1_Fem_GP_1", "SR_BH_steep"),
@@ -63,6 +63,7 @@ model_settings = get_settings(settings = list(base_name = base_name,
 
 model_settings = get_settings(settings = list(base_name = base_name,
 											  run = "profile",
+											  prior_like = 1,
 											  profile_details = get))
 
 model_settings = get_settings(settings = list(base_name = base_name,

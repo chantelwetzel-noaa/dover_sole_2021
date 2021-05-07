@@ -303,10 +303,10 @@ par(mfrow=c(2, 2),mar=c(2,4,3,1))
 SSplotSelex(model, fleets=3, infotable=test2$infotable,subplot=1, 
   legendloc='topleft',showmain=FALSE)
 grid()
-SSplotSelex(model, fleets=4, infotable=test3$infotable,subplot=1, 
+SSplotSelex(model, fleets=5, infotable=test4$infotable,subplot=1, 
   legendloc='topleft',showmain=FALSE)
 grid()
-SSplotSelex(model, fleets=5, infotable=test4$infotable,subplot=1, 
+SSplotSelex(model, fleets=4, infotable=test3$infotable,subplot=1, 
   legendloc='topleft',showmain=FALSE)
 grid()
 SSplotSelex(model, fleets=6, infotable=test5$infotable, subplot=1, 

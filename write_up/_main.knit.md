@@ -1,6 +1,6 @@
 ---
 geometry: margin=1in
-month: "April"
+month: "May"
 year: "2021"
 preamble: |
 output: sa4ss::techreport_pdf
@@ -239,11 +239,15 @@ The model estimated uncertainty around the 2021 spawning biomass was $\sigma$ = 
 
 ## Harvest Projections and Decision Table{-}
 
-The forecast of stock abundance and yield was developed using the base model. The total catches in 2021 and 2022 were set at 10,000 mt for each year since removals over the last 10 years have been well below the ACLs. These values will be updated based on input provided by the \gls{pfmc} Groundfish Management Team (GMT) . The ACL values for 2021 and 2022 is 50,000 mt. The exploitation rate for 2023 and beyond is based upon an SPR of 30 percent and the 25:5 harvest control rule. The average exploitation rates, across recent years, by fleet were used to distribute catches during the forecast period. 
+The forecast of stock abundance and yield was developed using the base model. The total catches in 2021 and 2022 were set at 10,000 mt, well below the adopted 50,000 mt ACL for those year, based on recommendations from the Groundfish Management Team (GMT). These assumed removals are likely higher than what the true removals may be in 2021 and 2023 but have limited impact in the stock status and future removals during the projected perior in the base model. The exploitation rate for 2023 and beyond is based upon an SPR of 30 percent and the 25:5 harvest control rule. The average exploitation rates, across recent years, by fleet were used to distribute catches during the forecast period. The ABC values were estimated using a category 1 time-varying $\sigma_y$ starting at 0.50 combined with a P* value of 0.45. The catches during the projection period, 2023 - 2032 were set equal to the year-specific ABC using the current flatfish harvest control rule, 25:5 (Table \ref{tab:es-project}). 
 
-The ABC values were estimated using a category 1 time-varying $\sigma_y$ starting at 0.50 combined with a P* value of 0.45. The catches during the projection period, 2023 - 2032 were set equal to the year-specific ABC using the current flatfish harvest control rule, 25:5 (Table \ref{tab:es-project}). 
+The axes of uncertainty  in the decision table is based on the uncertainty around female natural mortality. Uncertainty in the forecasts is based upon the category 1 default uncertainty of $\sigma$ = 0.50. The default $\sigma$ value was used to identify the 12.5 and 87.5 percentiles of the asymptotic standard deviation for the current year, 2021, spawning biomass from the base model to identify the low and high states of nature (i.e., 1.15 standard deviations corresponding to the 12.5 and 87.5 percentiles). Once the 2021 spawning biomass for the low and high states of nature were identified a search across female natural mortality values were done to attain the current year spawning biomass values. The female natural mortality values that corresponded with the lower and upper percentiles were 0.084 yr^-1^ and 0.126 yr^-1^. 
 
-The axes of uncertainty and catch streams applied in the decision table will be determined during the  STAR panel. 
+Initial explorations were conducted using the model estimated uncertainty around 2021 spawning biomass of $\sigma$ = 0.17 rather than the higher default $\sigma$ value.  However, the range of the low and high states of nature relative to the base model were determined to not adequately capture uncertainty based on feedback received during the STAR panel review. The model estimated $\sigma$ around the 2021 spawning biomass only captures model uncertainty which is an underestimate of the true uncertainty around the stock size. Applying a higher $\sigma$ value allowed the low and high states of nature to capture a larger uncertainty which may be more in line with the cummlative model and structural uncertainty. It was noted that the low and high states of nature results in catchability values (low state of nature catchability = 2.0 and high state of nature catchability = 0.56) for the \gls{s-wcgbt} that were factors higher or lower than the base model catchability (1.072). Interpretting values of catchibility comes with inherent challenges due to changes in other key model parameters (e.g., selectivity). 
+
+Three alternative catch streams were created for the decision table. The first option uses ABC values based on a category 1 $\sigma_y$ starting at 0.50 and increasing annually combined with a P$^*$ value of 0.45. The two alternative catch streams assume fixed catch of either 7,000 or 20,000 mt for the 10 year projection period. All of these options assume full attainment of the catch values.  
+
+Across the low and high states of nature and across alternative future harvest scenarios the fraction of unfished ranges between 0.023 - 0.895 by the end of the 10 year projection period (Table \ref{tab:dec-tab}). The low state of nature assuming full ABC removals results in a nearly depleted stock at the end of the time series.  This is due to the assumption or removing the full ABC derived from the base model to the low state of nature which had an overall lower unfished spawning biomass associated with a low natural mortality value which results in a more depleted stock in 2021 relative to the base model.     
 
 \begingroup\fontsize{10}{12}\selectfont
 
@@ -280,6 +284,10 @@ Year & Adopted OFL (mt) & Adopted ABC (mt) & Adopted ACL (mt) & Assumed Removal 
 \endgroup{}
 \end{landscape}
 \endgroup{}
+
+\input{tex_tables/decision_table.tex}
+
+\clearpage
 
 ## Research and Data Needs{-}
 
@@ -532,7 +540,7 @@ where $A_{\text{max}}$ is the maximum age. The prior is defined as a lognormal d
 
 Estimates of maturity at length and age for Dover sole have been variable across historical studies.  Hagerman [-@hagerman_biology_1952] reported that 50 percent of 35 cm female Dover sole were mature with 100 percent maturity-at-length of 45 cm.  Yoklavich and Pikitch [-@yoklavich_reproductive_1989] reported a smaller size at 50 percent maturity.  Hunter et al. [-@hunter_fecundity_1992] reported that different collection times and methods of analysis resulted in different estimates of maturity at length and suggest that differences reported between Hagerman [-@hagerman_biology_1952] and Yoklavich and Pikitch [-@yoklavich_reproductive_1989] may have been due to these differences rather than changes in maturity.  Brodziak and Mikus [-@brodziak_variation_2000] found significant north-south differences in maturity curves derived for International North Pacific Fisheries Commission (INPFC) areas, with fish maturing at smaller sizes in the north.  Their estimate of length at 50 percent maturity was less than 34.3 cm, as reported by Hagerman [-@hagerman_biology_1952].
 
-The maturity-at-length assumed in this assessment was based on new Dover sole maturity reads conducted by Melissa Head (NWFSC, NOAA) examining a total of 428 samples collected by the \gls{s-wcgbt} survey. The 50 percent size-at-maturity was estimated at 32.8 cm and a slope of -0.28 with maturity asymptoting to 1.0 for larger fish. The shape of the new maturity-at-length curve and a comparison to the maturity curve used in the 2011 assessment is shown in Figure \ref{fig:compare-mat-at-len}. The new maturity-at-length curve was based on the estimate of functional maturity, an approach that classifies maturity with developing oocytes as mature or immature based on the proportion of vitellogenin in the cytoplasm and the measured frequency of atretic cells (Melissa Head, personal communication, NWFSC, NOAA). 
+The maturity-at-length assumed in this assessment was based on new Dover sole maturity reads conducted by Melissa Head (NWFSC, NOAA) examining a total of 428 from the \gls{s-wcgbt} (N = 309) and ODFW State sampling (N = 119). The 50 percent size-at-maturity was estimated at 32.8 cm and a slope of -0.28 with maturity asymptoting to 1.0 for larger fish. The shape of the new maturity-at-length curve and a comparison to the maturity curve used in the 2011 assessment is shown in Figure \ref{fig:compare-mat-at-len}. The new maturity-at-length curve was based on the estimate of functional maturity, an approach that classifies maturity with developing oocytes as mature or immature based on the proportion of vitellogenin in the cytoplasm and the measured frequency of atretic cells (Melissa Head, personal communication, NWFSC, NOAA). 
 
 Maturity-at-length was examined spatially splitting Dover sole samples into north and south of Point Reyes off the California coast (approximately $38^\circ 0^\prime$ N. lat.). The latitudinal split was selected prior to examining the data and in a somewhat arbitrary fashion, with the decision driven by the number of samples available by area and based on work by Tolimieri et al. [-@tolimieri_spatio-temporal_2020] which identified areas of high age-1 Dover sole density. Spatial difference in life history traits is commonly observed in groundfish species off the West Coast. The northern group had 334 maturity samples and the southern group had 94 maturity samples. The estimated length at 50 percent maturity was significantly different for fish in the north and south, with fish in the south maturing at larger sizes (39.84 cm) relative to fish in the north (31.23 cm, Figure \ref{fig:spat-mat-at-len}). These results are consistent in trend with those from Brodziak and Mikus [-@brodziak_variation_2000] who also determined that fish in the north appear to mature at smaller sizes relative to fish in the south. However, the measured variation in maturity-at-length by area in Brodziak and Mikus [-@brodziak_variation_2000] was less extreme (Coastwide: 33.4 cm, Vancouver: 28.2 cm, Columbia: 32.0 cm, Eureka: 34.6 cm, Monterrey: 35.3 cm) compared to the current estimates north and south of Point Reyes. Spatial estimates of biomass north and south of Point Reyes, using \gls{s-wcgbt} data averaged across the most recent five years, indicated that approximately 67 percent of the West Coast Dover sole biomass is estimated to be north of Point Reyes.
 
@@ -765,7 +773,7 @@ The selectivity of the \gls{s-tri} and the \gls{s-wcgbt} in the base model were 
 
 Retention curves were assumed to be asymptotic. The estimated curves for each commercial fleet based on the historical time blocks and discarded length composition data are shown in Figure \ref{fig:retention}. The earliest retention curve for California, 1911-1947, was fixed left skewed for full retention since the input catches for this period included estimates of discard mortality.  The retention curves for both commercial fleets since the start of the IFQ fishery have shifted leftward indicating very limited discarding of Dover sole. The model estimated coastwide discard and landings by fleet are shown in Figure \ref{fig:landings-discard}.
 
-The catchability for each of the surveys was analytically solved comparing observed to expected vulnerable biomass across all years.  The catchability for the \gls{s-tri} was 0.219 and 0.467 for the early and late periods, respectively.  The catchability for the \gls{s-aslope} and the \gls{s-nwslope} was 1.043 and 1.045, respectively. The \gls{s-wcgbt} catchability was 1.072. 
+The catchability for each of the surveys was analytically solved comparing observed to expected vulnerable biomass across all years.  The catchability for the \gls{s-tri} was 0.219 and 0.467 for the early and late periods, respectively.  The catchability for the \gls{s-aslope} and the \gls{s-nwslope} was  and , respectively. The \gls{s-wcgbt} catchability was 1.072. 
 
 Additional survey variability, process error added directly to each year's input standard deviation for the \gls{s-tri}, applied to both the early and late period of the survey, the \gls{s-aslope}, and the \gls{s-nwslope} was estimated within the model.  The model estimated a large added variance of 0.317 for the \gls{s-tri}.
 The added variance estimate for both of the slope surveys was similar at 0.042 and 0.044. No added variance was estimated for the \gls{s-wcgbt}.
@@ -928,11 +936,15 @@ Dover sole life history exhibit strong relationships with depth that indicate th
 
 ## Harvest Projections and Decision Tables
 
-The forecast of stock abundance and yield was developed using the base model. The total catches in 2021 and 2022 were set at 10,000 mt for each year since removals over the last 10 years have been well below the ACLs. These values will be updated based on input provided by the Groundfish Management Team (GMT) of the PFMC. The ACL values for 2021 and 2022 is 50,000 mt. The exploitation rate for 2023 and beyond is based upon an SPR of 30 percent and the 25:5 harvest control rule. The average exploitation rates, across recent years, by fleet were used to distribute catches during the forecast period. 
+The forecast of stock abundance and yield was developed using the base model. The total catches in 2021 and 2022 were set at 10,000 mt, well below the adopted 50,000 mt ACL for those year, based on recommendations from the Groundfish Management Team (GMT). These assumed removals are likely higher than what the true removals may be in 2021 and 2023 but have limited impact in the stock status and future removals during the projected perior in the base model. The exploitation rate for 2023 and beyond is based upon an SPR of 30 percent and the 25:5 harvest control rule. The average exploitation rates, across recent years, by fleet were used to distribute catches during the forecast period. The ABC values were estimated using a category 1 time-varying $\sigma_y$ starting at 0.50 combined with a P* value of 0.45. The catches during the projection period, 2023 - 2032 were set equal to the year-specific ABC using the current flatfish harvest control rule, 25:5 (Table \ref{tab:es-project}). 
 
-The Acceptable Biological Catch (ABC) values were estimated using a category 1 time-varying $\sigma_y$ starting at 0.50 combined with a P* value of 0.45. The catches during the projection period, 2023 - 2032 were set equal to the year-specific ABC using the current flatfish 25:5 harvest control rule (Table \ref{tab:project}). 
- 
-The axes of uncertainty and catch streams applied in the decision table will be determined during the  STAR panel. 
+The axes of uncertainty  in the decision table is based on the uncertainty around female natural mortality. Uncertainty in the forecasts is based upon the category 1 default uncertainty of $\sigma$ = 0.50. The default $\sigma$ value was used to identify the 12.5 and 87.5 percentiles of the asymptotic standard deviation for the current year, 2021, spawning biomass from the base model to identify the low and high states of nature (i.e., 1.15 standard deviations corresponding to the 12.5 and 87.5 percentiles). Once the 2021 spawning biomass for the low and high states of nature were identified a search across female natural mortality values were done to attain the current year spawning biomass values. The female natural mortality values that corresponded with the lower and upper percentiles were 0.084 yr^-1^ and 0.126 yr^-1^. 
+
+Initial explorations were conducted using the model estimated uncertainty around 2021 spawning biomass of $\sigma$ = 0.17 rather than the higher default $\sigma$ value.  However, the range of the low and high states of nature relative to the base model were determined to not adequately capture uncertainty based on feedback received during the STAR panel review. The model estimated $\sigma$ around the 2021 spawning biomass only captures model uncertainty which is an underestimate of the true uncertainty around the stock size. Applying a higher $\sigma$ value allowed the low and high states of nature to capture a larger uncertainty which may be more in line with the cummlative model and structural uncertainty. It was noted that the low and high states of nature results in catchability values (low state of nature catchability = 2.0 and high state of nature catchability = 0.56) for the \gls{s-wcgbt} that were factors higher or lower than the base model catchability (1.072). Interpretting values of catchibility comes with inherent challenges due to changes in other key model parameters (e.g., selectivity). 
+
+Three alternative catch streams were created for the decision table. The first option uses ABC values based on a category 1 $\sigma_y$ starting at 0.50 and increasing annually combined with a P$^*$ value of 0.45. The two alternative catch streams assume fixed catch of either 7,000 or 20,000 mt for the 10 year projection period. All of these options assume full attainment of the catch values.  
+
+Across the low and high states of nature and across alternative future harvest scenarios the fraction of unfished ranges between 0.023 - 0.895 by the end of the 10 year projection period (Table \ref{tab:dec-tab}). The low state of nature assuming full ABC removals results in a nearly depleted stock at the end of the time series.  This is due to the assumption or removing the full ABC derived from the base model to the low state of nature which had an overall lower unfished spawning biomass associated with a low natural mortality value which results in a more depleted stock in 2021 relative to the base model. 
 
 
 ## Evaluation of Scientific Uncertainty
@@ -1000,8 +1012,139 @@ The assessment was greatly improved through the streamlining of data processing 
 <!-- ======================================================= -->
 <!-- ***************    Catches      *********************** --> 
 <!-- ======================================================= -->
+\begingroup\fontsize{10}{12}\selectfont
+\begingroup\fontsize{10}{12}\selectfont
 
-\include{tex_tables/Catches_All_Years.tex}
+\begin{longtable}[t]{l>{\raggedright\arraybackslash}p{1.83cm}>{\raggedright\arraybackslash}p{1.83cm}>{\raggedright\arraybackslash}p{1.83cm}>{\raggedright\arraybackslash}p{1.83cm}>{\raggedright\arraybackslash}p{1.83cm}}
+\caption{(\#tab:allcatches)Removals (mt) by state, the summed landings across states (mt), and the estimated total mortality (mt) summed by year. Oregon and Washington were combined into a single fleet in the model}\\
+\toprule
+Year & California & Oregon & Washington & Landings & Est. Total Mortality\\
+\midrule
+\endfirsthead
+\caption[]{(\#tab:allcatches)Removals (mt) by state, the summed landings across states (mt), and the estimated total mortality (mt) summed by year. Oregon and Washington were combined into a single fleet in the model \textit{(continued)}}\\
+\toprule
+Year & California & Oregon & Washington & Landings & Est. Total Mortality\\
+\midrule
+\endhead
+
+\endfoot
+\bottomrule
+\endlastfoot
+1911 & 10 & 0 & 0 & 10 & 10\\
+1912 & 20 & 0 & 0 & 20 & 20\\
+1913 & 30 & 0 & 0 & 30 & 30\\
+1914 & 40 & 0 & 0 & 40 & 40\\
+1915 & 50 & 0 & 0 & 50 & 50\\
+1916 & 56 & 0 & 0 & 56 & 56\\
+1917 & 152 & 0 & 0 & 152 & 152\\
+1918 & 184 & 0 & 0 & 184 & 184\\
+1919 & 193 & 0 & 0 & 193 & 193\\
+1920 & 166 & 0 & 0 & 167 & 167\\
+1921 & 255 & 0 & 0 & 255 & 255\\
+1922 & 430 & 0 & 0 & 430 & 430\\
+1923 & 494 & 0 & 0 & 494 & 494\\
+1924 & 693 & 0 & 0 & 693 & 693\\
+1925 & 764 & 0 & 0 & 764 & 764\\
+1926 & 754 & 0 & 0 & 754 & 754\\
+1927 & 913 & 0 & 0 & 913 & 913\\
+1928 & 896 & 0 & 0 & 896 & 896\\
+1929 & 1020 & 1 & 0 & 1021 & 1021\\
+1930 & 952 & 1 & 0 & 953 & 953\\
+1931 & 820 & 1 & 0 & 821 & 821\\
+1932 & 775 & 10 & 0 & 785 & 786\\
+1933 & 724 & 5 & 0 & 729 & 730\\
+1934 & 768 & 3 & 0 & 770 & 771\\
+1935 & 785 & 5 & 95 & 886 & 895\\
+1936 & 719 & 19 & 244 & 982 & 1007\\
+1937 & 726 & 97 & 211 & 1034 & 1064\\
+1938 & 680 & 5 & 260 & 946 & 971\\
+1939 & 862 & 294 & 246 & 1401 & 1453\\
+1940 & 656 & 528 & 297 & 1480 & 1560\\
+1941 & 412 & 625 & 468 & 1505 & 1610\\
+1942 & 274 & 1037 & 501 & 1811 & 1959\\
+1943 & 409 & 2748 & 697 & 3854 & 4186\\
+1944 & 418 & 681 & 499 & 1598 & 1712\\
+1945 & 683 & 1176 & 501 & 2360 & 2522\\
+1946 & 945 & 1431 & 527 & 2903 & 3092\\
+1947 & 1104 & 910 & 434 & 2448 & 2578\\
+1948 & 1555 & 1398 & 639 & 3592 & 3935\\
+1949 & 2978 & 2034 & 514 & 5526 & 6054\\
+1950 & 3732 & 3338 & 484 & 7554 & 8277\\
+1951 & 3662 & 3866 & 379 & 7907 & 8664\\
+1952 & 4797 & 3747 & 553 & 9097 & 9966\\
+1953 & 3545 & 1601 & 421 & 5567 & 6098\\
+1954 & 3638 & 2408 & 741 & 6787 & 7435\\
+1955 & 3268 & 1659 & 1130 & 6057 & 6636\\
+1956 & 3286 & 1906 & 932 & 6125 & 6711\\
+1957 & 3159 & 2104 & 365 & 5629 & 6167\\
+1958 & 3136 & 2196 & 642 & 5974 & 6545\\
+1959 & 2784 & 2494 & 424 & 5702 & 6247\\
+1960 & 3620 & 2676 & 1092 & 7388 & 8095\\
+1961 & 3046 & 2367 & 717 & 6130 & 6716\\
+1962 & 3407 & 2649 & 733 & 6789 & 7439\\
+1963 & 3809 & 3213 & 969 & 7991 & 8756\\
+1964 & 3898 & 2807 & 546 & 7252 & 7946\\
+1965 & 4564 & 1757 & 497 & 6819 & 7470\\
+1966 & 4383 & 1925 & 314 & 6622 & 7254\\
+1967 & 3091 & 1902 & 227 & 5220 & 5720\\
+1968 & 3647 & 2101 & 492 & 6240 & 6837\\
+1969 & 5860 & 2622 & 461 & 8942 & 9797\\
+1970 & 6877 & 2591 & 597 & 10065 & 11026\\
+1971 & 6383 & 2633 & 394 & 9411 & 10310\\
+1972 & 10016 & 2728 & 370 & 13114 & 14366\\
+1973 & 10199 & 2076 & 384 & 12659 & 13867\\
+1974 & 8658 & 2579 & 441 & 11678 & 12793\\
+1975 & 10291 & 2071 & 428 & 12791 & 14012\\
+1976 & 10322 & 2296 & 1073 & 13691 & 15000\\
+1977 & 9944 & 1861 & 928 & 12734 & 13950\\
+1978 & 9421 & 3384 & 1422 & 14227 & 15589\\
+1979 & 10612 & 5065 & 2186 & 17863 & 19574\\
+1980 & 8232 & 4025 & 1990 & 14247 & 15612\\
+1981 & 9262 & 5250 & 1911 & 16423 & 17998\\
+1982 & 10054 & 8083 & 2804 & 20941 & 22952\\
+1983 & 8579 & 8454 & 3023 & 20057 & 21984\\
+1984 & 9781 & 6102 & 3415 & 19298 & 21151\\
+1985 & 12020 & 5691 & 2888 & 20599 & 22865\\
+1986 & 11052 & 4772 & 1525 & 17348 & 19248\\
+1987 & 10761 & 6057 & 1671 & 18489 & 20501\\
+1988 & 8197 & 7677 & 2310 & 18184 & 20156\\
+1989 & 7723 & 8908 & 2249 & 18880 & 20931\\
+1990 & 6320 & 7509 & 1925 & 15753 & 17474\\
+1991 & 7721 & 8813 & 1740 & 18273 & 20289\\
+1992 & 8643 & 6075 & 1356 & 16074 & 17877\\
+1993 & 6547 & 6483 & 1341 & 14371 & 16008\\
+1994 & 4488 & 3871 & 1030 & 9388 & 10470\\
+1995 & 6098 & 3535 & 959 & 10593 & 11823\\
+1996 & 6405 & 4688 & 1095 & 12187 & 13480\\
+1997 & 5309 & 3965 & 852 & 10125 & 11199\\
+1998 & 3584 & 3800 & 639 & 8023 & 8869\\
+1999 & 3826 & 4513 & 806 & 9145 & 10101\\
+2000 & 3315 & 4707 & 758 & 8780 & 9691\\
+2001 & 2441 & 3738 & 711 & 6890 & 7604\\
+2002 & 3126 & 2722 & 453 & 6301 & 6772\\
+2003 & 3245 & 3644 & 467 & 7356 & 7888\\
+2004 & 2389 & 3802 & 554 & 6745 & 7204\\
+2005 & 2206 & 3973 & 723 & 6902 & 7360\\
+2006 & 1743 & 3526 & 701 & 5970 & 6354\\
+2007 & 2761 & 5555 & 963 & 9279 & 9869\\
+2008 & 3004 & 7265 & 957 & 11227 & 11909\\
+2009 & 3163 & 7457 & 1127 & 11747 & 12451\\
+2010 & 2620 & 6885 & 886 & 10392 & 10999\\
+2011 & 2401 & 4741 & 641 & 7782 & 7893\\
+2012 & 2161 & 4450 & 717 & 7328 & 7430\\
+2013 & 2218 & 5146 & 606 & 7970 & 8078\\
+2014 & 1955 & 4242 & 252 & 6449 & 6543\\
+2015 & 1893 & 4174 & 260 & 6327 & 6354\\
+2016 & 1808 & 5164 & 346 & 7318 & 7350\\
+2017 & 2197 & 5203 & 492 & 7892 & 7925\\
+2018 & 1640 & 4372 & 409 & 6421 & 6447\\
+2019 & 1397 & 4067 & 303 & 5767 & 5790\\
+2020 & 1617 & 3033 & 38 & 4688 & 4707\\*
+\end{longtable}
+\endgroup{}
+\endgroup{}
+
+\newpage
 
 \newpage
 
@@ -1065,13 +1208,11 @@ Year & OFL & ABC & ACL & Landings & Est. Total Mortality\\
 
 \include{tex_tables/index_table.tex}
 
-
 \include{tex_tables/nwfsc_wgbts_strata.tex}
 
 \include{tex_tables/nwfsc_wcgbts_length_samps.tex}
 
 \include{tex_tables/nwfsc_wcgbts_age_samps.tex}
-
 
 <!-- ======================================================= -->
 <!-- *************** Triennial  Data *********************** --> 
@@ -1794,7 +1935,7 @@ Year & Adopted OFL (mt) & Adopted ABC (mt) & Adopted ACL (mt) & Assumed Removal 
 <!-- ======================================================= -->  
 
 
-![Comparison of the maturity-at-length assumed in the 2011 assessment and the new estimate used in the base model.\label{fig:compare-mat-at-len}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/biology/plots/Maturity_Comparison.png){width=100% height=100% alt="Comparison of the maturity-at-length assumed in the 2011 assessment and the new estimate used in the base model."}
+![Comparison of the maturity-at-length assumed in the 2011 assessment and the new estimate used in the base model where the vertical dashed lines indicates length-at-50-percent-maturity associated with each estimate.\label{fig:compare-mat-at-len}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/biology/plots/Maturity_Comparison.png){width=100% height=100% alt="Comparison of the maturity-at-length assumed in the 2011 assessment and the new estimate used in the base model where the vertical dashed lines indicates length-at-50-percent-maturity associated with each estimate."}
 
 
 ![Comparison of the maturity-at-length between fish sample north (N = 334) and south of Point Reyes (N = 94) where dashed vertical lines indicate the length-at-50-percent maturity associated with each estimate.\label{fig:spat-mat-at-len}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/biology/plots/Maturity_by_Area.png){width=100% height=100% alt="Comparison of the maturity-at-length between fish sample north (N = 334) and south of Point Reyes (N = 94) where dashed vertical lines indicate the length-at-50-percent maturity associated with each estimate."}

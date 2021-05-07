@@ -1250,9 +1250,13 @@ model = "7.0.1_base"
 base = SS_output(file.path(wd, model))
 model = "_sensitivities/7.0.1_base_tri_full_split"
 tri = SS_output(file.path(wd, model))
+model = "_sensitivities/7.0.1_base_tri_rm_2004"
+tri_2004 = SS_output(file.path(wd, model))
+model = "_sensitivities/7.0.1_base_tri_late_tweedie"
+tri_tweedie = SS_output(file.path(wd, model))
 
-modelnames <- c("7.0.1 Base", "Full Triennial Split")
-mysummary <- SSsummarize(list(base, tri))
+modelnames <- c("7.0.1 Base", "Full Triennial Split", "Trienial -2004", "Triennial Late Tweedie")
+mysummary <- SSsummarize(list(base, tri, tri_2004, tri_tweedie))
 SSplotComparisons(mysummary, 
 				  filenameprefix = "7.0.1_base_triennial_",
 				  ylimAdj  = 1.1,
@@ -1262,6 +1266,7 @@ SSplotComparisons(mysummary,
 				  plotdir = file.path(wd, "_plots"),
 				  pdf = TRUE)
 
+##############################################################################################
 modelnames <- c("7.0.1 Base", "2011 Survey Selectivity")
 mysummary <- SSsummarize(list(base, selex))
 SSplotComparisons(mysummary, 
@@ -1269,5 +1274,115 @@ SSplotComparisons(mysummary,
 				  ylimAdj  = 1.1,
 				  legendloc = 'topright', 
 				  legendlabels = modelnames,  	
+				  plotdir = file.path(wd, "_plots"),
+				  pdf = TRUE)
+
+##############################################################################################
+model = "7.0.1_base"
+base = SS_output(file.path(wd, model))
+model = "7.0.1_base_decision_table_0.125"
+low = SS_output(file.path(wd, model))
+model = "7.0.1_base_decision_table_0.875"
+hi = SS_output(file.path(wd, model))
+
+modelnames <- c("7.0.1 Base", "Low State of Nature", "High State of Nature")
+mysummary <- SSsummarize(list(base, low, hi))
+SSplotComparisons(mysummary, 
+				  filenameprefix = "7.0.1_base_decision_table_test_",
+				  ylimAdj  = 1.1,
+				  legendloc = 'topright', 
+				  legendlabels = modelnames, 
+				  plotdir = file.path(wd, "_plots"),
+				  pdf = TRUE)
+
+##############################################################################################
+model = "7.0.1_base"
+base = SS_output(file.path(wd, model))
+model = "_sensitivities/7.0.1_base_discard_se"
+discard_se = SS_output(file.path(wd, model))
+model = "_sensitivities/7.0.1_base_discard_se_0.05"
+discard_se_5 = SS_output(file.path(wd, model))
+model = "_sensitivities/7.0.1_base_discard_hh_lengths"
+hh = SS_output(file.path(wd, model))
+
+modelnames <- c("7.0.1 Base", "Added Discard Variance = 0.10", 
+				"Added Discard Variance = 0.05", "Hermann & Harry Discard Block")
+mysummary <- SSsummarize(list(base, discard_se, discard_se_5, hh))
+SSplotComparisons(mysummary, 
+				  filenameprefix = "7.0.1_base_discard_",
+				  ylimAdj  = 1.1,
+				  legendloc = 'topright', 
+				  legendlabels = modelnames, 
+				  plotdir = file.path(wd, "_plots"),
+				  pdf = TRUE)
+
+#############################################################################################
+
+model = "_sensitivities/7.0.1_base_2011_survey_select_no_offset"
+selex_no_offset = SS_output(file.path(wd, model))
+
+model = "_sensitivities/7.0.1_base_no_bio_offsets_est_m"
+base_no_offsets_est_m = SS_output(file.path(wd, model))
+
+
+model = "_sensitivities/7.0.1_base_wcgbt_asym"
+asym = SS_output(file.path(wd, model))
+
+
+##############################################################################################
+model = "7.0.1_base"
+base = SS_output(file.path(wd, model))
+model = "_bridging/3.0_final_2021_data"
+full_data_bridge = SS_output(file.path(wd, model))
+SS_tune_comps(replist = full_data_bridge, option = "Francis", dir = file.path(wd, model))
+model = "_bridging/3.0_final_2021_data_retro_10"
+bridge_retro = SS_output(file.path(wd, model))
+model = "_bridging/3.0_final_2021_data_dw"
+full_data_bridge_dw = SS_output(file.path(wd, model))
+
+
+modelnames <- c("7.0.1 Base", "Final Data Bridge", 
+				"Final Data Bridge w/ DW", "Final Data Bridge Retro -10")
+mysummary <- SSsummarize(list(base, full_data_bridge, full_data_bridge_dw, bridge_retro))
+SSplotComparisons(mysummary, 
+				  filenameprefix = "7.0.1_data_bridge_",
+				  ylimAdj  = 1.1,
+				  endyrvec = c(2021, 2021, 2021, 2011),
+				  legendloc = 'topright', 
+				  legendlabels = modelnames, 
+				  plotdir = file.path(wd, "_plots"),
+				  pdf = TRUE)
+
+##############################################################################################
+model = "7.0.1_base"
+base = SS_output(file.path(wd, model))
+
+model = "_sensitivities/7.0.1_base_tri_late_tweedie"
+tri = SS_output(file.path(wd, model))
+
+modelnames <- c("7.0.1 Base", "Triennial Late - Tweedie")
+mysummary <- SSsummarize(list(base, tri))
+SSplotComparisons(mysummary, 
+				  filenameprefix = "7.0.1_triennial_tweedie_",
+				  ylimAdj  = 1.1,
+				  legendloc = 'topright', 
+				  legendlabels = modelnames, 
+				  plotdir = file.path(wd, "_plots"),
+				  pdf = TRUE)
+
+##############################################################################################
+model = "7.0.1_base"
+base = SS_output(file.path(wd, model))
+model = "_sensitivities/7.0.1_base_wcgbt_selex_males"
+wcgbt_males = SS_output(file.path(wd, model))
+SS_plots(wcgbt_males, plot = 2)
+
+modelnames <- c("7.0.1 Base", "WCGBTS Males Asymptotic Selex")
+mysummary <- SSsummarize(list(base, wcgbt_males))
+SSplotComparisons(mysummary, 
+				  filenameprefix = "7.0.1_base_wcgbt_",
+				  ylimAdj  = 1.1,
+				  legendloc = 'topright', 
+				  legendlabels = modelnames, 
 				  plotdir = file.path(wd, "_plots"),
 				  pdf = TRUE)
