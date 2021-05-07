@@ -40,10 +40,10 @@ kableExtra::save_kable(t,
 names =  unique(model$cpue[,"Fleet_name"])
 survey.list = list()
 for(i in 1:length(names)){
-  grab = model$cpue[model$cpue$Fleet_name == names[i], c("Obs", "SE") ]
+  grab = model$cpue[model$cpue$Fleet_name == names[i], c("Obs", "SE_input") ]
   survey.list[[i]] = grab
   rownames(survey.list[[i]]) = model$cpue[model$cpue$Fleet_name == names[i], "Yr" ]
-  colnames(survey.list[[i]]) = c("Obs", "SE")
+  colnames(survey.list[[i]]) = c("Obs", "SE_input")
 }
 names(survey.list) = names
 Rows = unique(unlist(lapply(survey.list, rownames)))
@@ -59,16 +59,15 @@ for(i in seq_along(survey.list)){
   mat.names = c(mat.names, "Obs", "SE")
 }
 index_summary = cbind(rownames(index_summary), index_summary)
-colnames(index_summary)[1] = "Year"
 rownames(index_summary) = NULL
+colnames(index_summary) = c("Year", mat.names)
 
 t = table_format(x = index_summary,
 			 repeat_header = TRUE,
 			 header_grouping = c("", "AFSC Slope" = 2, "Triennial" = 2, "NWFSC Slope" = 2, "NWFSC WCGBT" = 2),
-             caption = "Summary of the fishery-independent biomass/abundance time series used in the stock assessment.
-             The standard error includes the input annual standard error and model estimated added variance.",
-             label = "indices",
-             align = 'l')
+       caption = "Summary of the fishery-independent biomass/abundance time series observartions (Obs.) and input standard error (SE) used in the stock assessment.",
+       label = "indices",
+       align = 'l')
 
 kableExtra::save_kable(t,
 					   file = file.path(save_loc, paste0('index_table.tex')))
@@ -137,4 +136,27 @@ t = table_format(x = tab,
 kableExtra::save_kable(t,
 					   file = file.path(save_loc, paste0('nwfsc-db-index.tex')))
 
+#################################################################################################
+# Decision Table
+#################################################################################################
+round_df <- function(df, digits) {
+      nums <- vapply(df, is.numeric, FUN.VALUE = logical(1))
+    df[,nums] <- round(df[,nums], digits = digits)
+    (df)
+  }
 
+dec_dir = "C:/Assessments/2021/dover_sole_2021/models/_decision_tables"
+
+dt = read.csv(file.path(dec_dir, "decision_table_v2.csv"), check.names = FALSE)
+col_names = c(" ", "Year", "Catch", rep(c("Spawning Biomass", "Fraction Unfished"),3))
+
+t = table_format(x = round_df(df = data.frame(dt), digits = 3),
+       repeat_header = TRUE,
+       header_grouping = c(" " = 3, "M = 0.084" = 2, "M = 0.108" = 2, "M = 0.126" = 2),
+       caption = "Decision table summary of 10 year projections beginning in 2023 for alternative states of nature based on an axis of uncertainty around female natural mortality for the base model. Columns range over low, mid, and high states of nature and rows range over different catch level assumptions. Values in italics indicate years where the stock size prevented the full catch removals.",
+       label = "dec-tab",
+       col_names = col_names,
+       align = 'l')
+
+kableExtra::save_kable(t,
+             file = file.path(save_loc, paste0('decision_table.tex')))
