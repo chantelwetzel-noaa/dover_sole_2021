@@ -5,8 +5,33 @@
 <!-- ======================================================= -->
 <!-- ***************    Catches      *********************** --> 
 <!-- ======================================================= -->
+```{r, results = 'asis'}
 
-\include{tex_tables/Catches_All_Years.tex}
+catch = read.csv("//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/catches/forSS/commercial_catch_by_state.csv")
+
+years = startyr:endyr
+nfleets = 2
+dead = est.dead =  0
+for (i in 1:nfleets){
+  name = paste0("dead(B):_",i)
+  est.dead = model$timeseries[model$timeseries$Yr %in% years, name]
+  dead = cbind(dead, est.dead)
+}
+total.dead  <- round(apply(dead, 1, sum), 0)
+tot = round(apply(catch[,2:4], 1, sum),0)
+out = cbind(catch, tot, total.dead)
+
+col_names = c("Year", "California", "Oregon", "Washington", "Landings", "Est. Total Mortality")
+
+table_format(x = out,
+             caption = "Removals (mt) by state, the summed landings across states (mt), and the estimated total mortality (mt) summed by year. Oregon and Washington were combined into a single fleet in the model",
+             label = "allcatches",
+             digits = 0,
+             align = 'l',
+             col_names = col_names)
+```
+
+\newpage
 
 \newpage
 
@@ -67,13 +92,11 @@ table_format(x = out,
 
 \include{tex_tables/index_table.tex}
 
-
 \include{tex_tables/nwfsc_wgbts_strata.tex}
 
 \include{tex_tables/nwfsc_wcgbts_length_samps.tex}
 
 \include{tex_tables/nwfsc_wcgbts_age_samps.tex}
-
 
 <!-- ======================================================= -->
 <!-- *************** Triennial  Data *********************** --> 
