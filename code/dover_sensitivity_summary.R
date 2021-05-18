@@ -289,10 +289,10 @@ file = file.path("C:/Users/Aaron.Berger/Documents/GitHub/dover_sole_2021/write_u
 #--------------------------------------------------
 #data sensitivity aggregate figures
 dir.create(paste0(wd,"/Data_figures"))
-wd_dat <- file.path(paste0(wd,"/Data_figures")) 
+wd_dat <- file.path(paste0(wd,"/_Data_figures")) 
 Sensi_plot_dover(model.summaries=x,
               dir = wd_dat,
-              current.year=2020,
+              current.year=2021,
               mod.names=modelnames, #List the names of the sensitivity runs
               likelihood.out = c(1, 1, 1),
               Sensi.RE.out="Sensi_RE_out.DMP", #Saved file of relative errors
@@ -300,7 +300,7 @@ Sensi_plot_dover(model.summaries=x,
               TRP.in=0.25, #Target relative abundance value
               LRP.in=0.125, #Limit relative abundance value
               sensi_xlab="Sensitivity scenarios", #X-axis label
-              ylims.in=c(-1,2,-1,2,-1,2,-1,2,-1,2,-1,2), #Y-axis label
+              ylims.in=c(-1,1,-1,1,-1,1,-1,1,-1,1,-1,1), #Y-axis label
               plot.figs=c(1,1,1,1,1,1), #Which plots to make/save? 
               sensi.type.breaks=c(7.5,11.5), #vertical breaks that can separate out types of sensitivities
               anno.x=c(4.5,9.5,13.5), # Vertical positioning of the sensitivity types labels
@@ -410,10 +410,10 @@ file = file.path(out.dir, "sensitivities2_crw.tex"))
 #--------------------------------------------------
 #model sensitivity aggregate figures
 dir.create(paste0(wd,"/Model_figures"))
-wd_mod <- file.path(paste0(wd,"/Model_figures")) 
+wd_mod <- file.path(paste0(wd,"/_Model_figures")) 
 Sensi_plot_dover(model.summaries=x,
               dir = wd_mod,
-              current.year=2020,
+              current.year=2021,
               mod.names=modelnames2, #List the names of the sensitivity runs
               likelihood.out = c(1, 1, 1),
               Sensi.RE.out="Sensi_RE_out.DMP", #Saved file of relative errors

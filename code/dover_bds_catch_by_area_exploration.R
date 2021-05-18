@@ -237,7 +237,10 @@ dev.off()
 ###################################################################################################################
 
 data = Pdata 
+data$length_count = ifelse(!is.na(data$lengthcm),1,0)
+data$age_count = ifelse(!is.na(data$Age),1,0)
 data$Port = data$PACFIN_PORT_NAME
+data$Port[is.na(data$Port)] = "UNKNOWN"
 sub_data_ca = data[data$SOURCE_AGID == "C", ]
 
 sub_data_ca$Port = factor(sub_data_ca$Port, levels = c("NEWPORT B.",
@@ -274,7 +277,8 @@ sub_data_wa$Port = factor(sub_data_wa$Port, levels = c(
                         "NEAH BAY",
                         "PT ANGELES", 
                         "BELLINGHAM",
-                        "BLAINE") )
+                        "BLAINE",
+                        "UNKNOWN") )
 
 gg_color_hue <- function(n) {
   hues <- seq(15, 375, length = n + 1)
@@ -282,51 +286,61 @@ gg_color_hue <- function(n) {
 }
 four.colors <- gg_color_hue(20)
 
+#ca_data <- tibble(fishyr = sub_data_ca$fishyr,
+#               Port=sub_data_ca$Port,
+#               lengthcm=ifelse(!is.na(sub_data_ca$lengthcm),1,0),
+#               Age=ifelse(!is.na(sub_data_ca$Age),1,0)) %>%
+#               mutate(Port=as.factor(Port))
+#ggplot(ca_data, aes(fill=Port,x=fishyr,weight=lengthcm))+
+#  geom_bar(position="stack") + 
+#  ggtitle("Number of stems per stream over time")
+
+
 pngfun(wd = file.path(comp_dir, "plots"), file = "CA_length_port_ordered.png", w = 10, h = 7, pt = 12)
-ggplot(sub_data_ca, aes(y=lengthcm, x=fishyr, fill = Port)) + 
-    geom_bar(position="stack", stat="identity") + 
-    geom_col() +
+ggplot(sub_data_ca, aes(weight = length_count, x = fishyr, fill = Port)) + 
+    geom_bar(position="stack", stat="count") + 
+    #geom_col() +
     scale_fill_manual(values = four.colors[1:17]) +
     xlab("Year") + ylab("Number of Length Samples")
 dev.off()
 
 pngfun(wd = file.path(comp_dir, "plots"), file = "CA_age_port_ordered.png", w = 10, h = 7, pt = 12)
-ggplot(sub_data_ca, aes(y=Age, x=fishyr, fill = Port)) + 
-    geom_bar(position="stack", stat="identity") + 
-    geom_col() +
-    scale_fill_manual(values = c(four.colors[5:6], four.colors[8:9], four.colors[11:17])) +
+ggplot(sub_data_ca, aes(weight=age_count, x=fishyr, fill = Port)) + 
+    geom_bar(position="stack", stat="count") + 
+    scale_fill_manual(values = four.colors[1:17]) +
     xlab("Year") + ylab("Number of Age Samples")
 dev.off()
 
 
 pngfun(wd = file.path(comp_dir, "plots"), file = "OR_length_port_ordered.png", w = 10, h = 7, pt = 12)
-ggplot(sub_data_or, aes(y=lengthcm, x=fishyr, fill = Port)) + 
-    geom_bar(position="stack", stat="identity") + 
-    geom_col() +
+ggplot(sub_data_or, aes(weight=length_count, x=fishyr, fill = Port)) + 
+    geom_bar(position="stack", stat="count") + 
+    #geom_col() +
     scale_fill_manual(values = four.colors) +
     xlab("Year") + ylab("Number of Length Samples")
 dev.off()
 
 pngfun(wd = file.path(comp_dir, "plots"), file = "OR_age_port_ordered.png", w = 10, h = 7, pt = 12)
-ggplot(sub_data_or, aes(y=Age, x=fishyr, fill = Port)) + 
-    geom_bar(position="stack", stat="identity") + 
-    geom_col() +
+ggplot(sub_data_or, aes(weight=age_count, x=fishyr, fill = Port)) + 
+    geom_bar(position="stack", stat="count") + 
+    #geom_col() +
     scale_fill_manual(values = four.colors) +
     xlab("Year") + ylab("Number of Age Samples")
 dev.off()
 
+
 pngfun(wd = file.path(comp_dir, "plots"), file = "WA_length_port_ordered.png", w = 10, h = 7, pt = 12)
-ggplot(sub_data_wa[!is.na(sub_data_wa$Port),], aes(y=lengthcm, x=fishyr, fill = Port)) + 
-    geom_bar(position="stack", stat="identity") + 
-    geom_col() +
+ggplot(sub_data_wa[sub_data_wa$Port != "UNKNOWN",], aes(weight=length_count, x=fishyr, group = interaction(Port, fishyr),fill = Port)) + 
+    geom_bar(position="stack", stat="count") + 
+    #geom_col() +
     scale_fill_manual(values = four.colors) +
     xlab("Year") + ylab("Number of Length Samples")
 dev.off()
 
 pngfun(wd = file.path(comp_dir, "plots"), file = "WA_age_port_ordered.png", w = 10, h = 7, pt = 12)
-ggplot(sub_data_wa[!is.na(sub_data_wa$Port),], aes(y=Age, x=fishyr, fill = Port)) + 
-    geom_bar(position="stack", stat="identity") + 
-    geom_col() +
-    scale_fill_manual(values = c(four.colors[1:2], four.colors[4:7])) +
+ggplot(sub_data_wa[sub_data_wa$Port != "UNKNOWN",], aes(weight = age_count, x=fishyr,  group = interaction(Port, fishyr), fill = Port)) + 
+    geom_bar(position="stack", stat="count") + 
+    #geom_col() +
+    scale_fill_manual(values = four.colors) +
     xlab("Year") + ylab("Number of Age Samples")
 dev.off()
