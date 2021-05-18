@@ -63,8 +63,3 @@ The 2005 assessment of `r spp` also concluded that the biomass of `r spp` off of
 
 **Response**: This is an area of needed ongoing research. 
 
-
-### Response to 2021 Groundfish Subcommittee Requests 
-
-To be completed after the STAR panel.
-

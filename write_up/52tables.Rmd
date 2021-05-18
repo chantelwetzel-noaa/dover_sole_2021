@@ -21,10 +21,10 @@ total.dead  <- round(apply(dead, 1, sum), 0)
 tot = round(apply(catch[,2:4], 1, sum),0)
 out = cbind(catch, tot, total.dead)
 
-col_names = c("Year", "California", "Oregon", "Washington", "Landings", "Est. Total Mortality")
+col_names = c("Year", "California", "Oregon", "Washington", "Total Landings", "Est. Total Mortality")
 
 table_format(x = out,
-             caption = "Removals (mt) by state, the summed landings across states (mt), and the estimated total mortality (mt) summed by year. Oregon and Washington were combined into a single fleet in the model",
+             caption = "Removals (mt) by state, the summed total landings across states (mt), and the estimated total mortality (mt) summed by year. Oregon and Washington were combined into a single fleet in the model",
              label = "allcatches",
              digits = 0,
              align = 'l',
@@ -70,6 +70,27 @@ table_format(x = out,
 ```
 
 \newpage
+
+<!-- ======================================================= -->
+<!-- ********** Catches added to OR/WA ********************* --> 
+<!-- ======================================================= -->
+
+```{r, results = 'asis'}
+
+tab = read.csv(file.path(data_loc, "catches", "or", "ca_historical_caught_in_or_wa.csv"))
+
+col_names = c("Year", "Oregon (mt)", "Washington (mt)")
+
+table_format(x = tab,
+             caption = "Historical removals in metric tons that were caught in Oregon or Washington waters and landed in California that were excluded from the California historical catch reconstruction. These landings were added to the Oregon and Washington historical catch reconstructions",
+             label = "or-wa-add-catch",
+             align = 'l',
+             custom_width = TRUE,
+             col_to_adjust = 1:3,
+             width = c("2cm", "2.5cm", "2.5cm"),
+             digits = 0,
+             col_names = col_names)
+```
 
 <!-- ======================================================= -->
 <!-- ***************   Discard Data  *********************** --> 
@@ -192,14 +213,13 @@ table_format(x = mod_params,
 <!-- ***********    Like Contributions  ******************** --> 
 <!-- ======================================================= -->
 
-
 \include{tex_tables/likelihoods.tex}
 
 <!-- ======================================================= -->
 <!-- ********  Reference Points & Management *************** --> 
 <!-- ======================================================= -->
 
-\include{tex_tables/e_ReferencePoints_ES.tex}
+\include{tex_tables/e_ReferencePoints.tex}
 
 <!-- ======================================================= -->
 <!-- ***********       Time Series      ******************** --> 
@@ -221,6 +241,7 @@ col_names = c('Data',
  			        'Francis',
               'McAllister Ianelli',
               'Dirichlet Multinomial')
+
 table_format(x = tab,
               caption = "Data weights applied by each alternative data weighting method. Weights for the Dirichlet
               multinomial are undetermined due to inconsistent results relative to input sample sizes and parameters
@@ -278,4 +299,8 @@ table_format(x = out,
              col_names = col_names)
 ```
 
+\clearpage
 
+\input{tex_tables/decision_table.tex}
+
+\clearpage

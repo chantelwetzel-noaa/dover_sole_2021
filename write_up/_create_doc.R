@@ -9,6 +9,7 @@ devtools::load_all("C:/Users/Chantel.Wetzel/Documents/GitHub/r4ss")
 setwd("C:/Assessments/2021/dover_sole_2021/write_up")
 
 base = "//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/7.0.1_base"
+base = "C:/Assessments/2021/dover_sole_2021/models/7.0.1_base"
 base = "C:/Assessments/2021/dover_sole_2021/models/_sensitivities/7.0.1_base_wcgbt_marginals_fix_bio"
 
 # Create the needed items to generate the "right" template that would be based on the inputs here:
@@ -24,10 +25,10 @@ draft(authors = c("Chantel R. Wetzel", "Aaron M. Berger"),
 # Create a model Rdata object
 read_model(
           mod_loc = base,
-				  create_plots = FALSE, 
+				  create_plots = TRUE, 
           fecund_mult = 'mt',
           bub_scale = 4,
-				  save_loc = file.path(base, "tex_tables"),
+				  save_loc = file.path(getwd(), "tex_tables"),
 				  verbose = TRUE)
 
 load("00mod.Rdata")

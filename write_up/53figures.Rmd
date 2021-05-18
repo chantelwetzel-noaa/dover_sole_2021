@@ -94,7 +94,7 @@ label = 'orwa-disc-len-ob-2')
 
 ```{r, results = 'asis'}
 add_figure(
-filein = file.path(data_loc, "commercial_comps", "plots", "Length_by_CA_port.png"), 
+filein = file.path(data_loc, "commercial_comps", "plots", "CA_length_port_ordered.png"), 
 caption = "The number of length samples by port and year from California",
 label = 'ca-len-port')
 ```
@@ -122,7 +122,7 @@ label = 'agg-len-data')
 
 ```{r, results = 'asis'}
 add_figure(
-filein = file.path(data_loc, "commercial_comps", "plots", "Age_by_CA_port.png"), 
+filein = file.path(data_loc, "commercial_comps", "plots", "CA_age_port_ordered.png"), 
 caption = "The number of read otoliths samples by port and year from California",
 label = 'ca-age-port')
 ```
@@ -150,7 +150,7 @@ label = 'agg-age-data')
 
 ```{r, results = 'asis'}
 add_figure(
-filein = file.path(data_loc, "commercial_comps", "plots", "Length_by_OR_port.png"), 
+filein = file.path(data_loc, "commercial_comps", "plots", "OR_length_port_ordered.png"), 
 caption = "The number of length samples by port and year from Oregon",
 label = 'or-len-port')
 ```
@@ -159,7 +159,7 @@ label = 'or-len-port')
 
 ```{r, results = 'asis'}
 add_figure(
-filein = file.path(data_loc, "commercial_comps", "plots", "Length_by_WA_port.png"), 
+filein = file.path(data_loc, "commercial_comps", "plots", "WA_length_port_ordered.png"), 
 caption = "The number of length samples by port and year from Washington",
 label = 'wa-len-port')
 ```
@@ -181,7 +181,7 @@ label = 'mean-orwa-len-data')
 
 ```{r, results = 'asis'}
 add_figure(
-filein = file.path(data_loc, "commercial_comps", "plots", "Age_by_OR_port.png"), 
+filein = file.path(data_loc, "commercial_comps", "plots", "OR_age_port_ordered.png"), 
 caption = "The number of read otoliths samples by port and year from Oregon",
 label = 'or-age-port')
 ```
@@ -190,7 +190,7 @@ label = 'or-age-port')
 
 ```{r, results = 'asis'}
 add_figure(
-filein = file.path(data_loc, "commercial_comps", "plots", "Age_by_WA_port.png"), 
+filein = file.path(data_loc, "commercial_comps", "plots", "WA_age_port_ordered.png"), 
 caption = "The number of read otoliths samples by port and year from Washington",
 label = 'wa-age-port')
 ```
@@ -276,6 +276,9 @@ filein = file.path(data_loc, "survey_indices", "dover_sole", "data", "NWFSC.Comb
 caption = "The estimated index of abundance for the WCGBTS (coastwide - black line with circles). A loess soother line was fit to the data series and is denoted by the grey dashed line",
 label = 'wcgbt-index')
 ```	
+
+\clearpage
+
 
 ```{r, results = 'asis'}
 add_figure(
@@ -502,6 +505,14 @@ label = 'index-compare')
 <!-- ======================================================= -->  
 <!-- ******************   Biology  ************************* --> 
 <!-- ======================================================= -->  
+
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(data_loc, "biology", "plots", "Dover2021_agesbysource.png"), 
+caption = "Stacked distribution of observed ages across data sources summed across all years",
+label = 'all-ages')
+```	
 
 ```{r, results = 'asis'}
 add_figure(
@@ -982,58 +993,52 @@ label = 'wcgbt-mean-len')
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(mod_loc, "plots", "comp_condAALfit_Andre_plotsflt5mkt0_page1.png"), 
-caption = "Conditional age-at-length for mean age and standard deviation for the NWFSC Slope survey (plot 1 of 2) Left plots are mean conditional age-at-length by size-class (observed and predicted) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and predicted) with 90 percent confidence intervals based on the chi-square distribution",
+caption = "Conditional age-at-length for mean age and standard deviation for the NWFSC Slope survey (plot 1 of 2) Left plots are mean conditional age-at-length by size-class (observed and expected) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and expected) with 90 percent confidence intervals based on the chi-square distribution",
 label = 'nwslope-caal-fit-1')
 ```
 
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(mod_loc, "plots", "comp_condAALfit_Andre_plotsflt5mkt0_page2.png"), 
-caption = "Conditional age-at-length for mean age and standard deviation for the NWFSC Slope survey (plot 2 of 2) Left plots are mean conditional age-at-length by size-class (observed and predicted) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and predicted) with 90 percent confidence intervals based on the chi-square distribution",
+caption = "Conditional age-at-length for mean age and standard deviation for the NWFSC Slope survey (plot 2 of 2) Left plots are mean conditional age-at-length by size-class (observed and expected) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and expected) with 90 percent confidence intervals based on the chi-square distribution",
 label = 'nwslope-caal-fit-2')
 ```
 
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(mod_loc, "plots", "comp_condAALfit_Andre_plotsflt6mkt0_page1.png"), 
-caption = "Conditional age-at-length for mean age and standard deviation for the NWFSC WCGBT (plot 1 of 6) Left plots are mean conditional age-at-length by size-class (observed and predicted) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and predicted) with 90 percent confidence intervals based on the chi-square distribution",
+caption = "Conditional age-at-length for mean age and standard deviation for the NWFSC WCGBT (plot 1 of 5) Left plots are mean conditional age-at-length by size-class (observed and expected) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and expected) with 90 percent confidence intervals based on the chi-square distribution",
 label = 'wcgbt-caal-fit-1')
 ```
 
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(mod_loc, "plots", "comp_condAALfit_Andre_plotsflt6mkt0_page2.png"), 
-caption = "Conditional age-at-length for mean age and standard deviation for the WCGBTS (plot 2 of 6) Left plots are mean conditional age-at-length by size-class (observed and predicted) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and predicted) with 90 percent confidence intervalss based on the chi-square distribution",
+caption = "Conditional age-at-length for mean age and standard deviation for the WCGBTS (plot 2 of 5) Left plots are mean conditional age-at-length by size-class (observed and expected) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and expected) with 90 percent confidence intervalss based on the chi-square distribution",
 label = 'wcgbt-caal-fit-2')
 ```
 
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(mod_loc, "plots", "comp_condAALfit_Andre_plotsflt6mkt0_page3.png"), 
-caption = "Conditional age-at-length for mean age and standard deviation for the WCGBTS (plot 3 of 6) Left plots are mean conditional age-at-length by size-class (observed and predicted) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and predicted) with 90 percent confidence intervals based on the chi-square distribution",
+caption = "Conditional age-at-length for mean age and standard deviation for the WCGBTS (plot 3 of 5) Left plots are mean conditional age-at-length by size-class (observed and expected) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and expected) with 90 percent confidence intervals based on the chi-square distribution",
 label = 'wcgbt-caal-fit-3')
 ```
 
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(mod_loc, "plots", "comp_condAALfit_Andre_plotsflt6mkt0_page4.png"), 
-caption = "Conditional age-at-length for mean age and standard deviation for the WCGBTS (plot 4 of 6) Left plots are mean conditional age-at-length by size-class (observed and predicted) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and predicted) with 90 percent confidence intervals based on the chi-square distribution",
+caption = "Conditional age-at-length for mean age and standard deviation for the WCGBTS (plot 4 of 5) Left plots are mean conditional age-at-length by size-class (observed and expected) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and expected) with 90 percent confidence intervals based on the chi-square distribution",
 label = 'wcgbt-caal-fit-4')
 ```
 
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(mod_loc, "plots", "comp_condAALfit_Andre_plotsflt6mkt0_page5.png"), 
-caption = "Conditional age-at-length for mean age and standard deviation for the WCGBTS (plot 5 of 6) Left plots are mean conditional age-at-length by size-class (observed and predicted) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and predicted) with 90 percent confidence intervals based on the chi-square distribution",
+caption = "Conditional age-at-length for mean age and standard deviation for the WCGBTS (plot 5 of 5) Left plots are mean conditional age-at-length by size-class (observed and expected) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and expected) with 90 percent confidence intervals based on the chi-square distribution",
 label = 'wcgbt-caal-fit-5')
 ```
 
-```{r, results = 'asis'}
-add_figure(
-filein = file.path(mod_loc, "plots", "comp_condAALfit_Andre_plotsflt6mkt0_page6.png"), 
-caption = "Conditional age-at-length for mean age and standard deviation for the WCGBTS (plot 6 of 6) Left plots are mean conditional age-at-length by size-class (observed and predicted) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and predicted) with 90 percent confidence intervals based on the chi-square distribution",
-label = 'wcgbt-caal-fit-6')
-```
 
 ```{r, results = 'asis'}
 add_figure(
@@ -1103,6 +1108,8 @@ caption = "Estimated 1 - relative spawning ratio (SPR) by year",
 label = '1-spr')
 ```
 
+\clearpage
+
 ```{r, results = 'asis'}
 add_figure(
 filein = file.path(mod_loc, "plots", "SPR4_phase.png"), 
@@ -1122,6 +1129,20 @@ label = 'yield')
 <!-- ======================================================= -->  
 <!-- ****************** Sensitivities ********************** --> 
 <!-- ======================================================= -->
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(sens_loc, "_Model_figures", "Sensi_REplot_all.png"),
+caption = "Relative change in derived quantities (SB0: unfished spawning biomass, SB2021: spawning biomass in 2021, SB2021/SB0: fraction unfished in 2021, Yield SPR=0.30: Yield at the the target SPR, and F SPR=0.30: the exploitation rate at the target SPR) by structural sensitivities compared to the base model. A relative change value of 0.0 would indicate the same estimates from the sensitivity as the base model.  Positive relative changes values would indicate that the estimates from the sensitivity were greater than the base model. The target reference point (TRP) and limit reference point (LRP) only apply to the fraction unfished (SB2021/SB0)",
+label = 're-sens-structure')
+```
+
+```{r, results = 'asis'}
+add_figure(
+filein = file.path(sens_loc, "_Data_figures", "Sensi_REplot_all.png"),
+caption = "Relative change in derived quantities (SB0: unfished spawning biomass, SB2021: spawning biomass in 2021, SB2021/SB0: fraction unfished in 2021, Yield SPR=0.30: Yield at the the target SPR, and F SPR=0.30: the exploitation rate at the target SPR) by data sensitivities compared to the base model. A relative change value of 0.0 would indicate the same estimates from the sensitivity as the base model.  Positive relative changes values would indicate that the estimates from the sensitivity were greater than the base model. The target reference point (TRP) and limit reference point (LRP) only apply to the fraction unfished (SB2021/SB0)",
+label = 're-sens-data')
+```
 
 ```{r, results = 'asis'}
 add_figure(

@@ -2,7 +2,7 @@
 
 Data from four research surveys have been used in this assessment to provide fishery-independent information about the abundance, distribution, and biological characteristics of `r spp`.  The longest time series of fishery-independent data arises from the NWFSC West Coast Groundfish Bottom Trawl Survey (WCGBTS) which began in 2003. This survey samples the shelf and slope off the U.S. West Coast covering depths from 30 - 700 fathoms (55 - 1,280 meters) on an annual basis (excluding 2020 due to COVID-19). This assessment also used data from three additional fishery-independent surveys: \gls{s-tri}, \gls{s-aslope}, and \gls{s-nwslope}. The \gls{s-tri} began in 1980 and repeated every three years through 2004.  The \gls{s-aslope} conducted tows on the U.S. West Coast slope area using the research vessel R/V _Miller Freeman_ sampling subsets of the coastline starting in 1984, with full sampling coverage between 1997 - 2001. The final survey, \gls{s-nwslope}, was a cooperative survey using commercial fishing vessels which began in 1998 as a survey for deepwater species (`r spp`, longspine thornyhead, shortspine thornyhead, and sablefish) survey and was expanded to other groundfish in 1999. 
 
-### \acrlong{s-wcgbt} {#nwfsc-wcgbt}
+### NWFSC West Coast Groundfish Bottom Trawl Survey {#nwfsc-wcgbt}
 
 The \gls{s-wcgbt} is based on a random-grid design; covering the coastal waters from a depth of 55 - 1,280 m [@bradburn_2003_2011]. This design generally uses four industry-chartered vessels per year assigned to a roughly equal number of randomly selected grid cells and divided into two 'passes' of the coast. Two vessels fish from north to south during each pass between late May to early October. This design therefore incorporates both vessel-to-vessel differences in catchability, as well as variance associated with selecting a relatively small number (approximately 700) of possible cells from a very large set of possible cells spread from the Mexican to the Canadian borders.
 
@@ -21,7 +21,7 @@ Fish with ages also have an associated length and each type of data have been us
 The input sample sizes for length and marginal age-composition data for all fishery-independent surveys were calculated according to Stewart and Hamel [-@stewart_bootstrapping_2014], which determined that the approximate realized sample size for flatfish species was $3.09*N_{\text{tow}}$. The effective sample size of conditional-age-at-length data was set at the number of fish at each length by sex and by year. The conditional-age-at-length data were not expanded and were binned according to length, age, sex, and year.
 
 
-### \acrlong{s-tri}
+### AFSC/NWFSC West Coast Triennial Shelf Survey
 
 The \gls{s-tri} was first conducted by the \gls{afsc} in 1977, and the survey continued until 2004 [@weinberg_2001_2002]. Its basic design was a series of equally-spaced east-to-west transects across the continental shelf from which searches for tows in a specific depth range were initiated. The survey design changed slightly over time. In general, all of the surveys were conducted in the mid-summer through early fall. The 1977 survey was conducted from early July through late September. The surveys from 1980 through 1989 were conducted from mid-July to late September. The 1992 survey was conducted from mid-July through early October. The 1995 survey was conducted from early June through late August. The 1998 survey was conducted from early June through early August. Finally, the 2001 and 2004 surveys were conducted from May to July.
 
@@ -35,7 +35,7 @@ There are no `r spp` age data from the \gls{s-tri}.
 
 The input sample sizes for length data were calculated using the same approach for the \gls{s-wcgbt} data described in Section \ref{nwfsc-wcgbt}. 
 
-### \acrlong{s-aslope}
+### AFSC Slope Survey
 
 The \gls{s-aslope} operated during the months of October to November aboard the R/V _Miller Freeman_. Partial survey coverage of the U.S. west coast occurred during the years 1988 - 1996 and complete coverage (north of $34^\circ 30^\prime$ N. latitude) during the years 1997 and 1999-2001. Typically, only these four years that are seen as complete surveys are included in groundfish stock assessments.
 
@@ -47,7 +47,7 @@ During the 2011 STAR panel review, an issue with the \gls{s-aslope} age data was
 
 The input sample sizes for length data were calculated using the same approach for the \gls{s-wcgbt} data described in Section \ref{nwfsc-wcgbt}. 
 
-### \acrlong{s-nwslope}
+### NWFSC Slope Survey 
 
 The \gls{s-nwslope} covered waters throughout the summer from 183 m to 1,280 m north of $34^\circ 30^\prime$ N. latitude, which is near Point Conception, from 1999 and 2002. The survey sampled 80 fixed east - west transects of latitude, separated by 10 minutes of latitude.  Five stations in each transect were selected from two depth categories: shallow strata (184 - 549 m) and deep strata (550 - 1,280 m). There were a total of 400 possible stations to sample from each year, with 302 - 327 successful tows on average per year. The survey was conducted from mid-August to mid-October in 1998 but was somewhat earlier in 1999 and 2000 (late-June to late- September). 
 
