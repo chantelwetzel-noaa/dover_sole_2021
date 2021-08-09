@@ -22,8 +22,11 @@ find_para(dir = dir,
 #' @param est turns off the parameter in the control file default value is FALSE
 #' @param sigma sigma value to use, options are 0.50, 1.0, or if left blank will use the Pstar_sigma
 
-find_para <- function(dir, base, yr = 2021, parm = c("MGparm[1]"), quant = c(0.125, 0.875), 
-					  ctl_name, parm_string, est = FALSE){
+find_para <- function(dir, base, yr = 2021, parm = c("MGparm[1]"), 
+					  quant = c(0.125, 0.875), 
+					  ctl_name, parm_string, est = FALSE, sigma, 
+					  tol = 0.005, use_115 = FALSE)
+{
 
 for (tt in 1:length(quant)){
 
@@ -63,16 +66,18 @@ for (tt in 1:length(quant)){
 	#target = round(qnorm(quant[tt], mean = sb[,"Value"], sd = sb[,"StdDev"]), 1)
 	
 	if(missing(sigma)){
-		sigma = base$Pstar_simg
+		sigma = base$Pstar_sigma
 	}
 
 	if(quant[tt] == 0.125) {
-		target = sb$Value/(exp(1.15*sigma))
+		target = sb$Value/(exp(1.15*sigma))			
 	} else {
 		target = sb$Value/(exp(-1.15*sigma))
 	}
-	
-	tol = 0.005
+
+	if (!use_115){
+		target = qnorm(quant[tt], mean = sb[,"Value"], sd = sb[,"StdDev"])
+	}
 
 	for(a in 1:100){
 
@@ -92,13 +97,15 @@ for (tt in 1:length(quant)){
 		}
 
 		rawpar    <- readLines(file.path(dec_dir, "ss.par"))
-		which_line = grep(parm, rawpar, fixed = TRUE) + 1
+		which_line <- NULL
+		for(pp in 1:length(parm)){
+			temp = grep(parm[pp], rawpar, fixed = TRUE) + 1
+			which_line = c(which_line, temp)
+		}
 		temp = as.numeric(rawpar[which_line])
-
-		if (temp > 1 ) { tol = 0.01 }
 		
-		if(temp < 0.40) {
-			step.size =ifelse(find_sb > target - target * 0.05 & find_sb < target + target * 0.05, 
+		if(temp[1] < 0.40) {
+			step.size = ifelse(find_sb > target - target * 0.05 & find_sb < target + target * 0.05, 
 							  ifelse(find_sb > target - target* 0.02 & find_sb < target + target * 0.02,
 							  0.0002, 0.001), 0.002)
 		} else {
@@ -109,10 +116,16 @@ for (tt in 1:length(quant)){
 		
 		value = ifelse( find_sb > target, temp - step.size,
 					 	ifelse (find_sb < target, temp + step.size, temp))
+		print(paste0("!!!!!!!!!!!  ", value, "  !!!!!!!!!!!"))
 		temp = value
 		rawpar[which_line] = temp
 		writeLines(rawpar, con = file.path(dec_dir, "ss.par"))
 		shell("ss -nohess -maxfun 0 > output.txt 2>&1")  
+
+		if (parm_string == "SR_BH_steep" & value == 1.0){
+			print("Hit the upper bound for steepness")
+			break()
+		}
 	} # end a loop
 } # end tt loop
 
