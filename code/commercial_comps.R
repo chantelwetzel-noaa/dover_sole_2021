@@ -17,7 +17,7 @@ bds_file = "PacFIN.DOVR.bds.13.Aug.2020.RData"
 bds_file = "PacFIN.DOVR.bds.12.Feb.2021.RData"
 load(file.path(getwd(), "commercial_comps", "pacfin", bds_file))
 out = bds.pacfin #PacFIN.DOVR.bds.13.Aug.2020
-bds_file = "PacFIN.DOVR.bds.12.Feb.2021_check"
+bds_file = "test_PacFIN.DOVR.bds.12.Feb.2021"
 
 # Example code below from the updated PacFIN.Utilities package
 Pdata <- cleanPacFIN(Pdata = out,
@@ -82,13 +82,14 @@ Pdata[remove, c("lengthcm", "age")] = NA
 ####################################################################################################
 
 Pdata_exp <- getExpansion_1(Pdata = Pdata,
+					   plot = file.path(dir, "commercial_comps","plots"),
 					   fa = fa, fb = fb, ma = ma, mb = mb, ua = ua, ub = ub)
 
 Pdata_exp <- getExpansion_2(Pdata = Pdata_exp, 
 					   Catch = catch, 
 					   Units = "MT",
   					   stratification.cols = c("state", "geargroup"),
-  					   savedir = file.path(dir, "commercial_comps"))
+  					   savedir = file.path(dir, "commercial_comps", "plots"))
 
 Pdata_exp$Final_Sample_Size <- capValues(Pdata_exp$Expansion_Factor_1_L * Pdata_exp$Expansion_Factor_2)
 
@@ -143,6 +144,19 @@ writeComps(inComps = age_comps,
 		   sum1 = TRUE, 
 		   partition = 2, 
 		   dummybins = FALSE)
+
+# Test CAAL Code
+caal_comps <- getComps(Pdata = Pdata_exp[!is.na(Pdata_exp$age), ], 
+				      Comps = "AAL")
+
+writeComps(inComps = caal_comps, 
+		   fname = file.path(dir, "commercial_comps", "forSS", paste0("CAAL_", out_name, ".csv")), 
+		   lbins = myLbins, 
+		   abins = myAbins, 
+		   sum1 = TRUE, 
+		   partition = 2, 
+		   dummybins = FALSE)
+
 
 
 ###############################################################################################

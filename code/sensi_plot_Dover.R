@@ -97,18 +97,18 @@ if (any(model.summaries$nsexes == 2)) {
   )
 } # end two-sex check
 
-dev.quants.labs <- data.frame(c("SB0", paste0("SSB_", current.year), paste0("Bratio_", current.year), "MSY_SPR", "F_SPR"), dev.quants, "Derived quantities")
-AICs <- 2 * model.summaries$npars + (2 * as.numeric(model.summaries$likelihoods[1, 1:model.summaries$n]))
-deltaAICs <- AICs - AICs[1]
-AIC.out <- data.frame(cbind(c("AIC", "deltaAIC"), rbind.data.frame(AICs, deltaAICs), c("AIC")))
-colnames(AIC.out) <- colnames(survey.lambda) <- colnames(survey.like) <- colnames(Lt.lambda) <- colnames(Lt.like) <- colnames(Age.lambda) <- colnames(Age.like) <- colnames(parms) <- colnames(dev.quants.labs) <- c("Type", mod.names, "Label")
-Like.parm.quants <- rbind(AIC.out, survey.like, survey.lambda, Lt.like, Lt.lambda, Age.like, Age.lambda, parms, dev.quants.labs)
-Like.parm.quants.table.data <- flextable::as_grouped_data(Like.parm.quants, groups = c("Label"))
-# as_flextable(Like.parm.quants.table.data)
-write.csv(
-  Like.parm.quants.table.data,
-  file.path(dir, "Likes_parms_devquants_table.csv")
-)
+#dev.quants.labs <- data.frame(c("SB0", paste0("SSB_", current.year), paste0("Bratio_", current.year), "MSY_SPR", "F_SPR"), dev.quants, "Derived quantities")
+#AICs <- 2 * model.summaries$npars + (2 * as.numeric(model.summaries$likelihoods[1, 1:model.summaries$n]))
+#deltaAICs <- AICs - AICs[1]
+#AIC.out <- data.frame(cbind(c("AIC", "deltaAIC"), rbind.data.frame(AICs, deltaAICs), c("AIC")))
+#colnames(AIC.out) <- colnames(survey.lambda) <- colnames(survey.like) <- colnames(Lt.lambda) <- colnames(Lt.like) <- colnames(Age.lambda) <- colnames(Age.like) <- colnames(parms) <- colnames(dev.quants.labs) <- c("Type", mod.names, "Label")
+#Like.parm.quants <- rbind(AIC.out, survey.like, survey.lambda, Lt.like, Lt.lambda, Age.like, Age.lambda, parms, dev.quants.labs)
+#Like.parm.quants.table.data <- flextable::as_grouped_data(Like.parm.quants, groups = c("Label"))
+## as_flextable(Like.parm.quants.table.data)
+#write.csv(
+#  Like.parm.quants.table.data,
+#  file.path(dir, "Likes_parms_devquants_table.csv")
+#)
 
 # Calcualte Relative changes
 dev.quants.mat <- as.matrix(dev.quants)
@@ -181,8 +181,8 @@ if (horizontal == TRUE) {
         expression(SB[0]),
         as.expression(bquote("SB"[.(current.year)])),
         bquote(frac(SB[.(current.year)], SB[0])),
-        expression(Yield['SPR=0.30']),
-        expression(F['SPR=0.30'])
+        expression(Yield['SPR=0.50']),
+        expression(F['SPR=0.50'])
       )
     ) +
     scale_color_manual(
@@ -192,8 +192,8 @@ if (horizontal == TRUE) {
         expression(SB[0]),
         as.expression(bquote("SB"[.(current.year)])),
         bquote(frac(SB[.(current.year)], SB[0])),
-        expression(Yield['SPR=0.30']),
-        expression(F['SPR=0.30'])
+        expression(Yield['SPR=0.50']),
+        expression(F['SPR=0.50'])
       )
     ) +
     labs(y = "", x = "Relative change") +

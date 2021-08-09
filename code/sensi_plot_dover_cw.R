@@ -27,6 +27,7 @@ num.likes <- dim(subset(model.summaries$likelihoods_by_fleet, model == 1))[1] # 
 if (missing(mod.names)) {
   mod.names <- paste("model ", 1:model.summaries$n)
 }
+
 if (likelihood.out[1] == 1) {
   syrvlambda_index <- c(1:num.likes)[subset(model.summaries$likelihoods_by_fleet, model == 1)$Label == "Surv_lambda"]
   survey.lambda <- data.frame(rownames(t(model.summaries$likelihoods_by_fleet))[-1:-2], t(model.summaries$likelihoods_by_fleet[seq(3, dim(model.summaries$likelihoods_by_fleet)[1], num.likes), ][-1:-2]), "Survey_lambda")
@@ -36,6 +37,7 @@ if (likelihood.out[1] == 1) {
 } else {
   survey.lambda <- survey.like <- data.frame(t(rep(NA, model.summaries$n + 2)))
 }
+
 if (likelihood.out[2] == 1) {
   Ltlambda_index <- c(1:num.likes)[subset(model.summaries$likelihoods_by_fleet, model == 1)$Label == "Length_lambda"]
   Lt.lambda <- data.frame(rownames(t(model.summaries$likelihoods_by_fleet))[-1:-2], t(model.summaries$likelihoods_by_fleet[seq(Ltlambda_index, dim(model.summaries$likelihoods_by_fleet)[1], num.likes), ][-1:-2]), "Lt_lambda")
@@ -44,6 +46,7 @@ if (likelihood.out[2] == 1) {
 } else {
   Lt.lambda <- Lt.like <- data.frame(t(rep(NA, model.summaries$n + 2)))
 }
+
 if (likelihood.out[3] == 1) {
   Agelambda_index <- c(1:num.likes)[subset(model.summaries$likelihoods_by_fleet, model == 1)$Label == "Age_lambda"]
   Age.lambda <- data.frame(rownames(t(model.summaries$likelihoods_by_fleet))[-1:-2], t(model.summaries$likelihoods_by_fleet[seq(Agelambda_index, dim(model.summaries$likelihoods_by_fleet)[1], num.likes), ][-1:-2]), "Age_lambda")
@@ -174,8 +177,8 @@ if (horizontal == TRUE)
         expression(SB[0]),
         as.expression(bquote("SB"[.(current.year)])),
         bquote(frac(SB[.(current.year)], SB[0])),
-        expression(Yield['SPR=0.30']),
-        expression(F['SPR=0.30'])
+        expression(Yield['SPR=0.50']),
+        expression(F['SPR=0.50'])
       )
     ) +
     scale_color_manual(
@@ -185,8 +188,8 @@ if (horizontal == TRUE)
         expression(SB[0]),
         as.expression(bquote("SB"[.(current.year)])),
         bquote(frac(SB[.(current.year)], SB[0])),
-        expression(Yield['SPR=0.30']),
-        expression(F['SPR=0.30'])
+        expression(Yield['SPR=0.50']),
+        expression(F['SPR=0.50'])
       )
     ) +
     labs(y = "", x = "Relative change") +
