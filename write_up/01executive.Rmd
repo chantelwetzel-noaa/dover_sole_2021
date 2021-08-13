@@ -27,7 +27,7 @@ label = 'es-catch')
 
 \clearpage
 
-## Data and Assessment{-}
+## Data and assessment{-}
 
 This stock assessment for `r spp` off the west coast of the U.S. was developed using the length- and age-structured model Stock Synthesis (version 3.30.16).  The previous stock assessment of `r spp` was conducted in 2011 and estimated the stock to be increasing with a stock status determination of 84 percent of virgin (or unfished) spawning biomass at the beginning of 2011. During the development of this assessment, model specifications including fleet structure, landings, data, and model structural assumptions were re-evaluated. Similar to the previous assessment, a single coastwide population was modeled allowing for area-specific fleets and separate growth and mortality parameters for each sex (i.e., a two-sex model).  The model time domain is `r startyr` to `r endyr`, with a 12 year forecast beginning in `r endyr + 1`.
 
@@ -39,7 +39,7 @@ This assessment integrates data and information from multiple sources into one m
 
 Multiple sources of uncertainty are explicitly included in this assessment, including parameter uncertainty using prior distributions, observational uncertainty through standard deviations of survey estimates, and model uncertainty through a comprehensive sensitivity analyses to data source and model structural assumptions. A base model was selected that best fit the observed data while concomitantly balancing the desire to capture the central tendency across those sources of uncertainty, ensure model realism and tractability, and promote robustness to potential model misspecification.
 
-## Stock Biomass{-}
+## Stock biomass and dynamics{-}
 
 The terms "spawning output" and "spawning biomass" are used interchangeably in this document in reference to total female spawning biomass. For the purposes of this assessment, female spawning biomass is assumed to be proportional to egg and larval production (i.e., spawning output). The estimated spawning biomass at the beginning of 2021 was `r ssb_2021` mt (~95 percent asymptotic intervals: `r ssb_2021_low` to `r ssb_2021_hi` mt, Table \ref{tab:ssbES} and Figure \ref{fig:es-ssb}), which when compared to unfished spawning biomass (`r ssb0` mt) equates to a relative stock status level of `r round(100*depl_2021,0)` percent (~95 percent asymptotic intervals: `r round(100*depl_2021_low,0)` to `r round(100*depl_2021_hi,0)` percent, Figure \ref{fig:es-depl}).  Overall, spawning stock biomass has steadily declined from near unfished levels in the 1940s to a time series low of `r round(100*as.numeric(depl_min),0)` percent of unfished levels in `r depl_min_yr` following high landings in the 1980s and early 1990s. Over the past two decades, spawning stock biomass has generally been increasing as total landings have decreased. The stock is estimated to be well above the management target of $SB_{25\%}$ in 2021 and has remained well above the target throughout the time series (Table \ref{tab:ssbES} and Figure \ref{fig:es-depl}).
 
@@ -84,7 +84,7 @@ label = 'es-rec-devs')
 
 \clearpage
 
-## Exploitation Status{-}
+## Exploitation status{-}
 
 Trends in fishing intensity (1 - SPR) largely mirrored that of landings given the relative lack of large variations in annual recruitment such that there was a steady increase from the 1940s to the mid to late 1980s before decreasing to current levels of `r spr_recent_10[10]` for 2020 (Figure \ref{fig:es-1-spr}).  The maximum fishing intensity was `r spr_max` in `r spr_max_yr`, well below the target harvest rate of 0.70 (1 - $\text{SPR}_{30\%}$). Fishing intensity over the past decade has ranged between `r min(spr_recent_10)` and `r max(spr_recent_10)` and the exploitation rate has been low (`r min(exploit_recent_10)` - `r max(exploit_recent_10)`, Table \ref{tab:exploitES}). Current estimates indicate that `r spp` spawning biomass is greater than 3 times higher than the target biomass level ($\text{SB}_{25\%}$), and fishing intensity remains well below  the target harvest rate.
 
@@ -99,14 +99,14 @@ label = 'es-1-spr')
 
 \clearpage
 
-## Ecosystem Considerations{-}
+## Ecosystem considerations{-}
 
 ```{r, echo=FALSE, results='asis'}
 filein = file.path(getwd(), "shared_text",'ecosystem_considerations.Rmd')
 read_child(filein)
 ```
 
-## Reference Points{-}
+## Reference points{-}
 
 The 2021 spawning biomass relative to unfished equilibrium spawning biomass is well above the management target of 25 percent of unfished spawning biomass. The relative biomass compared to the ratio of the estimated SPR to the management target ($\text{SPR}_{30\%}$) across all model years are shown in Figure \ref{fig:es-phase} where warmer colors (red) represent early years and colder colors (blue) represent recent years.  The relative biomass and estimated SPR have been well above the management biomass target (25 percent) and well below the SPR target across all model years. Figure \ref{fig:es-yield} shows the equilibrium curve based on a steepness value fixed at `r round(model$parameters[model$parameters$Label == "SR_BH_steep","Value"], 2)` with vertical dashed lines to indicate the estimate of fraction unfished at the start of `r endyr +1` (current) and the estimated management targets calculated based on the relative target biomass (B target), the SPR target, and the maximum sustainable yield (MSY).
 
@@ -132,7 +132,7 @@ Reference points were calculated using the estimated selectivities and catch dis
 
 \clearpage
 
-## Management Performance{-}
+## Management performance{-}
 
 Exploitation on `r spp` slowly increased starting around 1940 and reached a high in the early 1990s. After peaking in the 1990s exploitation rates declined steadily through 2006, increased from 2007 - 2010, but have steadily declined since. In the last ten years the annual catch limit (ACL) has been set well below the overfishing limit (OFL) and acceptable biological catch (ABC) (Table \ref{tab:ofl-es}).  Total mortality has ranged between 10 - 15 percent of the ACL in the most recent five years.
 
@@ -165,23 +165,23 @@ table_format(x = out,
              col_names = col_names)
 ```
 
-## Unresolved Problems and Major Uncertainties{-}
+## Unresolved problems and major uncertainties{-}
 
 ```{r, echo=FALSE, results='asis'}
 filein = file.path(getwd(), "shared_text",'unresolved_problems_uncertainties.Rmd')
 read_child(filein)
 ```
 
-## Scientific Uncertainty{-}
+## Scientific uncertainty{-}
 
 ```{r, echo=FALSE, results='asis'}
 filein = file.path(getwd(), "shared_text",'scientific_uncertainty.Rmd')
 read_child(filein)
 ```
 
-## Harvest Projections and Decision Table{-}
+## Harvest projections and decision table{-}
 
-The forecast of stock abundance and yield was developed using the base model. The total catches in 2021 and 2022 were set at 10,000 mt, well below the adopted 50,000 mt ACL for those year, based on recommendations from the Groundfish Management Team (GMT). These assumed removals are likely higher than what the true removals may be in 2021 and 2023 but have limited impact in the stock status and future removals during the projected period in the base model. The exploitation rate for 2023 and beyond is based upon an SPR of 30 percent and the 25:5 harvest control rule. The average exploitation rates, across recent years, by fleet were used to distribute catches during the forecast period. The ABC values were estimated using a category 1 time-varying $\sigma_y$ starting at 0.50 combined with a P* value of 0.45. The catches in the base model during the projection period, 2023 - 2032 were set equal to the year-specific ABC using the current flatfish harvest control rule, 25:5 (Table \ref{tab:es-project}). 
+The forecast of stock abundance and yield was developed using the base model. The total catches in 2021 and 2022 were set at 10,000 mt, well below the adopted 50,000 mt ACL for those year, based on recommendations from the Groundfish Management Team (GMT). These assumed removals are likely higher than what the true removals may be in 2021 and 2022 but have limited impact in the stock status and future removals during the projected period in the base model. The exploitation rate for 2023 and beyond is based upon an SPR of 30 percent and the 25:5 harvest control rule. The average exploitation rates, across recent years, by fleet were used to distribute catches during the forecast period. The ABC values were estimated using a category 1 time-varying $\sigma_y$ starting at 0.50 combined with a P* value of 0.45. The catches in the base model during the projection period, 2023 - 2032 were set equal to the year-specific ABC using the current flatfish harvest control rule, 25:5 (Table \ref{tab:es-project}). 
 
 The axes of uncertainty  in the decision table are based on the uncertainty around female natural mortality. The default category 1 $\sigma$ value of 0.50 was used to identify the low and high states of nature relative to the estimated `r endyr+1` spawning biomass  (i.e., 1.15 standard deviations corresponding to the 12.5 and 87.5 percentiles). A search across female natural mortality values was done to identify the natural mortality value that resulted in  current year spawning biomass values for the low and high states of nature based on the percentiles. The female natural mortality values that corresponded with the lower and upper percentiles were 0.084 yr^-1^ and 0.126 yr^-1^. 
 
@@ -232,7 +232,7 @@ table_format(x = out,
 
 \clearpage
 
-## Research and Data Needs{-}
+## Research and data needs{-}
 
 ```{r, echo=FALSE, results='asis'}
 filein = file.path(getwd(), "shared_text",'research_and_data_needs.Rmd')

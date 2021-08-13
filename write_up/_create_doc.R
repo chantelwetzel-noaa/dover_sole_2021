@@ -25,10 +25,10 @@ draft(authors = c("Chantel R. Wetzel", "Aaron M. Berger"),
 # Create a model Rdata object
 read_model(
           mod_loc = base,
-				  create_plots = TRUE, 
+				  create_plots = FALSE, 
           fecund_mult = 'mt',
           bub_scale = 4,
-				  save_loc = file.path(getwd(), "tex_tables"),
+				  save_loc = file.path(base, "tables"), #file.path(getwd(), "tex_tables"),
 				  verbose = TRUE)
 
 load("00mod.Rdata")
@@ -36,8 +36,9 @@ load("00mod.Rdata")
 source("C:/Users/Chantel.Wetzel/Documents/GitHub/sa4ss/R/es_table_tex.R")
 SSexecutivesummary(replist = model, format = FALSE)
 es_table_tex(dir = base, 
-             save_loc = file.path(getwd(), "tex_tables"),
+             save_loc = file.path(base, "tables")),
              table_folder = 'tables')
+
 es_table_tex(dir = file.path(getwd(), 'tables'), 
             save_loc = file.path(getwd(), "tex_tables"), 
             csv_name = "all_tables.csv")

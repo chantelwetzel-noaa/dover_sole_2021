@@ -1,6 +1,6 @@
 ---
 geometry: margin=1in
-month: "May"
+month: "August"
 year: "2021"
 preamble: |
 output: sa4ss::techreport_pdf
@@ -116,7 +116,7 @@ Groundfish trawl fisheries account for the majority of Dover sole landings off t
 
 \clearpage
 
-## Data and Assessment{-}
+## Data and assessment{-}
 
 This stock assessment for Dover sole off the west coast of the U.S. was developed using the length- and age-structured model Stock Synthesis (version 3.30.16).  The previous stock assessment of Dover sole was conducted in 2011 and estimated the stock to be increasing with a stock status determination of 84 percent of virgin (or unfished) spawning biomass at the beginning of 2011. During the development of this assessment, model specifications including fleet structure, landings, data, and model structural assumptions were re-evaluated. Similar to the previous assessment, a single coastwide population was modeled allowing for area-specific fleets and separate growth and mortality parameters for each sex (i.e., a two-sex model).  The model time domain is 1911 to 2020, with a 12 year forecast beginning in 2021.
 
@@ -128,7 +128,7 @@ This assessment integrates data and information from multiple sources into one m
 
 Multiple sources of uncertainty are explicitly included in this assessment, including parameter uncertainty using prior distributions, observational uncertainty through standard deviations of survey estimates, and model uncertainty through a comprehensive sensitivity analyses to data source and model structural assumptions. A base model was selected that best fit the observed data while concomitantly balancing the desire to capture the central tendency across those sources of uncertainty, ensure model realism and tractability, and promote robustness to potential model misspecification.
 
-## Stock Biomass{-}
+## Stock biomass and dynamics{-}
 
 The terms "spawning output" and "spawning biomass" are used interchangeably in this document in reference to total female spawning biomass. For the purposes of this assessment, female spawning biomass is assumed to be proportional to egg and larval production (i.e., spawning output). The estimated spawning biomass at the beginning of 2021 was 232,065 mt (~95 percent asymptotic intervals: 154,153 to 309,977 mt, Table \ref{tab:ssbES} and Figure \ref{fig:es-ssb}), which when compared to unfished spawning biomass (294,070 mt) equates to a relative stock status level of 79 percent (~95 percent asymptotic intervals: 71 to 87 percent, Figure \ref{fig:es-depl}).  Overall, spawning stock biomass has steadily declined from near unfished levels in the 1940s to a time series low of 60 percent of unfished levels in 1994 following high landings in the 1980s and early 1990s. Over the past two decades, spawning stock biomass has generally been increasing as total landings have decreased. The stock is estimated to be well above the management target of $SB_{25\%}$ in 2021 and has remained well above the target throughout the time series (Table \ref{tab:ssbES} and Figure \ref{fig:es-depl}).
 
@@ -156,7 +156,7 @@ There is large uncertainty associated with annual differences in recruitment acr
 
 \clearpage
 
-## Exploitation Status{-}
+## Exploitation status{-}
 
 Trends in fishing intensity (1 - SPR) largely mirrored that of landings given the relative lack of large variations in annual recruitment such that there was a steady increase from the 1940s to the mid to late 1980s before decreasing to current levels of 0.11 for 2020 (Figure \ref{fig:es-1-spr}).  The maximum fishing intensity was 0.45 in 1991, well below the target harvest rate of 0.70 (1 - $\text{SPR}_{30\%}$). Fishing intensity over the past decade has ranged between 0.11 and 0.2 and the exploitation rate has been low (0.01 - 0.02, Table \ref{tab:exploitES}). Current estimates indicate that Dover sole spawning biomass is greater than 3 times higher than the target biomass level ($\text{SB}_{25\%}$), and fishing intensity remains well below  the target harvest rate.
 
@@ -167,12 +167,12 @@ Trends in fishing intensity (1 - SPR) largely mirrored that of landings given th
 
 \clearpage
 
-## Ecosystem Considerations{-}
+## Ecosystem considerations{-}
 
 
 Ecosystem factors have not been explicitly modeled in this assessment but there are several aspects of the California current ecosystem that may impact Dover sole population dynamics and warrant further research. Survival of Dover sole eggs and pelagic larvae that have a protracted pelagic phase are linked to water circulation patterns [@king_climate_2011]. The timing of settlement occurs typically between January and March and is correlated with Ekman transport, positive vertical velocity, and relatively warm bottom temperatures [@toole_settlement_1997].  Markle et al. [-@markle_metamorphosis_1992] hypothesized that juvenile Dover sole move inshore to nursery habitat by making vertical ascents during the night off bottom until they encounter suitable habitat.  Tolimieri et al. [-@tolimieri_spatio-temporal_2020] identified multiple areas off the coast of southern California that had high densities of young Dover sole. This is consistent with the finding of Toole et al. [-@toole_seasonal_2011] that juvenile Dover sole 10 - 22 cm tended to move inshore during summer months. As Dover sole grow they generally move offshore into deep waters. Changing water temperature due to climate change may alter the winter onshore Ekman transport which could have impacts on juvenile survival and result in distributional shifts of favorable spawning grounds, or nursery habitats of Dover sole.
 
-## Reference Points{-}
+## Reference points{-}
 
 The 2021 spawning biomass relative to unfished equilibrium spawning biomass is well above the management target of 25 percent of unfished spawning biomass. The relative biomass compared to the ratio of the estimated SPR to the management target ($\text{SPR}_{30\%}$) across all model years are shown in Figure \ref{fig:es-phase} where warmer colors (red) represent early years and colder colors (blue) represent recent years.  The relative biomass and estimated SPR have been well above the management biomass target (25 percent) and well below the SPR target across all model years. Figure \ref{fig:es-yield} shows the equilibrium curve based on a steepness value fixed at 0.8 with vertical dashed lines to indicate the estimate of fraction unfished at the start of 2021 (current) and the estimated management targets calculated based on the relative target biomass (B target), the SPR target, and the maximum sustainable yield (MSY).
 
@@ -191,7 +191,7 @@ Reference points were calculated using the estimated selectivities and catch dis
 
 \clearpage
 
-## Management Performance{-}
+## Management performance{-}
 
 Exploitation on Dover sole slowly increased starting around 1940 and reached a high in the early 1990s. After peaking in the 1990s exploitation rates declined steadily through 2006, increased from 2007 - 2010, but have steadily declined since. In the last ten years the annual catch limit (ACL) has been set well below the overfishing limit (OFL) and acceptable biological catch (ABC) (Table \ref{tab:ofl-es}).  Total mortality has ranged between 10 - 15 percent of the ACL in the most recent five years.
 
@@ -227,7 +227,7 @@ Year & OFL & ABC & ACL & Landings & Est. Total Mortality\\
 \endgroup{}
 \endgroup{}
 
-## Unresolved Problems and Major Uncertainties{-}
+## Unresolved problems and major uncertainties{-}
 
 
 The base case model was developed with the goal of balancing parsimony with realism and fitting the data. To achieve parsimony, some simplification of model structure was assumed which may impact the interpretation and fit to specific data sets. The maturity-at-length or -at-age analysis conducted for this assessment identified possible differences in Dover sole south and north of Point Reyes. Currently, there is limited information on the movement of Dover sole by latitude or depth which could provide insights into the mechanisms behind these observed differences. Spatial estimates of biomass north and south of Point Reyes, using \gls{s-wcgbt} data averaged across the most recent five years, indicated that approximately 67 percent of the West Coast Dover sole biomass is estimated to be north of Point Reyes.  Additionally, in recent years the majority of fishery data have been collected from ports north of Point Reyes, which limits the ability to support additional model complexity. Given the lack of information to inform the structure and parameterization of a spatial model, the base model assumed a single homogeneous population structure at this time. Future research into the biology and movement of Dover sole could facilitate future spatial modeling efforts if found to be the appropriate approach. 
@@ -236,14 +236,14 @@ Uncertainty in natural mortality translates into uncertain estimates of both sta
 
 Dover sole life history exhibit strong relationships with depth that indicate the stock is more complex than the model assumes. Small fish are found in shallow water, with the median observed size increasing with depth. However, the variability of sizes observed by sex increases moving from deeper to shallower waters. Specifically, the \gls{s-wcgbt} observes large females at the deepest depths sampled but also observe some of the largest female Dover sole in waters less than 300 meters. In addition, there is a pattern of sex ratio by depth with more males being found in middle depths and more females found in shallow and deeper depths.  These patterns are apparent in the summer fisheries and surveys.  It is uncertain how the patterns affect the data (they may be a cause of the bi-modal length distributions seen in the slope surveys) and if these patterns can be effectively modeled to produce better fits to the data and better predictions of biomass while still preserving model parsimony.
 
-## Scientific Uncertainty{-}
+## Scientific uncertainty{-}
 
 
 The model estimated uncertainty around the 2021 spawning biomass was $\sigma$ = 0.17 and the uncertainty around the OFL was $\sigma$ = 0.16. This is likely an underestimate of overall uncertainty because of the necessity to fix several population dynamic parameters (e.g., steepness, recruitment variance, female natural mortality) and no explicit incorporation of model structural uncertainty (although see the decision table for alternative states of nature).
 
-## Harvest Projections and Decision Table{-}
+## Harvest projections and decision table{-}
 
-The forecast of stock abundance and yield was developed using the base model. The total catches in 2021 and 2022 were set at 10,000 mt, well below the adopted 50,000 mt ACL for those year, based on recommendations from the Groundfish Management Team (GMT). These assumed removals are likely higher than what the true removals may be in 2021 and 2023 but have limited impact in the stock status and future removals during the projected period in the base model. The exploitation rate for 2023 and beyond is based upon an SPR of 30 percent and the 25:5 harvest control rule. The average exploitation rates, across recent years, by fleet were used to distribute catches during the forecast period. The ABC values were estimated using a category 1 time-varying $\sigma_y$ starting at 0.50 combined with a P* value of 0.45. The catches in the base model during the projection period, 2023 - 2032 were set equal to the year-specific ABC using the current flatfish harvest control rule, 25:5 (Table \ref{tab:es-project}). 
+The forecast of stock abundance and yield was developed using the base model. The total catches in 2021 and 2022 were set at 10,000 mt, well below the adopted 50,000 mt ACL for those year, based on recommendations from the Groundfish Management Team (GMT). These assumed removals are likely higher than what the true removals may be in 2021 and 2022 but have limited impact in the stock status and future removals during the projected period in the base model. The exploitation rate for 2023 and beyond is based upon an SPR of 30 percent and the 25:5 harvest control rule. The average exploitation rates, across recent years, by fleet were used to distribute catches during the forecast period. The ABC values were estimated using a category 1 time-varying $\sigma_y$ starting at 0.50 combined with a P* value of 0.45. The catches in the base model during the projection period, 2023 - 2032 were set equal to the year-specific ABC using the current flatfish harvest control rule, 25:5 (Table \ref{tab:es-project}). 
 
 The axes of uncertainty  in the decision table are based on the uncertainty around female natural mortality. The default category 1 $\sigma$ value of 0.50 was used to identify the low and high states of nature relative to the estimated 2021 spawning biomass  (i.e., 1.15 standard deviations corresponding to the 12.5 and 87.5 percentiles). A search across female natural mortality values was done to identify the natural mortality value that resulted in  current year spawning biomass values for the low and high states of nature based on the percentiles. The female natural mortality values that corresponded with the lower and upper percentiles were 0.084 yr^-1^ and 0.126 yr^-1^. 
 
@@ -293,7 +293,7 @@ Year & Adopted OFL (mt) & Adopted ABC (mt) & Adopted ACL (mt) & Assumed Removal 
 
 \clearpage
 
-## Research and Data Needs{-}
+## Research and data needs{-}
 
 
 Investigating and or addressing the following items could improve future assessments of Dover sole: 
@@ -936,7 +936,7 @@ Dover sole life history exhibit strong relationships with depth that indicate th
 
 ## Harvest Projections and Decision Tables
 
-The forecast of stock abundance and yield was developed using the base model. The total catches in 2021 and 2022 were set at 10,000 mt, well below the adopted 50,000 mt ACL for those year, based on recommendations from the Groundfish Management Team (GMT). These assumed removals are likely higher than what the true removals may be in 2021 and 2023 but have limited impact in the stock status and future removals during the projected periord in the base model. The exploitation rate for 2023 and beyond is based upon an SPR of 30 percent and the 25:5 harvest control rule. The average exploitation rates, across recent years, by fleet were used to distribute catches during the forecast period. The ABC values were estimated using a category 1 time-varying $\sigma_y$ starting at 0.50 combined with a P* value of 0.45. The catches during the projection period, 2023 - 2032 were set equal to the year-specific ABC using the current flatfish harvest control rule, 25:5 (Table \ref{tab:es-project}). 
+The forecast of stock abundance and yield was developed using the base model. The total catches in 2021 and 2022 were set at 10,000 mt, well below the adopted 50,000 mt ACL for those year, based on recommendations from the Groundfish Management Team (GMT). These assumed removals are likely higher than what the true removals may be in 2021 and 2022 but have limited impact in the stock status and future removals during the projected periord in the base model. The exploitation rate for 2023 and beyond is based upon an SPR of 30 percent and the 25:5 harvest control rule. The average exploitation rates, across recent years, by fleet were used to distribute catches during the forecast period. The ABC values were estimated using a category 1 time-varying $\sigma_y$ starting at 0.50 combined with a P* value of 0.45. The catches during the projection period, 2023 - 2032 were set equal to the year-specific ABC using the current flatfish harvest control rule, 25:5 (Table \ref{tab:es-project}). 
 
 The axes of uncertainty  in the decision table is based on the uncertainty around female natural mortality. Uncertainty in the forecasts is based upon the category 1 default uncertainty of $\sigma$ = 0.50. The default $\sigma$ value was used to identify the 12.5 and 87.5 percentiles of the asymptotic standard deviation for the current year, 2021, spawning biomass from the base model to identify the low and high states of nature (i.e., 1.15 standard deviations corresponding to the 12.5 and 87.5 percentiles). Once the 2021 spawning biomass for the low and high states of nature were identified a search across female natural mortality values were done to attain the current year spawning biomass values. The female natural mortality values that corresponded with the lower and upper percentiles were 0.084 yr^-1^ and 0.126 yr^-1^. 
 

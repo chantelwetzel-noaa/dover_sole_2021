@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.12.0 (TeX Live 2020/W32TeX)  (format=lualatex 2021.3.19)  13 MAY 2021 07:11
+This is LuaHBTeX, Version 1.12.0 (TeX Live 2020/W32TeX)  (format=lualatex 2021.3.19)  12 AUG 2021 10:37
  restricted system commands enabled.
 **_main.tex
 (./_main.tex
@@ -6076,7 +6076,7 @@ ue_spec, 22 attribute_list, 5 write, 1 close, 9 pdf_action nodes
    avail lists: 1:59,2:24891,3:2079,4:421,5:706,6:1006,7:15846,8:6428,9:6826,10:
 23,11:1195,12:1
  70331 multiletter control sequences out of 65536+600000
- 79 fonts using 15970207 bytes
+ 79 fonts using 15970359 bytes
  218i,12n,216p,3186b,744s stack positions out of 5000i,500n,10000p,200000b,200000s
 <c:/Users/Chantel.Wetzel/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/publi
 c/lm/lmroman8-regular.otf><c:/Users/Chantel.Wetzel/AppData/Roaming/TinyTeX/texmf
@@ -6096,7 +6096,7 @@ exmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf><c:/Users/Chantel.Wetze
 l/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmroman12-italic.o
 tf><c:/Users/Chantel.Wetzel/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/pu
 blic/lm/lmroman12-regular.otf>
-Output written on _main.pdf (306 pages, 667355819 bytes).
+Output written on _main.pdf (306 pages, 667354812 bytes).
 
 PDF statistics: 3625 PDF objects out of 4296 (max. 8388607)
  791 named destinations out of 1000 (max. 131072)
