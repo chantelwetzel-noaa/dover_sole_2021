@@ -1,14 +1,14 @@
-library(r4ss)
-wd = "C:/Assessments/2021/dover_sole_2021/models/_decision_tables"
-dir = file.path(wd, "7.0.1_base_m")
-
-find_para(dir = dir, 
-		  yr = 2021, 
-		  parm = c("MGparm[1]"), quant = c(0.875), 
-		  ctl_name = "2021_dover.ctl", 
-		  parm_string = "NatM_p_1_Fem_GP_1", 
-		  est = FALSE,
-		  sigma = 0.50)
+#library(r4ss)
+#wd = "C:/Assessments/2021/dover_sole_2021/models/_decision_tables"
+#dir = file.path(wd, "7.0.1_base_m")
+#
+#find_para(dir = dir, 
+#		  yr = 2021, 
+#		  parm = c("MGparm[1]"), quant = c(0.875), 
+#		  ctl_name = "2021_dover.ctl", 
+#		  parm_string = "NatM_p_1_Fem_GP_1", 
+#		  est = FALSE,
+#		  sigma = 0.50)
 
 #' @param dir the directory pointing to the model
 #' @param base object created by SS_output. If left blank the model located in the dir
@@ -25,7 +25,7 @@ find_para(dir = dir,
 find_para <- function(dir, base, yr = 2021, parm = c("MGparm[1]"), 
 					  quant = c(0.125, 0.875), 
 					  ctl_name, parm_string, est = FALSE, sigma, 
-					  tol = 0.005, use_115 = FALSE)
+					  tol = 0.005, use_115 = TRUE)
 {
 
 for (tt in 1:length(quant)){
@@ -75,9 +75,9 @@ for (tt in 1:length(quant)){
 		target = sb$Value/(exp(-1.15*sigma))
 	}
 
-	if (!use_115){
-		target = qnorm(quant[tt], mean = sb[,"Value"], sd = sb[,"StdDev"])
-	}
+	#if (!use_115){
+	#	target = exp(qlnorm(quant[tt], mean = sb[,"Value"], sd = sb[,"StdDev"]))
+	#}
 
 	for(a in 1:100){
 
@@ -105,13 +105,13 @@ for (tt in 1:length(quant)){
 		temp = as.numeric(rawpar[which_line])
 		
 		if(temp[1] < 0.40) {
-			step.size = ifelse(find_sb > target - target * 0.05 & find_sb < target + target * 0.05, 
+			step.size = ifelse(find_sb > target - target * 0.05 & find_sb < target + target * 0.05,
 							  ifelse(find_sb > target - target* 0.02 & find_sb < target + target * 0.02,
 							  0.0002, 0.001), 0.002)
 		} else {
 			step.size =ifelse(find_sb > target - target * 0.05 & find_sb < target + target * 0.05, 
 							  ifelse(find_sb > target - target* 0.02 & find_sb < target + target * 0.02,
-							  0.005, 0.01), 0.04)			
+							  0.0025, 0.005), 0.04)			
 		}
 		
 		value = ifelse( find_sb > target, temp - step.size,
