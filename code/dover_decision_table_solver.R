@@ -30,7 +30,7 @@ find_para <- function(dir, base, yr = 2021, parm = c("MGparm[1]"),
 
 for (tt in 1:length(quant)){
 
-	dec_dir <- paste0(dir, "_decision_table_1.15_", sigma, "_", quant[tt])
+	dec_dir <- paste0(dir, "_", parm, "_decision_table_1.15_", sigma, "_", quant[tt])
 	dir.create(dec_dir, showWarnings = FALSE)
 	
 	# Check for existing files and delete
@@ -111,7 +111,7 @@ for (tt in 1:length(quant)){
 		} else {
 			step.size =ifelse(find_sb > target - target * 0.05 & find_sb < target + target * 0.05, 
 							  ifelse(find_sb > target - target* 0.02 & find_sb < target + target * 0.02,
-							  0.0025, 0.005), 0.04)			
+							  0.0005, 0.005), 0.02)			
 		}
 		
 		value = ifelse( find_sb > target, temp - step.size,
