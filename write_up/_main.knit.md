@@ -1,6 +1,6 @@
 ---
 geometry: margin=1in
-month: "August"
+month: "October"
 year: "2021"
 preamble: |
 output: sa4ss::techreport_pdf
@@ -64,9 +64,13 @@ title: Status of Dover sole (_Microstomus pacificus_) along the U.S. West Coast 
 
 \vspace{500cm}
 
+<!--
+
 # Disclaimer{-}
 
 _**These materials do not constitute a formal publication and are for information only. They are in a pre-review, pre-decisional state and should not be formally cited or reproduced. They are to be considered provisional and do not represent any determination or policy of NOAA or the Department of Commerce.**_
+
+-->
 
 \pagebreak
 
@@ -74,9 +78,11 @@ _**These materials do not constitute a formal publication and are for informatio
 
 # One Page Summary{-}
 
-\begin{itemize}
-
+<!--
 \item This assessment for Dover sole incorporates a wide range of data sources: landings data and discard estimates; survey indices of abundance, length- and/or age-composition data for each fishery or survey (with conditional age-at-length data used for the surveys); information on weight-at-length, maturity-at-length, and fecundity-at-length; information on natural mortality and the steepness of the Beverton-Holt stock-recruitment relationship; and estimates of ageing error.
+-->
+
+\begin{itemize}
 
 \item The longest time series of fishery-independent information off the U.S. west coast arises from the \gls{s-wcgbt} that has been conducted annually from 2003 - 2019. The length and age data from this survey were highly influential on the model estimates of stock size and status. Additionally, these data were used to externally estimate starting parameter values by sex for length-at-age and the fixed values by sex for length-weight relationship.   
 
@@ -112,7 +118,7 @@ Groundfish trawl fisheries account for the majority of Dover sole landings off t
 \input{tex_tables/a_Catches_ES.tex}
 
 
-![Landings by fleet used in the base model where catches in metric tons by fleet are stacked.\label{fig:es-catch}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/catch2 landings stacked.png){width=100% height=100% alt="Landings by fleet used in the base model where catches in metric tons by fleet are stacked."}
+![Landings by fleet used in the base model where catches in metric tons by fleet are stacked.\label{fig:es-catch}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/catch2 landings stacked.png){width=100% height=100% alt="."}
 
 \clearpage
 
@@ -135,10 +141,10 @@ The terms "spawning output" and "spawning biomass" are used interchangeably in t
 \input{tex_tables/b_SSB_ES.tex}
 
 
-![Estimated time series of spawning output (circles and line: median; light broken lines: 95 percent intervals) for the base model.\label{fig:es-ssb}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/ts7_Spawning_biomass_(mt)_with_95_asymptotic_intervals_intervals.png){width=100% height=100% alt="Estimated time series of spawning output (circles and line: median; light broken lines: 95 percent intervals) for the base model."}
+![Estimated time series of spawning output (circles and line: median; light broken lines: 95 percent intervals) for the base model.\label{fig:es-ssb}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/ts7_Spawning_biomass_(mt)_with_95_asymptotic_intervals_intervals.png){width=100% height=100% alt="."}
 
 
-![Estimated time series of fraction of unfished spawning output (circles and line: median; light broken lines: 95 percent intervals) for the base model.\label{fig:es-depl}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/ts9_Fraction_of_unfished_with_95_asymptotic_intervals_intervals.png){width=100% height=100% alt="Estimated time series of fraction of unfished spawning output (circles and line: median; light broken lines: 95 percent intervals) for the base model."}
+![Estimated time series of fraction of unfished spawning output (circles and line: median; light broken lines: 95 percent intervals) for the base model.\label{fig:es-depl}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/ts9_Fraction_of_unfished_with_95_asymptotic_intervals_intervals.png){width=100% height=100% alt="."}
 
 \clearpage
 
@@ -149,10 +155,10 @@ There is large uncertainty associated with annual differences in recruitment acr
 \input{tex_tables/c_Recr_ES.tex}
 
 
-![Estimated time series of age-0 recruits (1000s) for the base model with 95 percent intervals.\label{fig:es-recruits}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/ts11_Age-0_recruits_(1000s)_with_95_asymptotic_intervals.png){width=100% height=100% alt="Estimated time series of age-0 recruits (1000s) for the base model with 95 percent intervals."}
+![Estimated time series of age-0 recruits (1000s) for the base model with 95 percent intervals.\label{fig:es-recruits}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/ts11_Age-0_recruits_(1000s)_with_95_asymptotic_intervals.png){width=100% height=100% alt="."}
 
 
-![Estimated time series of recruitment deviations.\label{fig:es-rec-devs}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/recdevs2_withbars.png){width=100% height=100% alt="Estimated time series of recruitment deviations."}
+![Estimated time series of recruitment deviations.\label{fig:es-rec-devs}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/recdevs2_withbars.png){width=100% height=100% alt="."}
 
 \clearpage
 
@@ -163,7 +169,7 @@ Trends in fishing intensity (1 - SPR) largely mirrored that of landings given th
 \input{tex_tables/d_SPR_ES.tex}
 
 
-![Estimated 1 - relative spawning ratio (SPR) by year for the base model. The management target is plotted as a red horizontal line and values above this reflect harvest in excess of the proxy harvest rate.\label{fig:es-1-spr}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/SPR2_minusSPRseries.png){width=100% height=100% alt="Estimated 1 - relative spawning ratio (SPR) by year for the base model. The management target is plotted as a red horizontal line and values above this reflect harvest in excess of the proxy harvest rate."}
+![Estimated 1 - relative spawning ratio (SPR) by year for the base model. The management target is plotted as a red horizontal line and values above this reflect harvest in excess of the proxy harvest rate.\label{fig:es-1-spr}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/SPR2_minusSPRseries.png){width=100% height=100% alt="."}
 
 \clearpage
 
@@ -178,12 +184,11 @@ The 2021 spawning biomass relative to unfished equilibrium spawning biomass is w
 
 
 
-![Phase plot of estimated 1-SPR versus fraction unfished for the base model.\label{fig:es-phase}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/SPR4_phase.png){width=100% height=100% alt="Phase plot of estimated 1-SPR versus fraction unfished for the base model."}
+![Phase plot of estimated 1-SPR versus fraction unfished for the base model.\label{fig:es-phase}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/SPR4_phase.png){width=100% height=100% alt="."}
 
 
 ![Equilibrium yield curve for the base case model. Values are based on the 2020
-fishery selectivities and with steepness fixed at 0.80.\label{fig:es-yield}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/yield2_yield_curve_with_refpoints.png){width=100% height=100% alt="Equilibrium yield curve for the base case model. Values are based on the 2020
-fishery selectivities and with steepness fixed at 0.80."}
+fishery selectivities and with steepness fixed at 0.80.\label{fig:es-yield}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/yield2_yield_curve_with_refpoints.png){width=100% height=100% alt="."}
 
 Reference points were calculated using the estimated selectivities and catch distributions among fleets in the most recent year of the model, 2020 (Table \ref{tab:es-reference}). Sustainable total yield, landings plus discards, using an $\text{SPR}_{30\%}$ is 22,891 mt. The spawning biomass equivalent to 25 percent of the unfished spawning biomass ($\text{SB}_{25\%}$) calculated using the SPR target ($\text{SPR}_{30\%}$) was 74,498 mt. Recent removals have been below the point estimate of the potential long-term yields calculated using an $\text{SPR}_{30\%}$ reference point and the population scale has been relatively stable or increasing over the last decade.
 
@@ -257,7 +262,7 @@ Across the low and high states of nature and across alternative future harvest s
 
 \begin{landscape}\begingroup\fontsize{10}{12}\selectfont
 
-\begin{longtable}[t]{>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{2cm}}
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{1.6cm}>{\raggedright\arraybackslash}p{1.6cm}>{\raggedright\arraybackslash}p{1.6cm}>{\raggedright\arraybackslash}p{1.6cm}>{\raggedright\arraybackslash}p{1.6cm}>{\raggedright\arraybackslash}p{1.6cm}>{\raggedright\arraybackslash}p{1.6cm}>{\raggedright\arraybackslash}p{1.6cm}>{\raggedright\arraybackslash}p{1.6cm}>{\raggedright\arraybackslash}p{1.6cm}}
 \caption{(\#tab:es-project)Projections of potential OFLs (mt), ABCs (mt), the buffer (ABC = buffer x OFL), estimated spawning biomass, and fraction unfished. The adopted OFL, ABC, and ACL for 2021 and 2022 reflect adopted management limits and the assumed removal is the removal assumptions applied for 2021 and 2022. The full ABC was assumed to be removed for 2023 - 2032}\\
 \toprule
 Year & Adopted OFL (mt) & Adopted ABC (mt) & Adopted ACL (mt) & Assumed Removal (mt) & OFL (mt) & ABC (mt) & Buffer & Spawning Biomass (mt) & Fraction Unfished\\
@@ -1336,7 +1341,7 @@ CV young Fem GP 1 & 0.156 & 3 & (0.01, 1) & OK & 0.0117583 & None\\
 CV old Fem GP 1 & 0.080 & 4 & (0.01, 1) & OK & 0.0034354 & None\\
 Wtlen 1 Fem GP 1 & 0.000 & -99 & (0, 0.1) & NA & NA & None\\
 Wtlen 2 Fem GP 1 & 3.332 & -99 & (2, 4) & NA & NA & None\\
-Mat50% Fem GP 1 & 32.840 & -99 & (20, 40) & NA & NA & None\\
+Mat50\% Fem GP 1 & 32.840 & -99 & (20, 40) & NA & NA & None\\
 Mat slope Fem GP 1 & -0.278 & -99 & (-1, 0) & NA & NA & None\\
 Eggs/kg inter Fem GP 1 & 1.000 & -99 & (-3, 3) & NA & NA & None\\
 Eggs/kg slope wt Fem GP 1 & 0.000 & -99 & (-3, 3) & NA & NA & None\\
@@ -1687,7 +1692,7 @@ NWFSC WCGBT Ages & 0.111 & 0.157 & 1.000\\*
 
 \begin{landscape}\begingroup\fontsize{10}{12}\selectfont
 
-\begin{longtable}[t]{>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{2cm}}
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{1.5cm}}
 \caption{(\#tab:project)Projections of potential OFLs (mt), ABCs (mt), the buffer (ABC = buffer x OFL), estimated spawning biomass, and fraction unfished. The adopted OFL, ABC, and ACL for 2021 and 2022 reflect adopted management limits and the assumed removal is the removal assumptions applied for 2021 and 2022. The full ABC was assumed to be removed for 2023 - 2032}\\
 \toprule
 Year & Adopted OFL (mt) & Adopted ABC (mt) & Adopted ACL (mt) & Assumed Removal (mt) & OFL (mt) & ABC (mt) & Buffer & Spawning Biomass (mt) & Fraction Unfished\\
@@ -1735,46 +1740,46 @@ Year & Adopted OFL (mt) & Adopted ABC (mt) & Adopted ACL (mt) & Assumed Removal 
 <!-- ====================================================================== --> 
 
 
-![Map of the assessment area.\label{fig:map}](figs/map.png){width=100% height=100% alt="Map of the assessment area."}
+![Map of the assessment area.\label{fig:map}](figs/map.png){width=100% height=100% alt="."}
 
 <!-- ====================================================================== -->  
 <!-- ****************** Catches Used in the Model ************************* --> 
 <!-- ====================================================================== -->  
 
 
-![Landings by fleet used in the base model where catches in metric tons by fleet are stacked.\label{fig:catch}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/catch2 landings stacked.png){width=100% height=100% alt="Landings by fleet used in the base model where catches in metric tons by fleet are stacked."}
+![Landings by fleet used in the base model where catches in metric tons by fleet are stacked.\label{fig:catch}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/catch2 landings stacked.png){width=100% height=100% alt="."}
 
 <!-- ====================================================================== --> 
 <!-- ******************* Data Used in the Model *************************** --> 
 <!-- ====================================================================== --> 
 
 
-![Summary of data sources used in the base model.\label{fig:data-plot}](figs/data_plot.png){width=100% height=100% alt="Summary of data sources used in the base model."}
+![Summary of data sources used in the base model.\label{fig:data-plot}](figs/data_plot.png){width=100% height=100% alt="."}
 
 <!-- ======================================================= -->
 <!-- ***************   Discard Data  *********************** --> 
 <!-- ======================================================= -->
 
 
-![Observed discard rates for the California fleet.\label{fig:ca-disc-ob}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/discard_dataCA.png){width=100% height=100% alt="Observed discard rates for the California fleet."}
+![Observed discard rates for the California fleet.\label{fig:ca-disc-ob}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/discard_dataCA.png){width=100% height=100% alt="."}
 
 
-![Observed discard rates for the Oregon/Washington fleet.\label{fig:orwa-disc-ob}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/discard_dataOR_WA.png){width=100% height=100% alt="Observed discard rates for the Oregon/Washington fleet."}
+![Observed discard rates for the Oregon/Washington fleet.\label{fig:orwa-disc-ob}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/discard_dataOR_WA.png){width=100% height=100% alt="."}
 
 
-![Observed discard mean weights for the California fleet.\label{fig:ca-disc-wght-ob}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/bodywt_data_fltCA.png){width=100% height=100% alt="Observed discard mean weights for the California fleet."}
+![Observed discard mean weights for the California fleet.\label{fig:ca-disc-wght-ob}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/bodywt_data_fltCA.png){width=100% height=100% alt="."}
 
 
-![Observed discard mean weights for the Oregon/Washington fleet.\label{fig:orwa-disc-wght-ob}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/bodywt_data_fltOR_WA.png){width=100% height=100% alt="Observed discard mean weights for the Oregon/Washington fleet."}
+![Observed discard mean weights for the Oregon/Washington fleet.\label{fig:orwa-disc-wght-ob}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/bodywt_data_fltOR_WA.png){width=100% height=100% alt="."}
 
 
-![Observed discard lengths for the California fleet.\label{fig:ca-disc-len-ob}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lendat_flt1mkt1.png){width=100% height=100% alt="Observed discard lengths for the California fleet."}
+![Observed discard lengths for the California fleet.\label{fig:ca-disc-len-ob}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lendat_flt1mkt1.png){width=100% height=100% alt="."}
 
 
-![Observed discard lengths for the Oregon/Washington fleet.\label{fig:orwa-disc-len-ob-1}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lendat_flt2mkt1_page1.png){width=100% height=100% alt="Observed discard lengths for the Oregon/Washington fleet."}
+![Observed discard lengths for the Oregon/Washington fleet.\label{fig:orwa-disc-len-ob-1}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lendat_flt2mkt1_page1.png){width=100% height=100% alt="."}
 
 
-![Observed discard lengths for the Oregon/Washington fleet.\label{fig:orwa-disc-len-ob-2}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lendat_flt2mkt1_page2.png){width=100% height=100% alt="Observed discard lengths for the Oregon/Washington fleet."}
+![Observed discard lengths for the Oregon/Washington fleet.\label{fig:orwa-disc-len-ob-2}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lendat_flt2mkt1_page2.png){width=100% height=100% alt="."}
 
 
 <!-- ======================================================= -->
@@ -1782,113 +1787,113 @@ Year & Adopted OFL (mt) & Adopted ABC (mt) & Adopted ACL (mt) & Assumed Removal 
 <!-- ======================================================= -->
 
 
-![The number of length samples by port and year from California.\label{fig:ca-len-port}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/commercial_comps/plots/CA_length_port_ordered.png){width=100% height=100% alt="The number of length samples by port and year from California."}
+![The number of length samples by port and year from California.\label{fig:ca-len-port}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/commercial_comps/plots/CA_length_port_ordered.png){width=100% height=100% alt="."}
 
 
-![Length composition data from the California commercial fleet.\label{fig:ca-len-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lendat_bubflt1mkt2_page4.png){width=100% height=100% alt="Length composition data from the California commercial fleet."}
+![Length composition data from the California commercial fleet.\label{fig:ca-len-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lendat_bubflt1mkt2_page4.png){width=100% height=100% alt="."}
 
 
-![Mean length for California commercial fleet with 95 percent confidence intervals.\label{fig:mean-ca-len-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lendat_data_weighting_TA1.8_CA.png){width=100% height=100% alt="Mean length for California commercial fleet with 95 percent confidence intervals."}
+![Mean length for California commercial fleet with 95 percent confidence intervals.\label{fig:mean-ca-len-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lendat_data_weighting_TA1.8_CA.png){width=100% height=100% alt="."}
 
 
-![Length composition data aggregated across years by fleet.\label{fig:agg-len-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lendat__aggregated_across_time.png){width=100% height=100% alt="Length composition data aggregated across years by fleet."}
+![Length composition data aggregated across years by fleet.\label{fig:agg-len-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lendat__aggregated_across_time.png){width=100% height=100% alt="."}
 
 
-![The number of read otoliths samples by port and year from California.\label{fig:ca-age-port}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/commercial_comps/plots/CA_age_port_ordered.png){width=100% height=100% alt="The number of read otoliths samples by port and year from California."}
+![The number of read otoliths samples by port and year from California.\label{fig:ca-age-port}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/commercial_comps/plots/CA_age_port_ordered.png){width=100% height=100% alt="."}
 
 
-![Age composition data from the California commercial fleet.\label{fig:ca-age-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_agedat_bubflt1mkt2_page2.png){width=100% height=100% alt="Age composition data from the California commercial fleet."}
+![Age composition data from the California commercial fleet.\label{fig:ca-age-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_agedat_bubflt1mkt2_page2.png){width=100% height=100% alt="."}
 
 
-![Mean age for California commercial fleet with 95 percent confidence intervals.\label{fig:mean-ca-age-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_agedat_data_weighting_TA1.8_CA.png){width=100% height=100% alt="Mean age for California commercial fleet with 95 percent confidence intervals."}
+![Mean age for California commercial fleet with 95 percent confidence intervals.\label{fig:mean-ca-age-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_agedat_data_weighting_TA1.8_CA.png){width=100% height=100% alt="."}
 
 
-![Age composition data aggregated across years by fleet.\label{fig:agg-age-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_agedat__aggregated_across_time.png){width=100% height=100% alt="Age composition data aggregated across years by fleet."}
+![Age composition data aggregated across years by fleet.\label{fig:agg-age-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_agedat__aggregated_across_time.png){width=100% height=100% alt="."}
 
 
-![The number of length samples by port and year from Oregon.\label{fig:or-len-port}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/commercial_comps/plots/OR_length_port_ordered.png){width=100% height=100% alt="The number of length samples by port and year from Oregon."}
-
-\clearpage
-
-
-![The number of length samples by port and year from Washington.\label{fig:wa-len-port}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/commercial_comps/plots/WA_length_port_ordered.png){width=100% height=100% alt="The number of length samples by port and year from Washington."}
-
-
-
-![Length composition data from the Oregon/Washington commercial fleet.\label{fig:orwa-len-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lendat_bubflt2mkt2_page3.png){width=100% height=100% alt="Length composition data from the Oregon/Washington commercial fleet."}
-
-
-![Mean length for Oregon/Washington commercial fleet with 95 percent confidence intervals.\label{fig:mean-orwa-len-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lendat_data_weighting_TA1.8_OR_WA.png){width=100% height=100% alt="Mean length for Oregon/Washington commercial fleet with 95 percent confidence intervals."}
-
-
-![The number of read otoliths samples by port and year from Oregon.\label{fig:or-age-port}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/commercial_comps/plots/OR_age_port_ordered.png){width=100% height=100% alt="The number of read otoliths samples by port and year from Oregon."}
+![The number of length samples by port and year from Oregon.\label{fig:or-len-port}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/commercial_comps/plots/OR_length_port_ordered.png){width=100% height=100% alt="."}
 
 \clearpage
 
 
-![The number of read otoliths samples by port and year from Washington.\label{fig:wa-age-port}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/commercial_comps/plots/WA_age_port_ordered.png){width=100% height=100% alt="The number of read otoliths samples by port and year from Washington."}
+![The number of length samples by port and year from Washington.\label{fig:wa-len-port}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/commercial_comps/plots/WA_length_port_ordered.png){width=100% height=100% alt="."}
 
 
-![Age composition data from the Oregon/Washington commercial fleet.\label{fig:orwa-age-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_agedat_bubflt2mkt2_page2.png){width=100% height=100% alt="Age composition data from the Oregon/Washington commercial fleet."}
+
+![Length composition data from the Oregon/Washington commercial fleet.\label{fig:orwa-len-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lendat_bubflt2mkt2_page3.png){width=100% height=100% alt="."}
 
 
-![Mean age for Oregon/Washington commercial fleet with 95 percent confidence intervals.\label{fig:mean-orwa-age-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_agedat_data_weighting_TA1.8_OR_WA.png){width=100% height=100% alt="Mean age for Oregon/Washington commercial fleet with 95 percent confidence intervals."}
+![Mean length for Oregon/Washington commercial fleet with 95 percent confidence intervals.\label{fig:mean-orwa-len-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lendat_data_weighting_TA1.8_OR_WA.png){width=100% height=100% alt="."}
+
+
+![The number of read otoliths samples by port and year from Oregon.\label{fig:or-age-port}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/commercial_comps/plots/OR_age_port_ordered.png){width=100% height=100% alt="."}
+
+\clearpage
+
+
+![The number of read otoliths samples by port and year from Washington.\label{fig:wa-age-port}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/commercial_comps/plots/WA_age_port_ordered.png){width=100% height=100% alt="."}
+
+
+![Age composition data from the Oregon/Washington commercial fleet.\label{fig:orwa-age-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_agedat_bubflt2mkt2_page2.png){width=100% height=100% alt="."}
+
+
+![Mean age for Oregon/Washington commercial fleet with 95 percent confidence intervals.\label{fig:mean-orwa-age-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_agedat_data_weighting_TA1.8_OR_WA.png){width=100% height=100% alt="."}
 
 <!-- ======================================================= -->
 <!-- ***************  NWFSC WCGBT Survey ******************* --> 
 <!-- ======================================================= -->
 
 
-![Observed length by depth from each survey by sex (red - females, blue - males) .\label{fig:data-len-depth}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/biology/plots/Length_by_Depth_by_Source.png){width=100% height=100% alt="Observed length by depth from each survey by sex (red - females, blue - males) ."}
+![Observed length by depth from each survey by sex (red - females, blue - males) .\label{fig:data-len-depth}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/biology/plots/Length_by_Depth_by_Source.png){width=100% height=100% alt="."}
 
 \newpage
 
 
-![Observed age by depth from the NWFSC Slope Survey and WCGBTS by sex (red - females, blue - males).\label{fig:data-age-depth}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/biology/plots/Age_by_Depth.png){width=100% height=100% alt="Observed age by depth from the NWFSC Slope Survey and WCGBTS by sex (red - females, blue - males)."}
+![Observed age by depth from the NWFSC Slope Survey and WCGBTS by sex (red - females, blue - males).\label{fig:data-age-depth}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/biology/plots/Age_by_Depth.png){width=100% height=100% alt="."}
 
 \newpage	
 
 
-![The catch-per-unit-effort (log-scale), lengths by sex observed by depth and latitude for the WCGBTS. The solid lines indicate the average length by depth or latitude by sex (red - females, blue - males, grey - unsexed).\label{fig:cpue-len}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey/plots/Dover_sole_NWFSC_WCGBTS_CPUE_Depth_Latitude.png){width=100% height=100% alt="The catch-per-unit-effort (log-scale), lengths by sex observed by depth and latitude for the WCGBTS. The solid lines indicate the average length by depth or latitude by sex (red - females, blue - males, grey - unsexed)."}
+![The catch-per-unit-effort (log-scale), lengths by sex observed by depth and latitude for the WCGBTS. The solid lines indicate the average length by depth or latitude by sex (red - females, blue - males, grey - unsexed).\label{fig:cpue-len}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey/plots/Dover_sole_NWFSC_WCGBTS_CPUE_Depth_Latitude.png){width=100% height=100% alt="."}
 
 \clearpage
 
 
-![Observed proportion of positive tows (tows that observed Dover sole, top panel) where positive tows are purple and negative tows are grey and sex ratio (red - females, blue - males, bottom panel) by depth bins (m) from the WCGBTS where the horizontal while line indicates 0.50.\label{fig:pos-tows-sex-ratio}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey/wcgbts/plots/WCGBTS_presence_by_depth_bin.png){width=100% height=100% alt="Observed proportion of positive tows (tows that observed Dover sole, top panel) where positive tows are purple and negative tows are grey and sex ratio (red - females, blue - males, bottom panel) by depth bins (m) from the WCGBTS where the horizontal while line indicates 0.50."}
+![Observed proportion of positive tows (tows that observed Dover sole, top panel) where positive tows are purple and negative tows are grey and sex ratio (red - females, blue - males, bottom panel) by depth bins (m) from the WCGBTS where the horizontal while line indicates 0.50.\label{fig:pos-tows-sex-ratio}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey/wcgbts/plots/WCGBTS_presence_by_depth_bin.png){width=100% height=100% alt="."}
 
 
 \newpage
 
 
-![Q-Q and diagnostics for the WCGBTS.\label{fig:wcgbt-qq}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey_indices/dover_sole/data/NWFSC.Combo_gamma/QQ_Fn/Posterior_Predictive-Histogram-1.jpg){width=75% height=75% alt="Q-Q and diagnostics for the WCGBTS."}
+![Q-Q and diagnostics for the WCGBTS.\label{fig:wcgbt-qq}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey_indices/dover_sole/data/NWFSC.Combo_gamma/QQ_Fn/Posterior_Predictive-Histogram-1.jpg){width=75% height=75% alt="."}
 
 \newpage
 
 
-![Residuals for the WCGBTS index.\label{fig:wcgbt-resid}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey_indices/dover_sole/data/NWFSC.Combo_gamma/quantile_residuals_on_map.png){width=100% height=100% alt="Residuals for the WCGBTS index."}
+![Residuals for the WCGBTS index.\label{fig:wcgbt-resid}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey_indices/dover_sole/data/NWFSC.Combo_gamma/quantile_residuals_on_map.png){width=100% height=100% alt="."}
 
 \newpage
 
 
-![The estimated index of abundance for the WCGBTS (coastwide - black line with circles). A loess soother line was fit to the data series and is denoted by the grey dashed line.\label{fig:wcgbt-index}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey_indices/dover_sole/data/NWFSC.Combo_gamma/VASTWestCoast_Index_2019.png){width=100% height=100% alt="The estimated index of abundance for the WCGBTS (coastwide - black line with circles). A loess soother line was fit to the data series and is denoted by the grey dashed line."}
+![The estimated index of abundance for the WCGBTS (coastwide - black line with circles). A loess soother line was fit to the data series and is denoted by the grey dashed line.\label{fig:wcgbt-index}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey_indices/dover_sole/data/NWFSC.Combo_gamma/VASTWestCoast_Index_2019.png){width=100% height=100% alt="."}
 
 \clearpage
 
 
 
-![VAST based indices compared to the design-based indices for each fleet.\label{fig:db-vs-vast}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey/plots/db_index_comparison.png){width=100% height=100% alt="VAST based indices compared to the design-based indices for each fleet."}
+![VAST based indices compared to the design-based indices for each fleet.\label{fig:db-vs-vast}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey/plots/db_index_comparison.png){width=100% height=100% alt="."}
 
 
-![Length composition data from the WCGBTS.\label{fig:wcgbt-len-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lendat_bubflt6mkt0_page2.png){width=100% height=100% alt="Length composition data from the WCGBTS."}
+![Length composition data from the WCGBTS.\label{fig:wcgbt-len-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lendat_bubflt6mkt0_page2.png){width=100% height=100% alt="."}
 
 
-![Mean length for WCGBTS with 95 percent confidence intervals.\label{fig:mean-wcgbt-len-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lendat_data_weighting_TA1.8_NWFSC_WCGBT.png){width=100% height=100% alt="Mean length for WCGBTS with 95 percent confidence intervals."}
+![Mean length for WCGBTS with 95 percent confidence intervals.\label{fig:mean-wcgbt-len-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lendat_data_weighting_TA1.8_NWFSC_WCGBT.png){width=100% height=100% alt="."}
 
 
-![Age composition data from the WCGBTS.\label{fig:wcgbt-age-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_gstagedat_bubflt6mkt0_page2.png){width=100% height=100% alt="Age composition data from the WCGBTS."}
+![Age composition data from the WCGBTS.\label{fig:wcgbt-age-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_gstagedat_bubflt6mkt0_page2.png){width=100% height=100% alt="."}
 
 
-![Mean age for WCGBTS with 95 percent confidence intervals.\label{fig:mean-wcgbt-age-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_condAALdat_data_weighting_TA1.8_condAgeNWFSC_WCGBT.png){width=100% height=100% alt="Mean age for WCGBTS with 95 percent confidence intervals."}
+![Mean age for WCGBTS with 95 percent confidence intervals.\label{fig:mean-wcgbt-age-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_condAALdat_data_weighting_TA1.8_condAgeNWFSC_WCGBT.png){width=100% height=100% alt="."}
 
 \newpage
 
@@ -1897,37 +1902,37 @@ Year & Adopted OFL (mt) & Adopted ABC (mt) & Adopted ACL (mt) & Assumed Removal 
 <!-- ======================================================= -->
 
 
-![The estimated index of abundance for the early Triennial survey (coastwide - black line with circles). A loess soother line was fit to the data series and is denoted by the grey dashed line.\label{fig:tri-early-index}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey_indices/dover_sole/data/Triennial_lognormal_early/VASTWestCoast_Index_1992.png){width=100% height=100% alt="The estimated index of abundance for the early Triennial survey (coastwide - black line with circles). A loess soother line was fit to the data series and is denoted by the grey dashed line."}
+![The estimated index of abundance for the early Triennial survey (coastwide - black line with circles). A loess soother line was fit to the data series and is denoted by the grey dashed line.\label{fig:tri-early-index}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey_indices/dover_sole/data/Triennial_lognormal_early/VASTWestCoast_Index_1992.png){width=100% height=100% alt="."}
 
 \clearpage
 
 
-![The estimated index of abundance for the late Triennial survey (coastwide - black line with circles). A loess soother line was fit to the data series and is denoted by the grey dashed line.\label{fig:tri-late-index}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey_indices/dover_sole/data/Triennial_lognormal_late/VASTWestCoast_Index_2004.png){width=100% height=100% alt="The estimated index of abundance for the late Triennial survey (coastwide - black line with circles). A loess soother line was fit to the data series and is denoted by the grey dashed line."}
+![The estimated index of abundance for the late Triennial survey (coastwide - black line with circles). A loess soother line was fit to the data series and is denoted by the grey dashed line.\label{fig:tri-late-index}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey_indices/dover_sole/data/Triennial_lognormal_late/VASTWestCoast_Index_2004.png){width=100% height=100% alt="."}
 
 \clearpage
 
 
-![Q-Q and diagnostics for the early Triennial survey (1980 - 1992).\label{fig:tri-early-qq}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey_indices/dover_sole/data/Triennial_lognormal_early/QQ_Fn/Posterior_Predictive-Histogram-1.jpg){width=75% height=75% alt="Q-Q and diagnostics for the early Triennial survey (1980 - 1992)."}
+![Q-Q and diagnostics for the early Triennial survey (1980 - 1992).\label{fig:tri-early-qq}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey_indices/dover_sole/data/Triennial_lognormal_early/QQ_Fn/Posterior_Predictive-Histogram-1.jpg){width=75% height=75% alt="."}
 
 
-![Q-Q and diagnostics for the late Triennial survey (1995 - 2004).\label{fig:tri-late-qq}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey_indices/dover_sole/data/Triennial_lognormal_late/QQ_Fn/Posterior_Predictive-Histogram-1.jpg){width=75% height=75% alt="Q-Q and diagnostics for the late Triennial survey (1995 - 2004)."}
+![Q-Q and diagnostics for the late Triennial survey (1995 - 2004).\label{fig:tri-late-qq}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey_indices/dover_sole/data/Triennial_lognormal_late/QQ_Fn/Posterior_Predictive-Histogram-1.jpg){width=75% height=75% alt="."}
 
 \newpage	
 
 
-![Residuals for the early Triennial survey.\label{fig:tri-early-resid}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey_indices/dover_sole/data/Triennial_lognormal_early/quantile_residuals_on_map.png){width=100% height=100% alt="Residuals for the early Triennial survey."}
+![Residuals for the early Triennial survey.\label{fig:tri-early-resid}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey_indices/dover_sole/data/Triennial_lognormal_early/quantile_residuals_on_map.png){width=100% height=100% alt="."}
 
 
-![Residuals for the late Triennial survey.\label{fig:tri-late-resid}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey_indices/dover_sole/data/Triennial_lognormal_late/quantile_residuals_on_map.png){width=100% height=100% alt="Residuals for the late Triennial survey."}
+![Residuals for the late Triennial survey.\label{fig:tri-late-resid}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey_indices/dover_sole/data/Triennial_lognormal_late/quantile_residuals_on_map.png){width=100% height=100% alt="."}
 
 \newpage
 
 
 
-![Length composition data from the Triennial survey.\label{fig:tri-len-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lendat_bubflt4mkt0.png){width=100% height=100% alt="Length composition data from the Triennial survey."}
+![Length composition data from the Triennial survey.\label{fig:tri-len-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lendat_bubflt4mkt0.png){width=100% height=100% alt="."}
 
 
-![Mean length for Triennial with 95 percent confidence intervals.\label{fig:mean-tri-len-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lendat_data_weighting_TA1.8_Triennial.png){width=100% height=100% alt="Mean length for Triennial with 95 percent confidence intervals."}
+![Mean length for Triennial with 95 percent confidence intervals.\label{fig:mean-tri-len-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lendat_data_weighting_TA1.8_Triennial.png){width=100% height=100% alt="."}
 
 <!-- ======================================================= -->
 <!-- ***************   AFSC Slope    *********************** --> 
@@ -1935,23 +1940,23 @@ Year & Adopted OFL (mt) & Adopted ABC (mt) & Adopted ACL (mt) & Assumed Removal 
 
 
 
-![The estimated index of abundance for the AFSC Slope survey (coastwide - black line with circles). A loess soother line was fit to the data series and is denoted by the grey dashed line.\label{fig:afsc-index}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey_indices/afsc_slope/VASTWestCoast_Index_2001.png){width=100% height=100% alt="The estimated index of abundance for the AFSC Slope survey (coastwide - black line with circles). A loess soother line was fit to the data series and is denoted by the grey dashed line."}
+![The estimated index of abundance for the AFSC Slope survey (coastwide - black line with circles). A loess soother line was fit to the data series and is denoted by the grey dashed line.\label{fig:afsc-index}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey_indices/afsc_slope/VASTWestCoast_Index_2001.png){width=100% height=100% alt="."}
 
 \newpage
 
 
-![Q-Q and diagnostics for the AFSC Slope survey .\label{fig:afsc-qq}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey_indices/afsc_slope/QQ_Fn/Posterior_Predictive-Histogram-1.jpg){width=75% height=75% alt="Q-Q and diagnostics for the AFSC Slope survey ."}
+![Q-Q and diagnostics for the AFSC Slope survey .\label{fig:afsc-qq}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey_indices/afsc_slope/QQ_Fn/Posterior_Predictive-Histogram-1.jpg){width=75% height=75% alt="."}
 
 \newpage	
 
 
-![Residuals for the AFSC Slope survey.\label{fig:afsc-resid}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey_indices/afsc_slope/quantile_residuals_on_map.png){width=100% height=100% alt="Residuals for the AFSC Slope survey."}
+![Residuals for the AFSC Slope survey.\label{fig:afsc-resid}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey_indices/afsc_slope/quantile_residuals_on_map.png){width=100% height=100% alt="."}
 
 
-![Length composition data from the AFSC Slope survey.\label{fig:afsc-len-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lendat_bubflt3mkt0.png){width=100% height=100% alt="Length composition data from the AFSC Slope survey."}
+![Length composition data from the AFSC Slope survey.\label{fig:afsc-len-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lendat_bubflt3mkt0.png){width=100% height=100% alt="."}
 
 
-![Mean length for AFSC Slope survey with 95 percent confidence intervals.\label{fig:mean-afsc-len-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lendat_data_weighting_TA1.8_AFSC_Slope.png){width=100% height=100% alt="Mean length for AFSC Slope survey with 95 percent confidence intervals."}
+![Mean length for AFSC Slope survey with 95 percent confidence intervals.\label{fig:mean-afsc-len-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lendat_data_weighting_TA1.8_AFSC_Slope.png){width=100% height=100% alt="."}
 
 <!-- ======================================================= -->
 <!-- ***************   NWFSC Slope   *********************** --> 
@@ -1959,32 +1964,32 @@ Year & Adopted OFL (mt) & Adopted ABC (mt) & Adopted ACL (mt) & Assumed Removal 
 
 
 
-![The estimated index of abundance for the NWFSC Slope survey (coastwide - black line with circles). A loess soother line was fit to the data series and is denoted by the grey dashed line.\label{fig:nwfsc-index}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey_indices/nwfsc_slope/VASTWestCoast_Index_2002.png){width=100% height=100% alt="The estimated index of abundance for the NWFSC Slope survey (coastwide - black line with circles). A loess soother line was fit to the data series and is denoted by the grey dashed line."}
+![The estimated index of abundance for the NWFSC Slope survey (coastwide - black line with circles). A loess soother line was fit to the data series and is denoted by the grey dashed line.\label{fig:nwfsc-index}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey_indices/nwfsc_slope/VASTWestCoast_Index_2002.png){width=100% height=100% alt="."}
 
 \newpage
 
 
-![Q-Q and diagnostics for the NWFSC Slope survey.\label{fig:nwfsc-qq}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey_indices/nwfsc_slope/QQ_Fn/Posterior_Predictive-Histogram-1.jpg){width=100% height=100% alt="Q-Q and diagnostics for the NWFSC Slope survey."}
+![Q-Q and diagnostics for the NWFSC Slope survey.\label{fig:nwfsc-qq}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey_indices/nwfsc_slope/QQ_Fn/Posterior_Predictive-Histogram-1.jpg){width=100% height=100% alt="."}
 
 \newpage	
 
 
-![Residuals for the NWFSC Slope survey.\label{fig:nwfsc-resid}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey_indices/nwfsc_slope/QQ_Fn/pearson_residuals_2.png){width=100% height=100% alt="Residuals for the NWFSC Slope survey."}
+![Residuals for the NWFSC Slope survey.\label{fig:nwfsc-resid}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey_indices/nwfsc_slope/QQ_Fn/pearson_residuals_2.png){width=100% height=100% alt="."}
 
 
-![Length composition data from the NWFSC Slope survey.\label{fig:nw-slope-len-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lendat_bubflt5mkt0.png){width=100% height=100% alt="Length composition data from the NWFSC Slope survey."}
+![Length composition data from the NWFSC Slope survey.\label{fig:nw-slope-len-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lendat_bubflt5mkt0.png){width=100% height=100% alt="."}
 
 
-![Mean length for NWFSC Slope survey with 95 percent confidence intervals.\label{fig:mean-nw-slope-len-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lendat_data_weighting_TA1.8_NWFSC_Slope.png){width=100% height=100% alt="Mean length for NWFSC Slope survey with 95 percent confidence intervals."}
+![Mean length for NWFSC Slope survey with 95 percent confidence intervals.\label{fig:mean-nw-slope-len-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lendat_data_weighting_TA1.8_NWFSC_Slope.png){width=100% height=100% alt="."}
 
 
-![Age composition data from the NWFSC Slope survey.\label{fig:nw-slope-age-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_gstagedat_bubflt5mkt0.png){width=100% height=100% alt="Age composition data from the NWFSC Slope survey."}
+![Age composition data from the NWFSC Slope survey.\label{fig:nw-slope-age-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_gstagedat_bubflt5mkt0.png){width=100% height=100% alt="."}
 
 
-![Mean age for NWFSC Slope survey with 95 percent confidence intervals.\label{fig:mean-nw-slope-age-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_condAALdat_data_weighting_TA1.8_condAgeNWFSC_Slope.png){width=100% height=100% alt="Mean age for NWFSC Slope survey with 95 percent confidence intervals."}
+![Mean age for NWFSC Slope survey with 95 percent confidence intervals.\label{fig:mean-nw-slope-age-data}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_condAALdat_data_weighting_TA1.8_condAgeNWFSC_Slope.png){width=100% height=100% alt="."}
 
 
-![Standardized indices overlaid. Each index is rescaled to have mean observation = 1.0.\label{fig:index-compare}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/index9_standcpueall.png){width=100% height=100% alt="Standardized indices overlaid. Each index is rescaled to have mean observation = 1.0."}
+![Standardized indices overlaid. Each index is rescaled to have mean observation = 1.0.\label{fig:index-compare}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/index9_standcpueall.png){width=100% height=100% alt="."}
 
 
 <!-- ======================================================= -->  
@@ -1993,46 +1998,46 @@ Year & Adopted OFL (mt) & Adopted ABC (mt) & Adopted ACL (mt) & Assumed Removal 
 
 
 
-![Stacked distribution of observed ages across data sources summed across all years.\label{fig:all-ages}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/biology/plots/Dover2021_agesbysource.png){width=100% height=100% alt="Stacked distribution of observed ages across data sources summed across all years."}
+![Stacked distribution of observed ages across data sources summed across all years.\label{fig:all-ages}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/biology/plots/Dover2021_agesbysource.png){width=100% height=100% alt="."}
 
 
-![Comparison of the maturity-at-length assumed in the 2011 assessment and the new estimate used in the base model where the vertical dashed lines indicates length-at-50-percent-maturity associated with each estimate.\label{fig:compare-mat-at-len}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/biology/plots/Maturity_Comparison.png){width=100% height=100% alt="Comparison of the maturity-at-length assumed in the 2011 assessment and the new estimate used in the base model where the vertical dashed lines indicates length-at-50-percent-maturity associated with each estimate."}
+![Comparison of the maturity-at-length assumed in the 2011 assessment and the new estimate used in the base model where the vertical dashed lines indicates length-at-50-percent-maturity associated with each estimate.\label{fig:compare-mat-at-len}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/biology/plots/Maturity_Comparison.png){width=100% height=100% alt="."}
 
 
-![Comparison of the maturity-at-length between fish sample north (N = 334) and south of Point Reyes (N = 94) where dashed vertical lines indicate the length-at-50-percent maturity associated with each estimate.\label{fig:spat-mat-at-len}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/biology/plots/Maturity_by_Area.png){width=100% height=100% alt="Comparison of the maturity-at-length between fish sample north (N = 334) and south of Point Reyes (N = 94) where dashed vertical lines indicate the length-at-50-percent maturity associated with each estimate."}
+![Comparison of the maturity-at-length between fish sample north (N = 334) and south of Point Reyes (N = 94) where dashed vertical lines indicate the length-at-50-percent maturity associated with each estimate.\label{fig:spat-mat-at-len}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/biology/plots/Maturity_by_Area.png){width=100% height=100% alt="."}
 
 
-![Comparison of the observed sizes and ages by depth between fish sample north and south of Point Reyes for maturity (black circles) and all female observations (open red circles) by the WCGBTS.\label{fig:samples-north-south}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/biology/plots/Maturity_Samples_by_Area.png){width=100% height=100% alt="Comparison of the observed sizes and ages by depth between fish sample north and south of Point Reyes for maturity (black circles) and all female observations (open red circles) by the WCGBTS."}
+![Comparison of the observed sizes and ages by depth between fish sample north and south of Point Reyes for maturity (black circles) and all female observations (open red circles) by the WCGBTS.\label{fig:samples-north-south}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/biology/plots/Maturity_Samples_by_Area.png){width=100% height=100% alt="."}
 
 
-![Comparison of the observed sizes and ages by latitude where the vertical black dashed line at Point Reyes.\label{fig:fish-by-lat}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/biology/plots/Len_Age_by_Latitude.png){width=100% height=100% alt="Comparison of the observed sizes and ages by latitude where the vertical black dashed line at Point Reyes."}
+![Comparison of the observed sizes and ages by latitude where the vertical black dashed line at Point Reyes.\label{fig:fish-by-lat}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/biology/plots/Len_Age_by_Latitude.png){width=100% height=100% alt="."}
 
 
-![Externally estimated length-weight by sex.\label{fig:est-len-wght}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/biology/plots/Length_Weight_2020.png){width=100% height=100% alt="Externally estimated length-weight by sex."}
+![Externally estimated length-weight by sex.\label{fig:est-len-wght}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/biology/plots/Length_Weight_2020.png){width=100% height=100% alt="."}
 
 
-![Externally estimated length-at-age by sex.\label{fig:est-len-at-age}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/biology/plots/Length_Age_by_Sex_2020.png){width=100% height=100% alt="Externally estimated length-at-age by sex."}
+![Externally estimated length-at-age by sex.\label{fig:est-len-at-age}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/biology/plots/Length_Age_by_Sex_2020.png){width=100% height=100% alt="."}
 
 
-![Externally estimated length-at-age by sex for four regions off the West Coast.\label{fig:est-len-at-age-region}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/biology/plots/Length_Age_by_Area_1panel.png){width=100% height=100% alt="Externally estimated length-at-age by sex for four regions off the West Coast."}
+![Externally estimated length-at-age by sex for four regions off the West Coast.\label{fig:est-len-at-age-region}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/biology/plots/Length_Age_by_Area_1panel.png){width=100% height=100% alt="."}
 
 
-![Temporal patterns in mean length-at-age (cm) data. Colors correspond to different length-at-age values as shown in the legend, with red being the smallest fish (across all years and ages) and blue being the largest fish.\label{fig:tv-len-at-age}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/biology/plots/LengthAgeData_heatmap.png){width=100% height=100% alt="Temporal patterns in mean length-at-age (cm) data. Colors correspond to different length-at-age values as shown in the legend, with red being the smallest fish (across all years and ages) and blue being the largest fish."}
+![Temporal patterns in mean length-at-age (cm) data. Colors correspond to different length-at-age values as shown in the legend, with red being the smallest fish (across all years and ages) and blue being the largest fish.\label{fig:tv-len-at-age}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/biology/plots/LengthAgeData_heatmap.png){width=100% height=100% alt="."}
 
 
-![Temporal patterns in mean weight-at-age (kg) data. Colors correspond to different weight-at-age values as shown in the legend, with red being the lightest fish (across all years and ages) and blue being the heaviest fish.\label{fig:tv-wght-at-age}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/biology/plots/WeightAgeData_heatmap.png){width=100% height=100% alt="Temporal patterns in mean weight-at-age (kg) data. Colors correspond to different weight-at-age values as shown in the legend, with red being the lightest fish (across all years and ages) and blue being the heaviest fish."}
+![Temporal patterns in mean weight-at-age (kg) data. Colors correspond to different weight-at-age values as shown in the legend, with red being the lightest fish (across all years and ages) and blue being the heaviest fish.\label{fig:tv-wght-at-age}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/biology/plots/WeightAgeData_heatmap.png){width=100% height=100% alt="."}
 
 
-![Fraction female by length observed by the WCGBTS.\label{fig:sex-by-len}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey/wcgbts/plots/2011_strata/NWFSC WCGBTS_length_fraction_female.png){width=100% height=100% alt="Fraction female by length observed by the WCGBTS."}
+![Fraction female by length observed by the WCGBTS.\label{fig:sex-by-len}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/survey/wcgbts/plots/2011_strata/NWFSC WCGBTS_length_fraction_female.png){width=100% height=100% alt="."}
 
 
-![Fraction female observations by depth and latitude from the WCGBTS.\label{fig:fem-by-lat-depth}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/biology/plots/Frac_Female_Lat_Depth.png){width=100% height=100% alt="Fraction female observations by depth and latitude from the WCGBTS."}
+![Fraction female observations by depth and latitude from the WCGBTS.\label{fig:fem-by-lat-depth}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/biology/plots/Frac_Female_Lat_Depth.png){width=100% height=100% alt="."}
 
 
-![Comparison between break-and-burn versus scale age reads.\label{fig:scale-age}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/biology/plots/PacFIN_Age_Method.png){width=100% height=100% alt="Comparison between break-and-burn versus scale age reads."}
+![Comparison between break-and-burn versus scale age reads.\label{fig:scale-age}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/data/biology/plots/PacFIN_Age_Method.png){width=100% height=100% alt="."}
 
 
-![The standard deviation by age for two ageing error applied to age data in the base model (method 1: CAP Lab, method 2: CDFW).\label{fig:age-error}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/numbers5_ageerrorSD.png){width=100% height=100% alt="The standard deviation by age for two ageing error applied to age data in the base model (method 1: CAP Lab, method 2: CDFW)."}
+![The standard deviation by age for two ageing error applied to age data in the base model (method 1: CAP Lab, method 2: CDFW).\label{fig:age-error}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/numbers5_ageerrorSD.png){width=100% height=100% alt="."}
 
 
 
@@ -2041,28 +2046,28 @@ Year & Adopted OFL (mt) & Adopted ABC (mt) & Adopted ACL (mt) & Assumed Removal 
 <!-- ======================================================= -->
 
 
-![Model version bridge comparison of estimated spawning biomass.\label{fig:bridge-ssb}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_bridging/_plots/model_bridge_compare2_spawnbio_uncertainty.png){width=100% height=100% alt="Model version bridge comparison of estimated spawning biomass."}
+![Model version bridge comparison of estimated spawning biomass.\label{fig:bridge-ssb}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_bridging/_plots/model_bridge_compare2_spawnbio_uncertainty.png){width=100% height=100% alt="."}
 
 
-![Model version bridge comparison of estimated fraction unfished.\label{fig:bridge-depl}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_bridging/_plots/model_bridge_compare4_Bratio_uncertainty.png){width=100% height=100% alt="Model version bridge comparison of estimated fraction unfished."}
+![Model version bridge comparison of estimated fraction unfished.\label{fig:bridge-depl}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_bridging/_plots/model_bridge_compare4_Bratio_uncertainty.png){width=100% height=100% alt="."}
 
 
-![Data updated through 2010 bridge comparison of estimated spawning biomass.\label{fig:data-bridge-ssb}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_bridging/_plots/data_2010_bridge_compare2_spawnbio_uncertainty.png){width=100% height=100% alt="Data updated through 2010 bridge comparison of estimated spawning biomass."}
+![Data updated through 2010 bridge comparison of estimated spawning biomass.\label{fig:data-bridge-ssb}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_bridging/_plots/data_2010_bridge_compare2_spawnbio_uncertainty.png){width=100% height=100% alt="."}
 
 
-![Data updated through 2010 bridge comparison of estimated fraction unfished.\label{fig:data-bridge-depl}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_bridging/_plots/data_2010_bridge_compare4_Bratio_uncertainty.png){width=100% height=100% alt="Data updated through 2010 bridge comparison of estimated fraction unfished."}
+![Data updated through 2010 bridge comparison of estimated fraction unfished.\label{fig:data-bridge-depl}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_bridging/_plots/data_2010_bridge_compare4_Bratio_uncertainty.png){width=100% height=100% alt="."}
 
 
-![All data updated through 2020 bridge comparison of estimated spawning biomass.\label{fig:all-data-bridge-ssb}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_bridging/_plots/1.9_all_data_2020_compare2_spawnbio_uncertainty.png){width=100% height=100% alt="All data updated through 2020 bridge comparison of estimated spawning biomass."}
+![All data updated through 2020 bridge comparison of estimated spawning biomass.\label{fig:all-data-bridge-ssb}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_bridging/_plots/1.9_all_data_2020_compare2_spawnbio_uncertainty.png){width=100% height=100% alt="."}
 
 
-![All data updated through 2020 bridge comparison of estimated fraction unfished.\label{fig:all-data-bridge-depl}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_bridging/_plots/1.9_all_data_2020_compare4_Bratio_uncertainty.png){width=100% height=100% alt="All data updated through 2020 bridge comparison of estimated fraction unfished."}
+![All data updated through 2020 bridge comparison of estimated fraction unfished.\label{fig:all-data-bridge-depl}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_bridging/_plots/1.9_all_data_2020_compare4_Bratio_uncertainty.png){width=100% height=100% alt="."}
 
 
-![Estimated spawning biomass based on select structural changes and parameter updates.\label{fig:structure-bridge-ssb}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_bridging/_plots/2.0_offset_selex_bridge_compare2_spawnbio_uncertainty.png){width=100% height=100% alt="Estimated spawning biomass based on select structural changes and parameter updates."}
+![Estimated spawning biomass based on select structural changes and parameter updates.\label{fig:structure-bridge-ssb}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_bridging/_plots/2.0_offset_selex_bridge_compare2_spawnbio_uncertainty.png){width=100% height=100% alt="."}
 
 
-![Estimated fraction of unfished based on select structural changes and parameter updates.\label{fig:structure-bridge-depl}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_bridging/_plots/2.0_offset_selex_bridge_compare4_Bratio_uncertainty.png){width=100% height=100% alt="Estimated fraction of unfished based on select structural changes and parameter updates."}
+![Estimated fraction of unfished based on select structural changes and parameter updates.\label{fig:structure-bridge-depl}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_bridging/_plots/2.0_offset_selex_bridge_compare4_Bratio_uncertainty.png){width=100% height=100% alt="."}
 
 
 <!-- ====================================================================== -->
@@ -2071,30 +2076,30 @@ Year & Adopted OFL (mt) & Adopted ABC (mt) & Adopted ACL (mt) & Assumed Removal 
 
 
 
-![Prior distribution for steepness.\label{fig:h-prior}](figs/h_prior.png){width=100% height=100% alt="Prior distribution for steepness."}
+![Prior distribution for steepness.\label{fig:h-prior}](figs/h_prior.png){width=100% height=100% alt="."}
 
 
-![Prior distribution for natural mortality.\label{fig:m-prior}](figs/M_prior.png){width=100% height=100% alt="Prior distribution for natural mortality."}
+![Prior distribution for natural mortality.\label{fig:m-prior}](figs/M_prior.png){width=100% height=100% alt="."}
 
 <!-- ====================================================================== -->
 <!-- *********************  Model Est. Biology       ********************** --> 
 <!-- ====================================================================== -->
 
 
-![Model estimated length-at-age in the beginning of the year. Shaded area indicates 95 percent distribution of length-at-age around the estimated growth curve.\label{fig:mod-est-len-age}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/bio1_sizeatage.png){width=100% height=100% alt="Model estimated length-at-age in the beginning of the year. Shaded area indicates 95 percent distribution of length-at-age around the estimated growth curve."}
+![Model estimated length-at-age in the beginning of the year. Shaded area indicates 95 percent distribution of length-at-age around the estimated growth curve.\label{fig:mod-est-len-age}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/bio1_sizeatage.png){width=100% height=100% alt="."}
 
 <!-- ====================================================================== -->
 <!-- *********************    Selectivity            ********************** --> 
 <!-- ====================================================================== -->
 
 
-![Selectivity by fleet.\label{fig:selex}](figs/selectivity.png){width=100% height=100% alt="Selectivity by fleet."}
+![Selectivity by fleet.\label{fig:selex}](figs/selectivity.png){width=100% height=100% alt="."}
 
 
-![Estimated retention curves by time block.\label{fig:retention}](figs/dover_retention.png){width=100% height=100% alt="Estimated retention curves by time block."}
+![Estimated retention curves by time block.\label{fig:retention}](figs/dover_retention.png){width=100% height=100% alt="."}
 
 
-![Landings plus estimated discards in metric tons.\label{fig:landings-discard}](figs/catch_w_discards.png){width=100% height=100% alt="Landings plus estimated discards in metric tons."}
+![Landings plus estimated discards in metric tons.\label{fig:landings-discard}](figs/catch_w_discards.png){width=100% height=100% alt="."}
 
 
 <!-- ======================================================= -->  
@@ -2103,32 +2108,32 @@ Year & Adopted OFL (mt) & Adopted ABC (mt) & Adopted ACL (mt) & Assumed Removal 
 
 
 
-![Estimated time series of age-0 recruits (1000s).\label{fig:recruits}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/ts11_Age-0_recruits_(1000s)_with_95_asymptotic_intervals.png){width=100% height=100% alt="Estimated time series of age-0 recruits (1000s)."}
+![Estimated time series of age-0 recruits (1000s).\label{fig:recruits}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/ts11_Age-0_recruits_(1000s)_with_95_asymptotic_intervals.png){width=100% height=100% alt="."}
 
 
-![Estimated time series of recruitment deviations.\label{fig:rec-devs}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/recdevs2_withbars.png){width=100% height=100% alt="Estimated time series of recruitment deviations."}
+![Estimated time series of recruitment deviations.\label{fig:rec-devs}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/recdevs2_withbars.png){width=100% height=100% alt="."}
 
 
-![Stock-recruit curve. Point colors indicate year, with warmer colors indicating earlier years and cooler colors in showing later years.\label{fig:bh-curve}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/SR_curve.png){width=100% height=100% alt="Stock-recruit curve. Point colors indicate year, with warmer colors indicating earlier years and cooler colors in showing later years."}
+![Stock-recruit curve. Point colors indicate year, with warmer colors indicating earlier years and cooler colors in showing later years.\label{fig:bh-curve}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/SR_curve.png){width=100% height=100% alt="."}
 
 
-![Recruitment bias adjustment applied in the base model.\label{fig:bias-adj}](figs/recruit_fit_bias_adjust.png){width=100% height=100% alt="Recruitment bias adjustment applied in the base model."}
+![Recruitment bias adjustment applied in the base model.\label{fig:bias-adj}](figs/recruit_fit_bias_adjust.png){width=100% height=100% alt="."}
 
 <!-- ====================================================================== -->
 <!-- ****************** Fit to the Index Data  **************************** --> 
 <!-- ====================================================================== -->
 
 
-![Fit to the NWFSC WCGBTS index of abundance.\label{fig:wcgbt-index-fit}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/index2_cpuefit_NWFSC_WCGBT){width=100% height=100% alt="Fit to the NWFSC WCGBTS index of abundance."}
+![Fit to the NWFSC WCGBTS index of abundance.\label{fig:wcgbt-index-fit}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/index2_cpuefit_NWFSC_WCGBT){width=100% height=100% alt="."}
 
 
-![Fit to the Triennial survey index of abundance. Thicker lines indicate input uncertainty before the addition of estimated additional uncertainty parameter.\label{fig:tri-index-fit}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/index2_cpuefit_Triennial){width=100% height=100% alt="Fit to the Triennial survey index of abundance. Thicker lines indicate input uncertainty before the addition of estimated additional uncertainty parameter."}
+![Fit to the Triennial survey index of abundance. Thicker lines indicate input uncertainty before the addition of estimated additional uncertainty parameter.\label{fig:tri-index-fit}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/index2_cpuefit_Triennial){width=100% height=100% alt="."}
 
 
-![Fit to the AFSC Slope survey index of abundance. Thicker lines indicate input uncertainty before the addition of estimated additional uncertainty parameter.\label{fig:afsc-index-fit}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/index2_cpuefit_AFSC_Slope){width=100% height=100% alt="Fit to the AFSC Slope survey index of abundance. Thicker lines indicate input uncertainty before the addition of estimated additional uncertainty parameter."}
+![Fit to the AFSC Slope survey index of abundance. Thicker lines indicate input uncertainty before the addition of estimated additional uncertainty parameter.\label{fig:afsc-index-fit}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/index2_cpuefit_AFSC_Slope){width=100% height=100% alt="."}
 
 
-![Fit to the NWFSC Slope survey index of abundance. Thicker lines indicate input uncertainty before the addition of estimated additional uncertainty parameter.\label{fig:nwslope-index-fit}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/index2_cpuefit_NWFSC_Slope){width=100% height=100% alt="Fit to the NWFSC Slope survey index of abundance. Thicker lines indicate input uncertainty before the addition of estimated additional uncertainty parameter."}
+![Fit to the NWFSC Slope survey index of abundance. Thicker lines indicate input uncertainty before the addition of estimated additional uncertainty parameter.\label{fig:nwslope-index-fit}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/index2_cpuefit_NWFSC_Slope){width=100% height=100% alt="."}
 
 
 
@@ -2137,118 +2142,118 @@ Year & Adopted OFL (mt) & Adopted ABC (mt) & Adopted ACL (mt) & Assumed Removal 
 <!-- ====================================================================== -->
 
 
-![Fit to the annual discard rates for the California fleet.\label{fig:ca-disc-fit}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/discard_fitCA.png){width=100% height=100% alt="Fit to the annual discard rates for the California fleet."}
+![Fit to the annual discard rates for the California fleet.\label{fig:ca-disc-fit}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/discard_fitCA.png){width=100% height=100% alt="."}
 
 
-![Fit to the annual discard rates for the Oregon/Washington fleet.\label{fig:orwa-disc-fit}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/discard_fitOR_WA.png){width=100% height=100% alt="Fit to the annual discard rates for the Oregon/Washington fleet."}
+![Fit to the annual discard rates for the Oregon/Washington fleet.\label{fig:orwa-disc-fit}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/discard_fitOR_WA.png){width=100% height=100% alt="."}
 
 
-![Fit to the annual mean body weight observations for the California fleet.\label{fig:ca-disc-mbw-fit}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/bodywt_fit_fltCA.png){width=100% height=100% alt="Fit to the annual mean body weight observations for the California fleet."}
+![Fit to the annual mean body weight observations for the California fleet.\label{fig:ca-disc-mbw-fit}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/bodywt_fit_fltCA.png){width=100% height=100% alt="."}
 
 
-![Fit to the annual mean body weight observations for the Oregon/Washington fleet.\label{fig:orwa-disc-mbw-fit}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/bodywt_fit_fltOR_WA.png){width=100% height=100% alt="Fit to the annual mean body weight observations for the Oregon/Washington fleet."}
+![Fit to the annual mean body weight observations for the Oregon/Washington fleet.\label{fig:orwa-disc-mbw-fit}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/bodywt_fit_fltOR_WA.png){width=100% height=100% alt="."}
 
 
-![Fit to the annual length composition of discarded fish for the California fleet.\label{fig:ca-disc-len-fit}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_flt1mkt1.png){width=100% height=100% alt="Fit to the annual length composition of discarded fish for the California fleet."}
+![Fit to the annual length composition of discarded fish for the California fleet.\label{fig:ca-disc-len-fit}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_flt1mkt1.png){width=100% height=100% alt="."}
 
 
-![Pearson residuals to annual length composition of discarded fish for the California fleet. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected).\label{fig:ca-disc-pearson}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_residsflt1mkt1.png){width=100% height=100% alt="Pearson residuals to annual length composition of discarded fish for the California fleet. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected)."}
+![Pearson residuals to annual length composition of discarded fish for the California fleet. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected).\label{fig:ca-disc-pearson}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_residsflt1mkt1.png){width=100% height=100% alt="."}
 
 
-![Fit to the annual length composition of discarded fish for the Oregon/Washington fleet.\label{fig:orwa-disc-len-fit-1}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_flt2mkt1_page1.png){width=100% height=100% alt="Fit to the annual length composition of discarded fish for the Oregon/Washington fleet."}
+![Fit to the annual length composition of discarded fish for the Oregon/Washington fleet.\label{fig:orwa-disc-len-fit-1}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_flt2mkt1_page1.png){width=100% height=100% alt="."}
 
 
 
-![Fit to the annual length composition of discarded fish for the Oregon/Washington fleet.\label{fig:orwa-disc-len-fit-2}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_flt2mkt1_page2.png){width=100% height=100% alt="Fit to the annual length composition of discarded fish for the Oregon/Washington fleet."}
+![Fit to the annual length composition of discarded fish for the Oregon/Washington fleet.\label{fig:orwa-disc-len-fit-2}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_flt2mkt1_page2.png){width=100% height=100% alt="."}
 
 
-![Pearson residuals to annual length composition of discarded fish for the Oregon/Washington fleet. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected).\label{fig:orwa-disc-pearson}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_residsflt2mkt1_page2.png){width=100% height=100% alt="Pearson residuals to annual length composition of discarded fish for the Oregon/Washington fleet. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected)."}
+![Pearson residuals to annual length composition of discarded fish for the Oregon/Washington fleet. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected).\label{fig:orwa-disc-pearson}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_residsflt2mkt1_page2.png){width=100% height=100% alt="."}
 
 <!-- ====================================================================== -->
 <!-- ****************** Fit to the Composition Data **************************** --> 
 <!-- ====================================================================== -->
 
 
-![Aggregated length composition fit across time by fleet.\label{fig:agg-fits}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit__aggregated_across_time.png){width=100% height=100% alt="Aggregated length composition fit across time by fleet."}
+![Aggregated length composition fit across time by fleet.\label{fig:agg-fits}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit__aggregated_across_time.png){width=100% height=100% alt="."}
 
 
-![Pearson residuals to annual length composition for the California fleet. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected).\label{fig:ca-pearson}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_residsflt1mkt2_page4.png){width=100% height=100% alt="Pearson residuals to annual length composition for the California fleet. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected)."}
+![Pearson residuals to annual length composition for the California fleet. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected).\label{fig:ca-pearson}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_residsflt1mkt2_page4.png){width=100% height=100% alt="."}
 
 
-![Pearson residuals to annual length composition for the Oregon/Washington fleet. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected).\label{fig:orwa-pearson}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_residsflt2mkt2_page3.png){width=100% height=100% alt="Pearson residuals to annual length composition for the Oregon/Washington fleet. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected)."}
+![Pearson residuals to annual length composition for the Oregon/Washington fleet. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected).\label{fig:orwa-pearson}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_residsflt2mkt2_page3.png){width=100% height=100% alt="."}
 
 
-![Mean length observations for the California fleet.\label{fig:ca-mean-len}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_data_weighting_TA1.8_CA.png){width=100% height=100% alt="Mean length observations for the California fleet."}
+![Mean length observations for the California fleet.\label{fig:ca-mean-len}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_data_weighting_TA1.8_CA.png){width=100% height=100% alt="."}
 
 
-![Mean length observations for the Oregon/Washington fleet.\label{fig:orwa-mean-len}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_data_weighting_TA1.8_OR_WA.png){width=100% height=100% alt="Mean length observations for the Oregon/Washington fleet."}
+![Mean length observations for the Oregon/Washington fleet.\label{fig:orwa-mean-len}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_data_weighting_TA1.8_OR_WA.png){width=100% height=100% alt="."}
 
 
-![Aggregated age composition fit across time by fleet.\label{fig:agg-age-fits}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_agefit__aggregated_across_time.png){width=100% height=100% alt="Aggregated age composition fit across time by fleet."}
+![Aggregated age composition fit across time by fleet.\label{fig:agg-age-fits}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_agefit__aggregated_across_time.png){width=100% height=100% alt="."}
 
 
-![Pearson residuals to annual age composition for the California fleet. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected).\label{fig:ca-pearson-age}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_agefit_residsflt1mkt2_page2.png){width=100% height=100% alt="Pearson residuals to annual age composition for the California fleet. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected)."}
+![Pearson residuals to annual age composition for the California fleet. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected).\label{fig:ca-pearson-age}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_agefit_residsflt1mkt2_page2.png){width=100% height=100% alt="."}
 
 
-![Pearson residuals to annual age composition for the Oregon/Washington fleet. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected).\label{fig:orwa-pearson-age}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_agefit_residsflt2mkt2_page2.png){width=100% height=100% alt="Pearson residuals to annual age composition for the Oregon/Washington fleet. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected)."}
+![Pearson residuals to annual age composition for the Oregon/Washington fleet. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected).\label{fig:orwa-pearson-age}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_agefit_residsflt2mkt2_page2.png){width=100% height=100% alt="."}
 
 
-![Mean age observations for the California fleet.\label{fig:ca-mean-age}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_agefit_data_weighting_TA1.8_CA.png){width=100% height=100% alt="Mean age observations for the California fleet."}
+![Mean age observations for the California fleet.\label{fig:ca-mean-age}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_agefit_data_weighting_TA1.8_CA.png){width=100% height=100% alt="."}
 
 
-![Mean age observations for the Oregon/Washington fleet.\label{fig:orwa-mean-age}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_agefit_data_weighting_TA1.8_OR_WA.png){width=100% height=100% alt="Mean age observations for the Oregon/Washington fleet."}
+![Mean age observations for the Oregon/Washington fleet.\label{fig:orwa-mean-age}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_agefit_data_weighting_TA1.8_OR_WA.png){width=100% height=100% alt="."}
 
 
-![Pearson residuals to annual length composition for the Triennial survey. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected).\label{fig:tri-pearson}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_residsflt4mkt0.png){width=100% height=100% alt="Pearson residuals to annual length composition for the Triennial survey. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected)."}
+![Pearson residuals to annual length composition for the Triennial survey. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected).\label{fig:tri-pearson}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_residsflt4mkt0.png){width=100% height=100% alt="."}
 
 
-![Pearson residuals to annual length composition for the AFSC Slope survey. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected).\label{fig:afsc-pearson}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_residsflt3mkt0.png){width=100% height=100% alt="Pearson residuals to annual length composition for the AFSC Slope survey. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected)."}
+![Pearson residuals to annual length composition for the AFSC Slope survey. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected).\label{fig:afsc-pearson}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_residsflt3mkt0.png){width=100% height=100% alt="."}
 
 
-![Pearson residuals to annual length composition for the NWFSC Slope survey. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected).\label{fig:nwslope-pearson}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_residsflt5mkt0.png){width=100% height=100% alt="Pearson residuals to annual length composition for the NWFSC Slope survey. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected)."}
+![Pearson residuals to annual length composition for the NWFSC Slope survey. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected).\label{fig:nwslope-pearson}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_residsflt5mkt0.png){width=100% height=100% alt="."}
 
 
-![Pearson residuals to annual length composition for the NWFSC WCGBTS. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected).\label{fig:wcgbt-pearson}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_residsflt6mkt0_page2.png){width=100% height=100% alt="Pearson residuals to annual length composition for the NWFSC WCGBTS. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected)."}
+![Pearson residuals to annual length composition for the NWFSC WCGBTS. Closed bubbles are positive residuals (observed > expected) and open bubbles are negative residuals (observed < expected).\label{fig:wcgbt-pearson}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_residsflt6mkt0_page2.png){width=100% height=100% alt="."}
 
 
-![Mean length observations for the Triennial.\label{fig:tri-mean-len}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_data_weighting_TA1.8_Triennial.png){width=100% height=100% alt="Mean length observations for the Triennial."}
+![Mean length observations for the Triennial.\label{fig:tri-mean-len}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_data_weighting_TA1.8_Triennial.png){width=100% height=100% alt="."}
 
 
-![Mean length observations for the AFSC Slope survey.\label{fig:afsc-mean-len}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_data_weighting_TA1.8_AFSC_Slope.png){width=100% height=100% alt="Mean length observations for the AFSC Slope survey."}
+![Mean length observations for the AFSC Slope survey.\label{fig:afsc-mean-len}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_data_weighting_TA1.8_AFSC_Slope.png){width=100% height=100% alt="."}
 
 
-![Mean length observations for the NWFSC Slope survey.\label{fig:nwslope-mean-len}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_data_weighting_TA1.8_NWFSC_Slope.png){width=100% height=100% alt="Mean length observations for the NWFSC Slope survey."}
+![Mean length observations for the NWFSC Slope survey.\label{fig:nwslope-mean-len}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_data_weighting_TA1.8_NWFSC_Slope.png){width=100% height=100% alt="."}
 
 
-![Mean length observations for the NWFSC WCGBTS.\label{fig:wcgbt-mean-len}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_data_weighting_TA1.8_NWFSC_WCGBT.png){width=100% height=100% alt="Mean length observations for the NWFSC WCGBTS."}
+![Mean length observations for the NWFSC WCGBTS.\label{fig:wcgbt-mean-len}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_data_weighting_TA1.8_NWFSC_WCGBT.png){width=100% height=100% alt="."}
 
 
-![Conditional age-at-length for mean age and standard deviation for the NWFSC Slope survey (plot 1 of 2) Left plots are mean conditional age-at-length by size-class (observed and expected) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and expected) with 90 percent confidence intervals based on the chi-square distribution.\label{fig:nwslope-caal-fit-1}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_condAALfit_Andre_plotsflt5mkt0_page1.png){width=100% height=100% alt="Conditional age-at-length for mean age and standard deviation for the NWFSC Slope survey (plot 1 of 2) Left plots are mean conditional age-at-length by size-class (observed and expected) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and expected) with 90 percent confidence intervals based on the chi-square distribution."}
+![Conditional age-at-length for mean age and standard deviation for the NWFSC Slope survey (plot 1 of 2) Left plots are mean conditional age-at-length by size-class (observed and expected) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and expected) with 90 percent confidence intervals based on the chi-square distribution.\label{fig:nwslope-caal-fit-1}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_condAALfit_Andre_plotsflt5mkt0_page1.png){width=100% height=100% alt="."}
 
 
-![Conditional age-at-length for mean age and standard deviation for the NWFSC Slope survey (plot 2 of 2) Left plots are mean conditional age-at-length by size-class (observed and expected) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and expected) with 90 percent confidence intervals based on the chi-square distribution.\label{fig:nwslope-caal-fit-2}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_condAALfit_Andre_plotsflt5mkt0_page2.png){width=100% height=100% alt="Conditional age-at-length for mean age and standard deviation for the NWFSC Slope survey (plot 2 of 2) Left plots are mean conditional age-at-length by size-class (observed and expected) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and expected) with 90 percent confidence intervals based on the chi-square distribution."}
+![Conditional age-at-length for mean age and standard deviation for the NWFSC Slope survey (plot 2 of 2) Left plots are mean conditional age-at-length by size-class (observed and expected) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and expected) with 90 percent confidence intervals based on the chi-square distribution.\label{fig:nwslope-caal-fit-2}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_condAALfit_Andre_plotsflt5mkt0_page2.png){width=100% height=100% alt="."}
 
 
-![Conditional age-at-length for mean age and standard deviation for the NWFSC WCGBT (plot 1 of 5) Left plots are mean conditional age-at-length by size-class (observed and expected) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and expected) with 90 percent confidence intervals based on the chi-square distribution.\label{fig:wcgbt-caal-fit-1}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_condAALfit_Andre_plotsflt6mkt0_page1.png){width=100% height=100% alt="Conditional age-at-length for mean age and standard deviation for the NWFSC WCGBT (plot 1 of 5) Left plots are mean conditional age-at-length by size-class (observed and expected) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and expected) with 90 percent confidence intervals based on the chi-square distribution."}
+![Conditional age-at-length for mean age and standard deviation for the NWFSC WCGBT (plot 1 of 5) Left plots are mean conditional age-at-length by size-class (observed and expected) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and expected) with 90 percent confidence intervals based on the chi-square distribution.\label{fig:wcgbt-caal-fit-1}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_condAALfit_Andre_plotsflt6mkt0_page1.png){width=100% height=100% alt="."}
 
 
-![Conditional age-at-length for mean age and standard deviation for the WCGBTS (plot 2 of 5) Left plots are mean conditional age-at-length by size-class (observed and expected) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and expected) with 90 percent confidence intervalss based on the chi-square distribution.\label{fig:wcgbt-caal-fit-2}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_condAALfit_Andre_plotsflt6mkt0_page2.png){width=100% height=100% alt="Conditional age-at-length for mean age and standard deviation for the WCGBTS (plot 2 of 5) Left plots are mean conditional age-at-length by size-class (observed and expected) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and expected) with 90 percent confidence intervalss based on the chi-square distribution."}
+![Conditional age-at-length for mean age and standard deviation for the WCGBTS (plot 2 of 5) Left plots are mean conditional age-at-length by size-class (observed and expected) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and expected) with 90 percent confidence intervalss based on the chi-square distribution.\label{fig:wcgbt-caal-fit-2}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_condAALfit_Andre_plotsflt6mkt0_page2.png){width=100% height=100% alt="."}
 
 
-![Conditional age-at-length for mean age and standard deviation for the WCGBTS (plot 3 of 5) Left plots are mean conditional age-at-length by size-class (observed and expected) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and expected) with 90 percent confidence intervals based on the chi-square distribution.\label{fig:wcgbt-caal-fit-3}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_condAALfit_Andre_plotsflt6mkt0_page3.png){width=100% height=100% alt="Conditional age-at-length for mean age and standard deviation for the WCGBTS (plot 3 of 5) Left plots are mean conditional age-at-length by size-class (observed and expected) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and expected) with 90 percent confidence intervals based on the chi-square distribution."}
+![Conditional age-at-length for mean age and standard deviation for the WCGBTS (plot 3 of 5) Left plots are mean conditional age-at-length by size-class (observed and expected) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and expected) with 90 percent confidence intervals based on the chi-square distribution.\label{fig:wcgbt-caal-fit-3}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_condAALfit_Andre_plotsflt6mkt0_page3.png){width=100% height=100% alt="."}
 
 
-![Conditional age-at-length for mean age and standard deviation for the WCGBTS (plot 4 of 5) Left plots are mean conditional age-at-length by size-class (observed and expected) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and expected) with 90 percent confidence intervals based on the chi-square distribution.\label{fig:wcgbt-caal-fit-4}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_condAALfit_Andre_plotsflt6mkt0_page4.png){width=100% height=100% alt="Conditional age-at-length for mean age and standard deviation for the WCGBTS (plot 4 of 5) Left plots are mean conditional age-at-length by size-class (observed and expected) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and expected) with 90 percent confidence intervals based on the chi-square distribution."}
+![Conditional age-at-length for mean age and standard deviation for the WCGBTS (plot 4 of 5) Left plots are mean conditional age-at-length by size-class (observed and expected) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and expected) with 90 percent confidence intervals based on the chi-square distribution.\label{fig:wcgbt-caal-fit-4}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_condAALfit_Andre_plotsflt6mkt0_page4.png){width=100% height=100% alt="."}
 
 
-![Conditional age-at-length for mean age and standard deviation for the WCGBTS (plot 5 of 5) Left plots are mean conditional age-at-length by size-class (observed and expected) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and expected) with 90 percent confidence intervals based on the chi-square distribution.\label{fig:wcgbt-caal-fit-5}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_condAALfit_Andre_plotsflt6mkt0_page5.png){width=100% height=100% alt="Conditional age-at-length for mean age and standard deviation for the WCGBTS (plot 5 of 5) Left plots are mean conditional age-at-length by size-class (observed and expected) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and expected) with 90 percent confidence intervals based on the chi-square distribution."}
+![Conditional age-at-length for mean age and standard deviation for the WCGBTS (plot 5 of 5) Left plots are mean conditional age-at-length by size-class (observed and expected) with 90 percent confidence intervals based on adding 1.64 standard error  of mean to the data. Right plots in each pair are standard error of mean age-at-length (observed and expected) with 90 percent confidence intervals based on the chi-square distribution.\label{fig:wcgbt-caal-fit-5}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_condAALfit_Andre_plotsflt6mkt0_page5.png){width=100% height=100% alt="."}
 
 
 
-![Mean age from conditional age-at-length data for the NWFSC Slope survey.\label{fig:nwslope-mean-caal}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_condAALfit_data_weighting_TA1.8_condAgeNWFSC_Slope.png){width=100% height=100% alt="Mean age from conditional age-at-length data for the NWFSC Slope survey."}
+![Mean age from conditional age-at-length data for the NWFSC Slope survey.\label{fig:nwslope-mean-caal}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_condAALfit_data_weighting_TA1.8_condAgeNWFSC_Slope.png){width=100% height=100% alt="."}
 
 
-![Mean age observations from the conditional age-at-length data from the WCGBTS.\label{fig:wcgbt-mean-age}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_condAALfit_data_weighting_TA1.8_condAgeNWFSC_WCGBT.png){width=100% height=100% alt="Mean age observations from the conditional age-at-length data from the WCGBTS."}
+![Mean age observations from the conditional age-at-length data from the WCGBTS.\label{fig:wcgbt-mean-age}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_condAALfit_data_weighting_TA1.8_condAgeNWFSC_WCGBT.png){width=100% height=100% alt="."}
 
 
 <!-- ======================================================= -->  
@@ -2257,19 +2262,19 @@ Year & Adopted OFL (mt) & Adopted ABC (mt) & Adopted ACL (mt) & Assumed Removal 
 
 
 
-![Estimated time series of spawning biomass.\label{fig:ssb}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/ts7_Spawning_biomass_(mt)_with_95_asymptotic_intervals_intervals.png){width=100% height=100% alt="Estimated time series of spawning biomass."}
+![Estimated time series of spawning biomass.\label{fig:ssb}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/ts7_Spawning_biomass_(mt)_with_95_asymptotic_intervals_intervals.png){width=100% height=100% alt="."}
 
 
-![Estimated time series of total biomass.\label{fig:tot-bio}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/ts1_Total_biomass_(mt).png){width=100% height=100% alt="Estimated time series of total biomass."}
+![Estimated time series of total biomass.\label{fig:tot-bio}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/ts1_Total_biomass_(mt).png){width=100% height=100% alt="."}
 
 
-![Estimated time series of fraction of unfished spawning biomass.\label{fig:depl}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/ts9_Fraction_of_unfished_with_95_asymptotic_intervals_intervals.png){width=100% height=100% alt="Estimated time series of fraction of unfished spawning biomass."}
+![Estimated time series of fraction of unfished spawning biomass.\label{fig:depl}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/ts9_Fraction_of_unfished_with_95_asymptotic_intervals_intervals.png){width=100% height=100% alt="."}
 
 
-![Proportion of biomass unavailable due to selectivity for small and large fish.\label{fig:unavail-bio}](figs/unavailable_biomass.png){width=100% height=100% alt="Proportion of biomass unavailable due to selectivity for small and large fish."}
+![Proportion of biomass unavailable due to selectivity for small and large fish.\label{fig:unavail-bio}](figs/unavailable_biomass.png){width=100% height=100% alt="."}
 
 
-![Stock recruit curve where point color indicate year, with warmer colors (yellow to green) indicating earlier years and cooler colors (blue) showing later years.\label{fig:sr-curve}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/SR_curve.png){width=100% height=100% alt="Stock recruit curve where point color indicate year, with warmer colors (yellow to green) indicating earlier years and cooler colors (blue) showing later years."}
+![Stock recruit curve where point color indicate year, with warmer colors (yellow to green) indicating earlier years and cooler colors (blue) showing later years.\label{fig:sr-curve}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/SR_curve.png){width=100% height=100% alt="."}
 
 
 <!-- ====================================================================== -->
@@ -2278,17 +2283,16 @@ Year & Adopted OFL (mt) & Adopted ABC (mt) & Adopted ACL (mt) & Assumed Removal 
 
 
 
-![Estimated 1 - relative spawning ratio (SPR) by year.\label{fig:1-spr}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/SPR2_minusSPRseries.png){width=100% height=100% alt="Estimated 1 - relative spawning ratio (SPR) by year."}
+![Estimated 1 - relative spawning ratio (SPR) by year.\label{fig:1-spr}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/SPR2_minusSPRseries.png){width=100% height=100% alt="."}
 
 \clearpage
 
 
-![Phase plot of the relative biomass (also referred to as fraction unfished) versus the SPR ratio where each point represents the biomass ratio at the start of the year and the relative fishing intensity in that same year. Lines through the final point show the 95 percent intervals based on the asymptotic uncertainty for each dimension. The shaded ellipse is a 95 percent region which accounts for the estimated correlations between the biomass ratio and SPR ratio.\label{fig:phase}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/SPR4_phase.png){width=100% height=100% alt="Phase plot of the relative biomass (also referred to as fraction unfished) versus the SPR ratio where each point represents the biomass ratio at the start of the year and the relative fishing intensity in that same year. Lines through the final point show the 95 percent intervals based on the asymptotic uncertainty for each dimension. The shaded ellipse is a 95 percent region which accounts for the estimated correlations between the biomass ratio and SPR ratio."}
+![Phase plot of the relative biomass (also referred to as fraction unfished) versus the SPR ratio where each point represents the biomass ratio at the start of the year and the relative fishing intensity in that same year. Lines through the final point show the 95 percent intervals based on the asymptotic uncertainty for each dimension. The shaded ellipse is a 95 percent region which accounts for the estimated correlations between the biomass ratio and SPR ratio.\label{fig:phase}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/SPR4_phase.png){width=100% height=100% alt="."}
 
 
 ![Equilibrium yield curve for the base case model. Values are based on the 2020
-fishery selectivities and with steepness fixed at 0.80.\label{fig:yield}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/yield2_yield_curve_with_refpoints.png){width=100% height=100% alt="Equilibrium yield curve for the base case model. Values are based on the 2020
-fishery selectivities and with steepness fixed at 0.80."}
+fishery selectivities and with steepness fixed at 0.80.\label{fig:yield}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/yield2_yield_curve_with_refpoints.png){width=100% height=100% alt="."}
 
 
 <!-- ======================================================= -->  
@@ -2296,116 +2300,114 @@ fishery selectivities and with steepness fixed at 0.80."}
 <!-- ======================================================= -->
 
 
-![Relative change in derived quantities (SB0: unfished spawning biomass, SB2021: spawning biomass in 2021, SB2021/SB0: fraction unfished in 2021, Yield SPR=0.30: Yield at the the target SPR, and F SPR=0.30: the exploitation rate at the target SPR) by structural sensitivities compared to the base model. A relative change value of 0.0 would indicate the same estimates from the sensitivity as the base model.  Positive relative changes values would indicate that the estimates from the sensitivity were greater than the base model. The target reference point (TRP) and limit reference point (LRP) only apply to the fraction unfished (SB2021/SB0).\label{fig:re-sens-structure}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_sensitivities/_Model_figures/Sensi_REplot_all.png){width=100% height=100% alt="Relative change in derived quantities (SB0: unfished spawning biomass, SB2021: spawning biomass in 2021, SB2021/SB0: fraction unfished in 2021, Yield SPR=0.30: Yield at the the target SPR, and F SPR=0.30: the exploitation rate at the target SPR) by structural sensitivities compared to the base model. A relative change value of 0.0 would indicate the same estimates from the sensitivity as the base model.  Positive relative changes values would indicate that the estimates from the sensitivity were greater than the base model. The target reference point (TRP) and limit reference point (LRP) only apply to the fraction unfished (SB2021/SB0)."}
+![Relative change in derived quantities (SB0: unfished spawning biomass, SB2021: spawning biomass in 2021, SB2021/SB0: fraction unfished in 2021, Yield SPR=0.30: Yield at the the target SPR, and F SPR=0.30: the exploitation rate at the target SPR) by structural sensitivities compared to the base model. A relative change value of 0.0 would indicate the same estimates from the sensitivity as the base model.  Positive relative changes values would indicate that the estimates from the sensitivity were greater than the base model. The target reference point (TRP) and limit reference point (LRP) only apply to the fraction unfished (SB2021/SB0).\label{fig:re-sens-structure}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_sensitivities/_Model_figures/Sensi_REplot_all.png){width=100% height=100% alt="."}
 
 
-![Relative change in derived quantities (SB0: unfished spawning biomass, SB2021: spawning biomass in 2021, SB2021/SB0: fraction unfished in 2021, Yield SPR=0.30: Yield at the the target SPR, and F SPR=0.30: the exploitation rate at the target SPR) by data sensitivities compared to the base model. A relative change value of 0.0 would indicate the same estimates from the sensitivity as the base model.  Positive relative changes values would indicate that the estimates from the sensitivity were greater than the base model. The target reference point (TRP) and limit reference point (LRP) only apply to the fraction unfished (SB2021/SB0).\label{fig:re-sens-data}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_sensitivities/_Data_figures/Sensi_REplot_all.png){width=100% height=100% alt="Relative change in derived quantities (SB0: unfished spawning biomass, SB2021: spawning biomass in 2021, SB2021/SB0: fraction unfished in 2021, Yield SPR=0.30: Yield at the the target SPR, and F SPR=0.30: the exploitation rate at the target SPR) by data sensitivities compared to the base model. A relative change value of 0.0 would indicate the same estimates from the sensitivity as the base model.  Positive relative changes values would indicate that the estimates from the sensitivity were greater than the base model. The target reference point (TRP) and limit reference point (LRP) only apply to the fraction unfished (SB2021/SB0)."}
+![Relative change in derived quantities (SB0: unfished spawning biomass, SB2021: spawning biomass in 2021, SB2021/SB0: fraction unfished in 2021, Yield SPR=0.30: Yield at the the target SPR, and F SPR=0.30: the exploitation rate at the target SPR) by data sensitivities compared to the base model. A relative change value of 0.0 would indicate the same estimates from the sensitivity as the base model.  Positive relative changes values would indicate that the estimates from the sensitivity were greater than the base model. The target reference point (TRP) and limit reference point (LRP) only apply to the fraction unfished (SB2021/SB0).\label{fig:re-sens-data}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_sensitivities/_Data_figures/Sensi_REplot_all.png){width=100% height=100% alt="."}
 
 
-![Estimates of spawning biomass for the base model and alternative sensitivity models that remove (-) sources of length data.\label{fig:sens-length-ssb}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_sensitivities/_plots/7.0.1_base_1_compare2_spawnbio_uncertainty.png){width=100% height=100% alt="Estimates of spawning biomass for the base model and alternative sensitivity models that remove (-) sources of length data."}
+![Estimates of spawning biomass for the base model and alternative sensitivity models that remove (-) sources of length data.\label{fig:sens-length-ssb}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_sensitivities/_plots/7.0.1_base_1_compare2_spawnbio_uncertainty.png){width=100% height=100% alt="."}
 
 
-![Estimates of relative spawning biomass for the base model and alternative sensitivity models that remove (-) sources of length data.\label{fig:sens-length-relssb}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_sensitivities/_plots/7.0.1_base_1_compare4_Bratio_uncertainty.png){width=100% height=100% alt="Estimates of relative spawning biomass for the base model and alternative sensitivity models that remove (-) sources of length data."}
+![Estimates of relative spawning biomass for the base model and alternative sensitivity models that remove (-) sources of length data.\label{fig:sens-length-relssb}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_sensitivities/_plots/7.0.1_base_1_compare4_Bratio_uncertainty.png){width=100% height=100% alt="."}
 
 
-![Estimates of spawning biomass for the base model and alternative sensitivity models that remove (-) sources of age data.\label{fig:sens-age-ssb}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_sensitivities/_plots/7.0.1_base_2_compare2_spawnbio_uncertainty.png){width=100% height=100% alt="Estimates of spawning biomass for the base model and alternative sensitivity models that remove (-) sources of age data."}
+![Estimates of spawning biomass for the base model and alternative sensitivity models that remove (-) sources of age data.\label{fig:sens-age-ssb}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_sensitivities/_plots/7.0.1_base_2_compare2_spawnbio_uncertainty.png){width=100% height=100% alt="."}
 
 
-![Estimates of relative spawning biomass for the base model and alternative sensitivity models that remove (-) sources of age data.\label{fig:sens-age-relssb}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_sensitivities/_plots/7.0.1_base_2_compare4_Bratio_uncertainty.png){width=100% height=100% alt="Estimates of relative spawning biomass for the base model and alternative sensitivity models that remove (-) sources of age data."}
+![Estimates of relative spawning biomass for the base model and alternative sensitivity models that remove (-) sources of age data.\label{fig:sens-age-relssb}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_sensitivities/_plots/7.0.1_base_2_compare4_Bratio_uncertainty.png){width=100% height=100% alt="."}
 
 
-![Estimates of spawning biomass for the base model and alternative sensitivity models that remove (-) sources of index data.\label{fig:sens-index-ssb}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_sensitivities/_plots/7.0.1_base_3_compare2_spawnbio_uncertainty.png){width=100% height=100% alt="Estimates of spawning biomass for the base model and alternative sensitivity models that remove (-) sources of index data."}
+![Estimates of spawning biomass for the base model and alternative sensitivity models that remove (-) sources of index data.\label{fig:sens-index-ssb}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_sensitivities/_plots/7.0.1_base_3_compare2_spawnbio_uncertainty.png){width=100% height=100% alt="."}
 
 
-![Estimates of relative spawning biomass for the base model and alternative sensitivity models that remove (-) sources of index data.\label{fig:sens-index-relssb}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_sensitivities/_plots/7.0.1_base_3_compare4_Bratio_uncertainty.png){width=100% height=100% alt="Estimates of relative spawning biomass for the base model and alternative sensitivity models that remove (-) sources of index data."}
+![Estimates of relative spawning biomass for the base model and alternative sensitivity models that remove (-) sources of index data.\label{fig:sens-index-relssb}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_sensitivities/_plots/7.0.1_base_3_compare4_Bratio_uncertainty.png){width=100% height=100% alt="."}
 
 
 ![Estimates of spawning biomass for the base model and alternative sensitivity models to natural mortality including estimating females, estimating an age-specific Lorenzen relationship for males and females, fixing male and female parameters at the median of the prior, and fixing natural mortality at estimates
-from the 2011 assessment.\label{fig:sens-m-ssb}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_sensitivities/_plots/7.0.1_base_4_compare2_spawnbio_uncertainty.png){width=100% height=100% alt="Estimates of spawning biomass for the base model and alternative sensitivity models to natural mortality including estimating females, estimating an age-specific Lorenzen relationship for males and females, fixing male and female parameters at the median of the prior, and fixing natural mortality at estimates
-from the 2011 assessment."}
+from the 2011 assessment.\label{fig:sens-m-ssb}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_sensitivities/_plots/7.0.1_base_4_compare2_spawnbio_uncertainty.png){width=100% height=100% alt="."}
 
 
 ![Estimates of relative spawning biomass for the base model and alternative sensitivity models to natural mortality including estimating females, estimating an age-specific Lorenzen relationship for males and females, fixing male and female parameters at the median of the prior, and fixing natural mortality at estimates
-from the 2011 assessment.\label{fig:sens-m-relssb}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_sensitivities/_plots/7.0.1_base_4_compare4_Bratio_uncertainty.png){width=100% height=100% alt="Estimates of relative spawning biomass for the base model and alternative sensitivity models to natural mortality including estimating females, estimating an age-specific Lorenzen relationship for males and females, fixing male and female parameters at the median of the prior, and fixing natural mortality at estimates
-from the 2011 assessment."}
+from the 2011 assessment.\label{fig:sens-m-relssb}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_sensitivities/_plots/7.0.1_base_4_compare4_Bratio_uncertainty.png){width=100% height=100% alt="."}
 
 
-![Survey catchability estimates for the base model and alternative natural mortality sensitivity runs.\label{fig:sens-m-survQ}](figs/SurveyQ_vs_M.png){width=100% height=100% alt="Survey catchability estimates for the base model and alternative natural mortality sensitivity runs."}
+![Survey catchability estimates for the base model and alternative natural mortality sensitivity runs.\label{fig:sens-m-survQ}](figs/SurveyQ_vs_M.png){width=100% height=100% alt="."}
 
 
-![Estimates of spawning biomass for the base model and alternative sensitivity models to selectivity including the parameterization of fishery selectivity following the 2011 assessment, the parameterization of survey selectivity following the 2011 assessment, mirroring California  and Oregon/Washington commercial selectivity, and forcing one index (the NWFSC slope survey) to be asymptotic.\label{fig:sens-select-ssb}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_sensitivities/_plots/7.0.1_base_5_compare2_spawnbio_uncertainty.png){width=100% height=100% alt="Estimates of spawning biomass for the base model and alternative sensitivity models to selectivity including the parameterization of fishery selectivity following the 2011 assessment, the parameterization of survey selectivity following the 2011 assessment, mirroring California  and Oregon/Washington commercial selectivity, and forcing one index (the NWFSC slope survey) to be asymptotic."}
+![Estimates of spawning biomass for the base model and alternative sensitivity models to selectivity including the parameterization of fishery selectivity following the 2011 assessment, the parameterization of survey selectivity following the 2011 assessment, mirroring California  and Oregon/Washington commercial selectivity, and forcing one index (the NWFSC slope survey) to be asymptotic.\label{fig:sens-select-ssb}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_sensitivities/_plots/7.0.1_base_5_compare2_spawnbio_uncertainty.png){width=100% height=100% alt="."}
 
 
-![Estimates of relative spawning biomass for the base model and alternative sensitivity models to selectivity including the parameterization of fishery selectivity following the 2011 assessment, the parameterization of survey selectivity following the 2011 assessment, mirroring California  and Oregon/Washington commercial selectivity, and forcing one index (the NWFSC slope survey) to be asymptotic.\label{fig:sens-select-relssb}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_sensitivities/_plots/7.0.1_base_5_compare4_Bratio_uncertainty.png){width=100% height=100% alt="Estimates of relative spawning biomass for the base model and alternative sensitivity models to selectivity including the parameterization of fishery selectivity following the 2011 assessment, the parameterization of survey selectivity following the 2011 assessment, mirroring California  and Oregon/Washington commercial selectivity, and forcing one index (the NWFSC slope survey) to be asymptotic."}
+![Estimates of relative spawning biomass for the base model and alternative sensitivity models to selectivity including the parameterization of fishery selectivity following the 2011 assessment, the parameterization of survey selectivity following the 2011 assessment, mirroring California  and Oregon/Washington commercial selectivity, and forcing one index (the NWFSC slope survey) to be asymptotic.\label{fig:sens-select-relssb}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_sensitivities/_plots/7.0.1_base_5_compare4_Bratio_uncertainty.png){width=100% height=100% alt="."}
 
 
-![Estimates of spawning biomass for the base model and alternative sensitivity models including using the maturity ogive from the 2011 assessment, estimating no recruitment deviations, effectively not allowing extra survey variance (standard deviation), and applying the McAllister and Ianelli approach to data weighting.\label{fig:sens-biodata-ssb}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_sensitivities/_plots/7.0.1_base_6_compare2_spawnbio_uncertainty.png){width=100% height=100% alt="Estimates of spawning biomass for the base model and alternative sensitivity models including using the maturity ogive from the 2011 assessment, estimating no recruitment deviations, effectively not allowing extra survey variance (standard deviation), and applying the McAllister and Ianelli approach to data weighting."}
+![Estimates of spawning biomass for the base model and alternative sensitivity models including using the maturity ogive from the 2011 assessment, estimating no recruitment deviations, effectively not allowing extra survey variance (standard deviation), and applying the McAllister and Ianelli approach to data weighting.\label{fig:sens-biodata-ssb}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_sensitivities/_plots/7.0.1_base_6_compare2_spawnbio_uncertainty.png){width=100% height=100% alt="."}
 
 
-![Estimates of relative spawning biomass for the base model and alternative sensitivity models including using the maturity ogive from the 2011 assessment, estimating no recruitment deviations, effectively not allowing extra survey variance (standard deviation), and applying the McAllister and Ianelli approach to data weighting.\label{fig:sens-biodata-relssb}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_sensitivities/_plots/7.0.1_base_6_compare4_Bratio_uncertainty.png){width=100% height=100% alt="Estimates of relative spawning biomass for the base model and alternative sensitivity models including using the maturity ogive from the 2011 assessment, estimating no recruitment deviations, effectively not allowing extra survey variance (standard deviation), and applying the McAllister and Ianelli approach to data weighting."}
+![Estimates of relative spawning biomass for the base model and alternative sensitivity models including using the maturity ogive from the 2011 assessment, estimating no recruitment deviations, effectively not allowing extra survey variance (standard deviation), and applying the McAllister and Ianelli approach to data weighting.\label{fig:sens-biodata-relssb}](//nwcfile/FRAM/Assessments/CurrentAssessments/Dover_sole_2021/models/_sensitivities/_plots/7.0.1_base_6_compare4_Bratio_uncertainty.png){width=100% height=100% alt="."}
 
 <!-- ======================================================= -->  
 <!-- ******************  Likelihoods  ********************** --> 
 <!-- ======================================================= -->
 
 
-![Change in the negative log-likelihood across a range of log(R0) values.\label{fig:r0-profile}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base_profile_SR_LN(R0)/piner_panel_SR_LN(R0).png){width=100% height=100% alt="Change in the negative log-likelihood across a range of log(R0) values."}
+![Change in the negative log-likelihood across a range of log(R0) values.\label{fig:r0-profile}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base_profile_SR_LN(R0)/piner_panel_SR_LN(R0).png){width=100% height=100% alt="."}
 
 
-![Change in the estimate of spawning biomass across a range of log(R0) values.\label{fig:r0-ssb}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base_profile_SR_LN(R0)/SR_LN(R0)_trajectories_compare1_spawnbio.png){width=100% height=100% alt="Change in the estimate of spawning biomass across a range of log(R0) values."}
+![Change in the estimate of spawning biomass across a range of log(R0) values.\label{fig:r0-ssb}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base_profile_SR_LN(R0)/SR_LN(R0)_trajectories_compare1_spawnbio.png){width=100% height=100% alt="."}
 
 
-![Change in the estimate of fraction unfished across a range of log(R0) values.\label{fig:r0-depl}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base_profile_SR_LN(R0)/SR_LN(R0)_trajectories_compare3_Bratio.png){width=100% height=100% alt="Change in the estimate of fraction unfished across a range of log(R0) values."}
+![Change in the estimate of fraction unfished across a range of log(R0) values.\label{fig:r0-depl}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base_profile_SR_LN(R0)/SR_LN(R0)_trajectories_compare3_Bratio.png){width=100% height=100% alt="."}
 
 
-![Change in the negative log-likelihood across a range of steepness values.\label{fig:h-profile}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base_profile_SR_BH_steep/piner_panel_SR_BH_steep.png){width=100% height=100% alt="Change in the negative log-likelihood across a range of steepness values."}
+![Change in the negative log-likelihood across a range of steepness values.\label{fig:h-profile}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base_profile_SR_BH_steep/piner_panel_SR_BH_steep.png){width=100% height=100% alt="."}
 
 
-![Change in the estimate of spawning biomass across a range of steepness values.\label{fig:h-ssb}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base_profile_SR_BH_steep/SR_BH_steep_trajectories_compare1_spawnbio.png){width=100% height=100% alt="Change in the estimate of spawning biomass across a range of steepness values."}
+![Change in the estimate of spawning biomass across a range of steepness values.\label{fig:h-ssb}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base_profile_SR_BH_steep/SR_BH_steep_trajectories_compare1_spawnbio.png){width=100% height=100% alt="."}
 
 
-![Change in the estimate of fraction unfished across a range of steepness values.\label{fig:h-depl}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base_profile_SR_BH_steep/SR_BH_steep_trajectories_compare3_Bratio.png){width=100% height=100% alt="Change in the estimate of fraction unfished across a range of steepness values."}
+![Change in the estimate of fraction unfished across a range of steepness values.\label{fig:h-depl}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base_profile_SR_BH_steep/SR_BH_steep_trajectories_compare3_Bratio.png){width=100% height=100% alt="."}
 
 
-![Change in the negative log-likelihood across a range of female natural mortality values.\label{fig:m-profile}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base_profile_NatM_p_1_Fem_GP_1/piner_panel_NatM_p_1_Fem_GP_1.png){width=100% height=100% alt="Change in the negative log-likelihood across a range of female natural mortality values."}
+![Change in the negative log-likelihood across a range of female natural mortality values.\label{fig:m-profile}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base_profile_NatM_p_1_Fem_GP_1/piner_panel_NatM_p_1_Fem_GP_1.png){width=100% height=100% alt="."}
 
 
-![Change in the estimate of spawning biomass across a range of female natural mortality values.\label{fig:m-ssb}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base_profile_NatM_p_1_Fem_GP_1/NatM_p_1_Fem_GP_1_trajectories_compare1_spawnbio.png){width=100% height=100% alt="Change in the estimate of spawning biomass across a range of female natural mortality values."}
+![Change in the estimate of spawning biomass across a range of female natural mortality values.\label{fig:m-ssb}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base_profile_NatM_p_1_Fem_GP_1/NatM_p_1_Fem_GP_1_trajectories_compare1_spawnbio.png){width=100% height=100% alt="."}
 
 
-![Change in the estimate of fraction unfished across a range of female natural values.\label{fig:m-depl}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base_profile_NatM_p_1_Fem_GP_1/NatM_p_1_Fem_GP_1_trajectories_compare3_Bratio.png){width=100% height=100% alt="Change in the estimate of fraction unfished across a range of female natural values."}
+![Change in the estimate of fraction unfished across a range of female natural values.\label{fig:m-depl}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base_profile_NatM_p_1_Fem_GP_1/NatM_p_1_Fem_GP_1_trajectories_compare3_Bratio.png){width=100% height=100% alt="."}
 
 
-![Change in the negative log-likelihood across a range of offset male natural mortality values.\label{fig:m-male-profile}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base_profile_NatM_p_1_Mal_GP_1/piner_panel_NatM_p_1_Mal_GP_1.png){width=100% height=100% alt="Change in the negative log-likelihood across a range of offset male natural mortality values."}
+![Change in the negative log-likelihood across a range of offset male natural mortality values.\label{fig:m-male-profile}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base_profile_NatM_p_1_Mal_GP_1/piner_panel_NatM_p_1_Mal_GP_1.png){width=100% height=100% alt="."}
 
 
-![Change in the estimate of spawning biomass across a range of offset male natural mortality values.\label{fig:m-male-ssb}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base_profile_NatM_p_1_Mal_GP_1/NatM_p_1_Mal_GP_1_trajectories_compare1_spawnbio.png){width=100% height=100% alt="Change in the estimate of spawning biomass across a range of offset male natural mortality values."}
+![Change in the estimate of spawning biomass across a range of offset male natural mortality values.\label{fig:m-male-ssb}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base_profile_NatM_p_1_Mal_GP_1/NatM_p_1_Mal_GP_1_trajectories_compare1_spawnbio.png){width=100% height=100% alt="."}
 
 
-![Change in the estimate of fraction unfished across a range of male natural values.\label{fig:m-male-depl}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base_profile_NatM_p_1_Mal_GP_1/NatM_p_1_Mal_GP_1_trajectories_compare3_Bratio.png){width=100% height=100% alt="Change in the estimate of fraction unfished across a range of male natural values."}
+![Change in the estimate of fraction unfished across a range of male natural values.\label{fig:m-male-depl}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base_profile_NatM_p_1_Mal_GP_1/NatM_p_1_Mal_GP_1_trajectories_compare3_Bratio.png){width=100% height=100% alt="."}
 
 <!-- ======================================================= -->  
 <!-- ****************** Retrospective ********************** --> 
 <!-- ======================================================= -->
 
 
-![Change in the estimate of spawning biomass when the most recent 10 years of data area removed sequentially.\label{fig:retro-ssb}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base_retro/compare2_spawnbio_uncertainty.png){width=100% height=100% alt="Change in the estimate of spawning biomass when the most recent 10 years of data area removed sequentially."}
+![Change in the estimate of spawning biomass when the most recent 10 years of data area removed sequentially.\label{fig:retro-ssb}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base_retro/compare2_spawnbio_uncertainty.png){width=100% height=100% alt="."}
 
 
-![Change in the estimate of fraction unfished when the most recent 10 years of data area removed sequentially.\label{fig:retro-depl}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base_retro/compare4_Bratio_uncertainty.png){width=100% height=100% alt="Change in the estimate of fraction unfished when the most recent 10 years of data area removed sequentially."}
+![Change in the estimate of fraction unfished when the most recent 10 years of data area removed sequentially.\label{fig:retro-depl}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base_retro/compare4_Bratio_uncertainty.png){width=100% height=100% alt="."}
 
 <!-- ======================================================= -->  
 <!-- ************* Compare w/ 2011 & 2005 ****************** --> 
 <!-- ======================================================= -->
 
 
-![Estimates of spawning biomass across the base model and previous assessments of Dover sole.\label{fig:past-assess}](figs/assessment_history.png){width=100% height=100% alt="Estimates of spawning biomass across the base model and previous assessments of Dover sole."}
+![Estimates of spawning biomass across the base model and previous assessments of Dover sole.\label{fig:past-assess}](figs/assessment_history.png){width=100% height=100% alt="."}
 
 
-![Estimates of spawning biomass with uncertainty intervals between the base model and the 2011 assessment.\label{fig:ssb-2011-2021}](figs/2021_2011_compare2_spawnbio_uncertainty.png){width=100% height=100% alt="Estimates of spawning biomass with uncertainty intervals between the base model and the 2011 assessment."}
+![Estimates of spawning biomass with uncertainty intervals between the base model and the 2011 assessment.\label{fig:ssb-2011-2021}](figs/2021_2011_compare2_spawnbio_uncertainty.png){width=100% height=100% alt="."}
 
 
-![Estimates of fraction unfished with uncertainty intervals between the base model and the 2011 assessment.\label{fig:depl-2011-2021}](figs/2021_2011_compare4_Bratio_uncertainty.png){width=100% height=100% alt="Estimates of fraction unfished with uncertainty intervals between the base model and the 2011 assessment."}
+![Estimates of fraction unfished with uncertainty intervals between the base model and the 2011 assessment.\label{fig:depl-2011-2021}](figs/2021_2011_compare4_Bratio_uncertainty.png){width=100% height=100% alt="."}
 
 <!--chapter:end:53figures.Rmd-->
 
@@ -2416,35 +2418,35 @@ from the 2011 assessment."}
 ## Detailed Fit to Length Composition Data {#len-fit-data}
 
 
-![Length comps, retained, CA (plot 1 of 4).<br><br>'N adj.' is the input sample size after data-weighting adjustment. N eff. is the calculated effective sample size used in the McAllister-Ianelli tuning method..\label{fig:comp_lenfit_flt1mkt2_page1}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_flt1mkt2_page1.png){width=100% height=100% alt="Length comps, retained, CA (plot 1 of 4).<br><br>'N adj.' is the input sample size after data-weighting adjustment. N eff. is the calculated effective sample size used in the McAllister-Ianelli tuning method.."}
+![Length comps, retained, CA (plot 1 of 4).<br><br>'N adj.' is the input sample size after data-weighting adjustment. N eff. is the calculated effective sample size used in the McAllister-Ianelli tuning method.\label{fig:comp_lenfit_flt1mkt2_page1}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_flt1mkt2_page1.png){width=100% height=100% alt="."}
 
-![Length comps, retained, CA (plot 2 of 4).\label{fig:comp_lenfit_flt1mkt2_page2}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_flt1mkt2_page2.png){width=100% height=100% alt="Length comps, retained, CA (plot 2 of 4)."}
+![Length comps, retained, CA (plot 2 of 4).\label{fig:comp_lenfit_flt1mkt2_page2}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_flt1mkt2_page2.png){width=100% height=100% alt="."}
 
-![Length comps, retained, CA (plot 3 of 4).\label{fig:comp_lenfit_flt1mkt2_page3}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_flt1mkt2_page3.png){width=100% height=100% alt="Length comps, retained, CA (plot 3 of 4)."}
+![Length comps, retained, CA (plot 3 of 4).\label{fig:comp_lenfit_flt1mkt2_page3}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_flt1mkt2_page3.png){width=100% height=100% alt="."}
 
-![Length comps, retained, CA (plot 4 of 4).\label{fig:comp_lenfit_flt1mkt2_page4}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_flt1mkt2_page4.png){width=100% height=100% alt="Length comps, retained, CA (plot 4 of 4)."}
+![Length comps, retained, CA (plot 4 of 4).\label{fig:comp_lenfit_flt1mkt2_page4}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_flt1mkt2_page4.png){width=100% height=100% alt="."}
 
-![Length comps, discard, CA.<br><br>'N adj.' is the input sample size after data-weighting adjustment. N eff. is the calculated effective sample size used in the McAllister-Ianelli tuning method..\label{fig:comp_lenfit_flt1mkt1}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_flt1mkt1.png){width=100% height=100% alt="Length comps, discard, CA.<br><br>'N adj.' is the input sample size after data-weighting adjustment. N eff. is the calculated effective sample size used in the McAllister-Ianelli tuning method.."}
+![Length comps, discard, CA.<br><br>'N adj.' is the input sample size after data-weighting adjustment. N eff. is the calculated effective sample size used in the McAllister-Ianelli tuning method.\label{fig:comp_lenfit_flt1mkt1}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_flt1mkt1.png){width=100% height=100% alt="."}
 
-![Length comps, retained, OR_WA (plot 1 of 3).<br><br>'N adj.' is the input sample size after data-weighting adjustment. N eff. is the calculated effective sample size used in the McAllister-Ianelli tuning method..\label{fig:comp_lenfit_flt2mkt2_page1}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_flt2mkt2_page1.png){width=100% height=100% alt="Length comps, retained, OR_WA (plot 1 of 3).<br><br>'N adj.' is the input sample size after data-weighting adjustment. N eff. is the calculated effective sample size used in the McAllister-Ianelli tuning method.."}
+![Length comps, retained, OR_WA (plot 1 of 3).<br><br>'N adj.' is the input sample size after data-weighting adjustment. N eff. is the calculated effective sample size used in the McAllister-Ianelli tuning method.\label{fig:comp_lenfit_flt2mkt2_page1}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_flt2mkt2_page1.png){width=100% height=100% alt="."}
 
-![Length comps, retained, OR_WA (plot 2 of 3).\label{fig:comp_lenfit_flt2mkt2_page2}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_flt2mkt2_page2.png){width=100% height=100% alt="Length comps, retained, OR_WA (plot 2 of 3)."}
+![Length comps, retained, OR_WA (plot 2 of 3).\label{fig:comp_lenfit_flt2mkt2_page2}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_flt2mkt2_page2.png){width=100% height=100% alt="."}
 
-![Length comps, retained, OR_WA (plot 3 of 3).\label{fig:comp_lenfit_flt2mkt2_page3}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_flt2mkt2_page3.png){width=100% height=100% alt="Length comps, retained, OR_WA (plot 3 of 3)."}
+![Length comps, retained, OR_WA (plot 3 of 3).\label{fig:comp_lenfit_flt2mkt2_page3}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_flt2mkt2_page3.png){width=100% height=100% alt="."}
 
-![Length comps, discard, OR_WA (plot 1 of 2).<br><br>'N adj.' is the input sample size after data-weighting adjustment. N eff. is the calculated effective sample size used in the McAllister-Ianelli tuning method..\label{fig:comp_lenfit_flt2mkt1_page1}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_flt2mkt1_page1.png){width=100% height=100% alt="Length comps, discard, OR_WA (plot 1 of 2).<br><br>'N adj.' is the input sample size after data-weighting adjustment. N eff. is the calculated effective sample size used in the McAllister-Ianelli tuning method.."}
+![Length comps, discard, OR_WA (plot 1 of 2).<br><br>'N adj.' is the input sample size after data-weighting adjustment. N eff. is the calculated effective sample size used in the McAllister-Ianelli tuning method.\label{fig:comp_lenfit_flt2mkt1_page1}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_flt2mkt1_page1.png){width=100% height=100% alt="."}
 
-![Length comps, discard, OR_WA (plot 2 of 2).\label{fig:comp_lenfit_flt2mkt1_page2}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_flt2mkt1_page2.png){width=100% height=100% alt="Length comps, discard, OR_WA (plot 2 of 2)."}
+![Length comps, discard, OR_WA (plot 2 of 2).\label{fig:comp_lenfit_flt2mkt1_page2}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_flt2mkt1_page2.png){width=100% height=100% alt="."}
 
-![Length comps, whole catch, AFSC_Slope.<br><br>'N adj.' is the input sample size after data-weighting adjustment. N eff. is the calculated effective sample size used in the McAllister-Ianelli tuning method..\label{fig:comp_lenfit_flt3mkt0}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_flt3mkt0.png){width=100% height=100% alt="Length comps, whole catch, AFSC_Slope.<br><br>'N adj.' is the input sample size after data-weighting adjustment. N eff. is the calculated effective sample size used in the McAllister-Ianelli tuning method.."}
+![Length comps, whole catch, AFSC_Slope.<br><br>'N adj.' is the input sample size after data-weighting adjustment. N eff. is the calculated effective sample size used in the McAllister-Ianelli tuning method.\label{fig:comp_lenfit_flt3mkt0}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_flt3mkt0.png){width=100% height=100% alt="."}
 
-![Length comps, whole catch, Triennial.<br><br>'N adj.' is the input sample size after data-weighting adjustment. N eff. is the calculated effective sample size used in the McAllister-Ianelli tuning method..\label{fig:comp_lenfit_flt4mkt0}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_flt4mkt0.png){width=100% height=100% alt="Length comps, whole catch, Triennial.<br><br>'N adj.' is the input sample size after data-weighting adjustment. N eff. is the calculated effective sample size used in the McAllister-Ianelli tuning method.."}
+![Length comps, whole catch, Triennial.<br><br>'N adj.' is the input sample size after data-weighting adjustment. N eff. is the calculated effective sample size used in the McAllister-Ianelli tuning method.\label{fig:comp_lenfit_flt4mkt0}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_flt4mkt0.png){width=100% height=100% alt="."}
 
-![Length comps, whole catch, NWFSC_Slope.<br><br>'N adj.' is the input sample size after data-weighting adjustment. N eff. is the calculated effective sample size used in the McAllister-Ianelli tuning method..\label{fig:comp_lenfit_flt5mkt0}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_flt5mkt0.png){width=100% height=100% alt="Length comps, whole catch, NWFSC_Slope.<br><br>'N adj.' is the input sample size after data-weighting adjustment. N eff. is the calculated effective sample size used in the McAllister-Ianelli tuning method.."}
+![Length comps, whole catch, NWFSC_Slope.<br><br>'N adj.' is the input sample size after data-weighting adjustment. N eff. is the calculated effective sample size used in the McAllister-Ianelli tuning method.\label{fig:comp_lenfit_flt5mkt0}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_flt5mkt0.png){width=100% height=100% alt="."}
 
-![Length comps, whole catch, NWFSC_WCGBT (plot 1 of 2).<br><br>'N adj.' is the input sample size after data-weighting adjustment. N eff. is the calculated effective sample size used in the McAllister-Ianelli tuning method..\label{fig:comp_lenfit_flt6mkt0_page1}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_flt6mkt0_page1.png){width=100% height=100% alt="Length comps, whole catch, NWFSC_WCGBT (plot 1 of 2).<br><br>'N adj.' is the input sample size after data-weighting adjustment. N eff. is the calculated effective sample size used in the McAllister-Ianelli tuning method.."}
+![Length comps, whole catch, NWFSC_WCGBT (plot 1 of 2).<br><br>'N adj.' is the input sample size after data-weighting adjustment. N eff. is the calculated effective sample size used in the McAllister-Ianelli tuning method.\label{fig:comp_lenfit_flt6mkt0_page1}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_flt6mkt0_page1.png){width=100% height=100% alt="."}
 
-![Length comps, whole catch, NWFSC_WCGBT (plot 2 of 2).\label{fig:comp_lenfit_flt6mkt0_page2}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_flt6mkt0_page2.png){width=100% height=100% alt="Length comps, whole catch, NWFSC_WCGBT (plot 2 of 2)."}
+![Length comps, whole catch, NWFSC_WCGBT (plot 2 of 2).\label{fig:comp_lenfit_flt6mkt0_page2}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_lenfit_flt6mkt0_page2.png){width=100% height=100% alt="."}
 
 \clearpage
 
@@ -2452,32 +2454,32 @@ from the 2011 assessment."}
 
 
 
-![Age comps, retained, CA (plot 1 of 2).<br><br>'N adj.' is the input sample size after data-weighting adjustment. N eff. is the calculated effective sample size used in the McAllister-Ianelli tuning method..\label{fig:comp_agefit_flt1mkt2_page1}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_agefit_flt1mkt2_page1.png){width=100% height=100% alt="Age comps, retained, CA (plot 1 of 2).<br><br>'N adj.' is the input sample size after data-weighting adjustment. N eff. is the calculated effective sample size used in the McAllister-Ianelli tuning method.."}
+![Age comps, retained, CA (plot 1 of 2).<br><br>'N adj.' is the input sample size after data-weighting adjustment. N eff. is the calculated effective sample size used in the McAllister-Ianelli tuning method.\label{fig:comp_agefit_flt1mkt2_page1}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_agefit_flt1mkt2_page1.png){width=100% height=100% alt="."}
 
-![Age comps, retained, CA (plot 2 of 2).\label{fig:comp_agefit_flt1mkt2_page2}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_agefit_flt1mkt2_page2.png){width=100% height=100% alt="Age comps, retained, CA (plot 2 of 2)."}
+![Age comps, retained, CA (plot 2 of 2).\label{fig:comp_agefit_flt1mkt2_page2}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_agefit_flt1mkt2_page2.png){width=100% height=100% alt="."}
 
-![Age comps, retained, OR_WA (plot 1 of 2).<br><br>'N adj.' is the input sample size after data-weighting adjustment. N eff. is the calculated effective sample size used in the McAllister-Ianelli tuning method..\label{fig:comp_agefit_flt2mkt2_page1}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_agefit_flt2mkt2_page1.png){width=100% height=100% alt="Age comps, retained, OR_WA (plot 1 of 2).<br><br>'N adj.' is the input sample size after data-weighting adjustment. N eff. is the calculated effective sample size used in the McAllister-Ianelli tuning method.."}
+![Age comps, retained, OR_WA (plot 1 of 2).<br><br>'N adj.' is the input sample size after data-weighting adjustment. N eff. is the calculated effective sample size used in the McAllister-Ianelli tuning method.\label{fig:comp_agefit_flt2mkt2_page1}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_agefit_flt2mkt2_page1.png){width=100% height=100% alt="."}
 
-![Age comps, retained, OR_WA (plot 2 of 2).\label{fig:comp_agefit_flt2mkt2_page2}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_agefit_flt2mkt2_page2.png){width=100% height=100% alt="Age comps, retained, OR_WA (plot 2 of 2)."}
+![Age comps, retained, OR_WA (plot 2 of 2).\label{fig:comp_agefit_flt2mkt2_page2}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_agefit_flt2mkt2_page2.png){width=100% height=100% alt="."}
 
 \clearpage
 
 ## Detailed Fit to Conditional-Age-at-Length Composition Data {#detailed-caal}
 
 
-![Pearson residuals, whole catch, NWFSC_Slope (max=10.43) (plot 1 of 2).\label{fig:comp_condAALfit_residsflt5mkt0_page1}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_condAALfit_residsflt5mkt0_page1.png){width=100% height=100% alt="Pearson residuals, whole catch, NWFSC_Slope (max=10.43) (plot 1 of 2)."}
+![Pearson residuals, whole catch, NWFSC_Slope (max=10.43) (plot 1 of 2).\label{fig:comp_condAALfit_residsflt5mkt0_page1}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_condAALfit_residsflt5mkt0_page1.png){width=100% height=100% alt="."}
 
-![Pearson residuals, whole catch, NWFSC_Slope (max=10.43) (plot 1 of 2) (plot 2 of 2).\label{fig:comp_condAALfit_residsflt5mkt0_page2}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_condAALfit_residsflt5mkt0_page2.png){width=100% height=100% alt="Pearson residuals, whole catch, NWFSC_Slope (max=10.43) (plot 1 of 2) (plot 2 of 2)."}
+![Pearson residuals, whole catch, NWFSC_Slope (max=10.43) (plot 1 of 2) (plot 2 of 2).\label{fig:comp_condAALfit_residsflt5mkt0_page2}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_condAALfit_residsflt5mkt0_page2.png){width=100% height=100% alt="."}
 
-![Pearson residuals, whole catch, NWFSC_WCGBT (max=13.53) (plot 1 of 3).\label{fig:comp_condAALfit_residsflt6mkt0_page1}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_condAALfit_residsflt6mkt0_page1.png){width=100% height=100% alt="Pearson residuals, whole catch, NWFSC_WCGBT (max=13.53) (plot 1 of 3)."}
+![Pearson residuals, whole catch, NWFSC_WCGBT (max=13.53) (plot 1 of 3).\label{fig:comp_condAALfit_residsflt6mkt0_page1}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_condAALfit_residsflt6mkt0_page1.png){width=100% height=100% alt="."}
 
-![Pearson residuals, whole catch, NWFSC_WCGBT (max=13.53) (plot 1 of 3) (plot 2 of 3).\label{fig:comp_condAALfit_residsflt6mkt0_page2}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_condAALfit_residsflt6mkt0_page2.png){width=100% height=100% alt="Pearson residuals, whole catch, NWFSC_WCGBT (max=13.53) (plot 1 of 3) (plot 2 of 3)."}
+![Pearson residuals, whole catch, NWFSC_WCGBT (max=13.53) (plot 1 of 3) (plot 2 of 3).\label{fig:comp_condAALfit_residsflt6mkt0_page2}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_condAALfit_residsflt6mkt0_page2.png){width=100% height=100% alt="."}
 
-![Pearson residuals, whole catch, NWFSC_WCGBT (max=13.53) (plot 1 of 3) (plot 2 of 3) (plot 3 of 3).\label{fig:comp_condAALfit_residsflt6mkt0_page3}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_condAALfit_residsflt6mkt0_page3.png){width=100% height=100% alt="Pearson residuals, whole catch, NWFSC_WCGBT (max=13.53) (plot 1 of 3) (plot 2 of 3) (plot 3 of 3)."}
+![Pearson residuals, whole catch, NWFSC_WCGBT (max=13.53) (plot 1 of 3) (plot 2 of 3) (plot 3 of 3).\label{fig:comp_condAALfit_residsflt6mkt0_page3}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_condAALfit_residsflt6mkt0_page3.png){width=100% height=100% alt="."}
 
-![Pearson residuals, whole catch, NWFSC_WCGBT (max=13.53) (plot 1 of 5) (plot 2 of 5) (plot 3 of 5) (plot 4 of 5).\label{fig:comp_condAALfit_residsflt6mkt0_page4}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_condAALfit_residsflt6mkt0_page4.png){width=100% height=100% alt="Pearson residuals, whole catch, NWFSC_WCGBT (max=13.53) (plot 1 of 5) (plot 2 of 5) (plot 3 of 5) (plot 4 of 5)."}
+![Pearson residuals, whole catch, NWFSC_WCGBT (max=13.53) (plot 1 of 5) (plot 2 of 5) (plot 3 of 5) (plot 4 of 5).\label{fig:comp_condAALfit_residsflt6mkt0_page4}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_condAALfit_residsflt6mkt0_page4.png){width=100% height=100% alt="."}
 
-![Pearson residuals, whole catch, NWFSC_WCGBT (max=13.53) (plot 1 of 5) (plot 2 of 5) (plot 3 of 5) (plot 4 of 5) (plot 5 of 5).\label{fig:comp_condAALfit_residsflt6mkt0_page5}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_condAALfit_residsflt6mkt0_page5.png){width=100% height=100% alt="Pearson residuals, whole catch, NWFSC_WCGBT (max=13.53) (plot 1 of 5) (plot 2 of 5) (plot 3 of 5) (plot 4 of 5) (plot 5 of 5)."}
+![Pearson residuals, whole catch, NWFSC_WCGBT (max=13.53) (plot 1 of 5) (plot 2 of 5) (plot 3 of 5) (plot 4 of 5) (plot 5 of 5).\label{fig:comp_condAALfit_residsflt6mkt0_page5}](C:/Assessments/2021/dover_sole_2021/models/7.0.1_base/plots/comp_condAALfit_residsflt6mkt0_page5.png){width=100% height=100% alt="."}
 
 <!--chapter:end:54appendix.Rmd-->
 

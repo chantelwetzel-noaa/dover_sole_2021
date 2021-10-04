@@ -1,8 +1,10 @@
 # One Page Summary{-}
 
-\begin{itemize}
-
+<!--
 \item This assessment for `r spp` incorporates a wide range of data sources: landings data and discard estimates; survey indices of abundance, length- and/or age-composition data for each fishery or survey (with conditional age-at-length data used for the surveys); information on weight-at-length, maturity-at-length, and fecundity-at-length; information on natural mortality and the steepness of the Beverton-Holt stock-recruitment relationship; and estimates of ageing error.
+-->
+
+\begin{itemize}
 
 \item The longest time series of fishery-independent information off the U.S. west coast arises from the \gls{s-wcgbt} that has been conducted annually from 2003 - 2019. The length and age data from this survey were highly influential on the model estimates of stock size and status. Additionally, these data were used to externally estimate starting parameter values by sex for length-at-age and the fixed values by sex for length-weight relationship.   
 

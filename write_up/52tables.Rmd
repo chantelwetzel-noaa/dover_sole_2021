@@ -295,7 +295,7 @@ table_format(x = out,
              landscape = TRUE,
              custom_width = TRUE,
              col_to_adjust = 1:10, 
-             width = rep("2cm", 10),
+             width = rep("1.5cm", 10),
              col_names = col_names)
 ```
 
